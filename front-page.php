@@ -25,7 +25,7 @@
             </article>
             <article class="article-2 center_bg_image">
                 <div class="image_description text_white">
-                    <p class="project_number">.01</p>
+                    <p class="project_number">.02</p>
                     <h3 class="project_name">Project Name</h3>
                     <p class="project_company_type">Company Name - Case Study</p>
                     <a class="project_link" href="#" target="blank"><span class="icon dribbble"></a>
@@ -34,7 +34,7 @@
             </article>
             <article class="article-3 center_bg_image">
                 <div class="image_description text_white">
-                    <p class="project_number">.01</p>
+                    <p class="project_number">.03</p>
                     <h3 class="project_name">Project Name</h3>
                     <p class="project_company_type">Company Name - Case Study</p>
                     <a class="project_link" href="#" target="blank"><span class="icon dribbble"></a>
@@ -42,7 +42,7 @@
             </article>
             <article class="article-4 center_bg_image">
                 <div class="image_description text_black">
-                    <p class="project_number">.01</p>
+                    <p class="project_number">.04</p>
                     <h3 class="project_name">Project Name</h3>
                     <p class="project_company_type">Company Name - Case Study</p>
                     <a class="project_link" href="#" target="blank"><span class="icon dribbble"></a>
