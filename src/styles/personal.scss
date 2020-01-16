@@ -56,18 +56,18 @@ a:visited {
     padding: 10%;
 }
 
-.right {
+.portfolio {
     background-color: beige;
 }
 article{
     height: 70vh;
     position: relative;
 }
-.full_bg_image {
+.portfolio__bgimage--full {
     background-size: cover;
     background-position: center left;
 }
-.center_bg_image {
+.portfolio__bgimage--center {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
@@ -88,15 +88,15 @@ article{
     background-color: #fff;
     background-image: url("../img/4.jpg");
 }
-.image_description {
+.project__caption {
     position: absolute;
     bottom: 5%;
     left: 5%;
 }
-.text_white {
+.project__caption--white {
     color: white;
 }
-.text_black {
+.project__caption--black {
     color: #484848;
 }
 .project_number {
