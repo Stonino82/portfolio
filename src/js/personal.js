@@ -2,7 +2,7 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
 
 
     $(document).ready(function() {
-
+    
         
         
     });
@@ -30,6 +30,11 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
       var x = window.matchMedia("(max-width: 991px)")
       myFunction(x) // Call listener function at run time
       x.addListener(myFunction) // Attach listener function on state changes
+
+
+      // Initialize AOS.js plugin for animations
+      AOS.init();
+
 
 
 

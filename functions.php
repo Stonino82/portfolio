@@ -13,7 +13,18 @@ function my_theme_enqueue_styles() {
 
 
  wp_enqueue_script('jquery'); //jQuery ya está incluido en Wordpress (wp-include/js/jQuery/jquery.js)
+
+ // Enqueue AOS styles
+ wp_enqueue_style(' AOS_animate', 'https://unpkg.com/aos@2.3.1/dist/aos.css', false, null);
+ // Enqueue AOS script library in footer
+ wp_enqueue_script('AOS', 'https://unpkg.com/aos@2.3.1/dist/aos.js', false, null, true);
+
+
+
+ // Enqueue personal js file
  wp_enqueue_script( 'personal-scripts', get_stylesheet_directory_uri() . '/dist/js/javascript.min.js', array( 'jquery' ), '1.0', false );
+
+
 
 
 }
