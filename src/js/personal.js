@@ -12,8 +12,8 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
         $(document).ready(function() {
             if (x.matches) { // If media query matches
             $(window).scroll(function(){
-                $('.opacityOnScroll').css({'opacity' : 1 - $(window).scrollTop() / 700
-                , 'transform': 'scale(' + (1 - $(window).scrollTop() / 6000) + ')'
+                $('.opacityOnScroll').css({'opacity' : 1 - $(window).scrollTop() / 200
+                , 'transform': 'scale(' + (1 - $(window).scrollTop() / 800) + ')'
                 });
 
             })
