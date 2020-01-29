@@ -18,6 +18,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 	border-radius: 5px;
 	box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
 	transition: $transition;
+	margin-bottom: 10%;
 	
 	span,
 	.icon {
@@ -32,6 +33,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 		width: 72%;
 		line-height: inherit;
 		font-size: 1rem;
+		font-weight: 300;
 		text-transform: uppercase;
 		left: 0;
 		transition: $transition;

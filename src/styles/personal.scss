@@ -7,7 +7,7 @@ h1,h2,h3,h4,h5,h6,p {font-size:16px; line-height:16px;}
 html {font-size: 16px;}
 body {font-family:'Poppins',sans-serif; color:#484848;}
 h1 {font-size:2rem; font-weight:700; line-height:2rem; margin:0; text-align:right; text-transform:uppercase;}
-h2 {font-size:1.2rem; line-height:1.6rem; font-weight:200; letter-spacing:0.03rem; text-align:right;}
+h2 {font-size:1.2rem; line-height:1.6rem; font-weight:100; letter-spacing:0.03rem; text-align:right;}
 h3 {font-size:1.14rem;}
 p {font-size:1.14rem; font-weight:200; line-height:1.6rem;}
 ul {list-style-type:none; margin:0;}
@@ -22,15 +22,15 @@ a:-webkit-any-link {color:unset;}
 // MAIN STYLE
 .container {display:grid; grid-template-columns:35% 65%;}
 
-.presentation {background-color:#fafafa; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-end; padding:5% 5%; z-index: 1;}
-.presentation .central {display:flex; flex-direction:column; flex:1; justify-content:center; align-items:flex-end;}
+.presentation {background-color:#fafafa; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-end; padding:5% 5%; z-index:1;}
+.presentation .central {align-items:flex-end; display:flex; flex-direction:column; flex:1; justify-content:center; margin-bottom:-10%;}
 
 .portfolio {background-color:#fafafa; display:grid;}
 
-.full__project {display:grid;}
+.full__project {display:grid; position:relative;}
 .full__project img {align-self:center; justify-self:center;}
 
-.split__article {display:grid; grid-template-columns: repeat(2, 1fr); height:40vh;}
+.split__article {display:grid; grid-template-columns: repeat(2, 1fr); height:40vh; position:relative;}
 .split__article .half__project {display:grid;}
 .split__article .half__project img {align-self:center; justify-self:center;}
 
@@ -69,8 +69,8 @@ a:-webkit-any-link {color:unset;}
 @media (min-width: 300px) { 
     .container {display:grid; grid-template-columns:1fr;}
     .full__project{height: 100vh;}
-    .project__img--contain {object-fit: contain; object-position: center; width: 90%;}
-    .icon::before {font-size: 1.2rem !important;}
+    .project__img--contain {height:90%; object-fit:contain; object-position:center; width:90%;}
+    .icon::before {font-size:1.2rem !important;}
     li {float:left; margin:0 0 0 0.875rem;}
 }
 /* Small devices (landscape phones, 576px and up) */

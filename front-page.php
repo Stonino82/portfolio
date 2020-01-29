@@ -51,7 +51,7 @@
                             $caption_color = get_sub_field('caption_color');
                             $made_with = get_sub_field('made_with'); 
                         ?>
-                        <article class="full__project <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
+                        <article class="full__project <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;">
                             <img src="<?php echo esc_url($image['url']); ?>" class="<?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                             <div class="project__caption--up" data-aos="fade-down" data-aos-duration="1000">
                                 <p class="project__number"><?php echo $number; ?></p>

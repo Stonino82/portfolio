@@ -13,14 +13,14 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
             if (x.matches) { // If media query matches
             $(window).scroll(function(){
                 $('.opacityOnScroll').css({'opacity' : 1 - $(window).scrollTop() / 200
-                , 'transform': 'scale(' + (1 - $(window).scrollTop() / 800) + ')'
+                // , 'transform': 'scale(' + (1 - $(window).scrollTop() / 800) + ')'
                 });
 
             })
             } else {
             $(window).scroll(function(){
                 $('.opacityOnScroll').css({'opacity' : 1
-                , 'transform': 'scale(' + (1) + ')'
+                // , 'transform': 'scale(' + (1) + ')'
                 });
 
             })
@@ -53,6 +53,11 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
         });
       
       }).call(this);
+
+
+
+
+      
 
 
 
