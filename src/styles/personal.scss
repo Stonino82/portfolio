@@ -7,9 +7,9 @@ h1,h2,h3,h4,h5,h6,p {font-size:16px; line-height:16px;}
 html {font-size: 16px;}
 body {font-family:'Poppins',sans-serif; color:#484848;}
 h1 {font-size:2rem; font-weight:700; line-height:2rem; margin:0; text-align:right; text-transform:uppercase;}
-h2 {font-size:1.2rem; line-height:1.6rem; font-weight:100; letter-spacing:0.03rem; text-align:right;}
-h3 {font-size:1.14rem;}
-p {font-size:1.14rem; font-weight:200; line-height:1.6rem;}
+h2 {font-size:1.2rem; line-height:1.6rem; font-weight:200; letter-spacing:0.03rem; text-align:right;}
+h3 {font-size:1.14rem; font-weight: 700;}
+p {font-size:1rem; font-weight:200; line-height:1.6rem;}
 ul {list-style-type:none; margin:0;}
 // /GENERAL STYLES
 
@@ -20,28 +20,27 @@ a:-webkit-any-link {color:unset;}
 // /SOBRESCRIBE
 
 // MAIN STYLE
-.container {display:grid; grid-template-columns:35% 65%;}
+.container {display:grid;}
 
-.presentation {background-color:#fafafa; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-end; padding:5% 5%; z-index:1;}
-.presentation .central {align-items:flex-end; display:flex; flex-direction:column; flex:1; justify-content:center; margin-bottom:-10%;}
 
+// PRESENTATION left side
+.presentation {background-color:#fafafa; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-end; padding:5% 5%;}
+.presentation__central {align-items:flex-end; display:flex; flex-direction:column; flex:1; justify-content:center; margin-bottom:-10%;}
+.presentation__icons {color: #48484870; margin:1rem 0 1rem 0;}
+.presentation__icons--item {font-size: 1.3rem; float:left; margin:0 0 0 1.6rem;}
+.presentation__icons--item::before {display:inline-block; font-style:normal; font-variant:normal; text-rendering:auto; -webkit-font-smoothing:antialiased;}
+// /PRESENTATION left side
+
+// PORTFOLIO right side
 .portfolio {background-color:#fafafa; display:grid;}
 
-.full__project {display:grid; position:relative;}
-.full__project img {align-self:center; justify-self:center;}
+.project-full {display:grid; position:relative;}
+.project-full img {align-self:center; justify-self:center;}
 
-.split__article {display:grid; grid-template-columns: repeat(2, 1fr); height:40vh; position:relative;}
-.split__article .half__project {display:grid;}
-.split__article .half__project img {align-self:center; justify-self:center;}
-
-.project {align-items:center; display:flex; height:100%; justify-content:center; width:100%;}
+.split-article {display:grid; grid-template-columns: repeat(2, 1fr); height:50vh; position:relative;}
+.project-half {display:grid;}
+.project-half__img {align-self:center; justify-self:center;}
     
-    
-    
-    
-
-// .project__bgimage--full {background-size: cover;background-position: center center;}
-// .project__bgimage--center {background-size: 50%; background-repeat: no-repeat;background-position: center center;}
 .project__img--contain {object-fit: contain; object-position: center; width: 80%; height: 80%;}
 .project__img--cover {height: 100%; object-fit: cover;}
 .project__caption--up {position: absolute; top: 5%; left: 5%;}
@@ -49,61 +48,51 @@ a:-webkit-any-link {color:unset;}
 .project__caption--down p {font-size:1rem; margin:0;}
 .project__caption--white {color: white;}
 .project__caption--black {color: #484848;}
-.project__number {margin: 0 0 1.5rem 0;}
-.project__company, .project__type, .project__kit {margin: 0;}
-.project__link {display: inline-block; font-size: 1.25rem; margin-right: 1rem; vertical-align: middle;}
-.project__links { margin: 1.5rem 0;}
+.project__number, .project__company, .project__type, .project__kit {margin: 0;}
+.project__name {margin: 1rem 0;}
+.project__link {display: inline-block; font-size: 1rem; margin-right: 1rem; vertical-align: middle;}
+.project__links {margin: 1rem 0;}
+.project__kit {margin:0; padding:0;}
+.project__kit--item {float:left; margin: 0 1.2rem 0 0;}
+// /PORTFOLIO right side
 
-
-
-
-
-.project__kit { margin:0; padding:0; }
-.project__kit li { margin: 0 1.2rem 0 0; }
 // /MAIN STYLE
 
 
 
 // MEDIA QUERIES
-/* Extra small devices (portrait phones, less than 576px) */
 @media (min-width: 300px) { 
     .container {display:grid; grid-template-columns:1fr;}
-    .full__project{height: 100vh;}
+
+    .presentation {z-index: unset;}
+
+    .project-full{height: 100vh;}
+    .split-article {display:grid; grid-template-columns: 1fr; height:100vh; position:relative;}
+
     .project__img--contain {height:90%; object-fit:contain; object-position:center; width:90%;}
-    .icon::before {font-size:1.2rem !important;}
-    li {float:left; margin:0 0 0 0.875rem;}
 }
-/* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-    .icon::before {font-size: 1.5rem;}
 }
 
-/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
 @media (min-width: 768px) {
 }
 
-/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
     .container {display:grid; grid-template-columns:45% 55%;}
-    .presentation {box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;}
-    .full__project{height: 70vh;}
-    .icon::before {font-size:1.4rem;}
-    li { float:left; margin:0.875rem;}
+
+    .presentation {box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px; z-index: 1;}
+
+    .project-full{height: 70vh;}
+    .split-article {display:grid; grid-template-columns: repeat(2, 1fr); height:50vh; position:relative;}
+
     h1 {font-size:2.6rem; line-height:2.6rem;}
 } 
-/* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
     .container { display: grid; grid-template-columns: 40% 60%;}
-    .icon::before {font-size: 1.5rem;}
 }
 // /MEDIA QUERIES
 
 // SOCIAL ICONS
-.social-icons {color: #48484870; margin:1rem 0 1rem 0;}
-li {float:left; margin:0 0 0 1.6rem;}
-.icon::before { display: inline-block; font-style: normal; font-variant: normal; text-rendering: auto; -webkit-font-smoothing: antialiased; }
-
-
 .fa-dribbble, .fa-behance, .fa-github, .fa-linkedin-in, .fa-codepen {display: inline-block;transition: all .2s ease-out;}
 .fa-dribbble:hover, .fa-behance:hover, .fa-github:hover, .fa-linkedin-in:hover, .fa-codepen:hover {transform: translateY(-3px);}
 .fa-dribbble:hover {color: #ea4c89;}
@@ -116,10 +105,3 @@ li {float:left; margin:0 0 0 1.6rem;}
 
 
 
-
-
-
-
-
-
-// PRUEBAS
