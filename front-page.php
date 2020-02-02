@@ -43,13 +43,11 @@
                             $name = get_sub_field('name');
                             $link_project_page = get_sub_field('link_project_page');
                             $company = get_sub_field('company');
-                            $type = get_sub_field('type');
                             $link_dribbble = get_sub_field('link_dribbble');
                             $link_behance = get_sub_field('link_behance');
                             $link_github = get_sub_field('link_github');
                             $link_codepen = get_sub_field('link_codepen');
                             $caption_color = get_sub_field('caption_color');
-                            $made_with = get_sub_field('made_with'); 
                         ?>
                         <article class="project-full <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
                             <img src="<?php echo esc_url($image['url']); ?>" class="<?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
@@ -61,7 +59,6 @@
                                 <h3 class="project__name"><?php echo $name; ?><span class="project__link <?php echo $icon_project_page; ?>"></span></h3>
                                 <?php endif; ?> 
                                 <p class="project__company"><?php echo $company; ?></p>
-                                <p class="project__type"><?php echo $type; ?></p>
                                 <div class="project__links">
                                     <?php if( $link_dribbble ): ?>
                                     <a href="<?php echo $link_dribbble; ?>" target="_blank"><span class="icon project__link fab fa-dribbble"></span></a>
@@ -76,12 +73,24 @@
                                     <a href="<?php echo $link_codepen; ?>" target="_blank"><span class="icon project__link fab fa-codepen"></span></a>
                                     <?php endif; ?>
                                 </div>
-                            </div>    
+                            </div>
+
+                            <?php 
+                            $tags = get_sub_field('tags');
+                            if( $tags ): ?>
+                                <ul class="project__tags">
+                                <?php foreach( $tags as $tag ): ?>
+                                    <li class="project__tags--item"><?php echo esc_html( $tag->name ); ?></li>
+                                <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                             
+
                             <div class="project__caption--down">
-                                <p><?php echo $made_with; ?></p>
                                 <?php
                                 $kit_icons = get_sub_field('kit_icons');
                                 if( $kit_icons ): ?>
+                                <p>made with:</p>
                                 <ul class="project__kit">
                                     <?php foreach( $kit_icons as $kit_icon ): ?>
                                         <li class="project__kit--item"><?php echo $kit_icon; ?></li>
@@ -103,13 +112,11 @@
                             $name = get_sub_field('name');
                             $link_project_page = get_sub_field('link_project_page');
                             $company = get_sub_field('company');
-                            $type = get_sub_field('type');
                             $link_dribbble = get_sub_field('link_dribbble');
                             $link_behance = get_sub_field('link_behance');
                             $link_github = get_sub_field('link_github');
                             $link_codepen = get_sub_field('link_codepen');
                             $caption_color = get_sub_field('caption_color');
-                            $made_with = get_sub_field('made_with');
                         ?>
                             <article class="project-half <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
                                 <img src="<?php echo esc_url($image['url']); ?>" class="project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
@@ -121,7 +128,6 @@
                                     <h3 class="project__name"><?php echo $name; ?><span class="project__link <?php echo $icon_project_page; ?>"></span></h3>
                                     <?php endif; ?>
                                     <p class="project__company"><?php echo $company; ?></p>
-                                    <p class="project__type"><?php echo $type; ?></p>
                                     <div class="project__links">
                                         <?php if( $link_dribbble ): ?>
                                         <a href="<?php echo $link_dribbble; ?>" target="_blank"><span class="icon project__link fab fa-dribbble"></span></a>
@@ -138,10 +144,10 @@
                                     </div>
                                 </div>
                                 <div class="project__caption--down">
-                                    <p><?php echo $made_with; ?></p>
                                     <?php
                                     $kit_icons = get_sub_field('kit_icons');
                                     if( $kit_icons ): ?>
+                                    <p>made with:</p>
                                     <ul class="project__kit">
                                         <?php foreach( $kit_icons as $kit_icon ): ?>
                                             <li class="project__kit--item"><?php echo $kit_icon; ?></li>

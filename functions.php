@@ -5,7 +5,7 @@ function my_theme_enqueue_styles() {
 
  $parent_style = 'antoninolattene-parent-style'; // Estos son los estilos del tema padre recogidos por el tema hijo.
 
- wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css?family=Poppins:100,200,300,700&display=swap', false );
+ wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css?family=Poppins:200,700&display=swap', false );
  wp_enqueue_style( 'load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css' );
  
  wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
