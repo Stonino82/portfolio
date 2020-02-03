@@ -85,12 +85,10 @@
                                 </ul>
                             <?php endif; ?>
                              
-
                             <div class="project__caption--down">
                                 <?php
                                 $kit_icons = get_sub_field('kit_icons');
                                 if( $kit_icons ): ?>
-                                <p>made with:</p>
                                 <ul class="project__kit">
                                     <?php foreach( $kit_icons as $kit_icon ): ?>
                                         <li class="project__kit--item"><?php echo $kit_icon; ?></li>
@@ -143,11 +141,21 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
+
+                                <?php 
+                                $tags = get_sub_field('tags');
+                                if( $tags ): ?>
+                                    <ul class="project__tags">
+                                    <?php foreach( $tags as $tag ): ?>
+                                        <li class="project__tags--item"><?php echo esc_html( $tag->name ); ?></li>
+                                    <?php endforeach; ?>
+                                    </ul>
+                                <?php endif; ?>
+
                                 <div class="project__caption--down">
                                     <?php
                                     $kit_icons = get_sub_field('kit_icons');
                                     if( $kit_icons ): ?>
-                                    <p>made with:</p>
                                     <ul class="project__kit">
                                         <?php foreach( $kit_icons as $kit_icon ): ?>
                                             <li class="project__kit--item"><?php echo $kit_icon; ?></li>
