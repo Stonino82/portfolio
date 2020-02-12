@@ -7,10 +7,11 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 /* Main Styles */
 .button {
 	display: block;
+	align-self: flex-end;
 	background-color: $color;
-	width: 180px;
-	height: 40px;
-	line-height: 44px;
+	width: 120px;
+	height: 30px;
+	line-height: 32px;
 	color: #fff !important;
 	position: relative;
 	cursor: pointer;
@@ -18,7 +19,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 	border-radius: 5px;
 	box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
 	transition: $transition;
-	margin-bottom: 10%;
+	border-radius: 40px;
 	
 	span,
 	.icon {
@@ -30,9 +31,9 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 	}
 	
 	span {
-		width: 72%;
+		width: 78%;
 		line-height: inherit;
-		font-size: 1rem;
+		font-size: 0.75rem;
 		font-weight: 400;
 		text-transform: uppercase;
 		left: 0;
@@ -41,27 +42,27 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 		&:after {
 			content: '';
 			background-color: $color-dark;
-			width: 2px;
+			width: 1px;
 			height: 70%;
 			position: absolute;
 			top: 15%;
-			right: -1px;
+			right: 9px;
 		}
 	}
 	
 	.icon {
-		width: 30%;
+		width: 33%;
 		right: 0;
 		transition: $transition;
 		
 		.fa {
-			font-size: 1rem;
+			font-size: 0.75rem;
 			vertical-align: middle;
 			transition: $transition, height #{$speed} ease;
 		}
 		
 		.fa-paper-plane {
-			height: 20px;
+			height: 15px;
 		}
 		
 		.fa-check {
@@ -81,7 +82,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 			width: 100%;
 			
 			.fa {
-				font-size: 1.3rem;
+				font-size: 1rem;
 			}
 		}
 	}
@@ -105,7 +106,7 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 		opacity: .9;
 		
 		.icon .fa-paper-plane {
-			height: 24px;
+			height: 20px;
 		}
 	}
 	

@@ -15,9 +15,15 @@ function my_theme_enqueue_styles() {
  wp_enqueue_script('jquery'); //jQuery ya está incluido en Wordpress (wp-include/js/jQuery/jquery.js)
 
  // Enqueue AOS styles
- wp_enqueue_style(' AOS_animate', 'https://unpkg.com/aos@2.3.1/dist/aos.css', false, null);
+ wp_enqueue_style('AOS_animate', 'https://unpkg.com/aos@2.3.1/dist/aos.css', false, null);
  // Enqueue AOS script library in footer
  wp_enqueue_script('AOS', 'https://unpkg.com/aos@2.3.1/dist/aos.js', false, null, true);
+
+
+  // Enqueue Tiny-slider styles
+  wp_enqueue_style('Tiny-slider', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css', false, null);
+  // Enqueue Tiny-slider script library in footer
+  wp_enqueue_script('Tiny-slider', 'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js', false, null, true);
 
 
   // Enqueue GSAP script library in footer
