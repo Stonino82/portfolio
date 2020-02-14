@@ -1,25 +1,32 @@
-// RESET
-h1,h2,h3,h4,h5,h6,p {font-size:16px; line-height:16px;}
-a {color:unset;}
-
-
-
-// GENERAL STYLES
-html {font-size: 16px;}
-body {font-family:'Poppins',sans-serif; color:#484848;}
-h1 {font-weight:700; margin:0; text-transform:uppercase;}
-h2 {font-weight:200; letter-spacing:0.03rem; line-height:1.8rem;}
-h3 {font-size:2.2rem; font-weight: 700; line-height:2.4rem;}
-h4 {font-size:1.2rem; font-weight: 700;}
-p {font-size:1rem; font-weight:200; line-height:1.4rem;}
-ul {list-style-type:none; margin:0;}
-// /GENERAL STYLES
-
 // SOBRESCRIBE
 a:visited {color:unset;}
 a:-webkit-any-link {color:unset;}
 .page {margin:0;}
 // /SOBRESCRIBE
+
+// PERSONAL RESET
+h1,h2,h3,h4,h5,h6,p {font-size:16px; line-height:16px;}
+a {color:unset;}
+// PERSONAL RESET
+
+// COLORS
+$dark_grey: #333333;
+$light_grey: #868686;
+// COLORS
+
+
+// GENERAL STYLES
+html {font-size: 16px;}
+body {font-family:'Poppins',sans-serif; color:$dark_grey;}
+h1 {font-weight:700; margin:0; text-transform:uppercase;}
+h2 {color:$light_grey; font-family: 'Raleway', sans-serif; font-size:1rem; font-weight:400; letter-spacing:0.03rem; line-height:1.4rem; margin:2rem 0;}
+h3 {font-size:2.2rem; font-weight: 700; line-height:2.4rem;}
+h4 {font-size:1.2rem; font-weight: 700;}
+p {font-size:1rem; font-weight:400; line-height:1.4rem;}
+ul {list-style-type:none; margin:0;}
+// /GENERAL STYLES
+
+
 
 // MAIN STYLE
 .container {display:grid;}
@@ -29,9 +36,9 @@ a:-webkit-any-link {color:unset;}
 .presentation {background-color:#fafafa; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-end; padding:5% 5%;}
 .presentation__central {display:flex; flex-direction:column; flex:1; justify-content:center; margin-bottom:-10%;}
 .presentation__email {margin-bottom:10%; display:flex; flex-direction:column;}
-.presentation__email p {color:#48484870; font-size:0.75rem; margin:0.5rem 0 0 0;}
-.presentation__icons {color: #48484870;}
-.presentation__icons--item {font-size: 1.3rem; float:left;}
+.presentation__email p {color:$light_grey; font-size:0.75rem; margin:0.5rem 0 0 0;}
+.presentation__icons {color: $light_grey;}
+.presentation__icons--item {font-size: 1.1rem; float:left;}
 .presentation__icons--item::before {display:inline-block; font-style:normal; font-variant:normal; text-rendering:auto; -webkit-font-smoothing:antialiased;}
 // /PRESENTATION left side
 
@@ -50,7 +57,7 @@ a:-webkit-any-link {color:unset;}
 .project__kit--item {float:left; margin: 0 .8rem 0 0;}
 .project__kit--item i {vertical-align: middle;}
 .project__caption--white {color: white;}
-.project__caption--black {color: #484848;}
+.project__caption--black {color: $dark_grey;}
 .project__number, .project__company, .project__kit {margin: 0;}
 .project__company {font-size:.875rem; font-style: italic;}
 .project__name {margin: 1.2rem 0 .2rem 0;}
@@ -76,7 +83,7 @@ a:-webkit-any-link {color:unset;}
     .presentation__central {align-items:center;}
     .presentation h1, .presentation h2 {text-align:center;}
     .presentation h1 {font-size:2.4rem; line-height:2.6rem;}
-    .presentation h2 {font-size:1rem; line-height:1.8em; margin:1rem 0 2rem 0;}
+    .presentation h2 {margin:1rem 0 2rem 0;}
     .presentation__icons {margin:0; padding:0;}
     .presentation__icons--item {margin:0 .7rem 0 .7rem;}
     .presentation .button {align-self:center;}
@@ -97,9 +104,7 @@ a:-webkit-any-link {color:unset;}
     .presentation__central {align-items:flex-end;}
     .presentation h1, .presentation h2 {text-align:right;}
     .presentation h1 {font-size:2.6rem; line-height:2.8rem;}
-    .presentation h2 {font-size:1.1rem; line-height:1.8rem;}
-    .presentation__icons {margin:1rem 0 1rem 0;}
-    .presentation__icons--item {margin:0 0 0 1.6rem;}
+    .presentation__icons--item {margin:0 0 0 1.1rem;}
 
     .project-full{height: 70vh;}
     .split-article {display:grid; grid-template-columns: repeat(2, 1fr); height:50vh; position:relative;}
@@ -161,7 +166,7 @@ a:-webkit-any-link {color:unset;}
 
 
 
-.footer__inner {align-items:center; background-color:#333; display:flex; justify-content:center; height:70px;}
+.footer__inner {align-items:center; background-color:$dark_grey; display:flex; justify-content:center; height:70px;}
 .footer__inner p {color:white; font-size:.875rem; margin:0;}
 
 
