@@ -186,7 +186,7 @@
                     </div>
                     <div class="process__toolkit">
                         <div class="slider">
-                            <div class="process__toolkit--column">
+                            <div class="process__toolkit-column">
                                 <h4> Discover</h4>
                                 <p><em>phase 1</em></p>
                                 <ul class="process__toolkit--items">
@@ -197,7 +197,7 @@
                                     <li class="process__toolkit--item">Observation</li>
                                 </ul>
                             </div>
-                            <div class="process__toolkit--column">
+                            <div class="process__toolkit-column">
                                 <h4>Define</h4>
                                 <p><em>phase 2</em></p>
                                 <ul class="process__toolkit--items">
@@ -211,7 +211,7 @@
                                     <li class="process__toolkit--item">Card Sorting</li>
                                 </ul>
                             </div>
-                            <div class="process__toolkit--column">
+                            <div class="process__toolkit-column">
                                 <h4>Develop</h4>
                                 <p><em>phase 3</em></p>
                                 <ul class="process__toolkit--items">
@@ -224,7 +224,7 @@
                                     <li class="process__toolkit--item">User Flows</li>
                                 </ul>
                             </div>
-                            <div class="process__toolkit--column">
+                            <div class="process__toolkit-column">
                                 <h4>Deliver</h4>
                                 <p><em>phase 4</em></p>
                                 <ul class="process__toolkit--items">
@@ -241,10 +241,22 @@
                                 </ul>
                             </div>
                         </div><!-- /slider -->
-                        <ul class="process__toolkit--fixed">
+                        <div class="process__toolkit-column process__toolkit-column--fixed">
+                                <h4>Test</h4>
+                                <p><em>Test throughout the entire process</em></p>
+                                <ul class="process__toolkit--items">
+                                    <li class="process__toolkit--item">Heuristic Evaluation</li>
+                                    <li class="process__toolkit--item">User Test</li>
+                                </ul>
+                        </div>
+                        <!-- <ul class="process__toolkit--fixed">
+                            <h4>Test</h4>
+                            <p><em>Test throughout the entire process</em></p>
+                            <ul class="process__toolkit--items">
                             <li class="process__toolkit--item">Heuristic Evaluation</li>
                             <li class="process__toolkit--item">User Test</li>
-                        </ul>
+                            </ul>
+                        </ul> -->
                     </div>
                 </div>
             </section>
