@@ -5,23 +5,23 @@
             <div class="presentation__central">
                 <h1 data-aos="fade-right" data-aos-duration="800" data-aos-once="true">Front-End<br />User Experience <br />& User Interface<br /> Designer</h1>
                 <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">Hey, I’m Tony. Originally from Italy.<br /> Currently living in Barcelona.<br /> Mostly, in my head.</h2>
-
-                <ul class="presentation__icons">
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="800" data-aos-once="true"><a href="#" target="blank"><span class="icon fab fa-dribbble"></span></a></li>
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="700" data-aos-once="true"><a href="#" target="blank"><span class="icon fab fa-behance"></span></a></li>
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="600" data-aos-once="true"><a href="#" target="blank"><span class="icon fab fa-github"></span></a></li>
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="500" data-aos-once="true"><a href="#" target="blank"><span class="icon fab fa-linkedin-in"></span></a></li>
-                </ul>
             </div>
-            <div class="presentation__email" data-aos="fade-up" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0">
-                <a class="button" href="mailto:antoninolattene@gmail.com" role="button" rel="noopener noreferrer">
-                    <span>email me</span>
-                    <div class="icon">
-                        <i class="fa fa-paper-plane"></i>
-                        <i class="fa fa-check"></i>
-                    </div>
-                </a>
-                <p><em>antoninolattene@gmail.com</em></p>
+            <div class="presentation__links">
+                <ul class="presentation__icons">
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="800" data-aos-once="true"><a href="http://dribbble.com/antoninolattene" target="blank"><span class="icon fab fa-dribbble"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="700" data-aos-once="true"><a href="http://www.behance.net/antoninolattene" target="blank"><span class="icon fab fa-behance"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="600" data-aos-once="true"><a href="http://github.com/Stonino82" target="blank"><span class="icon fab fa-github"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="500" data-aos-once="true"><a href="http://www.linkedin.com/in/antoninolattene/" target="blank"><span class="icon fab fa-linkedin-in"></span></a></li>
+                </ul>
+                <div class="presentation__email" data-aos="fade-up" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0">
+                    <a class="button" href="mailto:antoninolattene@gmail.com" role="button" rel="noopener noreferrer">
+                        <span>email me</span>
+                        <div class="icon">
+                            <i class="fa fa-paper-plane"></i>
+                            <i class="fa fa-check"></i>
+                        </div>
+                    </a>
+                </div>
             </div>
 
         </section>
@@ -177,9 +177,9 @@
             <!-- /ACF -->
 
             <section class="process">
-                <h3 class="process__title">Design Framework & Toolkit</h3>
-                <img class="process__image" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/double diamond design model 1.png" alt=""/>
-                <div class="process__content">
+                <h3 class="process__title" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">Design Framework & Toolkit</h3>
+                <img class="process__image" src="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/double diamond design model 1.png" alt="double diamond design model" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250"/>
+                <div class="process__content" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
                     <div class="process__content--description">
                         <p>From UX research, to Front-End development, through UI design, my process involves developing the best solution to identified pain points through an iterative approach.</p>
                         <p>Based on the Double Diamond design process model, this is my toolkit, which includes some of the methods, techniques and tools that I usually use throughout the process to create compelling and meaningful experiences for users.</p>
@@ -236,6 +236,7 @@
                                     <li class="process__toolkit--item">HTML5</li>
                                     <li class="process__toolkit--item">CSS3</li>
                                     <li class="process__toolkit--item">Javascript</li>
+                                    <li class="process__toolkit--item">Gulp</li>
                                     <li class="process__toolkit--item">Bootstrap</li>
                                     <li class="process__toolkit--item">Front End Frameworks</li>
                                 </ul>
@@ -249,20 +250,13 @@
                                     <li class="process__toolkit--item">User Test</li>
                                 </ul>
                         </div>
-                        <!-- <ul class="process__toolkit--fixed">
-                            <h4>Test</h4>
-                            <p><em>Test throughout the entire process</em></p>
-                            <ul class="process__toolkit--items">
-                            <li class="process__toolkit--item">Heuristic Evaluation</li>
-                            <li class="process__toolkit--item">User Test</li>
-                            </ul>
-                        </ul> -->
                     </div>
                 </div>
             </section>
 
             <footer class="footer__inner">
                 <p>Antonino Lattene © 2020 - Made with <i class="fas fa-heart" title="Love"></i></p>
+                <p><em>antoninolattene@gmail.com</em></p>
             </footer>
 
         </section> <!-- /Portfolio -->
