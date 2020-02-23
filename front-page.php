@@ -52,16 +52,18 @@
                             $link_codepen = get_sub_field('link_codepen');
                             $caption_color = get_sub_field('caption_color');
                         ?>
+                        
                         <article class="project-full <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
-                            <img src="<?php echo esc_url($image['url']); ?>" class="<?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-                            <div class="project__caption--up">
+                            <?php if( $link_project_page ): ?>
+                            <a href="<?php echo $link_project_page; ?>" target="_blank" class="project__link"></a>
+                            <?php endif; ?>
+                            <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                            <div class="project__caption--up">                                
+                                <?php if( $name ): ?>
                                 <p class="project__number"><?php echo $number; ?></p>
-                                <?php if( $link_project_page ): ?>
-                                <a href="<?php echo $link_project_page; ?>" target="_blank"><h4 class="project__name"><?php echo $name; ?><span class="project__links--item <?php echo $icon_project_page; ?>"></span></h4></a>
-                                <?php else : ?>
                                 <h4 class="project__name"><?php echo $name; ?><span class="project__links--item <?php echo $icon_project_page; ?>"></span></h4>
-                                <?php endif; ?> 
-                                <p class="project__company">- <?php echo $company; ?></p>
+                                <p class="project__company"><?php echo $company; ?></p>
+                                <?php endif; ?>
                                 <div class="project__links">
                                     <?php if( $link_dribbble ): ?>
                                     <a href="<?php echo $link_dribbble; ?>" target="_blank"><span class="icon project__links--item fab fa-dribbble"></span></a>
@@ -97,9 +99,10 @@
                                 <?php endforeach; ?>
                                 </ul>
                             <?php endif; ?>
-                            
+                       
                         </article>
                         <?php endwhile; ?>
+                        
 
                     <?php elseif( get_row_layout() == 'half_project' ): ?>
                         <div class="split-article">
@@ -119,15 +122,16 @@
                             $caption_color = get_sub_field('caption_color');
                         ?>
                             <article class="project-half <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
-                                <img src="<?php echo esc_url($image['url']); ?>" class="project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                <?php if( $link_project_page ): ?>
+                                <a href="<?php echo $link_project_page; ?>" target="_blank" class="project__link"></a>
+                                <?php endif; ?>
+                                <img src="<?php echo esc_url($image['url']); ?>" class="project__img project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                                 <div class="project__caption--up">
+                                    <?php if( $name ): ?>
                                     <p class="project__number"><?php echo $number; ?></p>
-                                    <?php if( $link_project_page ): ?>
-                                    <a href="<?php echo $link_project_page; ?>" target="_blank"><h4 class="project__name"><?php echo $name; ?><span class="project__links--item <?php echo $icon_project_page; ?>"></span></h4></a>
-                                    <?php else : ?>
                                     <h4 class="project__name"><?php echo $name; ?><span class="project__links--item <?php echo $icon_project_page; ?>"></span></h4>
+                                    <p class="project__company"><?php echo $company; ?></p>
                                     <?php endif; ?>
-                                    <p class="project__company">- <?php echo $company; ?></p>
                                     <div class="project__links">
                                         <?php if( $link_dribbble ): ?>
                                         <a href="<?php echo $link_dribbble; ?>" target="_blank"><span class="icon project__links--item fab fa-dribbble"></span></a>

@@ -49,17 +49,21 @@ ul {list-style-type:none; margin:0;}
 .project-full img {align-self:center; justify-self:center;}
 
 .project-half__img {align-self:center; justify-self:center;}
-    
+
+.project__link {width: 100%; height: 100%; z-index: 1; display: block; position: absolute;}
+.project__img {transition: all .3s ease-in-out;}
+.project__link:hover ~ .project__img {transform: scale(1.05);}
+
 .project__img--contain {object-fit: contain; object-position: center; width: 80%; height: 80%;}
 .project__img--cover {height: 100%; object-fit: cover;}
-.project__caption--up {position:absolute; top:5%; left:5%;}
-.project__kit {bottom:7%; font-size:1rem; display:flex; margin:0; padding:0; opacity:0.3 !important; position:absolute; right:5%;}
+.project__caption--up {position:absolute; top:5%; left:5%; z-index:2;}
+.project__kit {bottom:5%; font-size:1rem; display:flex; margin:0; padding:0; opacity:0.3 !important; position:absolute; right:5%;}
 .project__kit--item {float:left; margin: 0 .8rem 0 0;}
 .project__kit--item i {vertical-align: middle;}
 .project__caption--white {color: white;}
 .project__caption--black {color: $dark_grey;}
 .project__number, .project__company, .project__kit {margin: 0;}
-.project__company {font-size:.875rem; font-style: italic;}
+.project__company {font-family: 'Raleway', sans-serif; font-size:.875rem; opacity: .4 !important;}
 .project__name {margin: 1.2rem 0 .2rem 0;}
 .project__links {margin: 1.2rem 0;}
 .project__links--item {display: inline-block; font-size: 1rem; margin-right: .7rem; vertical-align: middle;}
@@ -144,7 +148,7 @@ ul {list-style-type:none; margin:0;}
 .process__title {text-align: center;}
 .process__image {margin:0 auto; max-height: 100%;}
 
-.process__content--description p{font-size:1rem; line-height:1.8rem;}
+.process__content--description p{font-family: 'Raleway', sans-serif; font-size:1rem; line-height:2.2rem;}
 
 .process__toolkit {width: 300px; border-radius: 10px; box-shadow: 0 0 20px rgb(236, 236, 236); position:relative; min-height:400px; justify-self:center;}
 .process__toolkit-column {text-align: center; width:300px; padding:1rem;}
@@ -166,7 +170,7 @@ ul {list-style-type:none; margin:0;}
 
 
 .footer__inner {align-items:center; background-color:$dark_grey; display:flex; flex-direction: row; justify-content:space-around; height:70px;}
-.footer__inner p {color:$light-grey; font-size:.875rem; margin:0;}
+.footer__inner p {font-family: 'Raleway', sans-serif; color:$light-grey; font-size:.875rem; margin:0;}
 
 
 
