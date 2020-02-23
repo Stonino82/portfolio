@@ -56,8 +56,8 @@ ul {list-style-type:none; margin:0;}
 
 .project__img--contain {object-fit: contain; object-position: center; width: 80%; height: 80%;}
 .project__img--cover {height: 100%; object-fit: cover;}
-.project__caption--up {position:absolute; top:5%; left:5%; z-index:2;}
-.project__kit {bottom:5%; font-size:1rem; display:flex; margin:0; padding:0; opacity:0.3 !important; position:absolute; right:5%;}
+.project__caption--up {position:absolute; top:40px; left:40px; z-index:2;}
+.project__kit {bottom:40px; font-size:1rem; display:flex; margin:0; padding:0; opacity:0.3 !important; position:absolute; right:40px;}
 .project__kit--item {float:left; margin: 0 .8rem 0 0;}
 .project__kit--item i {vertical-align: middle;}
 .project__caption--white {color: white;}
@@ -67,7 +67,7 @@ ul {list-style-type:none; margin:0;}
 .project__name {margin: 1.2rem 0 .2rem 0;}
 .project__links {margin: 1.2rem 0;}
 .project__links--item {display: inline-block; font-size: 1rem; margin-right: .7rem; vertical-align: middle;}
-.project__tags {display:flex; flex-flow:row wrap; left:5%; max-width:200px; padding:0; position:absolute; bottom:5%;}
+.project__tags {display:flex; flex-flow:row wrap; left:40px; max-width:200px; padding:0; position:absolute; bottom:40px;}
 .project__tags--item {align-items:center; background:#0003; border-radius:30px; box-shadow: 0 0 5px 0 rgba(0,0,0,.2); color:white; content:""; display:flex; font-size:.75rem; font-weight:400; height:30px; margin:0 5px 5px 0; min-height:20px; min-width:20px; padding:.5rem .8rem;}
 // /PORTFOLIO right side
 
