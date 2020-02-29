@@ -1,0 +1,58 @@
+.presentation__navbar {display:flex; align-items:center; justify-content: space-around;}
+.presentation__link-home {color:#dd4b39 !important; font-size:.75rem; margin:0 1rem; text-decoration:none; text-transform:uppercase;}
+.presentation__link-home span {margin-right:.5rem;}
+.presentation__tag {background-color:#dd4b39; border-radius:40px; box-shadow:0 0 5px 0 rgba(0,0,0,.2); font-size:.75rem; letter-spacing:.03rem; text-align:center; text-transform: uppercase; width: 120px; height: 30px; line-height: 32px; color: #fff!important;}
+
+/*
+.case-study{display:grid; grid-template-rows:400px auto;}
+.case-study__main-img{}
+.case-study__article{}
+*/
+
+.case-study__article{position:relative;}
+.case-study__article a {color:#dd4b39;}
+
+.entry-content { padding:2rem;
+    .wp-block-group, .wp-block-columns {margin: 0 0 5rem 0;}
+    h3 {margin: 1rem 0;}
+    h4 {margin:1.5rem 0; line-height:2rem;}
+    p {margin: .8rem 0;}
+    .wp-block-image img {box-shadow: 0 0 20px #c1c1c1;}
+    .paragraph__featured {background:#dd4b39; box-shadow:0 0 10px 0 rgba(0,0,0,.4); color:white; padding:2rem;}
+    .paragraph__featured-2 {background:rgb(245, 245, 245); box-shadow:0 0 10px 0 rgba(0,0,0,.1); padding:2rem; border: 1px solid #ccc;
+        p, ul {font-size:.875rem;}
+    }
+    .wp-block-image { 
+        figcaption {color:#868686; font-size: .75rem; font-style: italic; margin-top: 1rem;}
+    } 
+    .wp-block-quote {background:#f1f1f1; box-shadow:0 0 10px 0 rgba(0,0,0,.4); font-style: italic; padding: 3rem;
+        p{font-size:1rem; line-height:2rem;}
+    }
+    ul {margin-left: 2rem; position: relative;
+
+        li { margin-top: .5rem; line-height: 1.4rem;
+
+            &::before{content: ""; width: 12px; height: 3px; background: #dd4b39; position: absolute; left: -1.2rem; margin-top: 9px;}
+
+            li::before{width:5px; height: 5px; border-radius:5px;}
+            
+        }
+        li:first-child {
+            margin-top: .5rem;
+        }
+    }
+    .credit {color:#868686; font-size:.875rem; font-style: italic;
+        a{ margin-left: .5rem;}
+    }
+}
+
+@media (min-width: 768px) {
+    .entry-content {
+        .paragraph__featured {}
+    }
+}
+@media (min-width: 992px) {
+    .entry-content {padding:5rem;
+        .paragraph__featured {padding:4rem 0;}
+    }
+}

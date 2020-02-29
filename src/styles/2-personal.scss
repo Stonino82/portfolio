@@ -19,11 +19,10 @@ $light_grey: #868686;
 html {font-size: 16px;}
 body {font-family:'Poppins',sans-serif; color:$dark_grey;}
 h1 {font-weight:700; margin:0; text-transform:uppercase;}
-h2 {color:$light_grey; font-family: 'Raleway', sans-serif; font-size:1rem; font-weight:400; letter-spacing:0.03rem; line-height:1.4rem; margin:2rem 0;}
+h2 {color:$light_grey; font-family:'Raleway', sans-serif; font-size:1.2rem; font-weight:400; letter-spacing:0.03rem; line-height:1.4rem; margin:2rem 0;}
 h3 {font-size:2.2rem; font-weight: 700; line-height:2.4rem;}
-h4 {font-size:1.2rem; font-weight: 700;}
-p {font-size:1rem; font-weight:400; line-height:1.4rem;}
-ul {list-style-type:none; margin:0;}
+h4 {font-size:1.2rem; font-weight: 700; line-height:1.6rem;}
+p {font-family:'Raleway', sans-serif; font-size:1.125rem; font-weight:400; line-height:2rem;}
 // /GENERAL STYLES
 
 
@@ -34,7 +33,7 @@ ul {list-style-type:none; margin:0;}
 
 // PRESENTATION left side
 .presentation {background-color:#fafafa; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; align-items:flex-end; padding:5% 5%;}
-.presentation__central {display:flex; flex-direction:column; flex:1; justify-content:center; margin-bottom:-10%;}
+.presentation__central {display:flex; flex-direction:column; flex:1; justify-content:center; /*margin-bottom:-10%;*/}
 .presentation__links {align-items: center; display:flex; flex-direction:row; margin-bottom: 20%}
 .presentation__email {display:flex; flex-direction:column;}
 .presentation__icons {color: $dark_grey; margin-right: 1rem;}
@@ -55,8 +54,8 @@ ul {list-style-type:none; margin:0;}
 .project__link:hover ~ .project__img {transform: scale(1.05);}
 
 .project__img--contain {object-fit: contain; object-position: center; width: 80%; height: 80%;}
-.project__img--cover {height: 100%; object-fit: cover;}
-.project__caption--up {position:absolute; top:40px; left:40px; z-index:2;}
+.project__img--cover {height: 100%; width: 100%; object-fit: cover;}
+.project__caption--up {position:absolute; top:40px; left:40px; z-index:2; width:80%;}
 .project__kit {bottom:40px; font-size:1rem; display:flex; margin:0; padding:0; opacity:0.3 !important; position:absolute; right:40px;}
 .project__kit--item {float:left; margin: 0 .8rem 0 0;}
 .project__kit--item i {vertical-align: middle;}
@@ -104,7 +103,7 @@ ul {list-style-type:none; margin:0;}
     .container {display:grid; grid-template-columns:45% 55%;}
 
     .presentation {align-items:flex-end; box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px; z-index: 1;}
-    .presentation__central {align-items:flex-end;}
+    .presentation__central {align-items:flex-end; width:90%;}
     .presentation h1, .presentation h2 {text-align:right;}
     .presentation h1 {font-size:2.6rem; line-height:2.8rem;}
     .presentation__icons--item {margin:0 0 0 1.1rem;}
@@ -119,6 +118,9 @@ ul {list-style-type:none; margin:0;}
 }
 @media (min-width: 1200px) {
     .container { display: grid; grid-template-columns: 40% 60%;}
+
+    .presentation h1 {font-size:2.6rem; line-height:2.8rem; width:80%;}
+    
     .process__content {grid-template-columns:1fr 1fr;}
     .process__content--description {text-align: left;}
 }

@@ -5,7 +5,7 @@ function my_theme_enqueue_styles() {
 
  $parent_style = 'antoninolattene-parent-style'; // Estos son los estilos del tema padre recogidos por el tema hijo.
 
- wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway&display=swap', false );
+ wp_enqueue_style( 'custom-google-fonts', 'https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700&display=swap', false );
  wp_enqueue_style( 'load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css' );
  
  wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
@@ -27,7 +27,7 @@ function my_theme_enqueue_styles() {
 
 
   // Enqueue GSAP script library in footer
-  wp_enqueue_script('Gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js', false, null, true);
+//   wp_enqueue_script('Gsap', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js', false, null, true);
 
 
  // Enqueue personal js file

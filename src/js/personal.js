@@ -56,15 +56,17 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
 
 
       // Tiny-slider
-      var slider = tns({
-        container: '.slider',
-        controls: false,
-        nav: false,
-        autoplayButtonOutput: false,
-        items: 1,
-        slideBy: 'page',
-        autoplay: true
-      });
+      if ( $('.slider').length > 0 ) { //Si la clase .slider existe..
+        var slider = tns({
+          container: '.slider',
+          controls: false,
+          nav: false,
+          autoplayButtonOutput: false,
+          items: 1,
+          slideBy: 'page',
+          autoplay: true
+        });
+      }
 
       
 
