@@ -5,25 +5,22 @@ $speed: "0.25s";
 $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 
 /* Main Styles */
-
 .button {
 	display: block;
 	align-self: flex-end;
 	background-color: $color;
 	width: 120px;
 	height: 30px;
-	line-height: 32px;
+	line-height: 31px;
 	color: #fff !important;
 	position: relative;
 	cursor: pointer;
 	overflow: hidden;
-	border-radius: 5px;
-	box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.2);
 	transition: $transition;
 	border-radius: 40px;
-	
-	span,
-	.icon {
+
+	span, .icon {
 		display: block;
 		height: 100%;
 		text-align: center;
@@ -114,4 +111,126 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 	&:active {
 		opacity: 1;
 	}
+}
+
+.presentation__resume{
+	margin-right: 1rem;
+
+
+	.button {
+		display: block;
+		align-self: flex-end;
+		background-color: $color;
+		width: 120px;
+		height: 30px;
+		line-height: 31px;
+		color: #fff !important;
+		position: relative;
+		cursor: pointer;
+		overflow: hidden;
+		box-shadow: unset;
+		transition: $transition;
+		border-radius: 40px;
+
+		background-color:#fff;
+		color: $color !important;
+		line-height: 29px;
+		border: 1px solid #aaa;
+		color: #848484 !important;
+
+		span, .icon {
+			display: block;
+			height: 100%;
+			text-align: center;
+			position: absolute;
+			top: 0;
+		}
+		
+		span {
+			width: 78%;
+			line-height: inherit;
+			font-size: 0.75rem;
+			font-weight: 400;
+			text-transform: uppercase;
+			left: 0;
+			transition: $transition;
+			
+			&:after {
+				content: '';
+				background-color: #aaa;
+				width: 1px;
+				height: 70%;
+				position: absolute;
+				top: 15%;
+				right: 12px;
+			}
+		}
+		
+		.icon {
+			width: 33%;
+			right: 0;
+			transition: $transition;
+			
+			.fa {
+				font-size: 0.75rem;
+				vertical-align: middle;
+				transition: $transition, height #{$speed} ease;
+			}
+			
+			.fa-arrow-alt-circle-down {
+				height: 15px;
+			}
+			
+			.fa-check {
+				display: none;
+			}
+		}
+		
+		&.success,
+		&:hover {
+			
+			span {
+				left: -72%;
+				opacity: 0;
+			}
+			
+			.icon {
+				width: 100%;
+				
+				.fa {
+					font-size: 1rem;
+					color: #fff;
+				}
+			}
+		}
+		
+		&.success {
+			background-color: #27ae60;
+			
+			.icon {
+				
+				.fa-arrow-alt-circle-down {
+					display: none;
+				}
+				
+				.fa-check {
+					display: inline-block;
+				}
+			}
+		}
+		
+		&:hover {
+			opacity: .9;
+			
+			.icon .fa-arrow-alt-circle-down {
+				height: 20px;
+			}
+		}
+		
+		&:active {
+			opacity: 1;
+		}
+	}
+
+
 }

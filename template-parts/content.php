@@ -12,9 +12,9 @@
 
 	<section class="presentation opacityOnScroll">
 
-		<div class="presentation__navbar" data-aos="fade-down" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0">
-			<a class="presentation__link-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><span class="icon fas fa-angle-left"></span>Portfolio</a>
-			<div class="presentation__tag">case study</div>
+		<div class="presentation__navbar">
+			<a class="presentation__link-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" data-aos="fade-down" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0"><span class="icon fas fa-angle-left"></span>Portfolio</a>
+			<div class="presentation__tag" data-aos="fade-down" data-aos-duration="400" data-aos-delay="700" data-aos-once="true" data-aos-offset="0">case study</div>
 		</div>
 
 		<div class="presentation__central">
@@ -34,7 +34,7 @@
 					?>
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
-			<h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">Heuristic Evaluation<br />& Usability Test</h2>
+			<h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-once="true"><?php echo get_secondary_title(); ?></h2>
 		</div>
 
 	</section><!-- /presentation -->

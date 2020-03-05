@@ -1,18 +1,31 @@
 <?php get_header(); ?>
 
-    <div class="container">
+    <div id="content" class="container">
         <section class="presentation opacityOnScroll">
+
             <div class="presentation__central">
                 <h1 data-aos="fade-right" data-aos-duration="800" data-aos-once="true">Front-End<br />User Experience <br />& User Interface<br /> Designer</h1>
+
                 <h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">Hey, I’m Tony. Originally from Italy.<br /> Currently living in Barcelona.<br /> Mostly, in my head.</h2>
-            </div>
-            <div class="presentation__links">
+                
                 <ul class="presentation__icons">
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="800" data-aos-once="true"><a href="http://dribbble.com/antoninolattene" target="blank"><span class="icon fab fa-dribbble"></span></a></li>
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="700" data-aos-once="true"><a href="http://www.behance.net/antoninolattene" target="blank"><span class="icon fab fa-behance"></span></a></li>
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="600" data-aos-once="true"><a href="http://github.com/Stonino82" target="blank"><span class="icon fab fa-github"></span></a></li>
-                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="500" data-aos-once="true"><a href="http://www.linkedin.com/in/antoninolattene/" target="blank"><span class="icon fab fa-linkedin-in"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-anchor-placement="top-bottom"><a href="http://dribbble.com/antoninolattene" target="blank"><span class="icon fab fa-dribbble"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="700" data-aos-once="true" data-aos-anchor-placement="top-bottom"><a href="http://www.behance.net/antoninolattene" target="blank"><span class="icon fab fa-behance"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="600" data-aos-once="true" data-aos-anchor-placement="top-bottom"><a href="http://github.com/Stonino82" target="blank"><span class="icon fab fa-github"></span></a></li>
+                    <li class="presentation__icons--item" data-aos="fade-right" data-aos-duration="400" data-aos-delay="500" data-aos-once="true" data-aos-anchor-placement="top-bottom"><a href="http://www.linkedin.com/in/antoninolattene/" target="blank"><span class="icon fab fa-linkedin-in"></span></a></li>
                 </ul>
+            </div>
+
+            <div class="presentation__links">
+                <div class="presentation__resume" data-aos="fade-up" data-aos-duration="400" data-aos-delay="900" data-aos-once="true" data-aos-offset="0">
+                    <a class="button" download href="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/Brochure-Antonino-Lattene.jpg">
+                        <span>resume</span>
+                        <div class="icon">
+                            <i class="fas fa-arrow-alt-circle-down"></i>
+                            <i class="fa fa-check"></i>
+                        </div>
+                    </a>
+                </div>
                 <div class="presentation__email" data-aos="fade-up" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0">
                     <a class="button" href="mailto:antoninolattene@gmail.com" role="button" rel="noopener noreferrer">
                         <span>email me</span>
@@ -53,10 +66,16 @@
                             $caption_color = get_sub_field('caption_color');
                         ?>
                         
-                        <article class="project-full <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
-                            <?php if( $link_project_page ): ?>
-                            <a href="<?php echo $link_project_page; ?>" target="_blank" class="project__link"></a>
+                        <article class="project-full <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50" data-aos-anchor-placement="top-bottom">
+                            <!-- /link to the project -->
+                            <?php if( $link_project_page ): 
+                                $link_url = $link_project_page['url'];
+                                $link_title = $link_project_page['title'];
+                                $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';
+                                ?>
+                            <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>" class="project__link"></a>
                             <?php endif; ?>
+                            <!-- /link to the project -->
                             <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                             <div class="project__caption--up">                                
                                 <?php if( $name ): ?>
@@ -121,10 +140,16 @@
                             $link_codepen = get_sub_field('link_codepen');
                             $caption_color = get_sub_field('caption_color');
                         ?>
-                            <article class="project-half <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">
-                                <?php if( $link_project_page ): ?>
-                                <a href="<?php echo $link_project_page; ?>" target="_blank" class="project__link"></a>
+                            <article class="project-half <?php echo $caption_color; ?>" style="background-color:<?php echo $background_color; ?>;" data-aos="fade-up" data-aos-duration="800" data-aos-offset="50" data-aos-anchor-placement="top-bottom">
+                                <!-- link to the project -->
+                                <?php if( $link_project_page ): 
+                                $link_url = $link_project_page['url'];
+                                $link_title = $link_project_page['title'];
+                                $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';
+                                ?>
+                                <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>" class="project__link"></a>
                                 <?php endif; ?>
+                                <!-- /link to the project -->
                                 <img src="<?php echo esc_url($image['url']); ?>" class="project__img project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
                                 <div class="project__caption--up">
                                     <?php if( $name ): ?>

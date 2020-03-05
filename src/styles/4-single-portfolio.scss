@@ -12,19 +12,23 @@
 .case-study__article{position:relative;}
 .case-study__article a {color:#dd4b39;}
 
-.entry-content { padding:2rem;
-    .wp-block-group, .wp-block-columns {margin: 0 0 5rem 0;}
+.post-thumbnail{height:40vh;
+    img {height:100%; object-fit: cover; object-position: center;}
+}
+
+.entry-content { margin: 0;
+    // .wp-block-group, .wp-block-columns {margin: 0 0 3rem 0;}
     h3 {margin: 1rem 0;}
     h4 {margin:1.5rem 0; line-height:2rem;}
     p {margin: .8rem 0;}
+    .wp-block-group {padding:2rem;}
+    .wp-block-group.full-width {padding:0; margin: 6rem 0 6rem 0;}
+    .wp-block-image, .wp-block-embed {margin-bottom: 3rem;}
     .wp-block-image img {box-shadow: 0 0 20px #c1c1c1;}
     .paragraph__featured {background:#dd4b39; box-shadow:0 0 10px 0 rgba(0,0,0,.4); color:white; padding:2rem;}
-    .paragraph__featured-2 {background:rgb(245, 245, 245); box-shadow:0 0 10px 0 rgba(0,0,0,.1); padding:2rem; border: 1px solid #ccc;
+    .paragraph__featured-2 {background:rgb(245, 245, 245); padding:2rem; border: 1px solid #ccc;
         p, ul {font-size:.875rem;}
     }
-    .wp-block-image { 
-        figcaption {color:#868686; font-size: .75rem; font-style: italic; margin-top: 1rem;}
-    } 
     .wp-block-quote {background:#f1f1f1; box-shadow:0 0 10px 0 rgba(0,0,0,.4); font-style: italic; padding: 3rem;
         p{font-size:1rem; line-height:2rem;}
     }
@@ -41,9 +45,11 @@
             margin-top: .5rem;
         }
     }
-    .credit {color:#868686; font-size:.875rem; font-style: italic;
-        a{ margin-left: .5rem;}
+    .credit {color:#868686; font-size:.875rem; display: flex; justify-content: flex-end; align-items: center;
+        a {margin-left: .5rem;}
+        figcaption { margin: 0; font-style: italic; }
     }
+    figcaption {color:#868686; font-size: .75rem; font-style: italic; margin-top: 1rem; text-align: center;}
 }
 
 @media (min-width: 768px) {
@@ -52,7 +58,9 @@
     }
 }
 @media (min-width: 992px) {
-    .entry-content {padding:5rem;
+    .entry-content {
+        .wp-block-group {padding:4rem;}
         .paragraph__featured {padding:4rem 0;}
     }
+    
 }
