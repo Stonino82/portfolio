@@ -2,7 +2,7 @@
 .presentation__link-home {color:#dd4b39 !important; font-size:.75rem; margin:0 1rem; text-decoration:none; text-transform:uppercase;}
 .presentation__link-home span {margin-right:.5rem;}
 .presentation__tag {background-color:#dd4b39; border-radius:40px; box-shadow:0 0 5px 0 rgba(0,0,0,.2); font-size:.75rem; letter-spacing:.03rem; text-align:center; text-transform: uppercase; width: 120px; height: 30px; line-height: 32px; color: #fff!important;}
-
+.presentation__tag a {text-decoration: none;}
 /*
 .case-study{display:grid; grid-template-rows:400px auto;}
 .case-study__main-img{}

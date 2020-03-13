@@ -14,7 +14,7 @@
 
 		<div class="presentation__navbar">
 			<a class="presentation__link-home" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" data-aos="fade-down" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0"><span class="icon fas fa-angle-left"></span>Portfolio</a>
-			<div class="presentation__tag" data-aos="fade-down" data-aos-duration="400" data-aos-delay="700" data-aos-once="true" data-aos-offset="0">case study</div>
+			<div class="presentation__tag" data-aos="fade-down" data-aos-duration="400" data-aos-delay="700" data-aos-once="true" data-aos-offset="0"><?php echo get_the_term_list( get_the_ID(), 'portfolio_category', "" );?></div>
 		</div>
 
 		<div class="presentation__central">

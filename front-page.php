@@ -18,7 +18,7 @@
 
             <div class="presentation__links">
                 <div class="presentation__resume" data-aos="fade-up" data-aos-duration="400" data-aos-delay="900" data-aos-once="true" data-aos-offset="0">
-                    <a class="button" download href="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/Brochure-Antonino-Lattene.jpg">
+                    <a class="button" download href="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/CV Brochure Antonino Lattene 2020.jpg">
                         <span>resume</span>
                         <div class="icon">
                             <i class="fas fa-arrow-alt-circle-down"></i>
@@ -77,7 +77,7 @@
                             <?php endif; ?>
                             <!-- /link to the project -->
                             <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-                            <div class="project__caption--up">                                
+                            <div class="project__caption--up">
                                 <?php if( $name ): ?>
                                 <p class="project__number"><?php echo $number; ?></p>
                                 <h4 class="project__name"><?php echo $name; ?><span class="project__links--item <?php echo $icon_project_page; ?>"></span></h4>
@@ -99,16 +99,22 @@
                                 </div>
                             </div>
 
+                            <ul class="project__tags">
+                            <?php 
+                            $category = get_sub_field('category');
+                            if( $category ): ?>
+                                    <li class="project__tags--item project__tags--item-category"><?php echo esc_html( $category->name ); ?></li>
+                            <?php endif; ?>
+                            
                             <?php 
                             $tags = get_sub_field('tags');
                             if( $tags ): ?>
-                                <ul class="project__tags">
                                 <?php foreach( $tags as $tag ): ?>
                                     <li class="project__tags--item"><?php echo esc_html( $tag->name ); ?></li>
                                 <?php endforeach; ?>
-                                </ul>
                             <?php endif; ?>
-                             
+                            </ul><!-- /project-tags -->
+
                             <?php
                             $kit_icons = get_sub_field('kit_icons');
                             if( $kit_icons ): ?>
@@ -173,15 +179,21 @@
                                     </div>
                                 </div>
 
+                                <ul class="project__tags">
+                                <?php 
+                                $category = get_sub_field('category');
+                                if( $category ): ?>
+                                        <li class="project__tags--item project__tags--item-category"><?php echo esc_html( $category->name ); ?></li>
+                                <?php endif; ?>
+                                
                                 <?php 
                                 $tags = get_sub_field('tags');
                                 if( $tags ): ?>
-                                    <ul class="project__tags">
                                     <?php foreach( $tags as $tag ): ?>
                                         <li class="project__tags--item"><?php echo esc_html( $tag->name ); ?></li>
                                     <?php endforeach; ?>
-                                    </ul>
                                 <?php endif; ?>
+                                </ul><!-- /project-tags -->
 
                                 <?php
                                 $kit_icons = get_sub_field('kit_icons');
