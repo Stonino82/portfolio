@@ -1,0 +1,20 @@
+/* Resets */
+@import 'resets/reset-normalize';
+@import 'resets/overwrite-rules';
+
+/* Generals */
+@import 'generals/colors';
+@import 'generals/typo';
+@import 'generals/layout';
+
+/* Components */
+@import 'components/buttons';
+@import 'components/social-icons';
+
+/* Pages Templates */
+/* home */
+@import 'templates/home/left-side';
+@import 'templates/home/right-side';
+@import 'templates/home/process';
+/* single-portfolio (hereda también estilos de la home) */
+@import 'templates/single-portfolio/single-portfolio';

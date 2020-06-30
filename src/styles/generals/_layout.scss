@@ -1,0 +1,26 @@
+/* For the moment same layout for all the pages */
+
+.container {
+    display:grid;
+}
+
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (max-width: 991px) { 
+    .container {
+        display:grid;
+        grid-template-columns:1fr;
+    }
+}
+@media (min-width: 992px) { 
+    .container {
+        display:grid;
+        grid-template-columns:45% 55%;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+}

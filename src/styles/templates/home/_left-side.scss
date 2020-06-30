@@ -1,0 +1,22 @@
+.presentation {background-color:$white2; position:sticky; top:0; height:100vh; box-sizing:border-box; display:flex; flex-direction:column; padding:10%;}
+.presentation__central {display:flex; flex-direction:column; flex:6; justify-content: flex-end;}
+.presentation__links {flex: 1.1;}
+.presentation__icons {color: $dark_grey; margin-right: 1rem;}
+.presentation__icons--item {font-size: 1.1rem; float:left;}
+.presentation__icons--item::before {display:inline-block; font-style:normal; font-variant:normal; text-rendering:auto; -webkit-font-smoothing:antialiased;}
+
+.presentation__email {display:flex; flex-direction:column;}
+
+@media (max-width: 991px) { 
+    .presentation {align-items:center; z-index: unset;}
+    .presentation__central {align-items:center; justify-content: center;}
+    .presentation__links {display:flex; flex-direction:row; margin-bottom:20%;}
+    .presentation__icons--item {margin:0 .7rem 0 .7rem;}
+    .presentation .button {align-self:center;}
+}
+@media (min-width: 992px) { 
+    .presentation {align-items:flex-start; box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px; z-index: 1;}
+    .presentation__central {align-items:flex-start; width:100%;}
+    .presentation__links {align-items: flex-end; display:flex; flex-direction:row; position:relative;}
+    .presentation__icons--item {margin:0 1.1rem 0 0;}
+}

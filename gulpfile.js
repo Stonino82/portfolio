@@ -5,7 +5,7 @@ const autoprefixer = require('gulp-autoprefixer');
 const browserSync = require('browser-sync').create();
 const concat = require('gulp-concat');
 const cleanCss = require('gulp-clean-css');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
 const imagemin = require('gulp-imagemin');
 const newer = require("gulp-newer");
 const rename = require('gulp-rename');
@@ -15,7 +15,7 @@ const sourcemaps = require('gulp-sourcemaps');
 function style() {
     return gulp
         // 1. where are my sccs files
-        .src('src/styles/*.*')
+        .src('src/styles/**')
         .pipe(sourcemaps.init({loadMaps: true}))
         // 2. pass that file through sass compiler (gulp-sass)
         .pipe(sass().on('error', sass.logError))
@@ -77,9 +77,10 @@ function images() {
 function watch() {
     browserSync.init({
         proxy: "http://localhost:8888/antoninolattene.com/",
-        notify: true
+        notify: true,
+        browser: "firefox"
     });
-    gulp.watch('src/styles/*.*', style);
+    gulp.watch('src/styles/**', style);
     gulp.watch('./*.php').on('change', browserSync.reload);
     gulp.watch('src/js/*.*', scripts).on('change', browserSync.reload);
     gulp.watch("src/img/**/*", images);

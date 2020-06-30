@@ -1,0 +1,65 @@
+$base-font-size: 16px;
+$base-line-height:  16px;
+$rhythm-unit: "rem";
+
+// Font families
+$base-font-family: 'Poppins',sans-serif;
+$base-font-family2: 'Raleway', sans-serif;
+$font-awesome: "Font Awesome 5 Free";
+
+html {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+body {
+    font-family: $base-font-family;
+    color:$dark_grey;
+}
+
+// Headings
+h1 {
+    font-weight:700;
+    text-transform:uppercase;
+    margin:0;
+}
+h2 {
+    font-family: $base-font-family2;
+    font-size: $base-font-size;
+    font-weight: 200;
+    line-height: 1.6rem;
+    font-size: 1.125rem;
+    letter-spacing: 0.03rem;
+    color: $primary-color;
+    margin: 2rem 0;
+}
+@media (max-width: 991px) { 
+    h1, h2 {text-align:center;}
+    h1 {font-size:2.2rem; line-height:2.6rem;}
+    h2 {margin:1rem 0 2rem 0;}
+}
+@media (min-width: 992px) {
+    h1, h2 {text-align:left;}
+    h1 {font-size:2.2rem; line-height:2.4rem;}
+}
+@media (min-width: 1200px) {
+    h1 {width:100%;}
+}
+h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    line-height: 2.4rem;
+}
+h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.6rem;
+}
+p {
+    font-family: $base-font-family2;
+    font-size: 1.125rem;
+    font-weight: 200;
+    line-height: 2rem;
+}
+strong {
+    color: $primary-color;
+}

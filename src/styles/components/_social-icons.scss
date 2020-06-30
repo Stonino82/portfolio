@@ -1,0 +1,22 @@
+.fa-dribbble, .fa-behance, .fa-github, .fa-linkedin-in, .fa-codepen {
+    display: inline-block;
+    transition: all .2s ease-out;
+}
+.fa-dribbble:hover, .fa-behance:hover, .fa-github:hover, .fa-linkedin-in:hover, .fa-codepen:hover {
+    transform: translateY(-3px);
+}
+.fa-dribbble:hover {
+    color: $dribbble;
+}
+.fa-behance:hover {
+    color: $behance;
+}
+.fa-github:hover {
+    color: $github;}
+
+.fa-linkedin-in:hover {
+    color: $linkedin;
+}
+.fa-codepen:hover {
+    color: $codepen;
+}

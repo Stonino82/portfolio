@@ -20,7 +20,7 @@
 		<div class="presentation__central">
 		<?php
 			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">', '</h1>' );
+				the_title( '<h1 class="entry-title">', '</h1>' );
 			else :
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif;
@@ -34,7 +34,7 @@
 					?>
 				</div><!-- .entry-meta -->
 			<?php endif; ?>
-			<h2 data-aos="fade-right" data-aos-duration="800" data-aos-delay="200" data-aos-once="true"><?php echo get_secondary_title(); ?></h2>
+			<h2><?php echo get_secondary_title(); ?></h2>
 		</div>
 
 	</section><!-- /presentation -->

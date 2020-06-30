@@ -1,0 +1,14 @@
+.process {display:grid; grid-template-rows: 100px 230px 2fr; min-height:85vh; padding:10% 5%; justify-content: center; align-items: center;}
+.process__title {text-align: center;}
+.process__image {margin:0 auto; max-height: 100%;}
+
+.process__content--description p{font-family: 'Raleway', sans-serif; font-size:1rem; line-height:2.2rem; margin: 1rem 0;}
+
+.process__toolkit {width: 300px; border-radius: 10px; box-shadow: 0 0 20px rgb(236, 236, 236); position:relative; min-height:420px; justify-self:center;}
+.process__toolkit-column {text-align: center; width:300px; padding:1rem;}
+.process__toolkit-column h4 {margin:0;}
+.process__toolkit-column p {font-size: .7rem; margin-top:0;}
+.process__toolkit--items {display:flex; flex-flow:row wrap; justify-content: center; padding:0;}
+.process__toolkit--item {align-items:center; background:rgb(236, 236, 236); border-radius:30px; color:rgb(56, 56, 56); content:""; display:flex; font-size:.75rem; font-weight:400; height:30px; margin:2%; min-height:20px; min-width:20px; padding:.5rem .8rem;}
+.process__toolkit-column--fixed {border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; width: 100%; min-height: 30px; position: absolute; bottom:0; padding:1rem; background: #ececec;}
+.process__toolkit-column--fixed .process__toolkit--item {background:$white;}
