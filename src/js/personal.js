@@ -1,8 +1,7 @@
 jQuery(function ($) {   // All scripts after this line (with this we can use jQuery symbol"$" inside Wordpress!!)
-
+  
 
     $(document).ready(function() {
-    
         
         
     });

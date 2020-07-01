@@ -1,8 +1,9 @@
 .portfolio {display:grid;}
 
-.project-full {display:grid; position:relative;}
+.project-full {display:grid; position:relative; overflow-x: hidden}
 .project-full img {align-self:center; justify-self:center;}
 
+.project-half {position:relative; overflow-x: hidden}
 .project-half__img {align-self:center; justify-self:center;}
 
 .project__link {width: 100%; height: 100%; z-index: 1; display: block; position: absolute;}

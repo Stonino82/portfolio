@@ -23,22 +23,22 @@
             </div>
 
             <div class="presentation__links">
-                <!-- <div class="presentation__resume" data-aos="fade-up" data-aos-duration="400" data-aos-delay="900" data-aos-once="true" data-aos-offset="0"> -->
-                <div class="presentation__resume">
-                    <a class="button" download href="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/CV-Brochure-Antonino-Lattene-Frontend.jpg">
-                        <span>resume</span>
-                        <div class="icon">
-                            <i class="fas fa-arrow-alt-circle-down"></i>
-                            <i class="fa fa-check"></i>
-                        </div>
-                    </a>
-                </div>
                 <!-- <div class="presentation__email" data-aos="fade-up" data-aos-duration="400" data-aos-delay="800" data-aos-once="true" data-aos-offset="0"> -->
                 <div class="presentation__email">
                     <a class="button" href="mailto:antoninolattene@gmail.com" role="button" rel="noopener noreferrer">
                         <span>email me</span>
                         <div class="icon">
                             <i class="fa fa-paper-plane"></i>
+                            <i class="fa fa-check"></i>
+                        </div>
+                    </a>
+                </div>
+                <!-- <div class="presentation__resume" data-aos="fade-up" data-aos-duration="400" data-aos-delay="900" data-aos-once="true" data-aos-offset="0"> -->
+                <div class="presentation__resume">
+                    <a class="button" download href="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/CV-Brochure-Antonino-Lattene-Frontend.jpg">
+                        <span>resume</span>
+                        <div class="icon">
+                            <i class="fas fa-arrow-alt-circle-down"></i>
                             <i class="fa fa-check"></i>
                         </div>
                     </a>
