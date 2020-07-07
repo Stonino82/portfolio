@@ -41,7 +41,7 @@ function scripts() {
         .src('src/js/*.*')
         // 2. concat all the js files into 1 (gulp-concat)
         .pipe(concat('javascript.js'))
-        // 3. minify this file (gulp-uglify)
+        // 3. minify this file (gulp-uglify-es)
         .pipe(uglify().on('error', function(e){console.log(e);}))
         // 4. rename file with .min extension
         .pipe(rename({ suffix: '.min' }))
@@ -91,4 +91,4 @@ function watch() {
 exports.style = style;
 exports.scripts = scripts;
 exports.images = images;
-exports.watch = watch; //para lanzar este plugin escribir en la Terminal "gulp watch" (dentro de la carpeta del proyecto)
+exports.watch = watch;
