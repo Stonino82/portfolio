@@ -62,6 +62,7 @@
                             // vars
                             $number = get_sub_field('number');
                             $image = get_sub_field('image');
+                            $video = get_sub_field('video');
                             $class_image = get_sub_field('class_image');
                             $background_color = get_sub_field('background_color');
                             $name = get_sub_field('name');
@@ -85,7 +86,12 @@
                             <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>" class="project__link"></a>
                             <?php endif; ?>
                             <!-- /link to the project -->
-                            <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                            <?php if( $image ): ?>
+                                <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                            <?php endif; ?>
+                            <?php if( $video ): ?>
+                                <video muted autoplay loop playsinline src="<?php echo esc_url($video['url']); ?>" class="project__img project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>"></video>
+                            <?php endif; ?>
                             <div class="project__caption--up">
                                 <?php if( $name ): ?>
                                 <p class="project__number"><?php echo $number; ?></p>
@@ -144,6 +150,7 @@
                             // vars
                             $number = get_sub_field('number');
                             $image = get_sub_field('image');
+                            $video = get_sub_field('video');
                             $class_image = get_sub_field('class_image');
                             $background_color = get_sub_field('background_color');;
                             $name = get_sub_field('name');
@@ -166,7 +173,12 @@
                                 <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>" class="project__link"></a>
                                 <?php endif; ?>
                                 <!-- /link to the project -->
-                                <img src="<?php echo esc_url($image['url']); ?>" class="project__img project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                <?php if( $image ): ?>
+                                    <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
+                                <?php endif; ?>
+                                <?php if( $video ): ?>
+                                    <video muted autoplay loop playsinline src="<?php echo esc_url($video['url']); ?>" class="project__img project-half__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>"></video>
+                                <?php endif; ?>
                                 <div class="project__caption--up">
                                     <?php if( $name ): ?>
                                     <p class="project__number"><?php echo $number; ?></p>

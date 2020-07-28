@@ -1,9 +1,9 @@
 .portfolio {display:grid;}
 
-.project-full {display:grid; position:relative; overflow-x: hidden}
+.project-full {display:grid; position:relative; overflow: hidden}
 .project-full img {align-self:center; justify-self:center;}
 
-.project-half {position:relative; overflow-x: hidden}
+.project-half {position:relative; overflow: hidden}
 .project-half__img {align-self:center; justify-self:center;}
 
 .project__link {width: 100%; height: 100%; z-index: 1; display: block; position: absolute;}
@@ -19,7 +19,7 @@
 .project__caption--white {color: $white;}
 .project__caption--black {color: $dark_grey;}
 .project__number, .project__company, .project__kit {margin: 0;}
-.project__company {font-family: 'Raleway', sans-serif; font-size:.875rem; opacity: .4 !important;}
+.project__company {font-family: 'Raleway', sans-serif; font-size:.875rem;}
 .project__name {margin: 1.2rem 0 -.5rem ;}
 .project__links {margin: 1.2rem 0;}
 .project__links--item {display: inline-block; font-size: 1rem; margin-right: .7rem; vertical-align: middle;}
