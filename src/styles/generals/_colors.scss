@@ -1,12 +1,24 @@
 // COLORS
-$primary-color: #dd4b39;
-$white: #fff;
-$white2: #fafafa;
-$dark_grey: #333333;
-$light_grey: #868686;
-$dribbble: #ea4c89;
-$behance: #1769ff;
-$github: #333;
-$linkedin: #0077b5;
-$codepen: rgb(189, 189, 189);
+$color-primary: hsl(7, 71%, 55%);
+$color-primary--lighter: hsl(9, 77%, 92%);
+$color-primary--darker: hsl(7, 83%, 30%);
+
+$color-neutral-white: #fff;
+$color-neutral-200: #fafafa;
+$color-neutral-300: #eeeeee;
+$color-neutral-500: #8f8f8f;
+$color-neutral-600: #686868;
+$color-neutral-700: #333333;
+$color-neutral-black: black;
+
+$color-check: #27ae60;
+
+$color-dribbble: #ea4c89;
+$color-behance: #1769ff;
+$color-github: #333;
+$color-linkedin: #0077b5;
+$color-codepen: rgb(189, 189, 189);
 // COLORS
+
+//BOX-SHADOWS
+$box-shadow: 0 0 2px 2px rgba($color-neutral-500, 0.1);

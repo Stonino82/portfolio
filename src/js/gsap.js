@@ -3,10 +3,10 @@
 //Animate the left-side
 var tl1 = gsap.timeline();
 
-tl1.from("h1", {x: -100, duration: .6, opacity: 0, ease: "power2.out"}, "+=0.5")
-  .from("h2", {x: -100, duration: .6, opacity: 0, ease: "power2.out"}, "-=0.4")
-  .from(".presentation__links div", {y: 20, duration: .3, opacity: 0, ease: "power2.out", stagger: .1}, "-=0.3")
-  .from(".presentation__icons li", {y: 20, duration: .3, opacity: 0, ease: "back.out(2)", stagger: .1}, "-=0.3");
+tl1.from(".presentation__central h1", {x: -100, duration: .6, opacity: 0, ease: "power2.out"}, "+=0.5")
+  .from(".presentation__central h2, .menu-container", {x: -100, duration: .6, opacity: 0, ease: "power2.out"}, "-=0.4")
+  .from(".presentation__icons li", {y: 20, duration: .4, opacity: 0, ease: "back.out(2)", stagger: .1}, "-=0.3")
+  .from(".presentation__resume", {y: 20, duration: .4, opacity: 0, ease: "power2.out", stagger: .1}, "-=0.2")
 
 
 //Animate the right-side
@@ -28,7 +28,7 @@ tl1.from("h1", {x: -100, duration: .6, opacity: 0, ease: "power2.out"}, "+=0.5")
 //   });
 // });
 
-gsap.utils.toArray('.home article .project__caption--up').forEach((el) => {
+gsap.utils.toArray('.home article .project__caption').forEach((el) => {
   gsap.from(el, {
       scrollTrigger: {
         trigger: el,

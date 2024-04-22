@@ -6,17 +6,31 @@
     transform: translateY(-3px);
 }
 .fa-dribbble:hover {
-    color: $dribbble;
+    color: $color-dribbble;
 }
 .fa-behance:hover {
-    color: $behance;
+    color: $color-behance;
 }
 .fa-github:hover {
-    color: $github;}
+    color: $color-github;}
 
 .fa-linkedin-in:hover {
-    color: $linkedin;
+    color: $color-linkedin;
 }
 .fa-codepen:hover {
-    color: $codepen;
+    color: $color-codepen;
+}
+
+.presentation__icons {
+    display: flex;
+    .presentation__icons--item {
+        color: $color-neutral-500;
+        .presentation__icons--item::before {
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+        }
+    }
 }

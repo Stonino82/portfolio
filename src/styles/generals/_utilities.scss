@@ -1,0 +1,48 @@
+// Utility Classes
+
+// font-family
+.ff-primary {font-family: var(--ff-primary);}
+.ff-secondary {font-family: var(--ff-secondary)};
+// font-weight
+.fw-light {font-weight: var(--fw-light);}
+.fw-regular {font-weight: var(--fw-regular);}
+.fw-medium {font-weight: var(--fw-medium);}
+.fw-semi-bold {font-weight: var(--fw-semi-bold);}
+.fw-bold {font-weight: var(--fw-bold);}
+// text-color
+.tc-primary {color: $color-primary;}
+.tc-neutral-500 {color: $color-neutral-500;}
+.tc-neutral-600 {color: $color-neutral-600;}
+.tc-neutral-700 {color: $color-neutral-700;}
+.tc-neutral-black {color: $color-neutral-black;}
+// text-align
+.ta-left {text-align: left;}
+.ta-center {text-align: center;}
+.ta-right {text-align: right;}
+// text-transform
+.tt-low {text-transform: lowercase;}
+.tt-cap {text-transform: capitalize;}
+.tt-up {text-transform: uppercase;}
+
+
+.fs-primary-heading {
+    font-size: var(--fs-700);
+}
+.fs-secondary-heading {
+    font-size: var(--fs-600);
+    line-height: 170%;
+}
+.fs-body {
+    font-size: var(--fs-500);
+}
+@media (min-width: 992px) {
+    :root {
+        .fs-primary-heading {
+            font-size: var(--fs-800);
+        }
+    }
+}
+.fs-btn {
+    font-size: var(--fs-200) !important;
+    font-weight: var(--fw-medium) !important;
+}

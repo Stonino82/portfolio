@@ -41,11 +41,11 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
         var removeSuccess;
       
         removeSuccess = function () {
-          return $('.button').removeClass('success');
+          return $('.btn--home').removeClass('success');
         };
       
         $(document).ready(function () {
-          return $('.button').click(function () {
+          return $('.btn--home').click(function () {
             $(this).addClass('success');
             return setTimeout(removeSuccess, 3000);
           });
@@ -55,17 +55,25 @@ jQuery(function ($) {   // All scripts after this line (with this we can use jQu
 
 
       // Tiny-slider
-      if ( $('.slider').length > 0 ) { //Si la clase .slider existe..
+      // if ( $('.slider').length > 0 ) { Si la clase .slider existe..
         var slider = tns({
           container: '.slider',
-          controls: false,
-          nav: false,
-          autoplayButtonOutput: false,
-          items: 1,
           slideBy: 'page',
-          autoplay: true
+          speed: 700,
+          // nav: true,
+          // navPosition: 'bottom',
+          autoplay: true,
+          autoPlayTimeout: 3000,
+          autoplayButtonOutput: false,
+          controls: false,
+          // controlsContainer: '#slider-controls',
+          // prevButton: '.previous',
+          // nextButton: '.next',
+          items: 1,
+          navContainer: '.slider-nav',
+          navAsThumbnails: true
         });
-      }
+      //}
 
       
 

@@ -1,0 +1,21 @@
+.site-footer {
+    height: 70px;
+    background-color: $color-neutral-700;
+    .site-info {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--size-500);
+    }
+}
+
+@media (min-width: 991px) {
+    .site-footer {
+        .site-info {
+            flex-direction: row;
+            gap: var(--size-700);
+        }
+    }
+}

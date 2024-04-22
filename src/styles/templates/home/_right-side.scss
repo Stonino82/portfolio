@@ -1,59 +1,124 @@
-.portfolio {display:grid;}
+// HOME -> right-side
 
-.project-full {display:grid; position:relative; overflow: hidden}
-.project-full img {align-self:center; justify-self:center;}
+.portfolio {
+    .split-article {}
+    article {  //.project-full & .project-half
+        position: relative;
+        display: grid !important;
+        overflow: hidden;
+        a.project__link {
+            position: absolute;
+            z-index: 1;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .project__img,
+        .project__video {
+            align-self: center;
+            justify-self: center;
+            transition: all .3s ease-in-out;
+            &--contain {
+                width: 80%;
+                height: 80%;
+                object-fit: contain;
+                object-position: center;
+            }
+            &--cover {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .project__link:hover~.project__img {
+            transform: scale(1.05);
+        }
+        .project__caption {
+            position: absolute;
+            top: var(--size-600);
+            left: var(--size-600);
+            right: var(--size-600);
+            .project__subtitle {
+                display: flex;
+                align-items: center;
+            }
+            .project__links {
+                .project__links--item {
+                    display: inline-block;
+                    margin-right: .5rem;
+                    font-size: var(--fs-600);
+                    vertical-align: middle;
+                }
+            }
+        }
+        .project__tags {
+            position: absolute;
+            bottom: var(--size-600);
+            left: var(--size-600);
+            max-width: 55%;
+            display: flex;
+            flex-flow: row wrap;
+            margin: -5px;
+            padding: 0;
+             & > * {
+                margin: 5px;
+                opacity: 0.9;
+             }
+        }
+        .project__kit {
+            position: absolute;
+            right: var(--size-600);
+            bottom: var(--size-600);
+            display: flex;
+            margin: 0 -.5rem;
+            padding: 0;
+            font-size: var(--fs-600);
+            color: $color-neutral-white;
+            opacity: 0.9 !important;
+            &--item {
+                float: left;
+                margin: 0 .5rem;
+            }
+        }
+    }
+}
 
-.project-half {position:relative; overflow: hidden}
-.project-half__img {align-self:center; justify-self:center;}
-
-.project__link {width: 100%; height: 100%; z-index: 1; display: block; position: absolute;}
-.project__img {transition: all .3s ease-in-out;}
-.project__link:hover ~ .project__img {transform: scale(1.05);}
-
-.project__img--contain {object-fit: contain; object-position: center; width: 70%; height: 70%;}
-.project__img--cover {height: 100%; width: 100%; object-fit: cover;}
-.project__caption--up {position:absolute; top:40px; left:40px; z-index:2; width:80%;}
-.project__kit {bottom:53px; font-size:1rem; display:flex; margin:0; padding:0; opacity:0.3 !important; position:absolute; right:40px;}
-.project__kit--item {float:left; margin: 0 .8rem 0 0;}
-.project__kit--item i {vertical-align: middle;}
-.project__caption--white {color: $white;}
-.project__caption--black {color: $dark_grey;}
-.project__number, .project__company, .project__kit {margin: 0;}
-.project__company {font-family: 'Raleway', sans-serif; font-size:.875rem;}
-.project__name {margin: 1.2rem 0 -.5rem ;}
-.project__links {margin: 1.2rem 0;}
-.project__links--item {display: inline-block; font-size: 1rem; margin-right: .7rem; vertical-align: middle;}
-.project__tags {display:flex; flex-flow:row wrap; left:40px; max-width:45%; padding:0; position:absolute; bottom:40px;}
-.project__tags--item {align-items:center; background:#0003; border-radius:30px; box-shadow: 0 0 5px 0 rgba(0,0,0,.2); color:$white; content:""; display:flex; font-size:.75rem; font-weight:400; height:30px; margin:0 5px 5px 0; min-height:20px; min-width:20px; padding:.5rem .8rem;}
-.project__tags--item-category {background: $primary-color;}
-
-.process__toolkit-column p {line-height: .5rem;}
-.process__toolkit--items {margin: 1rem 0;}
-
-.footer__inner {align-items:center; background-color:$dark_grey; display:flex; height:70px; }
-.footer__inner p {font-family: 'Raleway', sans-serif; color:$light-grey; font-size:.875rem; line-height: 0; margin:0;}
+// classes assigned from ACF
+.project__caption--white {
+    color: $color-neutral-white;
+}
+.project__caption--black {
+    color: $color-neutral-700;
+}
 
 @media (max-width: 991px) {
-    .project-full{height: 100vh;}
-    .split-article {display:grid; grid-template-rows: 1fr 1fr; position:relative;}
-    .project-half {display:grid; height:100vh;}
-
-    .process__content {align-items:center; display:grid; grid-template-columns:1fr;justify-content: center; margin: 1rem auto;}
-    .process__content--description {text-align: center; justify-self:center; padding:5%;}
-
-    .footer__inner {flex-direction: column-reverse; justify-content:space-evenly;}
+    .project-full {
+        height: 100vh;
+    }
+    .split-article {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        position: relative;
+        .project-half {
+            display: grid;
+            height: 100vh;
+        }
+    }
 }
+
 @media (min-width: 992px) {
-    .project-full{height: 100vh;}
-    .split-article {display:grid; grid-template-columns: repeat(2, 1fr); height:50vh; position:relative;}
-    .project-half {display:grid; height:50vh;}
-
-    .process__content {align-items:center; display:grid; grid-template-columns:1fr; margin: 4rem auto;}
-    .process__content--description {text-align: center; justify-self: flex-end; width: 350px; padding:5%;}
-
-    .footer__inner {flex-direction: row; justify-content:space-around;}
+    .project-full {
+        height: 100vh;
+    }
+    .split-article {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 50vh;
+        position: relative;
+        .project-half {
+            display: grid;
+            height: 50vh;
+        }
+    }
 }
-@media (min-width: 1200px) {
-    .process__content {grid-template-columns:1fr 1fr;}
-    .process__content--description {text-align: left;}
-}
+

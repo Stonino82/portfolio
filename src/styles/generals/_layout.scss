@@ -1,26 +1,47 @@
 /* For the moment same layout for all the pages */
-
 .container {
     display:grid;
+    grid-template-columns:1fr;
+    &::before {
+        all: unset !important;
+    }
+    .presentation {
+        width: 100%;
+        position: sticky;
+        z-index: 1;
+        top: 0;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $color-neutral-200;
+        box-sizing: border-box;
+    }
+    .blog, .portfolio {
+        position: relative;
+        z-index: 2;
+        display: grid;
+    }
 }
 
 @media (min-width: 576px) {}
-@media (min-width: 768px) {}
-@media (max-width: 991px) { 
+@media (min-width: 768px) {
     .container {
-        display:grid;
-        grid-template-columns:1fr;
+        .presentation {}
     }
 }
 @media (min-width: 992px) { 
     .container {
-        display:grid;
-        grid-template-columns:45% 55%;
+        grid-template-columns: minmax(425px, 0.4fr) 1fr;
+        .presentation {
+            align-items: flex-start;
+            z-index: 2;
+            box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;
+        }
+        .blog, .portfolio {
+            z-index: 1;
+        }
     }
 }
-@media (min-width: 1200px) {
-    .container {
-        display: grid;
-        grid-template-columns: 40% 60%;
-    }
-}
+@media (min-width: 1200px) {}

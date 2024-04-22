@@ -1,13 +1,6 @@
 // SOBRESCRIBE
-a {
-    color:unset;
-}
-a:visited {
-    color:unset;
-}
-a:-webkit-any-link {
-    color:unset;
-}
+// a, a:visited, a:-webkit-any-link {color:unset};
+
 .page {
     margin:0;
 }

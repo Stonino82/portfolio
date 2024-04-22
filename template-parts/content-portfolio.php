@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying portfolio posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -66,25 +66,26 @@
 	</div>
 </section><!-- /presentation -->
 
-<section class="blog">
+<section class="portfolio">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 		<header class="entry-header"></header><!-- .entry-header -->
 
 		<div class="thumbnail">			
 			<?php antoninolattene_post_thumbnail(); ?>
-			<ul class="presentation__tags">
-				<button class="btn btn__primary fs-btn chip"><?php echo get_the_term_list( get_the_ID(), 'category', "" );?></button>
-				<?php 
-				$tags = get_the_tags();
-				if( $tags ): ?>
-					<?php foreach( $tags as $tag ): ?>
-					<li>
-						<a class="btn btn__primary fs-btn chip chip--tags" href="<?php echo get_tag_link( $tag ); ?>"><?php echo $tag->name; ?></a>
-					</li>
-					<?php endforeach; ?>
-				<?php endif; ?>
-			</ul>
+				<ul class="presentation__tags">
+					<button class="btn btn__primary fs-btn chip"><?php echo get_the_term_list( get_the_ID(), 'portfolio_category', "" );?></button>
+					<?php 
+					$tags = get_the_terms( get_the_ID(), 'portfolio_tag' );
+					if( $tags ): ?>
+						<?php foreach( $tags as $tag ): ?>
+						<li>
+							<a class="btn btn__primary fs-btn chip chip--tags" href="<?php echo get_tag_link( $tag ); ?>"><?php echo $tag->name; ?></a>
+						</li>
+						<?php endforeach; ?>
+					<?php endif; ?>
+				</ul>
 		</div>
+
 		<div class="entry-content">
 			<?php
 			the_content( sprintf(
@@ -112,4 +113,4 @@
 		</footer> -->
 
 	</article><!-- #post-<?php the_ID(); ?> -->
-</section><!-- /blog -->
+</section><!-- /portfolio -->

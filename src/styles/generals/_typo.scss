@@ -1,65 +1,88 @@
-$base-font-size: 16px;
-$base-line-height:  16px;
-$rhythm-unit: "rem";
-
-// Font families
-$base-font-family: 'Poppins',sans-serif;
-$base-font-family2: 'Raleway', sans-serif;
-$font-awesome: "Font Awesome 5 Free";
-
-html {
-    font-size: $base-font-size;
-    line-height: $base-line-height;
+// Variables
+:root {
+    // Font-family
+    --ff-primary: 'Noto Sans', sans-serif;
+    // --ff-secondary: 'Raleway', sans-serif;
+    --ff-secondary: 'Inter', sans-serif;
+    --ff-headings: var(--ff-primary);
+    --ff-body: var(--ff-secondary);
+    --font-awesome: "Font Awesome 5 Free";
+    // Font-size
+    --fs-100: 0.75rem; //12px
+    --fs-200: 0.8125rem; //13px
+    --fs-300: 0.875rem; //14px
+    --fs-400: 0.9375rem; //15px
+    --fs-500: 1rem; //16px
+    --fs-600: 1.125rem; //18px
+    --fs-700: 1.375rem; //22px
+    --fs-800: 1.875rem; //30px
+    --fs-900: 2.5rem; //40px
+    // Font-weight
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semi-bold: 600;
+    --fw-bold: 800;
 }
+
+
+/* General styling */
 body {
-    font-family: $base-font-family;
-    color:$dark_grey;
+    font-family: var(--ff-body);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-regular);
+    line-height: 180%;
+    color: $color-neutral-700;
 }
-
-// Headings
-h1 {
-    font-weight:700;
-    text-transform:uppercase;
-    margin:0;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--ff-headings);
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--size-500);
+    line-height: 120%;
 }
-h2 {
-    font-family: $base-font-family2;
-    font-size: $base-font-size;
-    font-weight: 200;
-    line-height: 1.6rem;
-    font-size: 1.125rem;
-    letter-spacing: 0.03rem;
-    color: $primary-color;
-    margin: 2rem 0;
-}
-@media (max-width: 991px) { 
-    h1, h2 {text-align:center;}
-    h1 {font-size:2.2rem; line-height:2.6rem;}
-    h2 {margin:1rem 0 2rem 0;}
-}
-@media (min-width: 992px) {
-    h1, h2 {text-align:left;}
-    h1 {font-size:2.2rem; line-height:2.4rem;}
-}
-@media (min-width: 1200px) {
-    h1 {width:100%;}
-}
-h3 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 2.4rem;
-}
-h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    line-height: 1.6rem;
-}
+h1 {font-size: var(--fs-900);}
+h2 {font-size: var(--fs-800);}
+h3 {font-size: var(--fs-700);}
+h4 {font-size: var(--fs-600);}
+h5 {font-size: var(--fs-500);}
+h6 {font-size: var(--fs-400);}
 p {
-    font-family: $base-font-family2;
-    font-size: 1.125rem;
-    font-weight: 200;
-    line-height: 2rem;
+    color: $color-neutral-600;
+    margin-block: var(--size-200);
+    // &:not(:first-of-type) {
+    //     margin-block: var(--size-200);
+    // }
+}
+li {
+    color: $color-neutral-600;
 }
 strong {
-    color: $primary-color;
+    font-weight: var(--fw-semi-bold);
+    color: $color-primary;
+}
+small, figcaption {
+    font-size: var(--fs-300);
+    line-height: 120%;
+    color: $color-neutral-600;
+}
+a {
+    font-weight: var(--fw-semi-bold);
+    outline: 0;
+    color: $color-primary;
+    &:visited {
+        color: $color-primary;
+    }
+    &:hover {
+        color: $color-primary;
+    }
+    &:-webkit-any-link {
+        color: $color-primary;
+    }
+    &:focus {
+        color: $color-primary;
+        outline: none;
+    }
+    &:active {
+        color: $color-primary;
+    }
 }

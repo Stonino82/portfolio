@@ -1,0 +1,32 @@
+.chip {
+    width: max-content;
+    height: 30px;
+    padding: .5rem .8rem;
+    display: flex;
+    align-items: center;
+    font-size: var(--fs-100);
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: $color-primary;
+    color: $color-neutral-white !important;
+    border-radius: 30px;
+    i {
+        margin-right: .25rem;
+        font-size: 14px;
+    }
+    a {
+        text-decoration: none;
+        color: $color-neutral-white !important;
+    }
+}
+
+.chip--category {
+    background-color: $color-neutral-700;
+}
+.chip--tags {
+    text-transform: lowercase;
+    font-weight: 500;
+    background-color: $color-neutral-300;
+    color: $color-neutral-700 !important;
+}
