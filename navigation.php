@@ -14,6 +14,6 @@
 <?php wp_nav_menu( array( 
         'menu' => 'primary',
         'container_class' => 'menu-container',
-        'link_class' => 'btn btn__tertiary fs-btn tt-up'
+        'link_class' => 'btn fs-btn tt-up'
     ) );
 ?>

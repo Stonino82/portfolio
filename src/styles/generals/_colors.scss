@@ -1,7 +1,13 @@
 // COLORS
-$color-primary: hsl(7, 71%, 55%);
-$color-primary--lighter: hsl(9, 77%, 92%);
-$color-primary--darker: hsl(7, 83%, 30%);
+$color-primary: hsl(234, 84%, 66%);
+$color-primary--lighter: hsl(235, 63%, 85%);
+
+// colores antiguos
+// $color-primary: hsl(7, 71%, 55%);
+// $color-primary--lighter: hsl(9, 77%, 92%);
+// $color-primary--darker: hsl(7, 83%, 30%);
+
+$color-gradient: linear-gradient(to bottom right, #5F6DF1, #3D0E89);
 
 $color-neutral-white: #fff;
 $color-neutral-200: #fafafa;
@@ -21,4 +27,4 @@ $color-codepen: rgb(189, 189, 189);
 // COLORS
 
 //BOX-SHADOWS
-$box-shadow: 0 0 2px 2px rgba($color-neutral-500, 0.1);
+$box-shadow: 0 2px 2px 2px rgba($color-neutral-500, 0.1);

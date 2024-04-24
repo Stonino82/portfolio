@@ -82,7 +82,7 @@ function add_active_class($classes, $item) {
     in_array( 'current_page_parent', $classes ) ||
     in_array( 'current_page_ancestor', $classes )
     ) {
-    $classes[] = "chip";
+    $classes[] = ""; // <-- agregar la clase "chip" al link activo del menú
   }
   return $classes;
 }

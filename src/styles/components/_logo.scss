@@ -1,4 +1,29 @@
-.logo-tony {
-    max-height: 110px;
-    filter: invert(20%) !important;
+.logo {
+    width: 150px;
+    display: flex;
+    align-items: center;
+    gap: var(--size-200);
+    img {        
+        max-height: 42px;
+        filter: invert(20%) !important;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        & > * {
+            width: max-content;
+            font-size: 14px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+        span:first-of-type {
+            font-weight: 600;
+        }
+        span:last-of-type {
+            font-weight: 800;
+            background: $color-gradient;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
 }

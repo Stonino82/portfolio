@@ -1,18 +1,12 @@
 // Variables
 
-$speed: "0.25s";
-$transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
-
-/* General Buttons */
 .btn {
-	position: relative;
 	width: max-content;
-	height: 28px;
+	height: 34px;
+	padding: 8px 16px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	line-height: 28px;
-	border-radius: 40px;
 	text-decoration: none; //for A links converted in buttons
 	overflow: hidden;
 	cursor: pointer;
@@ -22,120 +16,28 @@ $transition: all #{$speed} cubic-bezier(0.310, -0.105, 0.430, 1.400);
 		align-items: center;
 		justify-content: center;
 	}
+	.btn--text,
 	.btn--icon {
-		&__left {
-			margin-right: .5rem;
-		}
-		&__right {
-			margin-left: .5rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.btn--icon {
+		margin-left: .5rem;
+		.rotate {
+			transform: rotate(-135deg);
 		}
 	}
 	.btn--text {
 		text-transform: uppercase;
 	}
+}
 
-}
 .btn__primary {
-	background-color: $color-primary;
-	color: $color-neutral-white !important;
-	border: none;
-}
-.btn__secondary {
-	background-color: $color-neutral-white;
 	color: $color-primary !important;
 	border: 1px solid $color-primary;
+	border-radius: 8px;
 }
-
-.btn__tertiary {
-	background-color: transparent;
+.btn__secondary {
 	color: $color-primary !important;
-	border: none;
-}
-
-/* Home Buttons */
-.btn--home {
-	width: 115px;
-	transition: $transition;
-	.btn--text,
-	.btn--icon {
-		position: absolute;
-		top: 0;
-		height: 100%;
-		transition: $transition;
-	}
-	.btn--text {
-		left: 0;
-		width: 70%;
-		
-		&:after {
-			content: '';
-			position: absolute;
-			top: 15%;
-			right: 0;
-			height: 70%;
-			width: 1px;
-		}
-	}
-	.btn--icon {
-		right: 0;
-		width: 30%;
-		.fa, .fas{
-			transition: $transition,
-			height #{$speed} ease;
-		}
-		.fa-check {
-			display: none;
-		}
-	}
-	&.btn__primary {
-		.btn--text {
-			&:after {
-				background-color: $color-neutral-white;
-			}
-		}
-	}
-	&.btn__secondary {
-		.btn--text {
-			&:after {
-				background-color: $color-primary;
-			}
-		}
-	}
-	
-	&.btn__tertiary {
-		.btn--text {
-			&:after {
-				background-color: $color-primary;
-			}
-		}
-	}
-	&.success,
-	&:hover {
-		.btn--text {
-			left: -50%;
-			opacity: 0;
-		}
-		.btn--icon {
-			width: 100%;
-		}
-	}
-	&.success {
-		background-color: $color-check !important;
-		border: $color-check !important;
-		.btn--icon {
-			.fa-paper-plane, .fa-arrow-alt-circle-down {
-				display: none;
-			}
-			.fa-check {
-				display: inline-block;
-				color: $color-neutral-white;
-			}
-		}
-	}
-	&:hover {
-		opacity: .9;
-	}
-	&:active {
-		opacity: 1;
-	}
 }

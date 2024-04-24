@@ -18,26 +18,38 @@
         background-color: $color-neutral-200;
         box-sizing: border-box;
     }
+    .showcase {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: var(--size-800);
+        padding: var(--size-600);
+        background-color: $color-neutral-white;
+    }
     .blog, .portfolio {
         position: relative;
         z-index: 2;
         display: grid;
+        background-color: $color-neutral-white;
     }
 }
 
 @media (min-width: 576px) {}
-@media (min-width: 768px) {
-    .container {
-        .presentation {}
-    }
-}
+@media (min-width: 768px) {}
 @media (min-width: 992px) { 
     .container {
         grid-template-columns: minmax(425px, 0.4fr) 1fr;
         .presentation {
             align-items: flex-start;
             z-index: 2;
-            box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;
+            // box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;
+        }
+        .showcase {
+            z-index: 1;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--size-600);
+            padding: var(--size-800);
         }
         .blog, .portfolio {
             z-index: 1;

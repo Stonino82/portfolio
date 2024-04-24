@@ -12,7 +12,8 @@
     color: $color-behance;
 }
 .fa-github:hover {
-    color: $color-github;}
+    color: $color-neutral-white;
+}
 
 .fa-linkedin-in:hover {
     color: $color-linkedin;
@@ -22,9 +23,12 @@
 }
 
 .presentation__icons {
+    height: max-content;
     display: flex;
     .presentation__icons--item {
-        color: $color-neutral-500;
+        a {
+            color: $color-neutral-500;
+        }
         .presentation__icons--item::before {
             display: inline-block;
             font-style: normal;
