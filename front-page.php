@@ -59,9 +59,6 @@
                         $background_color = get_sub_field('background_color');
                         $name = get_sub_field('name');
                         $link_project_page = get_sub_field('link_project_page');
-                        $link_url = $link_project_page['url'];
-                        $link_title = $link_project_page['title'];
-                        $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';
                         $company = get_sub_field('company');
                         $link_dribbble = get_sub_field('link_dribbble');
                         $link_behance = get_sub_field('link_behance');
@@ -72,8 +69,12 @@
                         $post_type = get_sub_field('post_type');
                     ?>
                     <article class="project-full">
-                            
-                            <?php if( $link_project_page ): ?>
+                        
+                            <?php if( $link_project_page ): 
+                                $link_url = $link_project_page['url'];
+                                $link_title = $link_project_page['title'];
+                                $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';    
+                            ?>
                                 <div class="project__image" style="background-color:<?php echo $background_color; ?>;">
                                     <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>">
                                         <?php if( $image ): ?>
@@ -94,8 +95,16 @@
                             <?php endif; ?>
 
                             <div class="project__section">
-                                <?php if( $name ): ?>
-                                    <span class="chip"><?php echo $post_type; ?></span>
+                                <?php if( $post_type == 'Blog' ): ?>
+                                    <div class="chip-list">
+                                        <span class="chip chip__section"><i class="fa-solid fa-feather-pointed"></i><?php echo $post_type; ?></span>
+                                        <span class="chip chip__category"><?php echo esc_html( $category ); ?></span>
+                                    </div>
+                                <?php elseif( $post_type == 'Portfolio' ): ?>
+                                    <div class="chip-list">
+                                        <span class="chip chip__section"><i class="fa-solid fa-folder-open"></i><?php echo $post_type; ?></span>
+                                        <span class="chip chip__category"><?php echo esc_html( $category ); ?></span>
+                                    </div>
                                 <?php endif; ?>
                             </div>
                             
@@ -109,11 +118,12 @@
                             <?php endif; ?>
 
                             <div class="project__caption margin-block-500 padding-inline-500">
-                                <?php if( $category ): ?>
-                                        <h6 class="project__subtitle fw-bold tt-up margin-block-100"><?php echo esc_html( $category ); ?></h6>
-                                <?php endif; ?>
                                 
-                                <?php if( $link_project_page ): ?>
+                                <?php if( $link_project_page ):
+                                    $link_url = $link_project_page['url'];
+                                    $link_title = $link_project_page['title'];
+                                    $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';    
+                                ?>
                                     <!-- <p class="pfs-body"><?php echo $number; ?></p> <small class="margin-inline-200"><?php echo $company; ?></small> -->
                                     <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>">
                                         <h3 class="project__title fs-secondary-heading margin-0"><?php echo $name; ?></h3>

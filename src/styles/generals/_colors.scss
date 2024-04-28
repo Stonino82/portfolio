@@ -3,11 +3,11 @@ $color-primary: hsl(234, 84%, 66%);
 $color-primary--lighter: hsl(235, 63%, 85%);
 
 // colores antiguos
-// $color-primary: hsl(7, 71%, 55%);
-// $color-primary--lighter: hsl(9, 77%, 92%);
-// $color-primary--darker: hsl(7, 83%, 30%);
+$color-accent: hsl(7, 71%, 55%);
+$color-accent--lighter: hsl(9, 77%, 92%);
+$color-accent--darker: hsl(7, 83%, 30%);
 
-$color-gradient: linear-gradient(to bottom right, #5F6DF1, #3D0E89);
+$color-gradient: linear-gradient(135deg, rgba(95,109,241,1) 0%, rgba(61,14,137,1) 100%);
 
 $color-neutral-white: #fff;
 $color-neutral-200: #fafafa;

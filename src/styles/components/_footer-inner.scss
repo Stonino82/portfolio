@@ -46,7 +46,8 @@
 
 @media (min-width: 991px) {
     .site-footer {
-        padding: var(--size-300);
+        padding-block: var(--size-300);
+        padding-inline: var(--size-600);
         flex-direction: row;
         &>* {
             margin: 0;

@@ -72,18 +72,26 @@
 
 		<div class="thumbnail">			
 			<?php antoninolattene_post_thumbnail(); ?>
-				<ul class="presentation__tags">
-					<button class="btn btn__primary fs-btn chip"><?php echo get_the_term_list( get_the_ID(), 'portfolio_category', "" );?></button>
-					<?php 
-					$tags = get_the_terms( get_the_ID(), 'portfolio_tag' );
-					if( $tags ): ?>
-						<?php foreach( $tags as $tag ): ?>
-						<li>
-							<a class="btn btn__primary fs-btn chip chip--tags" href="<?php echo get_tag_link( $tag ); ?>"><?php echo $tag->name; ?></a>
-						</li>
-						<?php endforeach; ?>
-					<?php endif; ?>
-				</ul>
+			<ul class="chip-list">
+				<?php $categories = get_the_terms( $post->ID, 'portfolio_category' );
+				if( $categories ): ?>
+					<?php foreach( $categories as $category ): ?>
+					<li>
+						<!-- Get category without link -->
+						<span class="chip chip__category"><?php echo $category->name; ?></span>
+					</li>
+					<?php endforeach; ?>
+				<?php endif; ?>
+
+				<?php $tags = get_the_terms( get_the_ID(), 'portfolio_tag' ); if( $tags ): ?>
+					<?php foreach( $tags as $tag ): ?>
+					<li>
+						<!-- Get tags without links  -->
+						<span class="chip chip__tags"><?php echo $tag->name; ?></span>
+					</li>
+					<?php endforeach; ?>
+				<?php endif; ?>
+			</ul>
 		</div>
 
 		<div class="entry-content">

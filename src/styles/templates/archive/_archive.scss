@@ -25,16 +25,6 @@
                     margin-top: var(--size-200);
                     margin-bottom: var(--size-500);
                 }
-                .presentation__tags {
-                    display: flex;
-                    flex-flow: row wrap;
-                    margin: 1rem -5px;
-                    list-style-type: none;
-                    .chip {
-                        margin: 5px;
-                        font-weight: 700;
-                    }
-                }
                 p {
                     line-height: 1.6;
                 }

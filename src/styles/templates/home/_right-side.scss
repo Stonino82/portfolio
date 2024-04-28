@@ -14,11 +14,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
+            border-radius: 8px;
             overflow: hidden;
             a {
                 height: 100%;
                 width: 100%;
+                display: flex;
+                place-content: center;
             }
             .project__img,
             .project__video {
@@ -42,6 +44,15 @@
             position: absolute;
             top: var(--size-600);
             left: var(--size-600);
+            .chip-list {
+                .chip {
+                    &__category {
+                        margin-left: -10px;
+                        z-index: -1;
+                        padding-left: 20px;
+                    }
+                }
+            }
         }
         .project__caption {
             .project__subtitle {
@@ -63,7 +74,7 @@
         }
         .project__kit {
             position: absolute;
-            top: var(--size-600);
+            bottom: var(--size-900);
             right: var(--size-600);
             display: flex;
             margin: 0 -.5rem;

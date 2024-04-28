@@ -72,14 +72,22 @@
 
 		<div class="thumbnail">			
 			<?php antoninolattene_post_thumbnail(); ?>
-			<ul class="presentation__tags">
-				<button class="btn btn__primary fs-btn chip"><?php echo get_the_term_list( get_the_ID(), 'category', "" );?></button>
-				<?php 
-				$tags = get_the_tags();
-				if( $tags ): ?>
+			<ul class="chip-list">
+				<?php $categories = get_the_category();
+				if( $categories ): ?>
+					<?php foreach( $categories as $category ): ?>
+					<li>
+						<!-- Get category without link -->
+						<span class="chip chip__category"><?php echo $category->cat_name . ' '; ?></span>
+					</li>
+					<?php endforeach; ?>
+				<?php endif; ?>
+
+				<?php $tags = get_the_tags(); if( $tags ): ?>
 					<?php foreach( $tags as $tag ): ?>
 					<li>
-						<a class="btn btn__primary fs-btn chip chip--tags" href="<?php echo get_tag_link( $tag ); ?>"><?php echo $tag->name; ?></a>
+						<!-- Get tags without links  -->
+						<span class="chip chip__tags"><?php echo $tag->name; ?></span>
 					</li>
 					<?php endforeach; ?>
 				<?php endif; ?>
