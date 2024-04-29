@@ -33,6 +33,18 @@
         display: grid;
         background-color: $color-neutral-white;
     }
+    //Overwrite colors for all Blog pages
+    .blog {
+        a, strong {
+            color: $color-accent !important;
+        }
+        .wp-block-group-featured {
+            background-color: $color-accent !important;
+        }
+        .entry-content ul li::before {
+            background: $color-accent !important;
+        }
+    }
 }
 
 @media (min-width: 576px) {}

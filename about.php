@@ -3,13 +3,13 @@
 <main class="container">
     <section class="presentation padding-600 opacityOnScroll">
         <div class="presentation__header">
-            <div class="logo">
+            <a class="logo" href="<?php echo home_url(); ?>">
                 <img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
                 <div>
                     <span>tony.</span>
                     <span>UX/UI DESIGNER</span>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="presentation__central">
             <?php get_template_part( 'navigation' ); ?>

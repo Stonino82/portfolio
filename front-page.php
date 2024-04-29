@@ -3,13 +3,13 @@
 <main class="container">
     <section class="presentation padding-600 opacityOnScroll">
         <div class="presentation__header">
-            <div class="logo">
-                <img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
-                <div>
-                    <span>tony.</span>
-                    <span>UX/UI DESIGNER</span>
-                </div>
-            </div>
+            <a class="logo" href="<?php echo home_url(); ?>">
+					<img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
+					<div>
+						<span>tony.</span>
+						<span>UX/UI DESIGNER</span>
+					</div>
+				</a>
         </div>
         <div class="presentation__central">
             <?php get_template_part( 'navigation' ); ?>
@@ -65,6 +65,7 @@
                         $link_github = get_sub_field('link_github');
                         $link_codepen = get_sub_field('link_codepen');
                         $category = get_sub_field('category');
+                        $sub_category = get_sub_field('sub-category');
                         $kit_icons = get_sub_field('kit_icons');
                         $post_type = get_sub_field('post_type');
                     ?>
@@ -95,15 +96,17 @@
                             <?php endif; ?>
 
                             <div class="project__section">
-                                <?php if( $post_type == 'Blog' ): ?>
+                                <?php if( $post_type == 'Portfolio' ): ?>
                                     <div class="chip-list">
-                                        <span class="chip chip__section"><i class="fa-solid fa-feather-pointed"></i><?php echo $post_type; ?></span>
-                                        <span class="chip chip__category"><?php echo esc_html( $category ); ?></span>
+                                        <span class="chip chip__portfolio--section"><i class="fa-solid fa-folder-open"></i><?php echo $post_type; ?></span>
+                                        <span class="chip chip__portfolio--category"><?php echo esc_html( $category ); ?></span>
+                                        <span class="chip chip__portfolio--sub-category"><?php echo esc_html( $sub_category ); ?></span>
                                     </div>
-                                <?php elseif( $post_type == 'Portfolio' ): ?>
+                                <?php elseif( $post_type == 'Blog' ): ?>
                                     <div class="chip-list">
-                                        <span class="chip chip__section"><i class="fa-solid fa-folder-open"></i><?php echo $post_type; ?></span>
-                                        <span class="chip chip__category"><?php echo esc_html( $category ); ?></span>
+                                        <span class="chip chip__blog--section"><i class="fa-solid fa-feather-pointed"></i><?php echo $post_type; ?></span>
+                                        <span class="chip chip__blog--category"><?php echo esc_html( $category ); ?></span>
+                                        <span class="chip chip__blog--sub-category"><?php echo esc_html( $sub_category ); ?></span>
                                     </div>
                                 <?php endif; ?>
                             </div>
@@ -150,11 +153,6 @@
                                 <?php endif; ?>
                             </div> -->
                             <!-- <ul class="project__tags">
-                                <?php 
-                                $category = get_sub_field('category');
-                                if( $category ): ?>
-                                        <li class="chip"><?php echo esc_html( $category ); ?></li>
-                                <?php endif; ?>
                                 <?php 
                                 $tags = get_sub_field('tags');
                                 if( $tags ): ?>

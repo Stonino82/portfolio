@@ -1,30 +1,38 @@
 // COLORS
+
+// Color Primary
+$color-primary--lighter: hsl(234, 84%, 80%);
 $color-primary: hsl(234, 84%, 66%);
-$color-primary--lighter: hsl(235, 63%, 85%);
+$color-primary--darker: hsl(234, 84%, 52%);
 
-// colores antiguos
-$color-accent: hsl(7, 71%, 55%);
-$color-accent--lighter: hsl(9, 77%, 92%);
-$color-accent--darker: hsl(7, 83%, 30%);
+// Color Accent
+$color-accent--lighter: hsl(306, 76%, 73%);
+$color-accent: hsl(306, 76%, 53%);
+$color-accent--darker: hsl(306, 76%, 33%);
 
-$color-gradient: linear-gradient(135deg, rgba(95,109,241,1) 0%, rgba(61,14,137,1) 100%);
+// Color Gradient
+$color-gradient: linear-gradient(135deg, hsl(234, 84%, 66%) 0%, hsl(306, 76%, 53%) 100%);
 
+// Color Neutral
 $color-neutral-white: #fff;
 $color-neutral-200: #fafafa;
 $color-neutral-300: #eeeeee;
-$color-neutral-500: #8f8f8f;
+$color-neutral-500: #8f8f8f;    
 $color-neutral-600: #686868;
 $color-neutral-700: #333333;
 $color-neutral-black: black;
 
-$color-check: #27ae60;
 
+
+// Color Specific
 $color-dribbble: #ea4c89;
 $color-behance: #1769ff;
 $color-github: #333;
 $color-linkedin: #0077b5;
 $color-codepen: rgb(189, 189, 189);
-// COLORS
 
-//BOX-SHADOWS
+
+
+
+//Color Box-Shadow
 $box-shadow: 0 2px 2px 2px rgba($color-neutral-500, 0.1);

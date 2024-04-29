@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     gap: var(--size-200);
+    text-decoration: none;
     img {        
         max-height: 42px;
         filter: invert(20%) !important;

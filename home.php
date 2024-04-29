@@ -7,13 +7,13 @@
 	<main class="container container-archive">
 		<section class="presentation padding-600 opacityOnScroll ">
 			<div class="presentation__header">
-				<div class="logo">
+				<a class="logo" href="<?php echo home_url(); ?>">
 					<img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
 					<div>
 						<span>tony.</span>
 						<span>UX/UI DESIGNER</span>
 					</div>
-				</div>
+				</a>
 			</div>
 			<div class="presentation__central">
 				<?php get_template_part( 'navigation' ); ?>
@@ -64,7 +64,7 @@
 									<?php foreach( $categories as $category ): ?>
 									<li>
 										<!-- Get category without link -->
-										<span class="chip chip__category"><?php echo $category->cat_name . ' '; ?></span>
+										<span class="chip chip__blog--category"><?php echo $category->cat_name . ' '; ?></span>
 									</li>
 									<?php endforeach; ?>
 								<?php endif; ?>
@@ -73,7 +73,7 @@
 									<?php foreach( $tags as $tag ): ?>
 									<li>
 										<!-- Get tags without links  -->
-										<span class="chip chip__tags"><?php echo $tag->name; ?></span>
+										<span class="chip chip__blog--tags"><?php echo $tag->name; ?></span>
 									</li>
 									<?php endforeach; ?>
 								<?php endif; ?>

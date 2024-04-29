@@ -34,9 +34,21 @@
 }
 
 .btn__primary {
-	color: $color-primary !important;
-	border: 1px solid $color-primary;
+	background: linear-gradient(white, white) padding-box, $color-gradient border-box;
+	border: 1px solid transparent;
 	border-radius: 8px;
+	.btn--text {
+		background: $color-gradient;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.btn--icon {
+		margin-left: .5rem;
+		color: $color-accent !important;
+		.rotate {
+			transform: rotate(-135deg);
+		}
+	}
 }
 .btn__secondary {
 	color: $color-primary !important;

@@ -23,21 +23,47 @@
             text-decoration: none;
             color: $color-neutral-white !important;
         }
-        &__section {
-            margin-right: -5px;
-            background: $color-gradient;
+        &__portfolio--section {
+            background: $color-primary;
             color: $color-neutral-white !important;
         }
-        &__category {
+        &__portfolio--category {
+            background-color: $color-primary ;
+            color: $color-neutral-white !important;
+            z-index: 1;
+        }
+        &__portfolio--sub-category {
             background-color: $color-neutral-white;
             color: $color-primary !important;
-            border: 2px solid $color-primary !important;
+            margin-left: -20px;
+            padding-left: 24px !important;
         }
-        &__tags {
+        &__blog--section {
+            background: $color-accent;
+            color: $color-neutral-white !important;
+        }
+        &__blog--category {
+            background-color: $color-accent ;
+            color: $color-neutral-white !important;
+            z-index: 1;
+        }
+        &__blog--sub-category {
+            background-color: $color-neutral-white;
+            color: $color-accent !important;
+            margin-left: -20px;
+            padding-left: 24px !important;
+        }
+        &__portfolio--tags {
             font-weight: 500;
             text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-primary !important;
+        }
+        &__blog--tags {
+            font-weight: 500;
+            text-transform: lowercase;
+            background-color: $color-neutral-white;
+            color: $color-accent !important;
         }
     }
 }

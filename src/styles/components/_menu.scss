@@ -10,7 +10,8 @@
             text-align: center;
             text-transform: uppercase;
             transition: all .2s ease-in-out;
-            a.btn {
+            a {
+                color: $color-primary--lighter !important;
                 text-decoration: none;
                     i {
                         display: flex;
@@ -18,20 +19,35 @@
                         justify-content: center;
                         margin: 0 .25rem 0 0;
                     }
+                &:hover {
+                    color: $color-primary !important;
+                }
             }
-            &:not(.current_page_parent) {
-                a.btn {
-                    color: $color-primary--lighter !important;
+            
+            // Home > ".current_page_item"
+            // Portfolio > ".current_page_parent"
+            // Blog > ".current_page_item"
+            
+            &.current_page_item,
+            &.current_page_parent {
+                a {
+                    color: $color-primary !important;
+                }
+            }
+
+            &#menu-item-2919 { //Specific for Blog menú item
+                a {
+                    color: $color-accent--lighter !important;
                 }
                 &:hover {
                     a {
-                        color: $color-primary !important;
+                        color: $color-accent !important;
                     }
                 }
-            }
-            &.current_page_item {
-                a.btn {
-                    color: $color-primary !important;
+                &.current_page_item {
+                    a {
+                        color: $color-accent !important;
+                    }
                 }
             }
         }
