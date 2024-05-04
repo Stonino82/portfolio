@@ -11,7 +11,9 @@
             display: grid;
             gap: var(--size-600);
             .article__thumbnail {
-                max-height: 340px;
+                height: 240px;
+                border-radius: 8px;
+                overflow: hidden;
                 img {
                     height: 100%;
                     object-fit: cover;
@@ -47,9 +49,7 @@
             article {
                 grid-template-columns: 1fr 2.2fr;
                 gap: 0;
-                .article__thumbnail {
- 
-                }
+                .article__thumbnail {}
             }
         }
     }

@@ -10,11 +10,11 @@
         display: flex;
         align-items: center;
         font-size: var(--fs-100);
-        font-weight: 600;
+        font-weight: var(--fw-regular);
         text-align: center;
         text-transform: uppercase;
         border-radius: 8px;
-        // box-shadow: $box-shadow;
+        box-shadow: $box-shadow;
         i {
             margin-right: .25rem;
             font-size: 14px;
@@ -37,6 +37,7 @@
             color: $color-primary !important;
             margin-left: -20px;
             padding-left: 24px !important;
+            text-transform: capitalize;
         }
         &__blog--section {
             background: $color-accent;
@@ -52,6 +53,7 @@
             color: $color-accent !important;
             margin-left: -20px;
             padding-left: 24px !important;
+            text-transform: capitalize;
         }
         &__portfolio--tags {
             font-weight: 500;

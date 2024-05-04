@@ -46,7 +46,7 @@
             </div>
             <?php endif; ?>
         </div>
-        <h3 class="fs-secondary-heading fw-bold margin-block-500"><?php echo $name; ?></h3>
+        <h3 class="fs-body fw-bold margin-block-500"><?php echo $name; ?></h3>
         <div class="project__links margin-inline-200">
             <?php if( $link_dribbble ): ?>
             <a href="<?php echo $link_dribbble; ?>" target="_blank"><span class="icon project__links--item fab fa-dribbble"></span></a>

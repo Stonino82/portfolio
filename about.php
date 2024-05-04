@@ -14,27 +14,27 @@
         <div class="presentation__central">
             <?php get_template_part( 'navigation' ); ?>
             <div class="presentation__headlines margin-block-700">
-                <h1 class="fs-primary-heading fw-bold margin-0">I build stunning UIs that resonate on a human level</h1>
-                <!-- <h2 class="fs-secondary-heading fw-bold tt-up tc-neutral-700">& Front-end Developer</h2> -->
-                <h2 class="fs-secondary-heading fw-regular margin-block-500">Hey, I’m Tony, <strong>User Experience & User Interface Designer</strong> based in Barcelona. With an emphasis in <strong>Visual Design</strong> and a background in <strong>Front-end Development</strong>, I transform user needs into solutions that drive results.</h2>
+                <h1 class="fs-display-1 fw-bold margin-0">I build stunning UIs that resonate on a human level</h1>
+                <!-- <h2 class="fs-body fw-bold tt-up tc-neutral-700">& Front-end Developer</h2> -->
+                <h2 class="fs-body fw-regular margin-block-500">Hey, I’m Tony, <strong>User Experience & User Interface Designer</strong> based in Barcelona. With an emphasis in <strong>Visual Design</strong> and a background in <strong>Front-end Development</strong>, I transform user needs into solutions that drive results.</h2>
             </div>
         </div>
         <div class="presentation__links">
             <div class="presentation__resume">
-                <a class="btn btn--home btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2023/10/CV-Brochure-Antonino-Lattene-UX-UI-Front-End-1.jpg">
+                <a class="btn btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2023/10/CV-Brochure-Antonino-Lattene-UX-UI-Front-End-1.jpg">
                     <span class="btn--text">Resume</span>
                     <span class="btn--icon">
                         <i class="fas fa-arrow-down"></i>
                     </span>
                 </a>
-                <a class="btn btn--home btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/03/CV-Resume-Antonino-Lattene-UX-UI-Front-End.pdf">
+                <a class="btn btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/03/CV-Resume-Antonino-Lattene-UX-UI-Front-End.pdf">
                 
                     <span class="btn--text">Linkedin</span>
                     <span class="btn--icon">
                         <i class="fas fa-arrow-down rotate"></i>
                     </span>
                 </a>
-                <a class="btn btn--home btn__primary fs-btn" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
+                <a class="btn btn__primary fs-btn" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
                     <span class="btn--text">Email Me</span>
                     <span class="btn--icon">
                         <i class="fas fa-arrow-down rotate"></i>
@@ -45,8 +45,8 @@
     </section>
 
     <section class="process">
-        <h2 class="fs-primary-heading fw-bold tt-up tc-neutral-700 margin-0 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">About Me</h2>
-        <h2 class="fs-secondary-heading tc-primary margin-block-200 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">From UX Research, to Front End Development, through UI Design: bridging the gap between Design and Development</h2>
+        <h2 class="fs-display-1 fw-bold tt-up tc-neutral-700 margin-0 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">About Me</h2>
+        <h2 class="fs-body tc-primary margin-block-200 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">From UX Research, to Front End Development, through UI Design: bridging the gap between Design and Development</h2>
         <!-- <img class="process__image margin-block-800 margin-inline-auto" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2023/10/double-diamond-design-model-1.png" alt="double diamond design model" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250"/> -->
         <div class="process__description margin-block-700" data-aos="fade-up" data-aos-duration="800" data-aos-offset="0">
             <div class="even-columns">
@@ -64,7 +64,7 @@
         </div>
         <div class="process__toolkit margin-block-800" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250" data-aos-delay="350">
             <div class="column">
-                <h2 class="fs-secondary-heading tc-primary margin-block-200 ta-center">UX Research Toolkit</h2>
+                <h2 class="fs-body tc-primary margin-block-200 ta-center">UX Research Toolkit</h2>
                 <div class="slider margin-block-700">
                     <div class="slide">
                         <!-- <h6>1. Discover</h6> -->
@@ -134,7 +134,7 @@
             <div class="column">
                 <div class="no-slider">
                     <div class="slide">
-                        <h2 class="fs-secondary-heading tc-primary margin-block-200 ta-center">UI Design Toolkit</h2>
+                        <h2 class="fs-body tc-primary margin-block-200 ta-center">UI Design Toolkit</h2>
                         <ul>
                             <li class="chip chip--tags fw-regular tt-cap">Adobe Suite</li>
                             <li class="chip chip--tags fw-regular tt-cap">Adobe XD</li>
@@ -146,7 +146,7 @@
             <div class="column">
                 <div class="no-slider">
                     <div class="slide">
-                        <h2 class="fs-secondary-heading tc-primary margin-block-200 ta-center">Front End Toolkit</h2>
+                        <h2 class="fs-body tc-primary margin-block-200 ta-center">Front End Toolkit</h2>
                         <ul>
                             <li class="chip chip--tags fw-regular tt-cap">HTML5</li>
                             <li class="chip chip--tags fw-regular tt-cap">CSS3</li>

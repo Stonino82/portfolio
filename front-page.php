@@ -14,26 +14,26 @@
         <div class="presentation__central">
             <?php get_template_part( 'navigation' ); ?>
             <div class="presentation__headlines margin-block-700">
-                <h1 class="fs-primary-heading fw-bold margin-0">I build stunning UIs that resonate on a human level</h1>
-                <!-- <h2 class="fs-secondary-heading fw-bold tt-up tc-neutral-700">& Front-end Developer</h2> -->
-                <h2 class="fs-secondary-heading fw-regular margin-block-500">Hey, I’m Tony, <strong>User Experience & User Interface Designer</strong> based in Barcelona. With an emphasis in <strong>Visual Design</strong> and a background in <strong>Front-end Development</strong>, I transform user needs into solutions that drive results.</h2>
+                <h1 class="fs-display-1 fw-bold margin-0">I build stunning UIs that resonate on a human level</h1>
+                <!-- <h2 class="fs-body fw-bold tt-up tc-neutral-700">& Front-end Developer</h2> -->
+                <h2 class="fs-body fw-regular margin-block-500">Hey, I’m Tony, <strong>User Experience & User Interface Designer</strong> based in Barcelona. With an emphasis in <strong>Visual Design</strong> and a background in <strong>Front-end Development</strong>, I transform user needs into solutions that drive results.</h2>
             </div>
         </div>
         <div class="presentation__links">
             <div class="presentation__resume">
-                <a class="btn btn--home btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/03/CV-Resume-Antonino-Lattene-UX-UI-Front-End.pdf">
+                <a class="btn btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/03/CV-Resume-Antonino-Lattene-UX-UI-Front-End.pdf">
                     <span class="btn--text">Resume</span>
                     <span class="btn--icon">
                         <i class="fas fa-arrow-down"></i>
                     </span>
                 </a>
-                <a class="btn btn--home btn__secondary fs-btn" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
+                <a class="btn btn__secondary fs-btn" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
                     <span class="btn--text">Linkedin</span>
                     <span class="btn--icon">
                         <i class="fas fa-arrow-down rotate"></i>
                     </span>
                 </a>
-                <a class="btn btn--home btn__primary fs-btn" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
+                <a class="btn btn__primary fs-btn" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
                     <span class="btn--text">Email Me</span>
                     <span class="btn--icon">
                         <i class="fas fa-arrow-down rotate"></i>
@@ -129,11 +129,11 @@
                                 ?>
                                     <!-- <p class="pfs-body"><?php echo $number; ?></p> <small class="margin-inline-200"><?php echo $company; ?></small> -->
                                     <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>">
-                                        <h3 class="project__title fs-secondary-heading margin-0"><?php echo $name; ?></h3>
+                                        <h3 class="project__title fs-body margin-0"><?php echo $name; ?></h3>
                                     </a>
                                 <?php else : ?>
                                     <!-- <p class="pfs-body"><?php echo $number; ?></p><small class="margin-inline-200"><?php echo $company; ?></small>  -->
-                                    <h3 class="project__title fs-secondary-heading margin-0"><?php echo $name; ?></h3>
+                                    <h3 class="project__title fs-body margin-0"><?php echo $name; ?></h3>
                                 <?php endif; ?>
                             </div>
 

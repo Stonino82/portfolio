@@ -2,9 +2,9 @@
 :root {
     // Font-family
     --ff-primary: 'Inter', sans-serif;
-    --ff-secondary: 'Noto Sans', sans-serif;
+    // --ff-secondary: 'Noto Sans', sans-serif;
     --ff-headings: var(--ff-primary);
-    --ff-body: var(--ff-secondary);
+    --ff-body: var(--ff-primary);
     --font-awesome: "Font Awesome 5 Free";
     // Font-size
     --fs-100: 0.75rem; //12px
@@ -53,7 +53,6 @@ h1 {
 }
 
 p {
-    color: $color-neutral-600;
     margin-block: var(--size-200);
     // &:not(:first-of-type) {
     //     margin-block: var(--size-200);

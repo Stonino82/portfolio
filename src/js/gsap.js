@@ -12,38 +12,42 @@ tl1.from(".presentation__header", {y: -100, duration: .5, opacity: 0, ease: "pow
     .from(".presentation__resume", {y: 100, duration: .5, opacity: 0, ease: "power2.out", stagger: .1}, "")
 
 
-//Animate the right-side
 
-gsap.utils.toArray('.home article').forEach((el) => {
+
+
+
+//Animate the right-side
+gsap.utils.toArray('body.home article, body.archive article, body.blog article').forEach((el, i) => {
   gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "-100px 80%",
-        end: "80% 100px",
-        toggleActions: "play reverse play reverse",
-        markers: false
-      },
-      y: 100,
-      duration: .6,
-      opacity: 0,
-      ease: "power2.out",
-      scale: .95
+    y: 150,
+    duration: .6,
+    opacity: 0,
+    ease: "power2.out",
+    // scale: .85,
+    // delay: i * 0.15,
+    scrollTrigger: {
+      trigger: el,
+      start: "-100px 80%",
+      end: "80% 100px",
+      toggleActions: "play reverse play reverse",
+      markers: false
+    },
   });
 });
 
 gsap.utils.toArray('.home article .project__section').forEach((el) => {
   gsap.from(el, {
+      x: -100,
+      duration: .6,
+      opacity: 0,
+      ease: "power2.out",
       scrollTrigger: {
         trigger: el,
-        start: "-100px 70%",
+        start: "-100px 80%",
         end: "85% 5%",
         toggleActions: "play reverse play reverse",
         markers: false
       },
-      x: -100,
-      duration: .6,
-      opacity: 0,
-      ease: "power2.out"
   });
 });
 

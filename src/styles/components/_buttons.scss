@@ -28,15 +28,14 @@
 			transform: rotate(-135deg);
 		}
 	}
-	.btn--text {
-		text-transform: uppercase;
-	}
+	.btn--text {}
 }
 
 .btn__primary {
-	background: linear-gradient(white, white) padding-box, $color-gradient border-box;
+	background: linear-gradient(#fafafa, #fafafa) padding-box, $color-gradient border-box;
 	border: 1px solid transparent;
 	border-radius: 8px;
+	transition: all .2s ease-out;
 	.btn--text {
 		background: $color-gradient;
 		-webkit-background-clip: text;
@@ -52,4 +51,11 @@
 }
 .btn__secondary {
 	color: $color-primary !important;
+	transition: all .2s ease-out;
+}
+.btn__primary,
+.btn__secondary {
+	&:hover {
+		transform: translateY(-3px);
+	}
 }
