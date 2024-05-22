@@ -1,5 +1,5 @@
 .container-archive {
-    .blog, .portfolio {
+    section.blog, section.portfolio {
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -39,14 +39,14 @@
 @media (min-width: 768px) {}
 @media (min-width: 992px) {
     .container-archive {
-        .blog, .portfolio {
+        section.blog, section.portfolio {
             position: unset;
         }
     }
 }
 @media (min-width: 1200px) {
     .container-archive {
-        .blog, .portfolio {
+        section.blog, section.portfolio {
             article {
                 grid-template-columns: 1fr 2.2fr;
                 gap: 0;

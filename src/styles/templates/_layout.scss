@@ -5,7 +5,7 @@
     &::before {
         all: unset !important;
     }
-    .presentation {
+    section.presentation {
         width: 100%;
         position: sticky;
         z-index: 1;
@@ -18,7 +18,7 @@
         background-color: $color-neutral-200;
         box-sizing: border-box;
     }
-    .showcase {
+    section.showcase {
         position: relative;
         z-index: 2;
         display: grid;
@@ -27,7 +27,7 @@
         padding: var(--size-600);
         background-color: $color-neutral-white;
     }
-    .blog, .portfolio {
+    section.blog, section.portfolio {
         position: relative;
         z-index: 2;
         display: grid;
@@ -40,18 +40,18 @@
 @media (min-width: 992px) { 
     .container {
         grid-template-columns: minmax(414px, 0.3fr) 1fr;
-        .presentation {
+        section.presentation {
             align-items: flex-start;
             z-index: 2;
             // box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;
         }
-        .showcase {
+        section.showcase {
             z-index: 1;
             grid-template-columns: 1fr 1fr;
             gap: var(--size-600);
             padding: var(--size-800);
         }
-        .blog, .portfolio {
+        section.blog, section.portfolio {
             z-index: 1;
         }
     }
@@ -66,7 +66,7 @@
 
 
 //Set specific colors for all Blog or Portfolio pages
-.blog {
+section.blog {
     a, strong {
         color: $color-accent !important;
     }
@@ -77,7 +77,7 @@
         background: $color-accent !important;
     }
 }
-.portfolio {
+section.portfolio {
     a, strong {
         color: $color-primary !important;
     }

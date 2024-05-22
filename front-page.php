@@ -121,19 +121,34 @@
                             <?php endif; ?>
 
                             <div class="project__caption margin-block-500 padding-inline-500">
-                                
-                                <?php if( $link_project_page ):
-                                    $link_url = $link_project_page['url'];
-                                    $link_title = $link_project_page['title'];
-                                    $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';    
-                                ?>
-                                    <!-- <p class="text-heading-5"><?php echo $number; ?></p> <small class="margin-inline-200"><?php echo $company; ?></small> -->
-                                    <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>">
-                                        <h3 class="project__title text-heading-5 margin-0"><?php echo $name; ?></h3>
-                                    </a>
-                                <?php else : ?>
-                                    <!-- <p class="text-heading-5"><?php echo $number; ?></p><small class="margin-inline-200"><?php echo $company; ?></small>  -->
-                                    <h3 class="project__title text-heading-5 margin-0"><?php echo $name; ?></h3>
+                                <?php if( $post_type == 'Portfolio' ): ?>
+                                    <?php if( $link_project_page ):
+                                        $link_url = $link_project_page['url'];
+                                        $link_title = $link_project_page['title'];
+                                        $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';    
+                                    ?>
+                                        <!-- <p class="text-heading-5"><?php echo $number; ?></p> <small class="margin-inline-200"><?php echo $company; ?></small> -->
+                                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>">
+                                            <h3 class="project__title text-heading-5 tc-primary"><?php echo $name; ?></h3>
+                                        </a>
+                                    <?php else : ?>
+                                        <!-- <p class="text-heading-5"><?php echo $number; ?></p><small class="margin-inline-200"><?php echo $company; ?></small>  -->
+                                        <h3 class="project__title text-heading-5 tc-primary"><?php echo $name; ?></h3>
+                                    <?php endif; ?>
+                                <?php elseif( $post_type == 'Blog' ): ?>
+                                    <?php if( $link_project_page ):
+                                        $link_url = $link_project_page['url'];
+                                        $link_title = $link_project_page['title'];
+                                        $link_target = $link_project_page['target'] ? $link_project_page['target'] : '_self';    
+                                    ?>
+                                        <!-- <p class="text-heading-5"><?php echo $number; ?></p> <small class="margin-inline-200"><?php echo $company; ?></small> -->
+                                        <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" title="<?php echo esc_html( $link_title ); ?>">
+                                            <h3 class="project__title text-heading-5 tc-accent"><?php echo $name; ?></h3>
+                                        </a>
+                                    <?php else : ?>
+                                        <!-- <p class="text-heading-5"><?php echo $number; ?></p><small class="margin-inline-200"><?php echo $company; ?></small>  -->
+                                        <h3 class="project__title text-heading-5 tc-accent"><?php echo $name; ?></h3>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                             </div>
 
