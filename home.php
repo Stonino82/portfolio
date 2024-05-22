@@ -20,7 +20,7 @@
 				<div class="presentation__headlines margin-block-700">
 					<!-- <h1 class="text-heading-1 text-gradient tt-up tc-neutral-700"><?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?></h1> -->
 					<h1 class="text-heading-1 text-gradient margin-0">Design & Code Dialogues</h1>
-					<h2 class="text-md-body-1 fw-regular margin-block-500">Dive into the world of UX, UI, and Front-end Development! I'll share insights, explore trends, and spark conversation on everything from user research to pixel-perfect interfaces.</h2>
+					<h2 class="text-md-body-1 fw-regular margin-block-500">Dive into the world of <strong class="tc-accent">UX, UI, and Front-end Development!</strong> I'll share insights, explore trends, and spark conversation on everything from <strong class="tc-accent">user research to pixel-perfect interfaces.</strong></h2>
 				</div>
 			</div>
 			<div class="presentation__links">

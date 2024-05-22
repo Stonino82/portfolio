@@ -20,7 +20,7 @@
 				<div class="presentation__headlines margin-block-700">
 					<!-- <h1 class="text-heading-1 text-gradient tt-up tc-neutral-700"><?php the_archive_title( '<h1 class="page-title">', '</h1>' ); ?></h1> -->
 					<h1 class="text-heading-1 text-gradient margin-0">Case Studies & Designs Showcase</h1>
-					<h2 class="text-md-body-1 fw-regular margin-block-500">Discover my design journey! This portfolio features UX Case Studies and UI Designs, showcasing my approach to user-centered design and the final, polished results.</h2>
+					<h2 class="text-md-body-1 fw-regular margin-block-500">Discover my design journey! This portfolio features <strong>UX Case Studies</strong> and <strong>UI Designs</strong>, showcasing my approach to <strong>user-centered design</strong> and the final, polished results.</h2>
 				</div>
 			</div>
 			<div class="presentation__links">
