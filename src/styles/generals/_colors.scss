@@ -22,8 +22,6 @@ $color-neutral-600: #686868;
 $color-neutral-700: #333333;
 $color-neutral-black: black;
 
-
-
 // Color Specific
 $color-dribbble: #ea4c89;
 $color-behance: #1769ff;
@@ -31,8 +29,13 @@ $color-github: #333;
 $color-linkedin: #0077b5;
 $color-codepen: rgb(189, 189, 189);
 
-
-
-
 //Color Box-Shadow
 $box-shadow: 0 2px 2px 2px rgba($color-neutral-500, 0.1);
+
+
+// Utility Classes
+.text-gradient {
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

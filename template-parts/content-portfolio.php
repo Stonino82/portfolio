@@ -24,9 +24,9 @@
 		<div class="presentation__headlines margin-block-700">
 			<?php
 			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title fs-display-1 fw-bold margin-0">', '</h1>' );
+				the_title( '<h1 class="text-heading-1 text-gradient margin-0">', '</h1>' );
 			else :
-				the_title( '<h1 class="entry-title fs-display-1 fw-bold margin-0"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+				the_title( '<h1 class="text-heading-1 text-gradient margin-0"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 			endif;
 	
 			if ( 'post' === get_post_type() ) :
@@ -38,25 +38,25 @@
 					?>
 				</div> -->
 			<?php endif; ?>
-			<h2 class="fs-body fw-regular margin-block-500"><?php echo get_secondary_title(); ?></h2>
+			<h2 class="text-md-body-1 fw-regular margin-block-500"><?php echo get_secondary_title(); ?></h2>
 		</div>
 	</div>
 	<div class="presentation__links">
 		<div class="presentation__resume">
-			<a class="btn btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2023/10/CV-Brochure-Antonino-Lattene-UX-UI-Front-End-1.jpg">
+			<a class="btn btn__secondary text-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2023/10/CV-Brochure-Antonino-Lattene-UX-UI-Front-End-1.jpg">
 				<span class="btn--text">Resume</span>
 				<span class="btn--icon">
 					<i class="fas fa-arrow-down"></i>
 				</span>
 			</a>
-			<a class="btn btn__secondary fs-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/03/CV-Resume-Antonino-Lattene-UX-UI-Front-End.pdf">
+			<a class="btn btn__secondary text-btn" download href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/03/CV-Resume-Antonino-Lattene-UX-UI-Front-End.pdf">
 			
 				<span class="btn--text">Linkedin</span>
 				<span class="btn--icon">
 					<i class="fas fa-arrow-down rotate"></i>
 				</span>
 			</a>
-			<a class="btn btn__primary fs-btn" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
+			<a class="btn btn__primary text-btn" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
 				<span class="btn--text">Email Me</span>
 				<span class="btn--icon">
 					<i class="fas fa-arrow-down rotate"></i>

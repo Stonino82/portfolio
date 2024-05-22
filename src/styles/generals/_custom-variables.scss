@@ -1,0 +1,49 @@
+// Root Variables
+:root {
+    --size-0: 0;
+    --size-100: .25rem;
+    --size-200: .5rem;
+    --size-300: .75rem;
+    --size-400: .875rem;
+    --size-500: 1rem;
+    --size-600: 1.5rem;
+    --size-700: 2rem;
+    --size-800: 3rem;
+    --size-900: 4rem;
+
+    // Font Family
+    --ff-primary: 'Inter', sans-serif;
+    // --ff-secondary: 'Inter', sans-serif;
+    --ff-heading: var(--ff-primary);
+    --ff-body: var(--ff-primary);
+    --ff-font-awesome: "Font Awesome 5 Free";
+
+    // Font Size (base font-size: 16px)
+    --fs-100: 0.625rem; //10px
+    --fs-200: 0.6875rem; //11px
+    --fs-300: 0.8125rem; //13px
+    --fs-400: 0.875rem; //14px
+    --fs-500: 1rem; //16px
+    --fs-600: 1.125rem; //18px
+    --fs-650: 1.25rem; //20px
+    --fs-700: 1.4375rem; //23px
+    --fs-750: 1.625rem; //26px
+    --fs-800: 1.8125rem; //29px
+    --fs-850: 2rem; //32px
+    --fs-900: 2.25rem; //36px
+    --fs-950: 2.5625rem; //41px
+
+    // Line Height
+    --lh-200: 1.2;
+    --lh-700: 1.7;
+
+    // Font Weight
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+
+    // Letter Spacing
+    --ls-normal: 0;
+    --ls-dense: -.02rem;
+}

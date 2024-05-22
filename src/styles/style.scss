@@ -1,12 +1,23 @@
 /* Resets */
-@import 'resets/reset-normalize';
 @import 'resets/overwrite-rules';
 
 /* Generals */
-@import 'generals/sizes';
+@import 'generals/custom-variables';
 @import 'generals/colors';
 @import 'generals/typo';
-@import 'generals/layout';
+@import 'generals/utility-classes';
+
+/* Layout */
+@import 'templates/layout';
+/* Pages Templates */
+/* home */
+@import 'templates/home/left-side';
+@import 'templates/home/right-side';
+@import 'templates/home/process';
+/* single-portfolio (hereda también estilos de la home) */
+@import 'templates/single/single';
+/* archive (hereda también estilos de la home) */
+@import 'templates/archive/archive';
 
 /* Components */
 @import 'components/buttons';
@@ -14,20 +25,4 @@
 @import 'components/chips';
 @import 'components/menu';
 @import 'components/logo';
-
-/* Pages Templates */
-/* home */
-@import 'templates/home/left-side';
-@import 'templates/home/right-side';
-@import 'templates/home/process';
-
-/* single-portfolio (hereda también estilos de la home) */
-@import 'templates/single/single';
-
-/* archive (hereda también estilos de la home) */
-@import 'templates/archive/archive';
-
 @import 'components/footer-inner';
-
-/* Utility classes */
-@import 'generals/utilities';

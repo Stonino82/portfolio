@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title fs-display-1 fw-bold margin-0">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="text-heading-1 text-gradient margin-0">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php antoninolattene_post_thumbnail(); ?>

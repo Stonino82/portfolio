@@ -9,6 +9,7 @@ function my_theme_enqueue_styles() {
   wp_enqueue_style( 'load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css' );
  
   wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+  wp_enqueue_style( 'css-reset-and-normalize', 'https://cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css' );
   wp_enqueue_style( 'antoninolattene-child-style', get_stylesheet_directory_uri() . '/dist/style.min.css', array( $parent_style ), wp_get_theme()->get('Version'));
 
   wp_enqueue_script('jquery'); //jQuery ya está incluido en Wordpress (wp-include/js/jQuery/jquery.js)

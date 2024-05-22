@@ -27,8 +27,9 @@
                     margin-top: var(--size-200);
                     margin-bottom: var(--size-500);
                 }
-                p {
-                    line-height: 1.6;
+                p {}
+                a {
+                    text-decoration: none;
                 }
             }
         }

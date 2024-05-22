@@ -39,14 +39,14 @@
         <?php endif; ?>
         <div class="project__caption">
             <?php if( $name ): ?>
-            <p class="fs-body"><?php echo $number; ?>
+            <p class="text-md-body-1"><?php echo $number; ?>
             <div class="project__subtitle">
                 <span class="chip"><?php echo $post_type; ?></span>
                 <small class="margin-inline-200"><?php echo $company; ?></small>
             </div>
             <?php endif; ?>
         </div>
-        <h3 class="fs-body fw-bold margin-block-500"><?php echo $name; ?></h3>
+        <h3 class="text-heading-5 margin-block-500"><?php echo $name; ?></h3>
         <div class="project__links margin-inline-200">
             <?php if( $link_dribbble ): ?>
             <a href="<?php echo $link_dribbble; ?>" target="_blank"><span class="icon project__links--item fab fa-dribbble"></span></a>
