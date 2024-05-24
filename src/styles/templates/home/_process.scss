@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: var(--size-800) var(--size-600);
+    padding: var(--size-700) var(--size-500);
     .process__description {
         display: grid;
         gap: 0;
@@ -20,7 +20,7 @@
     .process__toolkit {
         display: grid;
         grid-auto-flow: row;
-        gap: var(--size-800);
+        gap: var(--size-700);
         grid-template-columns: repeat(auto-fit, minmax(10em, 25em));
         .column {
             position: relative;
@@ -111,7 +111,7 @@
 
 @media (min-width: 768px) {
     .process {
-        padding: var(--size-800);
+        padding: var(--size-700);
         .process__toolkit {
             // #slider-controls {
             //     width: 100%;
@@ -127,7 +127,7 @@
         .process__description {
             grid-auto-flow: column;
             grid-auto-columns: 1fr;
-            gap: var(--size-800);
+            gap: var(--size-700);
         }
         .process__toolkit {
             // width: 600px;

@@ -2,6 +2,7 @@
 // UTILITY CLASSES for Spacing
 
 .padding-block-0 {padding-block: var(--size-0)}
+.padding-block-50 {padding-block: var(--size-50)}
 .padding-block-100 {padding-block: var(--size-100)}
 .padding-block-200 {padding-block: var(--size-200)}
 .padding-block-300 {padding-block: var(--size-300)}
@@ -11,7 +12,10 @@
 .padding-block-700 {padding-block: var(--size-700)}
 .padding-block-800 {padding-block: var(--size-800)}
 .padding-block-900 {padding-block: var(--size-900)}
+.padding-block-950 {padding-block: var(--size-950)}
+
 .padding-inline-0 {padding-inline: var(--size-0)}
+.padding-inline-50 {padding-inline: var(--size-50)}
 .padding-inline-100 {padding-inline: var(--size-100)}
 .padding-inline-200 {padding-inline: var(--size-200)}
 .padding-inline-300 {padding-inline: var(--size-300)}
@@ -21,7 +25,10 @@
 .padding-inline-700 {padding-inline: var(--size-700)}
 .padding-inline-800 {padding-inline: var(--size-800)}
 .padding-inline-900 {padding-inline: var(--size-900)}
+.padding-inline-950 {padding-inline: var(--size-950)}
+
 .padding-0 {padding: var(--size-0)}
+.padding-50 {padding: var(--size-50)}
 .padding-100 {padding: var(--size-100)}
 .padding-200 {padding: var(--size-200)}
 .padding-300 {padding: var(--size-300)}
@@ -31,8 +38,11 @@
 .padding-700 {padding: var(--size-700)}
 .padding-800 {padding: var(--size-800)}
 .padding-900 {padding: var(--size-900)}
+.padding-950 {padding: var(--size-950)}
+
 // Margins
 .margin-block-0 {margin-block: var(--size-0)}
+.margin-block-50 {margin-block: var(--size-50)}
 .margin-block-100 {margin-block: var(--size-100)}
 .margin-block-200 {margin-block: var(--size-200)}
 .margin-block-300 {margin-block: var(--size-300)}
@@ -42,7 +52,10 @@
 .margin-block-700 {margin-block: var(--size-700)}
 .margin-block-800 {margin-block: var(--size-800)}
 .margin-block-900 {margin-block: var(--size-900)}
+.margin-block-950 {margin-block: var(--size-950)}
+
 .margin-inline-0 {margin-inline: var(--size-0)}
+.margin-inline-50 {margin-inline: var(--size-50)}
 .margin-inline-100 {margin-inline: var(--size-100)}
 .margin-inline-200 {margin-inline: var(--size-200)}
 .margin-inline-300 {margin-inline: var(--size-300)}
@@ -52,8 +65,11 @@
 .margin-inline-700 {margin-inline: var(--size-700)}
 .margin-inline-800 {margin-inline: var(--size-800)}
 .margin-inline-900 {margin-inline: var(--size-900)}
+.margin-inline-950 {margin-inline: var(--size-950)}
 .margin-inline-auto {margin-inline: auto;}
+
 .margin-0 {margin: var(--size-0)}
+.margin-50 {margin: var(--size-50)}
 .margin-100 {margin: var(--size-100)}
 .margin-200 {margin: var(--size-200)}
 .margin-300 {margin: var(--size-300)}
@@ -63,6 +79,7 @@
 .margin-700 {margin: var(--size-700)}
 .margin-800 {margin: var(--size-800)}
 .margin-900 {margin: var(--size-900)}
+.margin-950 {margin: var(--size-950)}
 
 
 // UTILITY CLASSES for Typography (+ HTML typography tags styles)

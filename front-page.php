@@ -84,13 +84,13 @@
                                             <video muted autoplay loop playsinline src="<?php echo esc_url($video['url']); ?>" class="project__video <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>"></video>
                                         <?php endif; ?>
                                     </a>
-                                </div>
-                            <?php else : ?>
-                                <div class="project__image" style="background-color:<?php echo $background_color; ?>;">
-                                    <?php if( $image ): ?>
-                                        <img src="<?php echo esc_url($image['url']); ?>" class="project__img <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>">
-                                    <?php elseif( $video ): ?>
-                                        <video muted autoplay loop playsinline src="<?php echo esc_url($video['url']); ?>" class="project__video <?php echo $class_image ?>" alt="<?php echo esc_attr($image['alt']); ?>"></video>
+                                    <?php
+                                        if( $kit_icons ): ?>
+                                        <ul class="project__kit">
+                                        <?php foreach( $kit_icons as $kit_icon ): ?>
+                                            <li class="project__kit--item"><?php echo $kit_icon; ?></li>
+                                        <?php endforeach; ?>
+                                        </ul>
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>
@@ -110,15 +110,6 @@
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            
-                            <?php
-                                if( $kit_icons ): ?>
-                                <ul class="project__kit">
-                                <?php foreach( $kit_icons as $kit_icon ): ?>
-                                    <li class="project__kit--item"><?php echo $kit_icon; ?></li>
-                                <?php endforeach; ?>
-                                </ul>
-                            <?php endif; ?>
 
                             <div class="project__caption margin-block-500 padding-inline-500">
                                 <?php if( $post_type == 'Portfolio' ): ?>
