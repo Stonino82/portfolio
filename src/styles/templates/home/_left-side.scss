@@ -1,4 +1,5 @@
 section.presentation {
+    padding: var(--size-500);
     & > * {
         width: 100%;
         display: flex;
@@ -19,7 +20,6 @@ section.presentation {
             flex-wrap: wrap;
             justify-content: center;
             gap: 4px;
-            margin: -0.25rem;
         }
     
     }
@@ -27,6 +27,7 @@ section.presentation {
 
 @media (min-width: 992px) {
     section.presentation {
+        padding: var(--size-600);
         & > * {
             align-items: flex-start !important;
             text-align: left;

@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main class="container">
-    <section class="presentation padding-600 opacityOnScroll">
+    <section class="presentation opacityOnScroll">
         <div class="presentation__header">
             <a class="logo" href="<?php echo home_url(); ?>">
                 <img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>

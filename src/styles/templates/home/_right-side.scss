@@ -47,13 +47,13 @@ section.showcase {
                 margin: 0 -.5rem;
                 padding: var(--size-50);
                 background-color: $color-neutral-white;
-                opacity: 0.7 !important;
+                // opacity: 0.9 !important;
                 border-top-left-radius: var(--size-100);
                 border-top-right-radius: var(--size-100);
                 &--item {
                     float: left;
                     margin: 0 .5rem;
-                    color: $color-neutral-700 !important;
+                    color: $color-primary !important;
                     font-size: var(--fs-400);
                 }
             }

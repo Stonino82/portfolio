@@ -2,6 +2,9 @@
 .container {
     display:grid;
     grid-template-columns:1fr;
+    &>* {
+        padding: var(--size-500);
+    }
     &::before {
         all: unset !important;
     }
@@ -24,7 +27,6 @@
         display: grid;
         grid-template-columns: 1fr;
         row-gap: var(--size-700);
-        padding: var(--size-500);
         background-color: $color-neutral-white;
     }
     section.blog, section.portfolio {
@@ -39,7 +41,10 @@
 @media (min-width: 768px) {}
 @media (min-width: 992px) { 
     .container {
-        grid-template-columns: minmax(414px, 0.4fr) 1fr;
+        grid-template-columns: minmax(420px, 0.4fr) 1fr;
+        &>* {
+            padding: var(--size-700);
+        }
         section.presentation {
             align-items: flex-start;
             z-index: 2;
@@ -47,7 +52,6 @@
         }
         section.showcase {
             gap: var(--size-700);
-            padding: var(--size-700);
         }
         section.blog, section.portfolio {
             z-index: 1;
