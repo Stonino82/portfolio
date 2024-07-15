@@ -1,7 +1,7 @@
 // Styles for single-portfolio template
 .single-post, .single-portfolio { // --> inject in the body
     .container { // --> inject from single-portfolio.php
-
+        
         .thumbnail {
             position: relative;
             .post-thumbnail {
@@ -23,6 +23,7 @@
             }
         }
         .entry-content {
+            height: 100%;
             margin: 0;
             .wp-block-group {
                 padding: 1rem;
@@ -50,8 +51,15 @@
             .wp-block-embed {
                 margin-bottom: 2rem;
             }
+            .wp-block-video {
+                height: 100%;
+                video {
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
             .wp-block-image img {
-                box-shadow: $box-shadow;
+                // box-shadow: $box-shadow;
             }
             .wp-block-quote {
                 background: #f1f1f1;

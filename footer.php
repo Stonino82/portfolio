@@ -18,7 +18,7 @@
 			<img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
 			<div>
 				<span>tony.</span>
-				<span>UX/UI DESIGNER</span>
+				<span>PRODUCT DESIGNER</span>
 			</div>
 		</div>
 		<ul class="presentation__icons">

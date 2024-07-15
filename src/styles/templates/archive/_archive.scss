@@ -6,15 +6,22 @@
         justify-content: center;
         align-items: center;
         gap: var(--size-700);
+        padding: var(--size-500);
         background-color: $color-neutral-white;
         article {
+            width: 100%;
             display: grid;
             gap: var(--size-500);
-            .article__thumbnail {
+            .post-thumbnail {
                 height: 240px;
                 border-radius: 8px;
                 overflow: hidden;
-                img {
+                div {
+                    width: 100%;
+                    height: 100%;
+                }
+                img, video {
+                    width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
@@ -41,6 +48,7 @@
     .container-archive {
         section.blog, section.portfolio {
             position: unset;
+            padding: var(--size-700);
         }
     }
 }
@@ -50,7 +58,7 @@
             article {
                 grid-template-columns: 1fr 2.2fr;
                 gap: 0;
-                .article__thumbnail {}
+                .post-thumbnail {}
             }
         }
     }

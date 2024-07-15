@@ -10,7 +10,7 @@
         display: flex;
         align-items: center;
         font-size: var(--fs-300);
-        font-weight: var(--fw-regular);
+        font-weight: var(--fw-medium);
         text-align: center;
         text-transform: uppercase;
         border-radius: 8px;
@@ -56,13 +56,13 @@
             text-transform: capitalize;
         }
         &__portfolio--tags {
-            font-weight: 500;
+            font-weight: var(--fw-regular);
             text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-primary !important;
         }
         &__blog--tags {
-            font-weight: 500;
+            font-weight: var(--fw-regular);
             text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-accent !important;

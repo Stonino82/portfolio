@@ -10,6 +10,8 @@
             text-align: center;
             transition: all .2s ease-in-out;
             a {
+                padding: 0;
+                margin: 0 1rem;
                 color: $color-primary--lighter !important;
                 text-decoration: none;
                     i {
@@ -31,6 +33,7 @@
             &.current_page_parent {
                 a {
                     color: $color-primary !important;
+                    border-bottom: 2px solid $color-primary;
                 }
             }
 
@@ -49,11 +52,13 @@
                 &.current_page_item {
                     a {
                         color: $color-accent !important;
+                        border-bottom: 2px solid $color-accent;
                     }
                 }
                 &.current_page_parent {
                     a {
                         color: $color-accent !important;
+                        border-bottom: 2px solid $color-accent;
                     }
                 }
             }

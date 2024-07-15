@@ -7,7 +7,7 @@
 					<img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
 					<div>
 						<span>tony.</span>
-						<span>UX/UI DESIGNER</span>
+						<span>PRODUCT DESIGNER</span>
 					</div>
 				</a>
         </div>
@@ -16,7 +16,7 @@
             <div class="presentation__headlines margin-block-700">
                 <h1 class="text-heading-1 text-gradient margin-0">I build stunning UIs that resonate on a human level</h1>
                 <!-- <h2 class="text-md-body-1 tt-up tc-neutral-700">& Front-end Developer</h2> -->
-                <h2 class="text-md-body-1 fw-regular margin-block-500">Hey, I’m Tony, <strong>User Experience & User Interface Designer</strong> based in Barcelona. With an emphasis in <strong>Visual Design</strong> and a background in <strong>Front-end Development</strong>, I transform user needs into solutions that drive results.</h2>
+                <h2 class="text-md-body-1 fw-regular margin-block-500">Hey 👋🏻 I’m Tony, <strong>Product Designer, User Experience (UX) & User Interface (UI) Designer</strong>, based in Barcelona.<br> With an emphasis in <strong>👨🏻‍🎨 Visual Design</strong> and a background in <strong>🧑🏻‍💻 Front-end Development</strong>, I transform user needs into solutions that drive results 🎯</h2>
             </div>
         </div>
         <div class="presentation__links">

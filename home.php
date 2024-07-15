@@ -11,7 +11,7 @@
 					<img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
 					<div>
 						<span>tony.</span>
-						<span>UX/UI DESIGNER</span>
+						<span>PRODUCT DESIGNER</span>
 					</div>
 				</a>
 			</div>
@@ -52,9 +52,7 @@
 			while ( have_posts() ) : the_post(); ?>
 				<article>
 					<?php if ( get_post_type() === 'post' ) : ?>
-						<div class="article__thumbnail">
-							<?php antoninolattene_post_thumbnail(); ?>
-						</div>
+						<?php antoninolattene_post_thumbnail(); ?>
 						<div class="article__description">
 							<h3 class="project__title text-heading-5"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
 							<small><?php antoninolattene_posted_on(); antoninolattene_posted_by();?></small>
