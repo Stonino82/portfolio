@@ -35,14 +35,17 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'antoninolattene' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
+	<!-- <header id="masthead" class="site-header">		 -->
+		<!-- <div class="site-branding"> -->
 			
-		</div><!-- .site-branding -->
+		<!-- </div> -->
+		<!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation">
+		<!-- <nav id="site-navigation" class="main-navigation"> -->
 			
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+		<!-- </nav> -->
+		<!-- #site-navigation -->
+	<!-- </header> -->
+	<!-- #masthead -->
 
 	<div id="content" class="site-content">

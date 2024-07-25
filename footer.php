@@ -29,7 +29,7 @@
 		</ul>
 		<div class="site-info">
 			<small class="tc-neutral-500">antoninolattene@gmail.com ©<?PHP echo date("Y"); ?></small>
-			<small class="tc-neutral-500">made with <i class="fas fa-heart" title="Love"></i></small>
+			<small class="tc-neutral-500">made with <i class="fas fa-heart" title="Love"></i> in Barcelona</small>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

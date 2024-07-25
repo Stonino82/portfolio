@@ -4,7 +4,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: var(--size-500);
+    padding-block: var(--size-400);
+    padding-inline: var(--size-600);
     background-color: $color-neutral-700;
     
     &>* {
@@ -36,7 +37,6 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: var(--size-400);
     }
     &::before,
     &::after {
@@ -46,8 +46,6 @@
 
 @media (min-width: 991px) {
     .site-footer {
-        padding-block: var(--size-200);
-        padding-inline: var(--size-500);
         flex-direction: row;
         &>* {
             margin: 0;
@@ -55,8 +53,7 @@
         .logo {}
         .presentation__icons {}
         .site-info {
-            flex-direction: row;
-            gap: var(--size-50);
+            align-items: flex-end;
         }
     }
 }

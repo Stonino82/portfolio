@@ -9,12 +9,13 @@
         padding: .5rem .8rem;
         display: flex;
         align-items: center;
-        font-size: var(--fs-300);
+        font-size: var(--fs-200);
         font-weight: var(--fw-medium);
         text-align: center;
         text-transform: uppercase;
         border-radius: 8px;
-        box-shadow: $box-shadow;
+        box-shadow: $box-shadow-dp1;
+        text-decoration: none;
         i {
             margin-right: .25rem;
             font-size: 14px;
@@ -57,15 +58,17 @@
         }
         &__portfolio--tags {
             font-weight: var(--fw-regular);
-            text-transform: lowercase;
+            // text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-primary !important;
+            border: 1px solid $color-primary;
         }
         &__blog--tags {
             font-weight: var(--fw-regular);
-            text-transform: lowercase;
+            // text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-accent !important;
+            border: 1px solid $color-accent;
         }
     }
 }

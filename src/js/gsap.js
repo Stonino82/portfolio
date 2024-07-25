@@ -4,12 +4,10 @@
 var tl1 = gsap.timeline();
 
 tl1.from(".presentation__header", {y: -100, duration: .5, opacity: 0, ease: "power2.out"}, "+=0.1")
-    // .from(".menu-container", {x: -100, duration: .5, opacity: 0, ease: "power2.out"}, "-=0.15")
-    // .from(".presentation__central h1", {x: -100, duration: .5, opacity: 0, ease: "power2.out"}, "-=0.15")
-    // .from(".presentation__central h2", {x: -100, duration: .5, opacity: 0, ease: "power2.out"}, "-=0.15")
+    .from(".menu-container", {y: -100, duration: .5, opacity: 0, ease: "power2.out"}, "")
     .from(".presentation__central", {x: -100, duration: .5, opacity: 0, ease: "power2.out"}, "-=0.15")
-  // .from(".presentation__icons li", {y: 20, duration: .4, opacity: 0, ease: "back.out(2)", stagger: .1}, "-=0.3")
-    .from(".presentation__resume", {y: 100, duration: .5, opacity: 0, ease: "power2.out", stagger: .1}, "")
+    .from(".presentation__resume", {y: 100, duration: .5, opacity: 0, ease: "power2.out", stagger: .1}, "-=0.15")
+    // .from(".presentation__icons li", {y: 20, duration: .4, opacity: 0, ease: "back.out(2)", stagger: .1}, "-=0.3")
 
 
 
@@ -19,7 +17,7 @@ tl1.from(".presentation__header", {y: -100, duration: .5, opacity: 0, ease: "pow
 //Animate the right-side
 gsap.utils.toArray('body.home article, body.archive article, body.blog article').forEach((el, i) => {
   gsap.from(el, {
-    y: 150,
+    y: 100,
     duration: .6,
     opacity: 0,
     ease: "power2.out",
@@ -30,10 +28,51 @@ gsap.utils.toArray('body.home article, body.archive article, body.blog article')
       start: "-100px 80%",
       end: "80% 100px",
       toggleActions: "play reverse play reverse",
+      // immediateRender: true,
       markers: false
     },
   });
 });
+
+
+// var containers = gsap.utils.toArray(".showcase");
+
+// containers.forEach(function (article) {
+//   gsap.fromTo(
+//     article.querySelectorAll("article"),
+//     { 
+//       x: -40,
+//       opacity: 0
+//     },
+//     {
+//       x: 0,
+//       opacity: 1,
+//       ease: "power2.out",
+//       stagger: 0.6,
+//       scrollTrigger: {
+//         trigger: article,
+//         // scrub: true,
+//         start: "-100px 80%",
+//         end: "80% 100px",
+//         immediateRender: true,
+//         markers: true,
+//         toggleActions: "play reverse play reverse"
+//       }
+//     }
+//   );
+// });
+
+
+
+
+
+
+
+
+
+
+
+
 
 gsap.utils.toArray('.home article .project__section').forEach((el) => {
   gsap.from(el, {

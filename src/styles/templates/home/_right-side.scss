@@ -7,6 +7,7 @@ section.showcase {
     article {  //.project-full & .project-half
         position: relative;
         display: grid !important;
+        height: max-content;
         overflow: hidden;
         transition: all .2s ease-out;
         .project__image {
@@ -75,6 +76,7 @@ section.showcase {
             }
         }
         .project__caption {
+            text-align: center;
             .project__subtitle {
                 letter-spacing: 3px;
                 color: $color-primary--lighter;
@@ -108,16 +110,16 @@ section.showcase {
     }
 }
 
-
-@media (max-width: 991px) {
-    .project-full {
-        height: max-content;
+@media (min-width: 576px) {}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1200px) {}
+@media (min-width: 1400px) {
+    section.showcase {
+        article {
+            .project__caption {
+                text-align: left;
+            }
+        }
     }
 }
-
-@media (min-width: 992px) {
-    .project-full {
-        height: max-content;
-    }
-}
-

@@ -29,12 +29,13 @@
             .article__description {
                 padding-left: var(--size-400);
                 h2 {}
-                small {
-                    display: block;
-                    margin-top: var(--size-100);
-                    margin-bottom: var(--size-400);
+                small {}
+                ul.chip-list {
+                    margin-block: var(--size-200);
                 }
-                p {}
+                p {
+                    margin: 0;
+                }
                 a {
                     text-decoration: none;
                 }

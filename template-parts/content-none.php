@@ -11,7 +11,7 @@
 
 <section class="no-results not-found">
 	<header class="page-header">
-		<h1 class="page-title text-heading-1 text-gradient margin-0"><?php esc_html_e( 'Nothing Found', 'antoninolattene' ); ?></h1>
+		<h1 class="page-title text-heading-1 text-gradient margin-block-100"><?php esc_html_e( 'Nothing Found', 'antoninolattene' ); ?></h1>
 	</header><!-- .page-header -->
 
 	<div class="page-content">

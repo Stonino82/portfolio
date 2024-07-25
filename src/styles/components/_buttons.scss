@@ -3,32 +3,31 @@
 .btn {
 	width: max-content;
 	height: 34px;
-	padding: 8px 16px;
+	padding: 8px 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-decoration: none; //for A links converted in buttons
 	overflow: hidden;
+	font-size: var(--fs-300) !important;
+	font-weight: var(--fw-medium) !important;
+	text-transform: uppercase !important;
 	cursor: pointer;
-	.btn--text,
-	.btn--icon {
+	.btn-icon {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-	}
-	.btn--text,
-	.btn--icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.btn--icon {
-		margin-left: .5rem;
+		&--left {
+			margin-right: .5rem;
+		}
+		&--right {
+			margin-left: .5rem;
+		}
 		.rotate {
 			transform: rotate(-135deg);
 		}
 	}
-	.btn--text {}
+	.btn-text {}
 }
 
 .btn__primary {
@@ -36,17 +35,13 @@
 	border: 1px solid transparent;
 	border-radius: 8px;
 	transition: all .2s ease-out;
-	.btn--text {
+	.btn-text {
 		background: $color-gradient;
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
-	.btn--icon {
-		margin-left: .5rem;
+	.btn-icon {
 		color: $color-accent !important;
-		.rotate {
-			transform: rotate(-135deg);
-		}
 	}
 }
 .btn__secondary {

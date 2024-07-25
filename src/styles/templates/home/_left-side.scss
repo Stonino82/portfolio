@@ -7,9 +7,17 @@ section.presentation {
         align-items: center;
         text-align: center;
     }
-    .presentation__header {}
+    .presentation__header {
+        top: var(--size-600);
+        position: sticky;
+    }
     .presentation__central {
         max-width: 425px;
+        .presentation__headlines {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
     .presentation__links {
         margin-bottom: var(--size-600);
@@ -32,7 +40,11 @@ section.presentation {
             align-items: flex-start !important;
             text-align: left;
         }
-        .presentation__central {}
+        .presentation__central {
+            .presentation__headlines {
+                align-items: flex-start;
+            }
+        }
         .presentation__links {
             .presentation__resume {
                 justify-content: flex-start;
