@@ -12,6 +12,7 @@
 	font-size: var(--fs-300) !important;
 	font-weight: var(--fw-medium) !important;
 	text-transform: uppercase !important;
+	transition: all .2s ease-out;
 	cursor: pointer;
 	.btn-icon {
 		display: flex;
@@ -30,11 +31,20 @@
 	.btn-text {}
 }
 
-.btn__primary {
+.btn-primary {
+	background: $color-gradient;
+	border-radius: 8px;
+	.btn-text {
+		color: $color-neutral-white !important;
+	}
+	.btn-icon {
+		color: $color-neutral-white !important;
+	}
+}
+.btn-secondary {
 	background: linear-gradient(#fafafa, #fafafa) padding-box, $color-gradient border-box;
 	border: 1px solid transparent;
 	border-radius: 8px;
-	transition: all .2s ease-out;
 	.btn-text {
 		background: $color-gradient;
 		-webkit-background-clip: text;
@@ -44,12 +54,12 @@
 		color: $color-accent !important;
 	}
 }
-.btn__secondary {
+.btn-tertiary {
 	color: $color-primary !important;
-	transition: all .2s ease-out;
 }
-.btn__primary,
-.btn__secondary {
+.btn-primary,
+.btn-secondary,
+.btn-tertiary {
 	&:hover {
 		transform: translateY(-3px);
 	}

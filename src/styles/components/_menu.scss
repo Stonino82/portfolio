@@ -81,7 +81,7 @@
         padding-inline: var(--size-700);
         padding-block: var(--size-600);
         box-shadow: unset;
-        .btn__primary {
+        .btn-primary {
             display: none;
         }
         .menu-container {
@@ -95,8 +95,7 @@
                     
                     &.current_page_item,
                     &.current_page_parent {
-                        a {
-                        }
+                        a {}
                     }
                 }
             }
