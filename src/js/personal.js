@@ -76,7 +76,29 @@
 //       //}
 
       
+  /*********    Fixed header    *********/
+  window.addEventListener('scroll', function () {
+    let scroll = window.pageYOffset || document.documentElement.scrollTop;
+    let headerFixed = document.querySelector('.navigation');
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.documentElement.scrollHeight;
 
+    // if (scroll >= 100) {
+    //   headerFixed.classList.add('active');
+    // } else {
+    //   headerFixed.classList.remove('active');
+    // }
+
+    if (window.innerWidth < 992) {
+      if (scroll + windowHeight >= documentHeight) {
+        headerFixed.classList.remove('active');
+      } else if (scroll > 100) {
+        headerFixed.classList.add('active');
+      } else {
+        headerFixed.classList.remove('active');
+      }
+    }
+  });
 
 
 
