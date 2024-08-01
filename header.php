@@ -32,20 +32,12 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'antoninolattene' ); ?></a>
+	<div id="page" class="site">
+		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'antoninolattene' ); ?></a>
 
-	<!-- <header id="masthead" class="site-header">		 -->
-		<!-- <div class="site-branding"> -->
-			
-		<!-- </div> -->
-		<!-- .site-branding -->
+		<header id="masthead" class="site-header">
+			<?php get_template_part( 'template-parts/logo' ); ?>
+			<?php get_template_part( 'template-parts/navigation' ); ?>
+		</header><!-- #masthead -->
 
-		<!-- <nav id="site-navigation" class="main-navigation"> -->
-			
-		<!-- </nav> -->
-		<!-- #site-navigation -->
-	<!-- </header> -->
-	<!-- #masthead -->
-
-	<div id="content" class="site-content">
+		<div id="content" class="site-content">

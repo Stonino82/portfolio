@@ -1,8 +1,8 @@
 /* For the moment same layout for all the pages */
 .container {
     display:grid;
-    grid-template-columns:1fr;
-    &>* { }
+    grid-template-columns: 1fr;
+    &>* {}
     &::before {
         all: unset !important;
     }
@@ -19,15 +19,16 @@
         background-color: $color-neutral-200;
         box-sizing: border-box;
     }
-    .menu-container {}
+    .right-side {
+        margin-top: 82px; //header height
+    }
     section.showcase {
         position: relative;
         z-index: 2;
         display: grid;
         grid-template-columns: 1fr;
-        row-gap: var(--size-500);
-        padding-block: var(--size-700);
-        padding-inline: var(--size-500);
+        row-gap: var(--size-600);
+        padding: var(--size-600);
         background-color: $color-neutral-white;
     }
     section.blog, section.portfolio {
@@ -51,11 +52,9 @@
             z-index: 2;
             // box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;
         }
-        .menu-container {}
         section.showcase {
             gap: var(--size-700);
-            padding-block: var(--size-500);
-            padding-inline: var(--size-700);
+            padding: var(--size-600);
         }
         section.blog, section.portfolio {
             z-index: 1;

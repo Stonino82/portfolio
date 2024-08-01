@@ -18,9 +18,9 @@
                             <li>
                                 <!-- Get category without link -->
                                 <?php if ( is_category() ) : ?>
-                                <span class="chip chip__blog--category">Category</span>
+                                <span class="chip chip__blog--category"><i class="fa-solid fa-feather-pointed"></i>Blog Category</span>
                                 <?php elseif ( is_tax('portfolio_category') ) : ?>
-                                <span class="chip chip__portfolio--category">Category</span>
+                                <span class="chip chip__portfolio--category"><i class="fa-solid fa-folder-open"></i>Portfolio Category</span>
                                 <?php endif ?>
                             </li>
                         </ul>
@@ -31,9 +31,9 @@
                             <li>
                                 <!-- Get category without link -->
                                 <?php if ( is_tag() ) : ?>
-                                <span class="chip chip__blog--tags">Tag</span>
+                                <span class="chip chip__blog--tags"><i class="fa-solid fa-feather-pointed"></i>Blog Tag</span>
                                 <?php elseif ( is_tax('portfolio_tag') ) : ?>
-                                <span class="chip chip__portfolio--tags">Tag</span>
+                                <span class="chip chip__portfolio--tags"><i class="fa-solid fa-folder-open"></i>Portfolio Tag</span>
                                 <?php endif ?>
                             </li>
                         </ul>
@@ -48,31 +48,11 @@
 			</div>
 
 			<div class="presentation__links">
-				<div class="presentation__resume">
-					<a class="btn btn-tertiary" href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/07/CV-Resume-Antonino-Lattene-Product-Designer-UX-UI-Designer.pdf" target="_blank">
-						<span class="btn-text">Resume</span>
-						<span class="btn-icon btn-icon--right">
-							<i class="fas fa-arrow-down"></i>
-						</span>
-					</a>
-					<a class="btn btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
-						<span class="btn-text">Linkedin</span>
-						<span class="btn-icon btn-icon--right">
-							<i class="fas fa-arrow-down rotate"></i>
-						</span>
-					</a>
-					<a class="btn btn-primary" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
-						<span class="btn-text">Email Me</span>
-						<span class="btn-icon btn-icon--right">
-							<i class="fas fa-arrow-down rotate"></i>
-						</span>
-					</a>
-				</div>
+                <?php get_template_part( 'template-parts/presentation-links' ); ?>
 			</div>
 		</section><!-- /presentation -->
 
         <section class="right-side">
-			<?php get_template_part( 'template-parts/navigation' ); ?>
         
             <?php if ( get_post_type() === 'post' ) : ?>
             <section class="blog">
@@ -161,8 +141,7 @@
                 <?php endwhile; ?>
             </section>
             <?php endif; ?>
+
+            <?php get_footer(); ?>
         </section>
 	</main>
-<?php
-// get_sidebar();
-get_footer();

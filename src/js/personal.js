@@ -1,3 +1,29 @@
+  /*********    Fixed header    *********/
+  window.addEventListener('scroll', function () {
+    let scroll = window.pageYOffset || document.documentElement.scrollTop;
+    let headerFixed = document.querySelector('.site-header');
+    let windowHeight = window.innerHeight;
+    let documentHeight = document.documentElement.scrollHeight;
+
+    // if (scroll >= 100) {
+    //   headerFixed.classList.add('header-down');
+    // } else {
+    //   headerFixed.classList.remove('header-down');
+    // }
+
+    if (window.innerWidth < 992) {
+      if (scroll + windowHeight >= documentHeight) {
+        headerFixed.classList.remove('header-down');
+      } else if (scroll > 100) {
+        headerFixed.classList.add('header-down');
+      } else {
+        headerFixed.classList.remove('header-down');
+      }
+    }
+  });
+
+
+
 // jQuery(function ($) {   // All scripts after this line (with this we can use jQuery symbol"$" inside Wordpress!!)
   
 
@@ -74,32 +100,5 @@
 //           navAsThumbnails: true
 //         });
 //       //}
-
-      
-  /*********    Fixed header    *********/
-  window.addEventListener('scroll', function () {
-    let scroll = window.pageYOffset || document.documentElement.scrollTop;
-    let headerFixed = document.querySelector('.navigation');
-    let windowHeight = window.innerHeight;
-    let documentHeight = document.documentElement.scrollHeight;
-
-    // if (scroll >= 100) {
-    //   headerFixed.classList.add('active');
-    // } else {
-    //   headerFixed.classList.remove('active');
-    // }
-
-    if (window.innerWidth < 992) {
-      if (scroll + windowHeight >= documentHeight) {
-        headerFixed.classList.remove('active');
-      } else if (scroll > 100) {
-        headerFixed.classList.add('active');
-      } else {
-        headerFixed.classList.remove('active');
-      }
-    }
-  });
-
-
 
 // }); // All scripts before this line

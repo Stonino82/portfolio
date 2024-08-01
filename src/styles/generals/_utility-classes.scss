@@ -138,3 +138,11 @@
     .text-xs {font-size: var(--fs-200);}
     .text-xxs {font-size: var(--fs-100);}
 }
+
+.separator {
+    display: flex;
+    flex: 1;
+}
+
+
+$transition: all .2s ease-out;

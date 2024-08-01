@@ -1,4 +1,6 @@
 .site-footer {
+    position: relative;
+    z-index: 2;
     min-height: 70px;
     display: flex;
     flex-direction: column;
@@ -11,22 +13,23 @@
     &>* {
         margin-block: var(--size-200);
     }
-
-    .logo {
-        img {        
-            filter: invert(60%) !important;
-        }
-        div {
-            span:first-of-type {
-                color: $color-neutral-500;
+    .site-branding {
+        padding: 0;
+        background-color: unset;
+            .logo {
+                .logo__icon {        
+                    filter: invert(60%) !important;
+                }
+                .logo__text {
+                    color: $color-neutral-500;
+                    .logo__logotype {}
+                    .logo__tagline {
+                        background: none;
+                        -webkit-background-clip: none;
+                        -webkit-text-fill-color: unset;
+                    }
+                }
             }
-            span:last-of-type {
-                background: none;
-                -webkit-background-clip: none;
-                -webkit-text-fill-color: unset;
-                color: $color-neutral-500;
-            }
-        }
     }
 
     .presentation__icons {}
@@ -50,7 +53,6 @@
         &>* {
             margin: 0;
         }
-        .logo {}
         .presentation__icons {}
         .site-info {
             align-items: flex-end;

@@ -7,38 +7,22 @@
         </div>
 
         <div class="presentation__central">
-            <?php get_template_part( 'template-parts/navigation' ); ?>
-
             <div class="presentation__headlines">
                 <h1 class="text-heading-1 text-gradient margin-block-100">I build stunning UIs that resonate on a human level</h1>
             </div>
-
             <div class="presentation__description">
                 <h2 class="text-md-body-1 fw-regular">Hey 👋🏻 I’m Tony, <strong>Product Designer, User Experience (UX) & User Interface (UI) Designer</strong>, based in Barcelona.<br> With an emphasis in <strong>👨🏻‍🎨 Visual Design</strong> and a background in <strong>🧑🏻‍💻 Front-end Development</strong>, I transform user needs into solutions that drive results 🎯</h2>
+            </div>
+            <div class="presentation__availability">
+                <a class="btn btn-secondary" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
+                    <span class="availability btn-icon--left"></span>
+                    <span class="btn-text">availability from 4th week of august</span>
+                </a>
             </div>
         </div>
         
         <div class="presentation__links">
-            <div class="presentation__resume">
-                <a class="btn btn-tertiary" href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/07/CV-Resume-Antonino-Lattene-Product-Designer-UX-UI-Designer.pdf" target="_blank">
-                    <span class="btn-text">Resume</span>
-                    <span class="btn-icon btn-icon--right">
-                        <i class="fas fa-arrow-down"></i>
-                    </span>
-                </a>
-                <a class="btn btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
-                    <span class="btn-text">Linkedin</span>
-                    <span class="btn-icon btn-icon--right">
-                        <i class="fas fa-arrow-down rotate"></i>
-                    </span>
-                </a>
-                <a class="btn btn-primary" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
-                    <span class="btn-text">Email Me</span>
-                    <span class="btn-icon btn-icon--right">
-                        <i class="fas fa-arrow-down rotate"></i>
-                    </span>
-                </a>
-            </div>
+            <?php get_template_part( 'template-parts/presentation-links' ); ?>
         </div>
     </section>
 
@@ -160,7 +144,7 @@
                 </div>
             </div>
         </div>
+
+        <?php get_footer(); ?>
     </section>
 </main>
-
-<?php get_footer(); ?>

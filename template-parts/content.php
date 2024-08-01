@@ -16,6 +16,11 @@
 
 	<div class="presentation__central">
 		<div class="presentation__headlines">
+			<ul class="chip-list">
+					<li>
+						<span class="chip chip__blog--category"><i class="fa-solid fa-feather-pointed"></i>Blog</span>
+					</li>
+				</ul>
 			<?php
 			if ( is_singular() ) :
 				the_title( '<h1 class="text-heading-1 text-gradient margin-block-100">', '</h1>' );
@@ -40,31 +45,11 @@
 	</div>
 
 	<div class="presentation__links">
-		<div class="presentation__resume">
-			<a class="btn btn-tertiary" href="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/07/CV-Resume-Antonino-Lattene-Product-Designer-UX-UI-Designer.pdf" target="_blank">
-				<span class="btn-text">Resume</span>
-				<span class="btn-icon btn-icon--right">
-					<i class="fas fa-arrow-down"></i>
-				</span>
-			</a>
-			<a class="btn btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
-				<span class="btn-text">Linkedin</span>
-				<span class="btn-icon btn-icon--right">
-					<i class="fas fa-arrow-down rotate"></i>
-				</span>
-			</a>
-			<a class="btn btn-primary" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
-				<span class="btn-text">Email Me</span>
-				<span class="btn-icon btn-icon--right">
-					<i class="fas fa-arrow-down rotate"></i>
-				</span>
-			</a>
-		</div>
+		<?php get_template_part( 'template-parts/presentation-links' ); ?>
 	</div>
 </section><!-- /presentation -->
 
 <section class="right-side">
-	<?php get_template_part( 'template-parts/navigation' ); ?>
 
 	<section class="blog">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
@@ -127,4 +112,6 @@
 
 		</article><!-- #post-<?php the_ID(); ?> -->
 	</section><!-- /blog -->
+
+	<?php get_footer(); ?>
 </section>

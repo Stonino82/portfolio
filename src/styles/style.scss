@@ -8,6 +8,7 @@
 @import 'generals/utility-classes';
 
 /* Layout */
+@import 'templates/header';
 @import 'templates/layout';
 /* Pages Templates */
 /* home */
@@ -23,6 +24,6 @@
 @import 'components/buttons';
 @import 'components/social-icons';
 @import 'components/chips';
-@import 'components/menu';
+@import 'components/navigation';
 @import 'components/logo';
 @import 'components/footer-inner';

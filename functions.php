@@ -111,11 +111,49 @@ function wpdocs_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
 
 
-// Show Wordpress admin bar in fonr-end
-function admin_bar(){
 
-  if(is_user_logged_in()){
-    add_filter( 'show_admin_bar', '__return_true' , 1000 );
-  }
+
+
+
+
+
+//Add logo in login page
+function login_logo() { 
+  ?>
+  <style type="text/css"> 
+  body.login div#login h1 a {
+    background-image: url(http://localhost/antoninolattene/wp-content/uploads/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg);
+    background-size: contain;
+  } 
+  </style>
+  <?php 
 }
-add_action('init', 'admin_bar' );
+add_action( 'login_enqueue_scripts', 'login_logo' );
+
+
+//Show Wordpress admin bar in fonr-end
+// function admin_bar(){
+
+//   if(is_user_logged_in()){
+//     add_filter( 'show_admin_bar', '__return_true' , 1000 );
+//   }
+// }
+// add_action('init', 'admin_bar' );
+
+
+
+
+
+//Add custom logo
+// function my_custom_logo_setup() {
+// 	$defaults = array(
+// 		'height'               => 100,
+// 		'width'                => 100,
+// 		'flex-height'          => true,
+// 		'flex-width'           => true,
+// 		'header-text'          => array( 'site-title', 'site-description' ),
+// 		'unlink-homepage-logo' => true, 
+// 	);
+// 	add_theme_support( 'custom-logo', $defaults );
+// }
+// add_action( 'after_setup_theme', 'my_custom_logo_setup', 999);

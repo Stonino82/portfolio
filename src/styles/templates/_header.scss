@@ -1,0 +1,32 @@
+.site-header {
+    position: fixed;
+    top: -200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: $box-shadow-dp2;
+    transition: $transition;
+    z-index: 999;
+    &.header-down { //navigation down on scroll (see personal.js)
+        top: 0;
+    }
+    &::before {
+        all: unset;
+    }
+    &.toggled .site-branding {
+        display: none;
+    }
+    .site-branding {}
+    .main-navigation {}
+}
+@media (min-width: 992px) {
+    .site-header {
+        top: 0;
+        display: grid;
+        grid-template-columns: minmax(420px, 0.4fr) 1fr;
+        justify-content: flex-start;
+        box-shadow: unset;
+        .site-branding {}
+    }
+}

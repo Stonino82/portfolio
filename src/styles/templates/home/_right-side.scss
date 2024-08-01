@@ -9,7 +9,7 @@ section.showcase {
         display: grid !important;
         height: max-content;
         overflow: hidden;
-        transition: all .2s ease-out;
+        transition: $transition;
         .project__image {
             position: relative;
             width: 100%;

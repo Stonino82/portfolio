@@ -15,6 +15,3 @@
             endwhile; // End of the loop.
         ?>
     </main>
-<?php
-// get_sidebar();
-get_footer();

@@ -3,8 +3,7 @@
 //Animate the left-side
 var tl1 = gsap.timeline();
 
-tl1.from(".presentation__header", {y: -100, duration: .5, opacity: 0, ease: "power2.out"}, "+=0.1")
-    .from(".menu-container", {y: -100, duration: .5, opacity: 0, ease: "power2.out"}, "")
+tl1.from(".site-header", {y: -100, duration: .5, opacity: 0, ease: "power2.out"}, "+=0.1")
     .from(".presentation__central", {x: -100, duration: .5, opacity: 0, ease: "power2.out"}, "-=0.15")
     .from(".presentation__resume", {y: 100, duration: .5, opacity: 0, ease: "power2.out", stagger: .1}, "-=0.15")
     // .from(".presentation__icons li", {y: 20, duration: .4, opacity: 0, ease: "back.out(2)", stagger: .1}, "-=0.3")

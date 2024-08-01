@@ -1,8 +1,20 @@
-// Variables
+// Reset buttons
+button {
+	outline: none !important;
+	border: unset;
+}
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+	border: unset;
+}
 
+// Custom buttons
 .btn {
-	width: max-content;
+	position: relative;
 	height: 34px;
+	width: max-content;
 	padding: 8px 12px;
 	display: flex;
 	align-items: center;
@@ -12,7 +24,9 @@
 	font-size: var(--fs-300) !important;
 	font-weight: var(--fw-medium) !important;
 	text-transform: uppercase !important;
-	transition: all .2s ease-out;
+	transition: $transition;
+	border: none;
+	background: none;
 	cursor: pointer;
 	.btn-icon {
 		display: flex;
@@ -63,4 +77,116 @@
 	&:hover {
 		transform: translateY(-3px);
 	}
+}
+
+
+
+
+
+
+
+
+// Availability button
+.availability {
+	width: 14px;
+	height: 14px;
+	background-color: #08d908;
+	border-radius: 50%;
+	border: 2px solid $color-neutral-200;
+	box-shadow: $box-shadow-dp1;
+}
+
+
+// Shine animation
+.shine {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	transform: skew(-30deg) translateX(-145%);
+	background-color: rgba(255, 255, 255, 0.3);
+	-webkit-animation: shine 2.5s ease infinite;
+			animation: shine 2.5s ease infinite;
+}
+  
+@-webkit-keyframes shine {
+	0% {
+		transform: skew(-30deg) translateX(-145%);
+	}
+	30% {
+		transform: skew(-30deg) translateX(145%);
+	}
+	100% {
+		transform: skew(-30deg) translateX(145%);
+	}
+}
+
+@keyframes shine {
+	0% {
+		transform: skew(-30deg) translateX(-145%);
+	}
+	30% {
+		transform: skew(-30deg) translateX(145%);
+	}
+	100% {
+		transform: skew(-30deg) translateX(145%);
+	}
+}
+
+
+// Menú button animation
+.btn-menu-toggle {
+	position: relative;
+	width: 16px;
+	padding: 0;
+	// box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	overflow: hidden;
+	&:hover {
+		transform: none;
+	}
+}
+
+.btn-menu-toggle span {
+	position: absolute;
+	right: 0;
+	width: 12px;
+	height: 2px;
+	border-radius: 4px;
+	background-color: $color-primary;
+	transition: $transition;
+}
+
+.btn-menu-toggle span:nth-child(2) {
+	transform: translateY(-9px);
+	width: 16px;
+}
+
+.btn-menu-toggle span:nth-child(3) {
+	transform: translateY(9px);
+	width: 16px;
+}
+
+.btn-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+	transform: translateX(-60px);
+	// background-color: $color-accent;
+}
+
+.btn-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+	width: 16px;
+	transform: translateX(0) rotate(45deg);
+	transition-delay: 0.1s;
+	// background-color: $color-accent;
+}
+
+.btn-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+	width: 16px;
+	transform: translateX(0) rotate(-45deg);
+	transition-delay: 0.2s;
+	// background-color: $color-accent;
 }

@@ -11,16 +11,9 @@
 
 ?>
 
-	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="logo">
-			<img class="" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2024/04/Logo-UX-UI-Desginer-Antonino-Lattene.svg" alt="logo UX UI designer Barcelona"/>
-			<div>
-				<span>tony.</span>
-				<span>PRODUCT DESIGNER</span>
-			</div>
-		</div>
+		<?php get_template_part( 'template-parts/logo' ); ?>
 		<ul class="presentation__icons">
 			<li class="presentation__icons--item margin-inline-200"><a href="http://dribbble.com/antoninolattene" target="blank"><span class="icon fab fa-dribbble"></span></a></li>
 			<li class="presentation__icons--item margin-inline-200"><a href="http://www.behance.net/antoninolattene" target="blank"><span class="icon fab fa-behance"></span></a></li>
@@ -36,5 +29,6 @@
 
 <?php wp_footer(); ?>
 
+	</div><!-- #content -->
 </body>
 </html>

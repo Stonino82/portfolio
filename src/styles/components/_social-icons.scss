@@ -1,6 +1,6 @@
 .fa-dribbble, .fa-behance, .fa-github, .fa-linkedin-in, .fa-codepen {
     display: inline-block;
-    transition: all .2s ease-out;
+    transition: $transition;
 }
 .fa-dribbble:hover, .fa-behance:hover, .fa-github:hover, .fa-linkedin-in:hover, .fa-codepen:hover {
     transform: translateY(-3px);
