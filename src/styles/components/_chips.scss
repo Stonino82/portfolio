@@ -24,51 +24,37 @@
             text-decoration: none;
             color: $color-neutral-white !important;
         }
-        &__portfolio--section {
+        &__portfolio--section, 
+        &__portfolio--category {
             background: $color-primary;
             color: $color-neutral-white !important;
-        }
-        &__portfolio--category {
-            background-color: $color-primary ;
-            color: $color-neutral-white !important;
-            z-index: 1;
+            font-weight: var(--fw-bold);
         }
         &__portfolio--sub-category {
-            background-color: $color-neutral-white;
-            color: $color-primary !important;
-            margin-left: -20px;
-            padding-left: 24px !important;
-            text-transform: capitalize;
-        }
-        &__blog--section {
-            background: $color-accent;
+            background-color: $color-primary--lighter;
             color: $color-neutral-white !important;
-        }
-        &__blog--category {
-            background-color: $color-accent ;
-            color: $color-neutral-white !important;
-            z-index: 1;
-        }
-        &__blog--sub-category {
-            background-color: $color-neutral-white;
-            color: $color-accent !important;
-            margin-left: -20px;
-            padding-left: 24px !important;
-            text-transform: capitalize;
         }
         &__portfolio--tags {
-            font-weight: var(--fw-regular);
-            // text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-primary !important;
             border: 1px solid $color-primary;
+            text-transform: lowercase;
+        }
+        &__blog--section,
+        &__blog--category {
+            background: $color-accent;
+            color: $color-neutral-white !important;
+            font-weight: var(--fw-bold);
+        }
+        &__blog--sub-category {
+            background-color: $color-accent--lighter;
+            color: $color-neutral-white !important;
         }
         &__blog--tags {
-            font-weight: var(--fw-regular);
-            // text-transform: lowercase;
             background-color: $color-neutral-white;
             color: $color-accent !important;
             border: 1px solid $color-accent;
+            text-transform: lowercase;
         }
     }
 }

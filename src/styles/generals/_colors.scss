@@ -1,14 +1,18 @@
 // COLORS
 
 // Color Primary
-$color-primary--lighter: hsl(234, 84%, 90%);
-$color-primary: hsl(234, 84%, 66%);
-$color-primary--darker: hsl(234, 84%, 52%);
+$color-primary--lightest: #DFE2FC;
+$color-primary--lighter: #7F8AF4;
+$color-primary: #5F6DF1;
+$color-primary--darker: #4D58C8;
+$color-primary--darkest: #282F77;
 
 // Color Accent
-$color-accent--lighter: hsl(306, 76%, 90%);
-$color-accent: hsl(306, 76%, 53%);
-$color-accent--darker: hsl(306, 76%, 33%);
+$color-accent--lightest: #F9D5F6;
+$color-accent--lighter: #E855D9;
+$color-accent: #E22BD0;
+$color-accent--darker: #B522A6;
+$color-accent--darkest: #5A1153;
 
 // Color Gradient
 $color-gradient: linear-gradient(135deg, hsl(234, 84%, 66%) 0%, hsl(306, 76%, 53%) 100%);

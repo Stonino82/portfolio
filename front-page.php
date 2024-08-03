@@ -85,14 +85,14 @@
                                         <?php if( $post_type == 'Portfolio' ): ?>
                                             <div class="chip-list">
                                                 <span class="chip chip__portfolio--section"><i class="fa-solid fa-folder-open"></i><?php echo $post_type; ?></span>
-                                                <span class="chip chip__portfolio--category"><?php echo esc_html( $category ); ?></span>
-                                                <span class="chip chip__portfolio--sub-category"><?php echo esc_html( $sub_category ); ?></span>
+                                                <span class="chip chip__portfolio--category"><i class="fa-solid fa-bars"></i><?php echo esc_html( $category ); ?></span>
+                                                <span class="chip chip__portfolio--sub-category"><i class="fa-solid fa-bars-staggered"></i><?php echo esc_html( $sub_category ); ?></span>
                                             </div>
                                         <?php elseif( $post_type == 'Blog' ): ?>
                                             <div class="chip-list">
                                                 <span class="chip chip__blog--section"><i class="fa-solid fa-feather-pointed"></i><?php echo $post_type; ?></span>
-                                                <span class="chip chip__blog--category"><?php echo esc_html( $category ); ?></span>
-                                                <span class="chip chip__blog--sub-category"><?php echo esc_html( $sub_category ); ?></span>
+                                                <span class="chip chip__blog--category"><i class="fa-solid fa-bars"></i><?php echo esc_html( $category ); ?></span>
+                                                <span class="chip chip__blog--sub-category"><i class="fa-solid fa-bars-staggered"></i><?php echo esc_html( $sub_category ); ?></span>
                                             </div>
                                         <?php endif; ?>
                                     </div>

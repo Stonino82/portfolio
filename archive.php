@@ -13,32 +13,56 @@
 			<div class="presentation__central">
 				<div class="presentation__headlines">
 					
+                    <ul class="chip-list">
                     <?php if ( is_category() || is_tax('portfolio_category') ) : ?>
-                        <ul class="chip-list">
-                            <li>
-                                <!-- Get category without link -->
+                        <?php $term = get_queried_object(); ?>
+                        <li>
+                            <?php if ( $term->parent == 0 ) : ?>
                                 <?php if ( is_category() ) : ?>
-                                <span class="chip chip__blog--category"><i class="fa-solid fa-feather-pointed"></i>Blog Category</span>
-                                <?php elseif ( is_tax('portfolio_category') ) : ?>
-                                <span class="chip chip__portfolio--category"><i class="fa-solid fa-folder-open"></i>Portfolio Category</span>
-                                <?php endif ?>
-                            </li>
-                        </ul>
-                        <h1 class="text-heading-1 text-gradient margin-block-100"><?php single_term_title( '', true ); ?></h1>
-
+                                    <span class="chip chip__blog--category">
+                                        <i class="fa-solid fa-bars"></i>
+                                        Category
+                                    </span>
+                                    <?php elseif ( is_tax('portfolio_category') ) : ?>
+                                    <span class="chip chip__portfolio--category">
+                                        <i class="fa-solid fa-bars"></i>
+                                        Category
+                                    </span>
+                                <?php endif; ?>
+                            <?php else : ?>
+                                <?php if ( is_category() ) : ?>
+                                    <span class="chip chip__blog--sub-category">
+                                        <i class="fa-solid fa-bars-staggered"></i>
+                                        Subcategory
+                                    </span>
+                                    <?php elseif ( is_tax('portfolio_category') ) : ?>
+                                        <span class="chip chip__portfolio--sub-category">
+                                        <i class="fa-solid fa-bars-staggered"></i>
+                                        Subcategory
+                                    </span>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </li>
+                        
                     <?php elseif ( is_tag() || is_tax('portfolio_tag') ) : ?>
-                        <ul class="chip-list">
-                            <li>
-                                <!-- Get category without link -->
-                                <?php if ( is_tag() ) : ?>
-                                <span class="chip chip__blog--tags"><i class="fa-solid fa-feather-pointed"></i>Blog Tag</span>
-                                <?php elseif ( is_tax('portfolio_tag') ) : ?>
-                                <span class="chip chip__portfolio--tags"><i class="fa-solid fa-folder-open"></i>Portfolio Tag</span>
-                                <?php endif ?>
-                            </li>
-                        </ul>
-                        <h1 class="text-heading-1 text-gradient margin-block-100"><?php single_term_title( '', true ); ?></h1>
+                        <li>
+                            <?php if ( is_tag() ) : ?>
+                            <span class="chip chip__blog--tags">
+                                <i class="fa-solid fa-tag"></i>	
+                                Tag
+                            </span>
+                            <?php elseif ( is_tax('portfolio_tag') ) : ?>
+                            <span class="chip chip__portfolio--tags">
+                                <i class="fa-solid fa-tag"></i>	
+                                Tag
+                            </span>
+                            <?php endif ?>
+                        </li>
+
                     <?php endif ?>
+                    </ul>
+
+                    <h1 class="text-heading-1 text-gradient margin-block-100"><?php single_term_title( '', true ); ?></h1>
 
 				</div>
 
@@ -62,32 +86,45 @@
                     <div class="article__description">
                         <h3 class="project__title text-heading-5"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
                         <small><?php antoninolattene_posted_on(); antoninolattene_posted_by();?></small>
-                        <ul class="chip-list">
-                            <?php $categories = get_the_category();
-                            if( $categories ): ?>
-                                <?php foreach( $categories as $category ): ?>
-                                <li>
-                                    <!-- Get category without link -->
-                                    <!-- <span class="chip chip__blog--category"><?php echo $category->cat_name . ' '; ?></span> -->
-                                    <a class="chip chip__blog--category" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
-                                        <?php echo $category->name; ?>
-                                    </a>
-                                </li>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-
-                            <?php $tags = get_the_tags(); if( $tags ): ?>
-                                <?php foreach( $tags as $tag ): ?>
-                                <li>
-                                    <!-- Get tags without links  -->
-                                    <!-- <span class="chip chip__blog--tags"><?php echo $tag->name; ?></span> -->
-                                    <a class="chip chip__blog--tags" href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
-                                        <?php echo $tag->name; ?>
-                                    </a>
-                                </li>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </ul>
+                        <div class="categories">
+							<ul class="chip-list">
+								<?php $categories = wp_get_post_terms( get_the_id(), 'category', array( 'orderby' => 'term_order'));
+								if( $categories ): ?>
+									<?php foreach( $categories as $category ): ?>
+										<?php if ( $category->parent == 0 ): ?>
+											<li>
+												<a class="chip chip__blog--category" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
+													<i class="fa-solid fa-bars"></i>
+													<?php echo $category->name; ?>
+												</a>
+											</li>
+										<?php else: ?>
+											<li>
+												<a class="chip chip__blog--sub-category" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
+													<i class="fa-solid fa-bars-staggered"></i>
+													<?php echo $category->name; ?>
+												</a>
+											</li>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</ul>
+                        </div>
+                        <div class="tags">
+							<ul class="chip-list">
+								<?php $tags = get_the_tags();
+								if( $tags ): ?>
+									<?php foreach( $tags as $tag ): ?>
+									<li>
+										<a class="chip chip__blog--tags" href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
+											<i class="fa-solid fa-tag"></i>	
+											<?php echo $tag->name; ?>
+										</a>
+									</li>
+									<?php endforeach; ?>
+								<?php endif; ?>
+							</ul>
+						</div>
                         <p><?php the_excerpt(); ?></p>
                         <?php
                         // get_template_part( 'template-parts/content', get_post_type() );
@@ -106,32 +143,45 @@
                     <div class="article__description">
                             <h3 class="project__title text-heading-5"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
                             <small><?php antoninolattene_posted_on(); antoninolattene_posted_by();?></small>
-                            <ul class="chip-list">
-                                <?php $categories = get_the_terms( $post->ID, 'portfolio_category' );
-                                if( $categories ): ?>
-                                    <?php foreach( $categories as $category ): ?>
-                                    <li>
-                                        <!-- Get category without link -->
-                                        <!-- <span class="chip chip__portfolio--category"><?php echo $category->name; ?></span> -->
-                                        <a class="chip chip__portfolio--category" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
-                                            <?php echo $category->name; ?>
-                                        </a>
-                                    </li>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-
-                                <?php $tags = get_the_terms( get_the_ID(), 'portfolio_tag' ); if( $tags ): ?>
-                                    <?php foreach( $tags as $tag ): ?>
-                                    <li>
-                                        <!-- Get tags without links  -->
-                                        <!-- <span class="chip chip__portfolio--tags"><?php echo $tag->name; ?></span> -->
-                                        <a class="chip chip__portfolio--tags" href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
-                                            <?php echo $tag->name; ?>
-                                        </a>
-                                    </li>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </ul>
+                            <div class="categories">
+								<ul class="chip-list">
+									<?php $categories = wp_get_post_terms( get_the_id(), 'portfolio_category', array( 'orderby' => 'term_order'));
+									if( $categories ): ?>
+										<?php foreach( $categories as $category ): ?>
+											<?php if ( $category->parent == 0 ): ?>
+												<li>
+													<a class="chip chip__portfolio--category" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
+														<i class="fa-solid fa-bars"></i>
+														<?php echo $category->name; ?>
+													</a>
+												</li>
+											<?php else: ?>
+												<li>
+													<a class="chip chip__portfolio--sub-category" href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">
+														<i class="fa-solid fa-bars-staggered"></i>
+														<?php echo $category->name; ?>
+													</a>
+												</li>
+											<?php endif; ?>
+										<?php endforeach; ?>
+									<?php endif; ?>
+								</ul>
+                            </div>
+                            <div class="tags">
+								<ul class="chip-list">								
+									<?php $tags = get_the_terms( get_the_ID(), 'portfolio_tag' );
+									if( $tags ): ?>
+										<?php foreach( $tags as $tag ): ?>
+										<li>
+											<a class="chip chip__portfolio--tags" href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>">
+												<i class="fa-solid fa-tag"></i>
+												<?php echo $tag->name; ?>
+											</a>
+										</li>
+										<?php endforeach; ?>
+									<?php endif; ?>
+								</ul>
+							</div>
                             <p><?php echo get_the_excerpt(); ?></p>
                             <?php
                             // get_template_part( 'template-parts/content', get_post_type() );
