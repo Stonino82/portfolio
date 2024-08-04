@@ -13,6 +13,9 @@
                 <div class="presentation__headlines">
                     <h2 class="text-heading-1 text-gradient margin-block-100">I build stunning UIs that resonate on a human level</h2>
                 </div>
+                <div class="presentation__nav-tax">
+                    <?php get_template_part( 'template-parts/secondary-navigation' ); ?>
+                </div>
                 <div class="presentation__availability">
                     <a class="btn btn-secondary" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
                         <span class="shine"></span>
@@ -21,7 +24,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="presentation__links">
                 <?php get_template_part( 'template-parts/presentation-links' ); ?>
             </div>

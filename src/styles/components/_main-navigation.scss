@@ -1,5 +1,4 @@
 .main-navigation {
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -20,7 +19,7 @@
             align-items: center;
             gap: 1.5rem;
             position: absolute;
-            right: -200px;
+            right: -270px;
             opacity: 0;
             transition: $transition;
             li {
@@ -32,7 +31,7 @@
                 a {
                     display: flex;
                     padding: 4px 0 !important;
-                    color: $color-primary--lighter !important;
+                    color: $color-primary--lightest !important;
                     &:hover {
                         color: $color-primary !important;
                     }
@@ -58,10 +57,10 @@
     
                 //Specific for Blog menú item
                 &.menu-item-blog,
-                &#menu-item-2874,
-                &#menu-item-2919 { 
+                &.menu-item-2874,
+                &.menu-item-2919 { 
                     a {
-                        color: $color-accent--lighter !important;
+                        color: $color-accent--lightest !important;
                     }
                     &:hover {
                         a {

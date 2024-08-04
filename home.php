@@ -12,12 +12,15 @@
 			</div>
 
 			<div class="presentation__central">
-				<div class="presentation__headlines">
-					<h1 class="text-heading-1 text-gradient margin-block-100">Design & Code Dialogues</h1>
-				</div>
 				<div class="presentation__description">
 					<h2 class="text-md-body-1 fw-regular">Dive into the world of <strong class="tc-accent">UX, UI, and Front-end Development!</strong> I'll share insights, explore trends, and spark conversation on everything from <strong class="tc-accent">user research to pixel-perfect interfaces.</strong></h2>
 				</div>
+				<div class="presentation__headlines">
+					<h1 class="text-heading-1 text-gradient margin-block-100">Design & Code Dialogues</h1>
+				</div>
+                <div class="presentation__nav-tax">
+                    <?php get_template_part( 'template-parts/secondary-navigation' ); ?>
+                </div>
 			</div>
 
 			<div class="presentation__links">

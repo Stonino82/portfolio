@@ -11,63 +11,62 @@
 			</div>
 
 			<div class="presentation__central">
-				<div class="presentation__headlines">
-					
-                    <ul class="chip-list">
-                    <?php if ( is_category() || is_tax('portfolio_category') ) : ?>
-                        <?php $term = get_queried_object(); ?>
-                        <li>
-                            <?php if ( $term->parent == 0 ) : ?>
-                                <?php if ( is_category() ) : ?>
-                                    <span class="chip chip__blog--category">
-                                        <i class="fa-solid fa-bars"></i>
-                                        Category
-                                    </span>
-                                    <?php elseif ( is_tax('portfolio_category') ) : ?>
-                                    <span class="chip chip__portfolio--category">
-                                        <i class="fa-solid fa-bars"></i>
-                                        Category
-                                    </span>
-                                <?php endif; ?>
-                            <?php else : ?>
-                                <?php if ( is_category() ) : ?>
-                                    <span class="chip chip__blog--sub-category">
-                                        <i class="fa-solid fa-bars-staggered"></i>
-                                        Subcategory
-                                    </span>
-                                    <?php elseif ( is_tax('portfolio_category') ) : ?>
-                                        <span class="chip chip__portfolio--sub-category">
-                                        <i class="fa-solid fa-bars-staggered"></i>
-                                        Subcategory
-                                    </span>
-                                <?php endif; ?>
-                            <?php endif; ?>
-                        </li>
-                        
-                    <?php elseif ( is_tag() || is_tax('portfolio_tag') ) : ?>
-                        <li>
-                            <?php if ( is_tag() ) : ?>
-                            <span class="chip chip__blog--tags">
-                                <i class="fa-solid fa-tag"></i>	
-                                Tag
-                            </span>
-                            <?php elseif ( is_tax('portfolio_tag') ) : ?>
-                            <span class="chip chip__portfolio--tags">
-                                <i class="fa-solid fa-tag"></i>	
-                                Tag
-                            </span>
-                            <?php endif ?>
-                        </li>
-
-                    <?php endif ?>
-                    </ul>
-
-                    <h1 class="text-heading-1 text-gradient margin-block-100"><?php single_term_title( '', true ); ?></h1>
-
-				</div>
-
                 <div class="presentation__description">
                     <?php the_archive_description( '<h2 class="text-md-body-1 fw-regular">', '</h2>' ); ?>
+                </div>
+				<div class="presentation__headlines">
+                    <h1 class="text-heading-1 text-gradient margin-block-100"><?php single_term_title( '', true ); ?></h1>
+				</div>
+                <div class="presentation__nav-tax">
+                    <?php get_template_part( 'template-parts/secondary-navigation' ); ?>
+                    <ul class="chip-list">
+                        <?php if ( is_category() || is_tax('portfolio_category') ) : ?>
+                            <?php $term = get_queried_object(); ?>
+                            <li>
+                                <?php if ( $term->parent == 0 ) : ?>
+                                    <?php if ( is_category() ) : ?>
+                                        <span class="chip chip__blog--category">
+                                            <i class="fa-solid fa-bars"></i>
+                                            Category
+                                        </span>
+                                        <?php elseif ( is_tax('portfolio_category') ) : ?>
+                                        <span class="chip chip__portfolio--category">
+                                            <i class="fa-solid fa-bars"></i>
+                                            Category
+                                        </span>
+                                    <?php endif; ?>
+                                <?php else : ?>
+                                    <?php if ( is_category() ) : ?>
+                                        <span class="chip chip__blog--sub-category">
+                                            <i class="fa-solid fa-bars-staggered"></i>
+                                            Subcategory
+                                        </span>
+                                        <?php elseif ( is_tax('portfolio_category') ) : ?>
+                                            <span class="chip chip__portfolio--sub-category">
+                                            <i class="fa-solid fa-bars-staggered"></i>
+                                            Subcategory
+                                        </span>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+                            </li>
+
+                        <?php elseif ( is_tag() || is_tax('portfolio_tag') ) : ?>
+                            <li>
+                                <?php if ( is_tag() ) : ?>
+                                <span class="chip chip__blog--tags">
+                                    <i class="fa-solid fa-tag"></i>	
+                                    Tag
+                                </span>
+                                <?php elseif ( is_tax('portfolio_tag') ) : ?>
+                                <span class="chip chip__portfolio--tags">
+                                    <i class="fa-solid fa-tag"></i>	
+                                    Tag
+                                </span>
+                                <?php endif ?>
+                            </li>
+
+                        <?php endif ?>
+                    </ul>
                 </div>
 			</div>
 

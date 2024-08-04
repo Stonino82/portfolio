@@ -15,7 +15,29 @@
 	</div>
 
 	<div class="presentation__central">
-		<div class="presentation__categories">
+		<div class="presentation__description">
+			<h2 class="text-md-body-1 fw-regular"><?php echo get_secondary_title(); ?></h2>
+		</div>
+		<div class="presentation__headlines">
+			<?php
+			if ( is_singular() ) :
+				the_title( '<h1 class="text-heading-1 text-gradient margin-block-100">', '</h1>' );
+			else :
+				the_title( '<h1 class="text-heading-1 text-gradient margin-block-100"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+			endif;
+	
+			if ( 'post' === get_post_type() ) :
+				?>
+				<!-- <div class="entry-meta">
+					<?php
+					antoninolattene_posted_on();
+					antoninolattene_posted_by();
+					?>
+				</div> -->
+			<?php endif; ?>
+		</div>
+		<div class="presentation__nav-tax">
+			<?php get_template_part( 'template-parts/secondary-navigation' ); ?>
 			<ul class="chip-list">
 				<?php $categories = wp_get_post_terms( get_the_id(), 'category', array( 'orderby' => 'term_order'));
 				if( $categories ): ?>
@@ -38,27 +60,6 @@
 					<?php endforeach; ?>
 				<?php endif; ?>
 			</ul>
-		</div>
-		<div class="presentation__headlines">
-			<?php
-			if ( is_singular() ) :
-				the_title( '<h1 class="text-heading-1 text-gradient margin-block-100">', '</h1>' );
-			else :
-				the_title( '<h1 class="text-heading-1 text-gradient margin-block-100"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
-			endif;
-	
-			if ( 'post' === get_post_type() ) :
-				?>
-				<!-- <div class="entry-meta">
-					<?php
-					antoninolattene_posted_on();
-					antoninolattene_posted_by();
-					?>
-				</div> -->
-			<?php endif; ?>
-		</div>
-		<div class="presentation__description">
-			<h2 class="text-md-body-1 fw-regular"><?php echo get_secondary_title(); ?></h2>
 		</div>
 	</div>
 

@@ -17,18 +17,26 @@ section.presentation {
         flex-grow: 1;
         justify-content: center;
         .presentation__availability {
-            position: relative;
-            margin-bottom: 2rem;
             order: 1;
+            position: relative;
+            margin-block: -6rem 6rem;
         }
-        .presentation__headlines {
+        .presentation__nav-tax {
+            order: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            order: 2;
+            gap: .5rem;
+            margin-block: -2rem 2rem;
+        }
+        .presentation__headlines {
+            order: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .presentation__description {
-            order: 3;
+            order: 4;
         }
     }
     .presentation__links {

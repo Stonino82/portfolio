@@ -11,12 +11,15 @@
 			</div>
 
 			<div class="presentation__central">
-				<div class="presentation__headlines">
-					<h1 class="text-heading-1 text-gradient margin-block-100">Case Studies & Designs Showcase</h1>
-				</div>
 				<div class="presentation__description">
 					<h2 class="text-md-body-1 fw-regular">Discover my design journey! This portfolio features <strong>UX Case Studies</strong> and <strong>UI Designs</strong>, showcasing my approach to <strong>user-centered design</strong> and the final, polished results.</h2>
 				</div>
+				<div class="presentation__headlines">
+					<h1 class="text-heading-1 text-gradient margin-block-100">Case Studies & Designs Showcase</h1>
+				</div>
+                <div class="presentation__nav-tax">
+                    <?php get_template_part( 'template-parts/secondary-navigation' ); ?>
+                </div>
 			</div>
 
 			<div class="presentation__links">

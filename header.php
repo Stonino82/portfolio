@@ -37,7 +37,7 @@
 
 		<header id="masthead" class="site-header">
 			<?php get_template_part( 'template-parts/logo' ); ?>
-			<?php get_template_part( 'template-parts/navigation' ); ?>
+			<?php get_template_part( 'template-parts/main-navigation' ); ?>
 		</header><!-- #masthead -->
 
 		<div id="content" class="site-content">
