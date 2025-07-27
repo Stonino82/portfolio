@@ -1,5 +1,6 @@
 @use '../generals/colors' as *;
 @use '../generals/utility-classes' as *;
+@use '../components/separator' as *;
 
 .site-header {
     position: fixed;
@@ -39,7 +40,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: .5rem;
+            gap: 1rem;
             margin-top: var(--size-400);
             padding: var(--size-200) var(--size-300);
             .information {
@@ -105,6 +106,9 @@
                         }
                     }
                 }
+            }
+            hr {
+                @include separator($margin-top:0, $margin-bottom:0);
             }
         }
     } 

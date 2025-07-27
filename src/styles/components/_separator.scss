@@ -1,11 +1,33 @@
 @use '../generals/colors' as *;
 
-// --- Reusable Separator ---
+// --- Reusable Separator Mixin and Class ---
 
-.separator {
+/**
+ * A mixin to create a full-width horizontal separator.
+ * @param {length} $margin-top - The top margin for the separator.
+ * @param {length} $margin-bottom - The bottom margin for the separator.
+ */
+@mixin separator($margin-top: var(--size-400), $margin-bottom: var(--size-400)) {
     width: 100%;
     height: 1px;
     background-color: $color-neutral-300;
     border: 0;
-    margin: .5rem;
+    // Use logical properties for better internationalization support.
+    margin-block-start: $margin-top;
+    margin-block-end: $margin-bottom;
+}
+
+// A concrete .separator class for direct use in HTML (e.g., <div class="separator"></div>).
+// This uses the mixin with no vertical margins by default.
+.separator {
+    @include separator;
+}
+
+// Apply the separator style to all <hr> elements by default.
+// This provides a consistent look for horizontal rules across the site.
+// The margins can be easily overridden in specific components if needed.
+hr {
+    margin: 0;
+    // Use a sensible default margin from your design system.
+    @include separator;
 }

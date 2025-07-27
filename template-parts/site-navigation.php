@@ -24,8 +24,6 @@
                 get_template_part( 'template-parts/availability-chip' );
             ?>
         </div>
-
-        <hr class="separator" />
         
         <?php
         wp_nav_menu( array(
@@ -37,7 +35,7 @@
         ) );
         ?>
         
-        <hr class="separator" />
+        <hr />
         
         <ul class="menu">
             <li>
@@ -62,8 +60,6 @@
                 </a>
             </li>
         </ul>
-
-        <hr class="separator" />
 
         <a class="btn btn-lg btn-full btn-primary" href="mailto:antoninolattene@gmail.com" target="_blank" rel="noopener noreferrer">
             <span class="shine-animation"></span>
