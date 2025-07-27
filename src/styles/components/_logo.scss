@@ -4,9 +4,16 @@
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    position: relative; // Necesario para que el pseudo-elemento ::after se posicione correctamente
+    position: relative; // Required for positioning pseudo-elements and children.
     padding: var(--size-100);
-    &::before {
+    perspective: 800px; // Add perspective for the 3D flip effect.
+    img {
+        border-radius: 50%;
+        overflow: hidden;
+        transform-style: preserve-3d; // Allow the image to be transformed in 3D space.
+        backface-visibility: hidden; // Hide the back of the image when it's flipped.
+    }
+    &::before { // The spinner ring, positioned behind the logo content.
         position: absolute;
         top: 0;
         left: 0;

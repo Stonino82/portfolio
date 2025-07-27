@@ -26,25 +26,26 @@ function my_theme_enqueue_styles()
     } else {
         // --- PRODUCTION ---
         // Use WordPress's built-in functions for robust path and URL handling.
-        // The following logic is the definitive solution for loading assets in production.
+        // This is the definitive logic, designed to work with your specific build output.
 
-        // Step 1: Define the manifest path using the exact location you have confirmed on your server.
+        // Step 1: Define the manifest path using the exact location you have confirmed it is being created.
         $manifest_path = get_theme_file_path('/dist/.vite/manifest.json');
 
         if (file_exists($manifest_path)) {
             $manifest = json_decode(file_get_contents($manifest_path), true);
             if (is_array($manifest)) {
-                // Step 2: Get the base URL for the 'dist' directory. WordPress will resolve this correctly.
+                // Step 2: Get the base URL for the 'dist' directory. This will be prepended to the relative asset paths.
                 $dist_uri = get_theme_file_uri('/dist/');
                 $entry_point_key = 'src/index.js';
 
                 if (isset($manifest[$entry_point_key])) {
                     $entry_point = $manifest[$entry_point_key];
-                    // Step 3: Enqueue the main JS file by combining the dist URL with the relative path from the manifest.
+                    // Step 3: Enqueue the main JS file. The path from the manifest (e.g., 'assets/main.js')
+                    // is combined with the 'dist' folder's URL to create the full, correct URL.
                     if (!empty($entry_point['file'])) {
                         wp_enqueue_script('vite-main-app', $dist_uri . $entry_point['file'], ['jquery'], null, true);
                     }
-                    // Step 4: Enqueue all associated CSS files in the same way.
+                    // Step 4: Enqueue all associated CSS files using the same logic.
                     if (!empty($entry_point['css'])) {
                         foreach ($entry_point['css'] as $css_file) {
                             wp_enqueue_style('vite-main-style-' . basename($css_file), $dist_uri . $css_file, [], null);
@@ -108,6 +109,18 @@ function antoninolattene_child_customize_register( $wp_customize ) {
 		'type'        => 'select',
 		'choices'     => antoninolattene_child_get_availability_choices(),
 	) );
+
+	// 4. Añadir el ajuste y control para el logo alternativo (para el efecto de scroll).
+	$wp_customize->add_setting( 'alternative_logo', array(
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'esc_url_raw', // More flexible callback for image controls.
+	) );
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'alternative_logo_control', array(
+		'label'       => __( 'Logo Alternativo (al hacer scroll)', 'antoninolattene-child' ),
+		'description' => __( 'Este logo aparecerá brevemente cuando el usuario haga scroll hacia abajo.', 'antoninolattene-child' ),
+		'section'     => 'title_tagline', // Lo añadimos a la sección "Identidad del sitio".
+		'settings'    => 'alternative_logo',
+	) ) );
 }
 add_action( 'customize_register', 'antoninolattene_child_customize_register' );
 

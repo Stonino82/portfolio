@@ -3,6 +3,8 @@ import './styles/style.scss';
 
 // Import animation and navigation modules
 import initGsapAnimations from './js/gsap.js';
+import initLogoScrollAnimation from './js/logo-scroll-animation.js';
+
 
 /**
  * Run all initialization logic after the DOM is fully loaded.
@@ -10,4 +12,5 @@ import initGsapAnimations from './js/gsap.js';
  */
 document.addEventListener('DOMContentLoaded', () => {
   initGsapAnimations();
+  initLogoScrollAnimation();
 });

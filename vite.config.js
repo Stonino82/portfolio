@@ -8,7 +8,9 @@ export default defineConfig({
   // making the build portable and letting WordPress handle the full URL construction.
   base: process.env.NODE_ENV === 'production' ? './' : '/',
   build: {
-    manifest: true,
+    // Explicitly set the manifest path to match your environment's output.
+    // This makes the configuration the single source of truth.
+    manifest: '.vite/manifest.json',
     outDir: 'dist',
     emptyOutDir: true,
     sourcemap: false, // Disable sourcemaps for production as requested.
