@@ -1,0 +1,22 @@
+@use 'colors' as *;
+
+// --- Base HTML & Body Styles ---
+
+// This file contains the foundational styles for the entire document.
+
+body {
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  font-family: var(--ff-body);
+  font-size: var(--fs-400);
+  font-weight: var(--fw-regular);
+  color: $color-neutral-700;
+  background-color: $color-neutral-200; // Base background color for the entire site.
+}
+
+@media (min-width: 992px) {
+  body {
+    font-size: var(--fs-500);
+  }
+}

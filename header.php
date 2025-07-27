@@ -32,12 +32,17 @@
 </head>
 
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
+
+	<div id="page-loader"></div>
+
 	<div id="page" class="site">
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'antoninolattene' ); ?></a>
 
 		<header id="masthead" class="site-header">
-			<?php get_template_part( 'template-parts/logo' ); ?>
-			<?php get_template_part( 'template-parts/main-navigation' ); ?>
+			<?php get_template_part( 'template-parts/site-navigation' ); ?>
 		</header><!-- #masthead -->
+
+		<div id="menu-overlay"></div>
 
 		<div id="content" class="site-content">

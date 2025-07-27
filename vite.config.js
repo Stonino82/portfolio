@@ -1,50 +1,38 @@
 import path from 'path';
 import { defineConfig } from 'vite';
-
-const ROOT = path.resolve('../../../');
-const BASE = __dirname.replace(ROOT, '');
+import liveReload from 'vite-plugin-live-reload';
 
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? `${BASE}/dist2/` : '/',
+  // For production, we use a relative base path. This ensures that the paths in the
+  // manifest.json are relative to the 'dist' folder (e.g., 'assets/style.css'),
+  // making the build portable and letting WordPress handle the full URL construction.
+  base: process.env.NODE_ENV === 'production' ? './' : '/',
   build: {
     manifest: true,
-    assetsDir: '.',
-    outDir: 'dist2',
+    outDir: 'dist',
     emptyOutDir: true,
-    sourcemap: true,
+    sourcemap: false, // Disable sourcemaps for production as requested.
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'src/index.js'), // Usar path absoluto
-        // style: path.resolve(__dirname, 'src/style.scss'), // Usar path absoluto
       },
-      output: {
-        entryFileNames: 'main.js',
-        assetFileNames: 'main.[ext]',
-      },
+      // Vite gestionará los nombres de los archivos de salida de forma optimizada por defecto.
     },
   },
   plugins: [
-    {
-      name: 'php-reload',
-      handleHotUpdate({ file, server }) {
-        if (file.endsWith('.php')) {
-          server.ws.send({ type: 'full-reload', path: '*' });
-        }
-      },
-    },
+    // Usamos un plugin estándar para la recarga en vivo de archivos PHP.
+    // Es más robusto y está diseñado específicamente para este propósito.
+    liveReload([
+      path.resolve(__dirname, '**/*.php'),
+    ]),
   ],
   server: {
+    // usePolling es necesario en MAMP si los eventos del sistema de archivos no se detectan.
     watch: {
       usePolling: true,
     },
-    host: 'localhost',
+    host: true, // This allows access from other devices on the same network.
     port: 3000,
-    proxy: {
-      '/': {
-        target: 'http://localhost/antoninolattene', // Asegúrate de que este sea el puerto correcto
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/\//, '/'),
-      },
-    }
+    cors: true,
   }
 });

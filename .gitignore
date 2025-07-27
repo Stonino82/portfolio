@@ -162,4 +162,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Vite local development flag file
+hot
+
 # End of https://www.gitignore.io/api/osx,node,windows

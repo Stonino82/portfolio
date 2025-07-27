@@ -1,0 +1,72 @@
+// --- Reusable CSS Animations ---
+// This file centralizes all @keyframes rules and animation-specific classes
+// to keep the codebase organized and maintainable.
+
+@use 'colors' as *;
+@use 'utility-classes' as *;
+
+// --- Keyframes ---
+
+// 1. Spinner animation for loaders and spinners.
+@keyframes spinner-animation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// 3. Scroll indicator animation.
+@keyframes scroll-up-animation {
+    // The visible animation occurs between 0% and 25% of the timeline.
+    0% { // Start of cycle: bar is at the bottom, invisible.
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% { // Fade-in complete, still at the bottom.
+        transform: translateY(0);
+        opacity: 1;
+    }
+    45% { // Bar has moved to the top.
+        transform: translateY(-300%);
+        opacity: 1;
+    }
+    55% { // Fade-out complete. End of visible animation.
+        transform: translateY(-300%);
+        opacity: 0;
+    }
+    // The bar remains invisible, creating the pause.
+    100% {
+        transform: translateY(-300%);
+        opacity: 0;
+    }
+}
+
+// 4. Shine animation for buttons.
+@keyframes shine-animation {
+	0% {
+		transform: skew(-30deg) translateX(-145%);
+	}
+	30% {
+		transform: skew(-30deg) translateX(145%);
+	}
+	100% {
+		transform: skew(-30deg) translateX(145%);
+	}
+}
+// --- Animation-specific Utility Classes ---
+
+// This is a utility class. Its only purpose is to apply the 'shine-animation'
+// to any element it's added to, acting as a switch for the animation effect.
+// This makes the animation reusable without tying it to a specific component
+// like a button. The class name is `.shine-animation` to match its usage in the HTML.
+.shine-animation {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	transform: skew(-30deg) translateX(-145%);
+	background-color: rgba(255, 255, 255, 0.3);
+	animation: shine-animation 2.5s ease infinite;
+}

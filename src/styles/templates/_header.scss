@@ -1,32 +1,152 @@
+@use '../generals/colors' as *;
+@use '../generals/utility-classes' as *;
+
 .site-header {
     position: fixed;
-    top: -200px;
     width: 100%;
+    height: max-content;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: $box-shadow-dp2;
-    transition: $transition;
+    padding: var(--size-600) var(--size-600) 0 var(--size-600);
     z-index: 999;
-    &.header-down { //navigation down on scroll (see personal.js)
-        top: 0;
+    .logo {
+        z-index: 1;
     }
-    &::before {
-        all: unset;
-    }
-    &.toggled .site-branding {
-        display: none;
-    }
-    .site-branding {}
-    .main-navigation {}
-}
-@media (min-width: 992px) {
-    .site-header {
-        top: 0;
-        display: grid;
-        grid-template-columns: minmax(420px, 0.4fr) 1fr;
+    .site-navigation {
+        z-index: 0;
+        position: absolute;
+        top: var(--size-400);
+        left: var(--size-400);
+        right: var(--size-400);
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         justify-content: flex-start;
-        box-shadow: unset;
-        .site-branding {}
+        background-color: $color-neutral-200;
+        border: 1px solid $color-neutral-300;
+        border-radius: 1rem;
+        box-shadow: $box-shadow-dp3;
+        overflow: hidden;
+        // --- Animation: Initial State (Hidden) ---
+        // Use transform and opacity for smooth, performant animations.
+        opacity: 0;
+        visibility: hidden;
+        // transition: $transition; // GSAP will now handle the animation.
+
+        .menu-container {
+            width: 100%;
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: .5rem;
+            margin-top: var(--size-400);
+            padding: var(--size-200) var(--size-300);
+            .information {
+                height: 60px;
+                position: relative;
+                top: -8px;
+                margin-left: 72px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            ul.menu {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: .5rem;
+                li {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    border-radius: .5rem;
+                    overflow: hidden;
+                    .btn, div {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                    }
+                    &:hover {
+                        background-color: $color-neutral-300;
+                    }
+                    i {
+                        margin-left: auto;
+                        &.rotate {
+                            transform: rotate(-135deg);
+                        }
+                    }
+                    // Home > ".current_page_item"
+                    // Portfolio > ".current_page_parent"
+                    // Blog > ".current_page_item"
+                    
+                    // Active and parent menu items
+                    &:is(.current_page_item, .current_page_parent) {
+                        background-color: $color-primary--lightest;
+                        a {
+                            color: $color-primary !important;
+                        }
+                    }
+        
+                    // When a blog-related item is the active page or a parent, use the accent color for the background.
+                    // This selector is more specific and will override the general active state above.
+                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919):is(.current_page_item, .current_page_parent) {
+                        background-color: $color-accent--lightest;
+                    }
+    
+                    // Specific styles for Blog menu items
+                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919) { 
+                        a {
+                            color: $color-accent !important;
+                        }
+                    }
+                }
+            }
+        }
+    } 
+    &.toggled {
+        .site-navigation {
+            // GSAP now controls the visibility. The .toggled class is just a state indicator.
+        }
+        &::after {
+            display: none !important;
+        }
     }
 }
+
+// --- Menu Overlay ---
+// This is a dedicated element, so it's not affected by the header's transforms.
+#menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // Apply a semi-transparent background and the backdrop-filter for the blur effect.
+    background-color: rgba($color-neutral-white, 0.5);
+    -webkit-backdrop-filter: blur(3px); // For Safari
+    backdrop-filter: blur(3px);
+    z-index: 998; // Position it just below the header (which is 999).
+
+    // Animation for fade-in/out effect.
+    opacity: 0;
+    visibility: hidden;
+    // transition: opacity 0.4s ease-out, visibility 0s 0.4s; // GSAP will now handle the animation.
+}
+
+
+@media (min-width: 576px) {
+    .site-header {
+        .site-navigation {
+            max-width: max-content;
+            right: unset;
+        }
+    }
+}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {}
+@media (min-width: 1400px) {}

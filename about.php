@@ -1,11 +1,7 @@
 <?php get_header(); ?>
 
 <main class="container">
-    <section class="presentation opacityOnScroll">
-        <div class="presentation__header">
-            <?php get_template_part( 'template-parts/logo' ); ?>
-        </div>
-
+    <section class="presentation">
         <div class="presentation__central">
             <div class="presentation__headlines">
                 <h1 class="text-heading-1 text-gradient margin-block-100">I build stunning UIs that resonate on a human level</h1>
@@ -13,16 +9,7 @@
             <div class="presentation__description">
                 <h2 class="text-md-body-1 fw-regular">Hey 👋🏻 I’m Tony, <strong>Product Designer, User Experience (UX) & User Interface (UI) Designer</strong>, based in Barcelona.<br> With an emphasis in <strong>👨🏻‍🎨 Visual Design</strong> and a background in <strong>🧑🏻‍💻 Front-end Development</strong>, I transform user needs into solutions that drive results 🎯</h2>
             </div>
-            <div class="presentation__availability">
-                <a class="btn btn-secondary" href="mailto:antoninolattene@gmail.com" role="btn" rel="noopener noreferrer">
-                    <span class="availability btn-icon--left"></span>
-                    <span class="btn-text">availability from 4th week of august</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="presentation__links">
-            <?php get_template_part( 'template-parts/presentation-links' ); ?>
+            <?php get_template_part('template-parts/breadcrumbs'); ?>
         </div>
     </section>
 
@@ -51,54 +38,54 @@
                     <div class="slide">
                         <!-- <h6>1. Discover</h6> -->
                         <ul>
-                            <li class="chip chip--tags fw-regular tt-cap">User Research</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Market Research</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Competitive Research</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Needfinding</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Surveys</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Interviews</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Diary Studies</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Participant Observation</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Focus Groups</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">User Research</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Market Research</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Competitive Research</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Needfinding</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Surveys</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Interviews</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Diary Studies</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Participant Observation</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Focus Groups</li>
                         </ul>
                     </div>
                     <div class="slide">
                         <!-- <h6>2. Define</h6> -->
                         <ul>
-                            <li class="chip chip--tags fw-regular tt-cap">Problem Definition</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Goal Setting</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Brainstorming</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Mindmaps</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Problem Definition</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Goal Setting</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Brainstorming</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Mindmaps</li>
                         </ul>
                     </div>
                     <div class="slide">
                         <!-- <h6>3. Develop</h6> -->
                         <ul>
-                            <li class="chip chip--tags fw-regular tt-cap">Personas</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Scenarios</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Storytelling</li>
-                            <li class="chip chip--tags fw-regular tt-cap">User Cases</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Journey Maps</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Stroyboards</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Sketches</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Stakeholders Maps</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Card Sorting</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Hierarchy</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Information Architecture</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Wireframes</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Mockups</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Prototypes</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Digital Mockups</li>
-                            <li class="chip chip--tags fw-regular tt-cap">User Flows</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Personas</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Scenarios</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Storytelling</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">User Cases</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Journey Maps</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Stroyboards</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Sketches</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Stakeholders Maps</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Card Sorting</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Hierarchy</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Information Architecture</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Wireframes</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Mockups</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Prototypes</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Digital Mockups</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">User Flows</li>
                         </ul>
                     </div>
                     <div class="slide">
                         <!-- <h6>4. Deliver</h6> -->
                         <ul>
-                            <li class="chip chip--tags fw-regular tt-cap">Development</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Deployment</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Heuristic Evaluation</li>
-                            <li class="chip chip--tags fw-regular tt-cap">User Test</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Development</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Deployment</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Heuristic Evaluation</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">User Test</li>
                         </ul>
                     </div>
                 </div><!-- /slider -->
@@ -118,9 +105,9 @@
                     <div class="slide">
                         <h2 class="text-md-body-1 tc-primary margin-block-200 ta-center">UI Design Toolkit</h2>
                         <ul>
-                            <li class="chip chip--tags fw-regular tt-cap">Adobe Suite</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Adobe XD</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Figma</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Adobe Suite</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Adobe XD</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Figma</li>
                         </ul>
                     </div>
                 </div>
@@ -130,15 +117,15 @@
                     <div class="slide">
                         <h2 class="text-md-body-1 tc-primary margin-block-200 ta-center">Front End Toolkit</h2>
                         <ul>
-                            <li class="chip chip--tags fw-regular tt-cap">HTML5</li>
-                            <li class="chip chip--tags fw-regular tt-cap">CSS3</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Sass</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Bootstrap</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Material Design</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Javascript</li>
-                            <li class="chip chip--tags fw-regular tt-cap">React</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Angular</li>
-                            <li class="chip chip--tags fw-regular tt-cap">Webpack</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">HTML5</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">CSS3</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Sass</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Bootstrap</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Material Design</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Javascript</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">React</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Angular</li>
+                            <li class="chip chip--subtle fw-regular tt-cap">Webpack</li>
                         </ul>
                     </div>
                 </div>

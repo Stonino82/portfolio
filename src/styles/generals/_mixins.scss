@@ -1,0 +1,11 @@
+// --- Reusable Mixins ---
+// This file centralizes common style patterns that can be reused across components.
+
+/**
+ * Truncates text that overflows its container on a single line, adding an ellipsis.
+ */
+@mixin truncate-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

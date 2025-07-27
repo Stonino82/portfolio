@@ -1,5 +1,13 @@
-import '../src/js/navigation';
-import '../src/js/personal';
-import '../src/js/gsap';
+// Import main stylesheet for Vite to process
+import './styles/style.scss';
 
-import '../src/styles/style.scss';
+// Import animation and navigation modules
+import initGsapAnimations from './js/gsap.js';
+
+/**
+ * Run all initialization logic after the DOM is fully loaded.
+ * This ensures all elements are available before scripts try to access them.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+  initGsapAnimations();
+});

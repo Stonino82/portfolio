@@ -1,0 +1,29 @@
+@use '../generals/colors' as *;
+
+// --- Reusable Spinner Component ---
+
+// 1. A mixin containing the shared visual styles of the spinner ring.
+// It accepts a parameter for the ring's thickness, making it highly reusable.
+@mixin spinner-ring($thickness: 12.5%, $size: 100%) {
+  content: "";
+  display: block;
+  border-radius: 50%;
+  // The size of the spinner is now controlled by the mixin parameter.
+  width: $size;
+  height: $size;
+  background: $color-gradient;
+  animation: spinner-animation 2s linear infinite;
+
+  // Use the $thickness parameter to control the ring's width.
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - #{$thickness}), #000 0);
+          mask: radial-gradient(farthest-side, #0000 calc(100% - #{$thickness}), #000 0);
+}
+
+// 2. A concrete .spinner class for direct use in HTML (e.g., <div class="spinner"></div>).
+// While the spinner effect is currently applied via the mixin to pseudo-elements (.logo and #page-loader),
+// this class is kept as a reusable component for any future cases where a
+// dedicated spinner element might be needed.
+.spinner {
+  // This creates a spinner that fills its container by default.
+  @include spinner-ring;
+}

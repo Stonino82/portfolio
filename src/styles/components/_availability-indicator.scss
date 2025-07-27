@@ -1,0 +1,47 @@
+@use '../generals/colors' as *;
+@use 'sass:map';
+@use 'sass:string';
+@use 'sass:meta';
+
+// --- Availability Indicator Component ---
+// A reusable component to show a pulsing "available" dot.
+
+@mixin availability($status-or-color: 'limited', $size: 16px) {
+    // This mixin intelligently handles both predefined status keys and custom color values.
+    $color: $status-or-color; // Assume it's a color by default.
+    // If the provided value is a key in our color map, use the map's color instead.
+    @if map.has-key($availability-colors, $status-or-color) {
+        $color: map.get($availability-colors, $status-or-color);
+    }
+    content: '';
+    display: block;
+    min-width: $size;
+    width: $size;
+    height: $size;
+    background-color: $color;
+    border: 3px solid $color-neutral-200;
+    border-radius: 50%;
+    box-shadow: $box-shadow-dp1;
+
+    // The animation is now defined inside the mixin to use the dynamic color.
+    $animation-name: pulse-shadow-#{string.slice(meta.inspect($color), 2)};
+    animation: #{$animation-name} 2.5s infinite;
+
+    @keyframes #{$animation-name} {
+        0% { box-shadow: 0 0 0 0 rgba($color, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba($color, 0); }
+        100% { box-shadow: 0 0 0 0 rgba($color, 0); }
+    }
+}
+
+// A concrete class for direct use in HTML.
+.availability-indicator {
+    @include availability;
+
+    // Create modifier classes that override the default color.
+    @each $status, $color in $availability-colors {
+        &--#{$status} {
+            @include availability($status-or-color: $status);
+        }
+    }
+}

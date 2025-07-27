@@ -1,0 +1,17 @@
+@use '../generals/colors' as *;
+@use '../generals/mixins' as *;
+@use 'sass:map';
+
+// --- Availability Chip Styles ---
+// This file is now only responsible for generating the dynamic color classes for the availability chip.
+
+// --- Dynamic Color Modifiers ---
+// This loop generates the specific color classes for the chip.
+@each $status, $color in $availability-colors {
+    // By chaining .chip--bold with our dynamic class, we increase specificity
+    // and avoid the need for `!important`.
+    .chip--bold.availability-chip--#{$status} {
+        background-color: $color;
+        // The text color is already white from .chip--bold, which works well.
+    }
+}

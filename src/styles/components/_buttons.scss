@@ -1,3 +1,6 @@
+@use '../generals/colors' as *;
+@use '../generals/utility-classes' as *;
+
 // Reset buttons
 button {
 	outline: none !important;
@@ -13,15 +16,13 @@ input[type="submit"]:hover {
 // Custom buttons
 .btn {
 	position: relative;
-	height: 34px;
-	width: max-content;
-	padding: 8px 12px;
-	display: flex;
+	min-height: 24px;
+	min-width: 24px;
+	display: flex !important;
 	align-items: center;
 	justify-content: center;
 	text-decoration: none; //for A links converted in buttons
 	overflow: hidden;
-	font-size: var(--fs-300) !important;
 	font-weight: var(--fw-medium) !important;
 	text-transform: uppercase !important;
 	transition: $transition;
@@ -32,17 +33,43 @@ input[type="submit"]:hover {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+	.btn-text {}
+}
+.btn-md {
+	height: 34px;
+	width: max-content;
+	padding: var(--size-100) var(--size-200);
+	font-size: var(--fs-400) !important;
+	.btn-icon {
+		font-size: var(--fs-500) !important;
 		&--left {
 			margin-right: .5rem;
 		}
 		&--right {
 			margin-left: .5rem;
 		}
-		.rotate {
-			transform: rotate(-135deg);
+	}
+	.btn-text {}
+}
+.btn-lg {
+	width: max-content;
+	padding: var(--size-300) var(--size-400);
+	font-size: var(--fs-500) !important;
+	.btn-icon {
+		font-size: var(--fs-600) !important;
+		&--left {
+			margin-right: .875rem;
+		}
+		&--right {
+			margin-left: .875rem;
 		}
 	}
 	.btn-text {}
+}
+
+.btn-full {
+	width: 100% !important;
 }
 
 .btn-primary {
@@ -77,118 +104,6 @@ input[type="submit"]:hover {
 .btn-secondary,
 .btn-tertiary {
 	&:hover {
-		transform: translateY(-3px);
+		// transform: translateY(-3px);
 	}
-}
-
-
-
-
-
-
-
-
-// Availability button
-.availability {
-	width: 14px;
-	height: 14px;
-	background-color: #08d908;
-	border-radius: 50%;
-	border: 2px solid $color-neutral-200;
-	box-shadow: $box-shadow-dp1;
-}
-
-
-// Shine animation
-.shine {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	width: 100%;
-	height: 100%;
-	transform: skew(-30deg) translateX(-145%);
-	background-color: rgba(255, 255, 255, 0.3);
-	-webkit-animation: shine 2.5s ease infinite;
-			animation: shine 2.5s ease infinite;
-}
-  
-@-webkit-keyframes shine {
-	0% {
-		transform: skew(-30deg) translateX(-145%);
-	}
-	30% {
-		transform: skew(-30deg) translateX(145%);
-	}
-	100% {
-		transform: skew(-30deg) translateX(145%);
-	}
-}
-
-@keyframes shine {
-	0% {
-		transform: skew(-30deg) translateX(-145%);
-	}
-	30% {
-		transform: skew(-30deg) translateX(145%);
-	}
-	100% {
-		transform: skew(-30deg) translateX(145%);
-	}
-}
-
-
-// Menú button animation
-.btn-menu-toggle {
-	position: relative;
-	width: 16px;
-	padding: 0;
-	// box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	overflow: hidden;
-	&:hover {
-		transform: none;
-	}
-}
-
-.btn-menu-toggle span {
-	position: absolute;
-	right: 0;
-	width: 12px;
-	height: 2.5px;
-	border-radius: 4px;
-	background-color: $color-primary;
-	transition: $transition;
-}
-
-.btn-menu-toggle span:nth-child(2) {
-	transform: translateY(-9px);
-	width: 16px;
-}
-
-.btn-menu-toggle span:nth-child(3) {
-	transform: translateY(9px);
-	width: 16px;
-}
-
-.btn-menu-toggle[aria-expanded="true"] span:nth-child(1) {
-	transform: translateX(-60px);
-	// background-color: $color-accent;
-}
-
-.btn-menu-toggle[aria-expanded="true"] span:nth-child(2) {
-	width: 16px;
-	transform: translateX(0) rotate(45deg);
-	transition-delay: 0.1s;
-	// background-color: $color-accent;
-}
-
-.btn-menu-toggle[aria-expanded="true"] span:nth-child(3) {
-	width: 16px;
-	transform: translateX(0) rotate(-45deg);
-	transition-delay: 0.2s;
-	// background-color: $color-accent;
 }

@@ -4,14 +4,19 @@
   "description": "<h1>Portfolio.</h1> <p>www.antoninolattene.com</p>",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/vite",
-    "prod": "./node_modules/.bin/vite build"
+    "dev": "touch hot && vite",
+    "prod": "vite build && rm -f hot",
+    "cache-clear": "rm -rf node_modules/.vite"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^5.2.11",
-    "sass": "^1.77.2"
+    "sass": "^1.77.4",
+    "vite": "^5.3.1",
+    "vite-plugin-live-reload": "^3.0.5"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
   }
 }

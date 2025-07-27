@@ -1,3 +1,4 @@
+@use 'colors' as *;
 
 // UTILITY CLASSES for Spacing
 
@@ -110,7 +111,7 @@
 
 // Text Headings & Paragraphs
 .text-display-1,
-.text-display-2,
+.text-display-2 {font-size: var(--fs-900); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-extrabold)}
 .text-heading-1 {font-size: var(--fs-800); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-extrabold)}
 .text-heading-2 {font-size: var(--fs-750); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-bold)}
 .text-heading-3 {font-size: var(--fs-700); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-bold)}
@@ -139,10 +140,5 @@
     .text-xxs {font-size: var(--fs-100);}
 }
 
-.separator {
-    display: flex;
-    flex: 1;
-}
 
-
-$transition: all .2s ease-out;
+$transition: all 0.4s ease-out;

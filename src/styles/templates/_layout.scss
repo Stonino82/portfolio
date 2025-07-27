@@ -1,101 +1,21 @@
+@use '../generals/colors' as *;
+
 /* For the moment same layout for all the pages */
-.container {
+main.container {
     display:grid;
     grid-template-columns: 1fr;
-    &>* {}
+
     &::before {
         all: unset !important;
     }
-    section.presentation {
-        width: 100%;
-        position: sticky;
-        z-index: 1;
-        top: 0;
-        height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        background-color: $color-neutral-200;
-        box-sizing: border-box;
-    }
-    .right-side {
-        margin-top: 82px; //header height
-    }
-    section.showcase {
-        position: relative;
-        z-index: 2;
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: var(--size-600);
-        padding: var(--size-600);
-        background-color: $color-neutral-white;
-    }
-    section.blog, section.portfolio {
-        position: relative;
-        min-height: 100vh;
-        z-index: 2;
-        display: grid;
-        background-color: $color-neutral-white;
-        overflow: hidden;
-    }
+
 }
 
 @media (min-width: 576px) {}
 @media (min-width: 768px) {}
 @media (min-width: 992px) { 
-    .container {
-        grid-template-columns: minmax(420px, 0.4fr) 1fr;
-        &>* {}
-        section.presentation {
-            align-items: flex-start;
-            z-index: 2;
-            // box-shadow: rgba(0, 0, 0, 0.06) 10px 0px 10px 0px;
-        }
-        section.showcase {
-            gap: var(--size-700);
-            padding: var(--size-600);
-        }
-        section.blog, section.portfolio {
-            z-index: 1;
-        }
+    main.container {
+        grid-template-columns: minmax(420px, 0.32fr) 1fr;
     }
 }
-@media (min-width: 1400px) {
-    .container {
-        section.showcase {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-}
-
-
-
-
-
-
-
-
-//Set specific colors for all Blog or Portfolio pages
-section.blog {
-    a, strong {
-        color: $color-accent !important;
-    }
-    .wp-block-group-featured {
-        background-color: $color-accent !important;
-    }
-    .entry-content ul li::before {
-        background: $color-accent !important;
-    }
-}
-section.portfolio {
-    a, strong {
-        color: $color-primary !important;
-    }
-    .wp-block-group-featured {
-        background-color: $color-primary !important;
-    }
-    .entry-content ul li::before {
-        background: $color-primary !important;
-    }
-}
+@media (min-width: 1400px) {}

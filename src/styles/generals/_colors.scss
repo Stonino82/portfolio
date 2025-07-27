@@ -15,12 +15,13 @@ $color-accent--darker: #B522A6;
 $color-accent--darkest: #5A1153;
 
 // Color Gradient
-$color-gradient: linear-gradient(135deg, hsl(234, 84%, 66%) 0%, hsl(306, 76%, 53%) 100%);
+$color-gradient: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
 
 // Color Neutral
 $color-neutral-white: #fff;
 $color-neutral-200: #fafafa;
 $color-neutral-300: #eeeeee;
+$color-neutral-400: #c5c5c5;    
 $color-neutral-500: #8f8f8f;    
 $color-neutral-600: #686868;
 $color-neutral-700: #333333;
@@ -34,9 +35,18 @@ $color-linkedin: #0077b5;
 $color-codepen: rgb(189, 189, 189);
 
 //Color Box-Shadow
-$box-shadow-dp1: 1px 1px 1px 1px rgba($color-neutral-500, 0.15);
-$box-shadow-dp2: 0px 10px 10px 0px rgba($color-neutral-500, 0.10);
+$box-shadow-dp1: 0px 2px 4px rgba(99, 108, 140, 0.08), 0px 1px 2px rgba(99, 108, 140, 0.06); //utilizada en buttons, chips y .wp-block-quote
+$box-shadow-dp2: 0px 5px 10px rgba(99, 108, 140, 0.1), 0px 2px 5px rgba(99, 108, 140, 0.08);;
+$box-shadow-dp3: 0px 12px 24px rgba(99, 108, 140, 0.12), 0px 6px 12px rgba(99, 108, 140, 0.1);;
 
+// --- Component-specific Color Maps ---
+// This map defines the allowed colors for the availability indicator.
+// Using a map ensures consistency and makes the system easier to maintain.
+$availability-colors: (
+  'available': #10B981, // A modern, clear green for "Available".
+  'limited':   #F59E0B, // A warm, vibrant amber for "Limited Availability".
+  'not-available': #EF4444  // A clear, modern red for "Not Available".
+);
 
 
 // Utility Classes
@@ -44,4 +54,16 @@ $box-shadow-dp2: 0px 10px 10px 0px rgba($color-neutral-500, 0.10);
     background: $color-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+.text-highlight {
+    background-color: $color-primary--lightest;
+    color: $color-primary;
+    border-radius: 8px;
+    margin-block: 2px;
+    padding: 2px 8px;
+    display: inline-block;
+}
+.text-highlight.is--rose {
+    background-color: $color-accent--lightest;
+    color: $color-accent;
 }

@@ -1,160 +1,196 @@
-//Gsap
+// --- GSAP Animation Setup ---
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-//Animate the left-side
-var tl1 = gsap.timeline();
+gsap.registerPlugin(ScrollTrigger);
 
-tl1.from(".site-header", {y: -100, duration: .5, opacity: 0, ease: "power2.out"}, "+=0.1")
-    .from(".presentation__central", {x: -100, duration: .5, opacity: 0, ease: "power2.out"}, "-=0.15")
-    .from(".presentation__resume", {y: 100, duration: .5, opacity: 0, ease: "power2.out", stagger: .1}, "-=0.15")
-    // .from(".presentation__icons li", {y: 20, duration: .4, opacity: 0, ease: "back.out(2)", stagger: .1}, "-=0.3")
+const initGsapAnimations = () => {
+  // --- Animation Constants ---
+  // Define duration and ease in one place for a consistent feel across the site.
+  const ANIM_DURATION = 0.4;
+  const ANIM_EASE = "power1.out";
+  const FADE_IN_DISTANCE = 30; // The distance elements travel during their fade-in animation.
+  const STAGGER_TIME = 0.3;    // The delay between each item in a staggered animation.
+  const SEQUENCE_OFFSET = 0.3; // The time offset for sequencing animations in a timeline.
+  const INITIAL_DELAY = 0.3;   // The initial delay before the main page load animation starts.
 
+  // --- Page Loader Animation ---
+  const loader = document.getElementById('page-loader');
+  if (loader) {
+    gsap.to(loader, {
+      autoAlpha: 0,
+      duration: 0.5, // A quick but smooth fade-out
+      delay: 0.1,    // A tiny delay to ensure everything is rendered
+      // Remove the loader from the layout entirely once it's hidden.
+      onComplete: () => {
+        loader.style.display = 'none';
+      }
+    });
+  }
 
+  // --- Initial State Setup ---
+  // Hide all cards (project-card on homepage, project-tile on archives) to prevent a flash of unstyled content.
+  const cards = gsap.utils.toArray('.project-card, .project-tile');
+  gsap.set(cards, { autoAlpha: 0, y: FADE_IN_DISTANCE });
 
+  // --- Reusable Animation Configurations ---
+  // These presets make the timeline code cleaner and more consistent.
+  const fromFadeUp = { y: -FADE_IN_DISTANCE, autoAlpha: 0, duration: ANIM_DURATION, ease: ANIM_EASE };
+  const fromFadeLeft = { x: -FADE_IN_DISTANCE, autoAlpha: 0, duration: ANIM_DURATION, ease: ANIM_EASE };
+  const fromFadeInPlace = { autoAlpha: 0, duration: ANIM_DURATION, ease: ANIM_EASE };
 
-
-
-//Animate the right-side
-gsap.utils.toArray('body.home article, body.archive article, body.blog article').forEach((el, i) => {
-  gsap.from(el, {
-    y: 100,
-    duration: .6,
-    opacity: 0,
-    ease: "power2.out",
-    // scale: .85,
-    // delay: i * 0.15,
-    scrollTrigger: {
-      trigger: el,
-      start: "-100px 80%",
-      end: "80% 100px",
-      toggleActions: "play reverse play reverse",
-      // immediateRender: true,
-      markers: false
+  // --- Scroll-Triggered Card Animation ---
+  // This configuration is used to animate cards into view as the user scrolls.
+  const articlesBatchConfig = {
+    start: "top 92%", // Trigger the animation when the top of an element is 92% down the viewport.
+    onEnter: batch => {
+      gsap.to(batch, {
+        autoAlpha: 1,
+        y: 0,
+        stagger: STAGGER_TIME,
+        duration: ANIM_DURATION,
+        ease: ANIM_EASE,
+        overwrite: true,
+        // This gives full control back to the CSS stylesheet after the animation.
+        clearProps: "all"
+      });
     },
+    onLeaveBack: batch => {
+      // When scrolling back up, instantly hide the elements again.
+      gsap.set(batch, { autoAlpha: 0, y: FADE_IN_DISTANCE, overwrite: true });
+    }
+  };
+
+  // --- Responsive Animations with matchMedia ---
+  // This is GSAP's modern approach to creating responsive animations.
+  let mm = gsap.matchMedia();
+
+  // --- Mobile Animations (<= 991px) ---
+  mm.add("(max-width: 991px)", () => {
+    // This commented-out block is kept for future reference.
+    // It adds a class to the header on scroll, which could be used for a "sticky" or "scrolled" state.
+    // 1. El header se muestra al hacer scroll.
+    // ScrollTrigger.create({
+    //   start: 100,
+    //   end: "max",
+    //   toggleClass: { targets: ".site-header", className: "header-down" },
+    // });
+
+    // Create a timeline for the initial page load sequence on mobile.
+    const mobileTimeline = gsap.timeline({ delay: INITIAL_DELAY });
+    mobileTimeline
+      // Add 'page-ready' to the body to reveal the page content, preventing FOUC.
+      .call(() => document.body.classList.add('page-ready'))
+      .from(".site-header .logo", fromFadeUp, "<") // The "<" starts this animation at the same time as the previous one.
+      .from(".presentation__central", fromFadeInPlace, `<${SEQUENCE_OFFSET}`);
+
+    // 3. En móvil, la animación de los artículos se activa inmediatamente con el scroll.
+    ScrollTrigger.batch(cards, articlesBatchConfig);
   });
-});
 
+  // --- Desktop Animations (>= 992px) ---
+  mm.add("(min-width: 992px)", () => {
+    // On desktop, the first card is part of the initial animation sequence.
+    const firstCard = cards.length > 0 ? cards[0] : null;
+    const remainingCards = cards.length > 1 ? cards.slice(1) : [];
 
-// var containers = gsap.utils.toArray(".showcase");
+    // Create a timeline for the initial page load sequence on desktop.
+    const desktopTimeline = gsap.timeline({
+      delay: INITIAL_DELAY,
+      // The onComplete callback ensures the scroll-triggered animations for the
+      // other cards only start after the main intro animation has finished.
+      onComplete: () => {
+        if (remainingCards.length > 0) {
+          ScrollTrigger.batch(remainingCards, articlesBatchConfig);
+        }
+      }
+    });
 
-// containers.forEach(function (article) {
-//   gsap.fromTo(
-//     article.querySelectorAll("article"),
-//     { 
-//       x: -40,
-//       opacity: 0
-//     },
-//     {
-//       x: 0,
-//       opacity: 1,
-//       ease: "power2.out",
-//       stagger: 0.6,
-//       scrollTrigger: {
-//         trigger: article,
-//         // scrub: true,
-//         start: "-100px 80%",
-//         end: "80% 100px",
-//         immediateRender: true,
-//         markers: true,
-//         toggleActions: "play reverse play reverse"
-//       }
-//     }
-//   );
-// });
+    desktopTimeline
+      .call(() => document.body.classList.add('page-ready'))
+      .from(".site-header .logo", fromFadeUp, "<")
+      .from(".presentation__central", fromFadeLeft, `<${SEQUENCE_OFFSET}`);
 
-
-
-
-
-
-
-
-
-
-
-
-
-gsap.utils.toArray('.home article .project__section').forEach((el) => {
-  gsap.from(el, {
-      x: -100,
-      duration: .6,
-      opacity: 0,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "-100px 80%",
-        end: "85% 5%",
-        toggleActions: "play reverse play reverse",
-        markers: false
-      },
+    // Animate the first card as the final step of the intro sequence.
+    if (firstCard) {
+      desktopTimeline.to(firstCard, {
+        autoAlpha: 1,
+        y: 0,
+        duration: ANIM_DURATION,
+        ease: ANIM_EASE,
+        clearProps: "all" // Ensure the first card also behaves correctly.
+      }, `<${SEQUENCE_OFFSET}`);
+    }
   });
-});
 
-// gsap.utils.toArray('.home article .project__tags').forEach((el) => {
-//   gsap.from(el, {
-//       scrollTrigger: {
-//         trigger: el,
-//         start: "-50px 90%",
-//         end: "85% 20%",
-//         toggleActions: "play reverse play reverse",
-//         markers: false
-//       },
-//       x: -100,
-//       duration: .6,
-//       opacity: 0,
-//       ease: "power2.out"
-//   });
-// });
+  // --- Main Navigation Menu Animation ---
+  // This replaces the CSS-based transition for a more controllable GSAP timeline.
+  const menuToggle = document.querySelector('.btn-menu-toggle');
+  const siteHeader = document.querySelector('.site-header');
+  const siteNav = document.querySelector('.site-navigation');
+  const menuOverlay = document.getElementById('menu-overlay');
 
-// gsap.utils.toArray('.home article .project__kit li').forEach((el) => {
-//   gsap.from(el, {
-//       scrollTrigger: {
-//         trigger: el,
-//         start: "-50px 90%",
-//         end: "85% 20%",
-//         toggleActions: "play reverse play reverse",
-//         markers: false
-//       },
-//       x: 100,
-//       duration: .6,
-//       opacity: 0,
-//       ease: "power2.out"
-//   });
-// });
-          
-          
-
-/*
-  Determines how the linked animation is controlled at the 4 distinct toggle places:
-  onEnter, onLeave, onEnterBack, and onLeaveBack, in that order.
-  The default is play none none none. So toggleActions: "play pause resume reset" will 
-  1. play the animation when entering
-  2. pause it when leaving,
-  3. resume it when entering again backwards,
-  4. and reset (rewind back to the beginning) when scrolling all the way back past the beginning.
-  You can use any of the following keywords for each action:
-  "play", "pause", "resume", "reset", "restart", "complete", "reverse", and "none".
-*/
+  if (menuToggle && siteHeader && siteNav && menuOverlay) {
+    // Create a timeline for the menu animation, paused by default.
+    const menuTimeline = gsap.timeline({
+      paused: true,
+      onReverseComplete: () => {
+        // Ensure the toggled class is removed when the animation is fully reversed.
+        // This keeps the state consistent and handles accessibility attributes.
+        siteHeader.classList.remove('toggled');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        // Clean up event listeners when the menu is closed.
+        document.removeEventListener('click', handleOutsideClick);
+        document.removeEventListener('keydown', handleEscapeKey);
+      }
+    });
 
 
+    // Define the animation sequence.
+    menuTimeline
+      .to(menuOverlay, { autoAlpha: 1, duration: ANIM_DURATION, ease: ANIM_EASE })
+      .fromTo(siteNav, 
+        { x: -FADE_IN_DISTANCE, autoAlpha: 0 }, 
+        { x: 0, autoAlpha: 1, duration: ANIM_DURATION, ease: ANIM_EASE }, 
+        "<" // Start at the same time as the overlay animation
+      );
 
-// gsap.registerPlugin(ScrollTrigger);
-  
-//   gsap.utils.toArray(".home article").forEach(box => {
-//     var tl2 = gsap.timeline({
-//       scrollTrigger: {
-//         trigger: box,
-//         start: "-100px 80%",
-//         end: "80% 100px",
-//         toggleActions: "play reverse play reverse",
-//         markers: false
-//       }
-//     });
-  
-//     tl2.from(box, {
-//       y: 100,
-//       duration: .6,
-//       opacity: 0,
-//       ease: "power2.out",
-//       scale: .95
-//     });
-//   });
+    // --- Accessibility & UX Functions ---
+    // Function to handle clicks outside the menu.
+    const handleOutsideClick = (e) => {
+      if (!siteNav.contains(e.target) && !menuToggle.contains(e.target)) {
+        menuTimeline.reverse();
+      }
+    };
+
+    // Function to handle the Escape key.
+    const handleEscapeKey = (e) => {
+      if (e.key === 'Escape') {
+        menuTimeline.reverse();
+      }
+    };
+
+    // Add click event listener to the toggle button.
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Toggle the class to keep a state indicator and play/reverse the timeline.
+      const isOpening = !siteHeader.classList.contains('toggled');
+      siteHeader.classList.toggle('toggled', isOpening);
+      menuToggle.setAttribute('aria-expanded', isOpening);
+
+      if (isOpening) {
+        menuTimeline.play();
+        // Use a timeout to add listeners after the current event loop.
+        setTimeout(() => {
+          document.addEventListener('click', handleOutsideClick);
+          document.addEventListener('keydown', handleEscapeKey);
+        }, 0);
+      } else {
+        menuTimeline.reverse();
+      }
+    });
+  }
+};
+
+export default initGsapAnimations;

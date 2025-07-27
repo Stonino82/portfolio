@@ -1,60 +1,80 @@
+@use '../generals/colors' as *;
+@use '../generals/utility-classes' as *;
+@use '../generals/mixins' as *;
+
+// --- Component-Based Chip Styles ---
+
 .chip-list {
     display: flex;
     flex-flow: row wrap;
     list-style-type: none;
-    gap: 5px;
-    .chip {
-        width: max-content;
-        height: 30px;
-        padding: .5rem .8rem;
-        display: flex;
-        align-items: center;
-        font-size: var(--fs-200);
-        font-weight: var(--fw-medium);
-        text-align: center;
-        text-transform: uppercase;
-        border-radius: 8px;
-        box-shadow: $box-shadow-dp1;
-        text-decoration: none;
-        i {
-            margin-right: .25rem;
-            font-size: 14px;
-        }
-        a {
-            text-decoration: none;
-            color: $color-neutral-white !important;
-        }
-        &__portfolio--section, 
-        &__portfolio--category {
-            background: $color-primary;
-            color: $color-neutral-white !important;
-            font-weight: var(--fw-bold);
-        }
-        &__portfolio--sub-category {
-            background-color: $color-primary--lighter;
-            color: $color-neutral-white !important;
-        }
-        &__portfolio--tags {
-            background-color: $color-neutral-white;
-            color: $color-primary !important;
-            border: 1px solid $color-primary;
-            text-transform: lowercase;
-        }
-        &__blog--section,
-        &__blog--category {
-            background: $color-accent;
-            color: $color-neutral-white !important;
-            font-weight: var(--fw-bold);
-        }
-        &__blog--sub-category {
-            background-color: $color-accent--lighter;
-            color: $color-neutral-white !important;
-        }
-        &__blog--tags {
-            background-color: $color-neutral-white;
-            color: $color-accent !important;
-            border: 1px solid $color-accent;
-            text-transform: lowercase;
-        }
+    // Gap is now defined by size modifiers
+}
+
+// 1. Base .chip class (contains non-size related styles)
+.chip {
+    width: max-content;
+    display: inline-flex; // Use inline-flex for better alignment
+    align-items: center;
+    gap: 0.25rem; // Space between icon and text
+    // Font-size is now controlled by the parent list modifier
+    font-weight: var(--fw-medium);
+    text-align: center;
+    border-radius: 50px;
+    text-decoration: none;
+
+    // Ensure all chips truncate their text if it's too long.
+    @include truncate-text;
+    transition: $transition;
+}
+
+// 3. Style Modifiers (.chip--subtle, .chip--bold)
+.chip--subtle {
+    background-color: $color-neutral-300; // Default backgroumd-color
+    color: $color-neutral-700; // Default text color
+    text-transform: lowercase;
+    box-shadow: $box-shadow-dp1;
+    &.chip--primary { color: $color-primary; }
+    &.chip--accent { color: $color-accent; }
+}
+.chip--bold {
+    background-color: $color-neutral-700; // Default backgroumd-color
+    color: $color-neutral-white; // Default text color
+    box-shadow: $box-shadow-dp1;
+    text-transform: uppercase;
+    &.chip--primary { background: $color-primary; }
+    &.chip--accent { background: $color-accent; }
+}
+
+// --- Small Size ---
+// These styles can be applied by wrapping chips in a `.chip-list--sm`
+// or by adding the `.chip--sm` class directly to a chip.
+.chip-list--sm .chip,
+.chip--sm {
+    height: 24px;
+    padding: .25rem .6rem;
+    font-size: var(--fs-200);
+    i {
+        font-size: 12px;
     }
+}
+
+// --- Medium Size ---
+// These styles can be applied by wrapping chips in a `.chip-list--md`
+// or by adding the `.chip--md` class directly to a chip.
+.chip-list--md .chip,
+.chip--md {
+    height: 30px;
+    padding: .5rem .8rem;
+    font-size: var(--fs-300);
+    i {
+        font-size: 14px;
+    }
+}
+
+.chip-list--sm {
+    gap: .25rem; // A smaller gap for smaller chips
+}
+.chip-list--md {
+    gap: .25rem; // A smaller gap for smaller chips
 }

@@ -1,125 +1,81 @@
-// HOME -> right-side
+@use '../../generals/colors' as *;
+@use '../../generals/utility-classes' as *;
 
-section.showcase {
+
+.right-side {
+    & > *:not(.site-footer) {
+        border-radius: 1rem;
+        overflow: hidden;
+    }
     a {
         text-decoration: none;
     }
-    article {  //.project-full & .project-half
+    section {
         position: relative;
-        display: grid !important;
-        height: max-content;
+        min-height: 100vh;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1fr; // Default: 1 column (< 576px)
+        gap: var(--size-600);
+        padding: var(--size-600);
+        background-color: $color-neutral-white;
         overflow: hidden;
-        transition: $transition;
-        .project__image {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            overflow: hidden;
-            a {
-                height: 100%;
-                width: 100%;
-                display: flex;
-                place-content: center;
-            }
-            .project__img,
-            .project__video {
-                align-self: center;
-                justify-self: center;
-                &--contain {
-                    width: 80%;
-                    height: 80%;
-                    object-fit: contain;
-                    object-position: center;
-                }
-                &--cover {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
-            }
-            .project__kit {
-                position: absolute;
-                bottom: 0;
-                right: var(--size-500);
-                display: flex;
-                margin: 0 -.5rem;
-                padding: var(--size-50);
-                background-color: $color-neutral-white;
-                // opacity: 0.9 !important;
-                border-top-left-radius: var(--size-100);
-                border-top-right-radius: var(--size-100);
-                &--item {
-                    float: left;
-                    margin: 0 .5rem;
-                    color: $color-primary !important;
-                    font-size: var(--fs-400);
-                }
-            }
-        }
-
-        .project__section {
-            position: absolute;
-            top: var(--size-500);
-            left: var(--size-500);
-            .chip-list {
-                .chip {
-                    &__sub-category {
-                        margin-left: -10px;
-                        z-index: -1;
-                        padding-left: 20px;
-                    }
-                }
-            }
-        }
-        .project__caption {
-            text-align: center;
-            .project__subtitle {
-                letter-spacing: 3px;
-                color: $color-primary--lighter;
-            }
-            .project__title {
-                font-weight: var(--fw-bold);
-                line-height: 120%;
-            }
-        }
-        .project__links {
-            .project__links--item {
-                display: inline-block;
-                margin-right: .5rem;
-                font-size: var(--fs-600);
-                vertical-align: middle;
-            }
-        }
-        .project__tags {
-            display: flex;
-            flex-flow: row wrap;
-            margin: -5px;
-            padding: 0;
-             & > * {
-                margin: 5px;
-                opacity: 0.9;
-             }
-        }
-        &:hover {
-            transform: translateY(-5px) scale(1.007)!important;
-        }
+    }
+    section.showcase {
+        // This is the key fix. It prevents the grid rows from stretching to fill the
+        // full 100vh height of the section, ensuring rows are only as tall as their content.
+        align-content: start;
+    }
+    section.portfolio, section.blog {
+        // This is the key fix. It prevents the grid rows from stretching to fill the
+        // full 100vh height of the section, ensuring rows are only as tall as their content.
+        align-content: start;
+        align-items: start;
+        gap: var(--size-900);
     }
 }
 
-@media (min-width: 576px) {}
-@media (min-width: 768px) {}
-@media (min-width: 992px) {}
-@media (min-width: 1200px) {}
-@media (min-width: 1400px) {
-    section.showcase {
-        article {
-            .project__caption {
-                text-align: left;
-            }
+@media (min-width: 576px) {
+    .right-side {
+        section.showcase {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
+    }
+}
+@media (min-width: 768px) {}
+@media (min-width: 992px) {
+    .right-side {
+        margin-top: 96px; //header height
+        section.portfolio, section.blog {
+        }
+    }
+}
+@media (min-width: 1050px) {}
+@media (min-width: 1400px) {}
+
+
+
+
+//Set specific colors for all Blog or Portfolio pages
+section.blog {
+    a, strong {
+        color: $color-accent !important;
+    }
+    .wp-block-group-featured {
+        background-color: $color-accent !important;
+    }
+    .entry-content ul li::before {
+        background: $color-accent !important;
+    }
+}
+section.portfolio {
+    a, strong {
+        color: $color-primary !important;
+    }
+    .wp-block-group-featured {
+        background-color: $color-primary !important;
+    }
+    .entry-content ul li::before {
+        background: $color-primary !important;
     }
 }

@@ -1,13 +1,31 @@
+@use '../../generals/colors' as *;
+
 // Styles for single-portfolio template
-.single-post, .single-portfolio { // --> inject in the body
-    .container { // --> inject from single-portfolio.php
-        
+body.single-post, body.single-portfolio { // --> inject in the body
+    main.container { // --> inject from single-portfolio.php
+        .right-side {
+            .blog, .portfolio {
+                padding: 0; //para que no herede el padding de los section en _right-side.scss, así las imagenes son full-width
+                grid-auto-rows: unset;
+                align-content: unset;
+                align-items: unset;
+            }
+        }
         .thumbnail {
             position: relative;
+
+            // Position the section chip (Portfolio/Blog) over the thumbnail.
+            .project__section {
+                position: absolute;
+                top: var(--size-200);
+                left: var(--size-200);
+                z-index: 1;
+            }
             .post-thumbnail {
                 height: 60vh;
                 img {
                     height: 100%;
+                    width: 100%;
                     object-fit: cover;
                     object-position: center;
                 }
@@ -33,7 +51,7 @@
             height: 100%;
             margin: 0;
             .wp-block-group {
-                padding: 1rem;
+                padding: var(--size-600);
                 &.wp-block-group-featured {
                     margin: 1rem 0;
                     color: $color-neutral-white !important;
@@ -72,7 +90,7 @@
                 background: #f1f1f1;
                 box-shadow: $box-shadow-dp1;
                 font-style: italic;
-                padding: 2rem;
+                padding: var(--size-600);
             }
             .credit {
                 display: flex;
@@ -86,7 +104,7 @@
             }
             ul {
                 position: relative;
-                margin: 0 0 2rem 1rem;
+                margin: 0 0 var(--size-600) var(--size-400);
                 li {
                     margin-top: 1rem;
                     &::before {
@@ -103,20 +121,12 @@
         @media (min-width: 768px) {
             .entry-content {
                 .wp-block-group {
-                    padding: 2rem 4rem;
+                    padding: var(--size-600);
                 }
             }
         }
         @media (min-width: 992px) {}
         @media (min-width: 1200px) {}
-        @media (min-width: 1600px) {
-            .entry-content {
-                .wp-block-group {
-                    padding: 2rem 8rem;
-                }
-            }
-        }
+        @media (min-width: 1600px) {}
     }
 }
-
-

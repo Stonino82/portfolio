@@ -1,41 +1,28 @@
-.site-branding {
-    height: 100%;
-    padding: var(--size-500) 0 var(--size-500) var(--size-600);
-    background-color: $color-neutral-200;
-    .logo {
-        width: max-content;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        gap: var(--size-100);
-        text-decoration: none;
-        .logo__icon {        
-            height: 34px;
-            filter: invert(20%) !important;
-        }
-        .logo__text {
-            display: flex;
-            flex-direction: column;
-            & > * {
-                width: max-content;
-                font-size: 14px;
-                line-height: 1.2;
-                letter-spacing: -0.3px;
-            }
-            .logo__logotype {
-                font-weight: 600;
-            }
-            .logo__tagline {
-                font-weight: 800;
-                background: $color-gradient;
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-        }
-    }
-}
-@media (min-width: 992px) {
-    .site-branding {
+@use 'spinner' as *;
 
+.logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    position: relative; // Necesario para que el pseudo-elemento ::after se posicione correctamente
+    padding: var(--size-100);
+    &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include spinner-ring;
+    }
+    // &::after {
+    //     position: absolute;
+    //     bottom: 2px;
+    //     right: 2px;
+    //     @include availability;
+    // }
+    // Position the indicator dot over the bottom-right of the logo.
+    .availability-indicator {
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        z-index: 1; // Ensure it's above the logo image.
     }
 }

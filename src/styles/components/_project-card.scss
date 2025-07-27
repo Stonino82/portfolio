@@ -1,0 +1,90 @@
+@use '../generals/colors' as *;
+@use '../generals/utility-classes' as *;
+@use '../generals/mixins' as *;
+
+// --- Project Card Component ---
+// This component is used on the homepage and archive pages to display a preview of a post.
+
+.project-card {
+    // The <article> tag acts as a positioning context and clipping mask.
+    // It inherits its height from the parent grid (.showcase).
+    // By default, a grid item's min-width is `auto`, which prevents it from shrinking
+    // below its content's intrinsic size. Setting `min-width: 0` allows the grid
+    // container's `minmax()` function to control the card's minimum size properly.
+    min-width: 0;
+    position: relative;
+    transition: $transition;
+    border-radius: var(--size-400);
+    // background-color: $color-neutral-200;
+    box-shadow: $box-shadow-dp1;
+    a {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: var(--size-200);
+        gap: var(--size-200);
+        text-decoration: none;
+        color: inherit;
+
+        .project__image {
+            position: relative;
+            height: 240px;
+            width: 100%;
+            border-radius: var(--size-100);
+            overflow: hidden;
+            // border: 2px solid $color-neutral-white;
+            // box-shadow: $box-shadow-dp1;
+            img, video {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
+            .project__section {
+                position: absolute;
+                top: var(--size-200);
+                left: var(--size-200);
+                z-index: 1; // Ensure it's above the image.
+            }
+        }
+
+        .project__content {
+            display: flex;
+            flex-direction: column;
+            padding-inline: var(--size-200);
+
+            .breadcrumbs {
+                display: block;
+                // When a flex item (like .breadcrumbs) has `white-space: nowrap`, its minimum
+                // width becomes the full width of its content. Setting `min-width: 0` allows
+                // the item to shrink and be truncated by its parent flex container.
+                // Make the breadcrumbs element non-interactive to mouse events.
+                // This allows the cursor of the parent <a> tag to show through,
+                // providing a consistent user experience across the entire card,
+                // as the breadcrumbs inside the card are not clickable anyway.
+                pointer-events: none;
+                @include truncate-text;
+                // Force list items to flow like text instead of flex items.
+                .breadcrumbs__item, .breadcrumbs__separator {
+                    display: inline;
+                }
+                // Replicate the flex `gap` with margin, as `gap` is not supported by `display: inline`.
+                .breadcrumbs__separator { margin: 0 0.25rem; }
+            }
+    
+            .project__title {
+                // Truncate long titles to two lines.
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+
+    &:hover {
+        // A subtle lift and scale effect on hover.
+        box-shadow: $box-shadow-dp2;
+    }
+}

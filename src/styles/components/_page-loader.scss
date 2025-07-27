@@ -1,0 +1,41 @@
+@use '../generals/colors' as *;
+@use 'spinner' as *;
+
+// --- Unified Loading Logic ---
+
+// 1. Hide the main page containers to prevent any Flash of Unstyled Content (FOUC).
+// The `.page-ready` class will be added by JavaScript (GSAP) just as the animations
+// are ready to begin, revealing the content in a controlled manner.
+body:not(.page-ready) .site-header,
+body:not(.page-ready) #page {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// 2. Styles for the loader element itself.
+#page-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $color-neutral-white; // Usa el color de fondo de tu sitio.
+  z-index: 9999;
+
+  // GSAP se encargará de la transición, pero esto sirve como fallback
+  // y asegura que el estado inicial sea el correcto.
+  opacity: 1;
+  visibility: visible;
+
+  // 1. Usamos Flexbox para centrar perfectamente el spinner en la pantalla.
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  // The spinner is created using a pseudo-element.
+  // We extend the shared styles from _spinner.scss and just define the size here.
+  &::after {
+    // Override the new default size (100%) to a fixed size for the page loader.
+    @include spinner-ring($size: 64px);
+  }
+}

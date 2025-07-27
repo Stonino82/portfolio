@@ -1,0 +1,90 @@
+@use '../generals/colors' as *;
+
+// --- Breadcrumbs Styles ---
+// This is the primary component for navigation paths and category displays.
+
+// 1. Group selectors for shared styles
+.portfolio-breadcrumbs,
+.blog-breadcrumbs {
+    display: flex;
+    flex-wrap: wrap; // Allow wrapping on smaller screens
+    align-items: center;
+    column-gap: var(--size-100);
+    row-gap: var(--size-50);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li, li.breadcrumbs__item {
+        font-size: var(--fs-400);
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    // Set a uniform size for all icons within the breadcrumbs.
+    i {
+        font-size: var(--fs-300);
+    }
+
+    .breadcrumbs__link {
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s ease-in-out;
+        font-weight: var(--fw-medium);
+
+        // Apply hover effect only to actual links, not to the non-linked spans.
+        &:not(.is-not-linked):hover {
+            opacity: 0.75;
+        }
+
+        // When the breadcrumb is not a link, remove the pointer cursor.
+        &.is-not-linked {
+            cursor: default;
+        }
+
+        i {
+            margin-right: .25rem;
+        }
+    }
+
+    // The separator should have a slightly reduced opacity
+    .breadcrumbs__separator {
+        opacity: 0.6;
+        color: $color-neutral-500; // Set a consistent grey color for all separators.
+    }
+
+    // The current item is not a link and should be bolder
+    .breadcrumbs__item--current {
+        font-weight: var(--fw-regular);
+        opacity: 1;
+    }
+
+    // The "Home" link should always be a neutral grey, overriding the section color.
+    .breadcrumbs__item--home {
+        // Using a neutral color variable from the design system.
+        color: $color-neutral-400;
+
+        // Remove margin from the icon since there is no text.
+        .breadcrumbs__link i {
+            margin-right: 0;
+        }
+    }
+}
+
+// 2. Apply specific colors for each type
+.portfolio-breadcrumbs {
+    color: $color-primary;
+
+    .breadcrumbs__item--current {
+        color: $color-primary--lighter;
+    }
+}
+
+.blog-breadcrumbs {
+    color: $color-accent;
+
+    .breadcrumbs__item--current {
+        color: $color-accent--lighter;
+    }
+}

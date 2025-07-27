@@ -1,0 +1,11 @@
+@use '../generals/colors' as *;
+
+// --- Reusable Separator ---
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: $color-neutral-300;
+    border: 0;
+    margin: .5rem;
+}

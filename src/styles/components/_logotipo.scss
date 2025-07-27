@@ -1,0 +1,16 @@
+@use '../generals/colors' as *;
+
+// --- Logotipo Component ---
+// Styles for the text-based logo displayed within the navigation panel.
+
+.logotipo {
+    & > * {
+        margin: 0;
+        line-height: 1;
+    }
+    .logotipo__name {
+        font-size: var(--fs-400);
+        font-weight: var(--fw-medium);
+    }
+    .logotipo__tagline {}
+}

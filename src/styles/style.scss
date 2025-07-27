@@ -1,30 +1,39 @@
 /* Resets */
-@import 'resets/overwrite-rules';
+@use 'resets/overwrite-rules' as *;
 
 /* Generals */
-@import 'generals/custom-variables';
-@import 'generals/colors';
-@import 'generals/typo';
-@import 'generals/utility-classes';
+@use 'generals/custom-variables' as *;
+@use 'generals/base' as *;
+@use 'generals/colors' as *;
+@use 'generals/typo' as *;
+@use 'generals/utility-classes' as *;
+@use 'generals/animations' as *;
 
 /* Layout */
-@import 'templates/header';
-@import 'templates/layout';
+@use 'templates/header' as *;
+@use 'templates/layout' as *;
 /* Pages Templates */
-/* home */
-@import 'templates/home/left-side';
-@import 'templates/home/right-side';
-@import 'templates/home/process';
+/* home (re-exports from components) */
+@use 'templates/home/right-side' as *;
+@use 'templates/home/process' as *;
 /* single-portfolio (hereda también estilos de la home) */
-@import 'templates/single/single';
+@use 'templates/single/single' as *;
 /* archive (hereda también estilos de la home) */
-@import 'templates/archive/archive';
+@use 'templates/archive/archive' as *;
 
 /* Components */
-@import 'components/buttons';
-@import 'components/social-icons';
-@import 'components/chips';
-@import 'components/main-navigation';
-@import 'components/secondary-navigation';
-@import 'components/logo';
-@import 'components/footer-inner';
+@use 'components/availability-indicator' as *;
+@use 'components/availability-chip' as *;
+@use 'components/project-tile' as *;
+@use 'components/buttons' as *;
+@use 'components/chips' as *;
+@use 'components/page-loader' as *;
+@use 'components/project-card' as *;
+@use 'components/logotipo' as *;
+@use 'components/spinner' as *;
+@use 'components/scroll-indicator' as *;
+@use 'components/footer' as *;
+@use 'components/logo' as *;
+@use 'components/separator' as *;
+@use 'components/breadcrumbs' as *;
+@use 'components/presentation-section' as *;
