@@ -10,6 +10,27 @@
 ?>
 
 <?php
+/**
+ * This template is now unified to handle both 'post' and 'portfolio' types.
+ * We determine the post type and set up variables for the dynamic parts.
+ */
+$post_type = get_post_type();
+$is_portfolio = ( 'portfolio' === $post_type );
+
+if ( $is_portfolio ) {
+	$section_chip_icon  = 'fa-solid fa-folder-open';
+	$section_chip_text  = 'Portfolio';
+	$section_chip_color = 'chip--primary';
+	$tags               = get_the_terms( get_the_ID(), 'portfolio_tag' );
+} else { // Default to Blog Post.
+	$section_chip_icon  = 'fa-solid fa-feather-pointed';
+	$section_chip_text  = 'Blog';
+	$section_chip_color = 'chip--accent';
+	$tags               = get_the_tags();
+}
+?>
+
+<?php
 	get_template_part( 'template-parts/presentation-section', null, [
 		'title'       => get_the_title(),
 		'description' => get_secondary_title(),
@@ -26,14 +47,14 @@
 				<div class="project__section">
 					<ul class="chip-list chip-list--sm">
 						<li>
-							<span class="chip chip--bold chip--accent"><i class="fa-solid fa-feather-pointed"></i>Blog</span>
+							<span class="chip chip--bold <?php echo esc_attr( $section_chip_color ); ?>"><i class="<?php echo esc_attr( $section_chip_icon ); ?>"></i><?php echo esc_html( $section_chip_text ); ?></span>
 						</li>
 					</ul>
 				</div>
 				<?php antoninolattene_post_thumbnail(); ?>
 				<?php
 				// Use the reusable template part for tags.
-				get_template_part('template-parts/tags', null, ['tags' => get_the_tags(), 'chip_color_class' => 'chip--accent']);
+				get_template_part( 'template-parts/tags', null, [ 'tags' => $tags, 'chip_color_class' => $section_chip_color ] );
 				?>
 			</div>
 			<div class="entry-content">
