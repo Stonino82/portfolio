@@ -20,12 +20,10 @@ $is_portfolio = ( 'portfolio' === $post_type );
 if ( $is_portfolio ) {
 	$section_chip_icon  = 'fa-solid fa-folder-open';
 	$section_chip_text  = 'Portfolio';
-	$section_chip_color = 'chip--primary';
 	$tags               = get_the_terms( get_the_ID(), 'portfolio_tag' );
 } else { // Default to Blog Post.
 	$section_chip_icon  = 'fa-solid fa-feather-pointed';
 	$section_chip_text  = 'Blog';
-	$section_chip_color = 'chip--accent';
 	$tags               = get_the_tags();
 }
 ?>
@@ -47,14 +45,14 @@ if ( $is_portfolio ) {
 				<div class="project__section">
 					<ul class="chip-list chip-list--sm">
 						<li>
-							<span class="chip chip--bold <?php echo esc_attr( $section_chip_color ); ?>"><i class="<?php echo esc_attr( $section_chip_icon ); ?>"></i><?php echo esc_html( $section_chip_text ); ?></span>
+							<span class="chip chip--bold"><i class="<?php echo esc_attr( $section_chip_icon ); ?>"></i><?php echo esc_html( $section_chip_text ); ?></span>
 						</li>
 					</ul>
 				</div>
 				<?php antoninolattene_post_thumbnail(); ?>
 				<?php
 				// Use the reusable template part for tags.
-				get_template_part( 'template-parts/tags', null, [ 'tags' => $tags, 'chip_color_class' => $section_chip_color ] );
+				get_template_part( 'template-parts/tags', null, [ 'tags' => $tags ] );
 				?>
 			</div>
 			<div class="entry-content">
