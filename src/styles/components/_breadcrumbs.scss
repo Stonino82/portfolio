@@ -1,11 +1,14 @@
 @use '../generals/colors' as *;
 
 // --- Breadcrumbs Styles ---
-// This is the primary component for navigation paths and category displays.
+// This component uses CSS variables to adapt its color based on the section (Blog/Portfolio).
+// The color is inherited from the body class (.blog or .portfolio).
 
-// 1. Group selectors for shared styles
-.portfolio-breadcrumbs,
-.blog-breadcrumbs {
+.breadcrumbs {
+    // 1. Thematic Colors (using CSS variables for dynamic theming)
+    color: var(--color-section-primary);
+
+    // 2. Layout & Structure
     display: flex;
     flex-wrap: wrap; // Allow wrapping on smaller screens
     align-items: center;
@@ -14,7 +17,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    
     li, li.breadcrumbs__item {
         font-size: var(--fs-400);
         display: flex;
@@ -22,11 +24,11 @@
         gap: 0.25rem;
     }
 
+    // 3. Child Element Styling
     // Set a uniform size for all icons within the breadcrumbs.
     i {
         font-size: var(--fs-300);
     }
-
     .breadcrumbs__link {
         text-decoration: none;
         color: inherit;
@@ -47,19 +49,17 @@
             margin-right: .25rem;
         }
     }
-
     // The separator should have a slightly reduced opacity
     .breadcrumbs__separator {
         opacity: 0.6;
         color: $color-neutral-500; // Set a consistent grey color for all separators.
     }
-
     // The current item is not a link and should be bolder
     .breadcrumbs__item--current {
         font-weight: var(--fw-regular);
+        color: var(--color-section-primary-lighter);
         opacity: 1;
     }
-
     // The "Home" link should always be a neutral grey, overriding the section color.
     .breadcrumbs__item--home {
         // Using a neutral color variable from the design system.
@@ -69,22 +69,5 @@
         .breadcrumbs__link i {
             margin-right: 0;
         }
-    }
-}
-
-// 2. Apply specific colors for each type
-.portfolio-breadcrumbs {
-    color: $color-primary;
-
-    .breadcrumbs__item--current {
-        color: $color-primary--lighter;
-    }
-}
-
-.blog-breadcrumbs {
-    color: $color-accent;
-
-    .breadcrumbs__item--current {
-        color: $color-accent--lighter;
     }
 }

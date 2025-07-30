@@ -92,8 +92,8 @@
 .fw-extrabold {font-weight: var(--fw-extrabold);}
 
 // Text Color
-.tc-primary {color: $color-primary;}
-.tc-accent {color: $color-accent;}
+.tc-blue {color: $color-blue;}
+.tc-rose {color: $color-rose;}
 .tc-neutral-500 {color: $color-neutral-500;}
 .tc-neutral-600 {color: $color-neutral-600;}
 .tc-neutral-700 {color: $color-neutral-700;}
@@ -141,4 +141,4 @@
 }
 
 
-$transition: all 0.4s ease-out;
+$transition: all 0.2s ease-out;

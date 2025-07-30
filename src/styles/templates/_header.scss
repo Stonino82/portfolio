@@ -87,22 +87,22 @@
                     
                     // Active and parent menu items
                     &:is(.current_page_item, .current_page_parent) {
-                        background-color: $color-primary--lightest;
+                        background-color: $color-blue--lightest;
                         a {
-                            color: $color-primary !important;
+                            color: $color-blue !important;
                         }
                     }
         
                     // When a blog-related item is the active page or a parent, use the accent color for the background.
                     // This selector is more specific and will override the general active state above.
                     &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919):is(.current_page_item, .current_page_parent) {
-                        background-color: $color-accent--lightest;
+                        background-color: $color-rose--lightest;
                     }
     
                     // Specific styles for Blog menu items
                     &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919) { 
                         a {
-                            color: $color-accent !important;
+                            color: $color-rose !important;
                         }
                     }
                 }

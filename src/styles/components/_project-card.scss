@@ -12,11 +12,13 @@
     // below its content's intrinsic size. Setting `min-width: 0` allows the grid
     // container's `minmax()` function to control the card's minimum size properly.
     min-width: 0;
+    height: 100%;
     position: relative;
     transition: $transition;
+    border: 1px solid $color-neutral-300;
     border-radius: var(--size-400);
     // background-color: $color-neutral-200;
-    box-shadow: $box-shadow-dp1;
+    // box-shadow: $box-shadow-dp1;
     a {
         height: 100%;
         display: flex;
@@ -32,7 +34,7 @@
             width: 100%;
             border-radius: var(--size-100);
             overflow: hidden;
-            // border: 2px solid $color-neutral-white;
+            border: 1px solid $color-neutral-300;
             // box-shadow: $box-shadow-dp1;
             img, video {
                 width: 100%;
@@ -45,6 +47,9 @@
                 top: var(--size-200);
                 left: var(--size-200);
                 z-index: 1; // Ensure it's above the image.
+                .chip {
+                    background-color: var(--color-section-primary);
+                }
             }
         }
 
@@ -79,12 +84,14 @@
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
+                color: var(--color-section-primary);
             }
         }
     }
 
     &:hover {
         // A subtle lift and scale effect on hover.
-        box-shadow: $box-shadow-dp2;
+        box-shadow: $box-shadow-dp1;
+        transform: scale(1.02);
     }
 }

@@ -7,31 +7,21 @@
         border-radius: 1rem;
         overflow: hidden;
     }
-    a {
-        text-decoration: none;
-    }
     section {
         position: relative;
         min-height: 100vh;
         z-index: 2;
         display: grid;
         grid-template-columns: 1fr; // Default: 1 column (< 576px)
-        gap: var(--size-600);
+        align-items: start;
+        align-content: start;
+        gap: var(--size-900);
         padding: var(--size-600);
         background-color: $color-neutral-white;
         overflow: hidden;
     }
     section.showcase {
-        // This is the key fix. It prevents the grid rows from stretching to fill the
-        // full 100vh height of the section, ensuring rows are only as tall as their content.
-        align-content: start;
-    }
-    section.portfolio, section.blog {
-        // This is the key fix. It prevents the grid rows from stretching to fill the
-        // full 100vh height of the section, ensuring rows are only as tall as their content.
-        align-content: start;
-        align-items: start;
-        gap: var(--size-900);
+        gap: var(--size-600);
     }
 }
 
@@ -46,36 +36,7 @@
 @media (min-width: 992px) {
     .right-side {
         margin-top: 96px; //header height
-        section.portfolio, section.blog {
-        }
     }
 }
 @media (min-width: 1050px) {}
 @media (min-width: 1400px) {}
-
-
-
-
-//Set specific colors for all Blog or Portfolio pages
-section.blog {
-    a, strong {
-        color: $color-accent !important;
-    }
-    .wp-block-group-featured {
-        background-color: $color-accent !important;
-    }
-    .entry-content ul li::before {
-        background: $color-accent !important;
-    }
-}
-section.portfolio {
-    a, strong {
-        color: $color-primary !important;
-    }
-    .wp-block-group-featured {
-        background-color: $color-primary !important;
-    }
-    .entry-content ul li::before {
-        background: $color-primary !important;
-    }
-}

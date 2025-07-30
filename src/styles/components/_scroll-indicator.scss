@@ -23,7 +23,7 @@
         left: 0;
         width: 100%;
         height: 33%; // The bar is 1/3 of the container's height.
-        background: linear-gradient($color-primary, $color-accent);
+        background: linear-gradient($color-blue, $color-rose);
         border-radius: 1rem;
         animation: scroll-up-animation 4s ease-in-out 1.8s infinite;
     }

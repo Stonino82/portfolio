@@ -4,7 +4,7 @@
 body.single-post, body.single-portfolio { // --> inject in the body
     main.container { // --> inject from single-portfolio.php
         .right-side {
-            .blog, .portfolio {
+            section {
                 padding: 0; //para que no herede el padding de los section en _right-side.scss, así las imagenes son full-width
                 grid-auto-rows: unset;
                 align-content: unset;
@@ -114,6 +114,7 @@ body.single-post, body.single-portfolio { // --> inject in the body
                         width: 6px;
                         height: 2px;
                         margin-top: .85rem;
+                        background: var(--color-section-primary);
                     }
                 }
             }

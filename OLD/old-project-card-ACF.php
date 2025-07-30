@@ -65,7 +65,7 @@
                 ]);
             ?>
             <?php if( $post_type == 'Portfolio' ): ?>
-                <h3 class="project__title text-heading-5 tc-primary"><?php echo esc_html($name); ?></h3>
+                <h3 class="project__title text-heading-5 tc-blue"><?php echo esc_html($name); ?></h3>
             <?php elseif( $post_type == 'Blog' ): ?>
                 <h3 class="project__title text-heading-6 tc-accent"><?php echo esc_html($name); ?></h3>
             <?php endif; ?>

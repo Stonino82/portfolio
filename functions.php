@@ -121,6 +121,72 @@ function antoninolattene_child_customize_register( $wp_customize ) {
 		'section'     => 'title_tagline', // Lo añadimos a la sección "Identidad del sitio".
 		'settings'    => 'alternative_logo',
 	) ) );
+
+	// --- Portfolio Archive Settings ---
+	$wp_customize->add_section( 'portfolio_archive_section', array(
+		'title'       => __( 'Archivo de Portfolio', 'antoninolattene-child' ),
+		'priority'    => 35,
+		'description' => __( 'Configura el título y la descripción para la página principal del archivo de portfolio (/portfolio).', 'antoninolattene-child' ),
+	) );
+
+	// Title Setting
+	$wp_customize->add_setting( 'portfolio_archive_title', array(
+		'default'           => 'Case Studies & Designs Showcase',
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+	$wp_customize->add_control( 'portfolio_archive_title_control', array(
+		'label'    => __( 'Título del Archivo', 'antoninolattene-child' ),
+		'section'  => 'portfolio_archive_section',
+		'settings' => 'portfolio_archive_title',
+		'type'     => 'text',
+	) );
+
+	// Description Setting
+	$wp_customize->add_setting( 'portfolio_archive_description', array(
+		'default'           => 'Discover my design journey! This portfolio features <strong>UX Case Studies</strong> and <strong>UI Designs</strong>, showcasing my approach to <strong>user-centered design</strong> and the final, polished results.',
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'wp_kses_post', // Allows safe HTML
+	) );
+	$wp_customize->add_control( 'portfolio_archive_description_control', array(
+		'label'    => __( 'Descripción del Archivo', 'antoninolattene-child' ),
+		'section'  => 'portfolio_archive_section',
+		'settings' => 'portfolio_archive_description',
+		'type'     => 'textarea',
+	) );
+
+	// --- Blog Page Settings (for home.php) ---
+	$wp_customize->add_section( 'blog_page_section', array(
+		'title'       => __( 'Página del Blog', 'antoninolattene-child' ),
+		'priority'    => 36,
+		'description' => __( 'Configura el título y la descripción para la página principal del blog.', 'antoninolattene-child' ),
+	) );
+
+	// Title Setting
+	$wp_customize->add_setting( 'blog_page_title', array(
+		'default'           => 'Design & Code Dialogues',
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+	$wp_customize->add_control( 'blog_page_title_control', array(
+		'label'    => __( 'Título de la Página del Blog', 'antoninolattene-child' ),
+		'section'  => 'blog_page_section',
+		'settings' => 'blog_page_title',
+		'type'     => 'text',
+	) );
+
+	// Description Setting
+	$wp_customize->add_setting( 'blog_page_description', array(
+		'default'           => 'Dive into the world of <strong">UX, UI, and Front-end Development!</strong> I\'ll share insights, explore trends, and spark conversation on everything from <strong>user research to pixel-perfect interfaces.</strong>',
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'wp_kses_post', // Allows safe HTML
+	) );
+	$wp_customize->add_control( 'blog_page_description_control', array(
+		'label'    => __( 'Descripción de la Página del Blog', 'antoninolattene-child' ),
+		'section'  => 'blog_page_section',
+		'settings' => 'blog_page_description',
+		'type'     => 'textarea',
+	) );
 }
 add_action( 'customize_register', 'antoninolattene_child_customize_register' );
 
@@ -291,11 +357,8 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 		$is_portfolio = true;
 	}
 
-	// --- Set container class for styling ---
-	$container_class = $is_portfolio ? 'portfolio-breadcrumbs' : 'blog-breadcrumbs';
-
 	// --- Start Breadcrumbs Output ---
-	echo '<ul class="breadcrumbs ' . esc_attr( $container_class ) . '">';
+	echo '<ul class="breadcrumbs">';
 
 	// 1. Home Link
 	echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '"><i class="fa-solid fa-house"></i></a></li>';
@@ -457,10 +520,9 @@ function antoninolattene_display_categories_as_breadcrumbs( $args, $icon_map ) {
 		return;
 	}
 
-	$container_class = ( 'portfolio_category' === $args['taxonomy'] ) ? 'portfolio-breadcrumbs' : 'blog-breadcrumbs';
 	$parent_icon     = isset( $icon_map[ $parent_cat->slug ] ) ? '<i class="breadcrumbs__icon ' . esc_attr( $icon_map[ $parent_cat->slug ] ) . '"></i> ' : '';
 
-	echo '<ul class="breadcrumbs ' . esc_attr( $container_class ) . '">';
+	echo '<ul class="breadcrumbs">';
 	echo '<li class="breadcrumbs__item">';
 	if ( $is_linked ) {
 		echo '<a class="breadcrumbs__link" href="' . esc_url( get_term_link( $parent_cat ) ) . '">' . $parent_icon . esc_html( $parent_cat->name ) . '</a>';
@@ -544,6 +606,28 @@ function antoninolattene_child_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'antoninolattene_child_excerpt_more' );
 
+/**
+ * --- Archive Page Customization ---
+ * These functions modify the display of archive pages.
+ */
+
+/**
+ * Removes the default prefixes from archive titles (e.g., "Category:", "Tag:").
+ * This provides a cleaner title on all archive pages.
+ *
+ * @param string $title The default archive title.
+ * @return string The modified archive title without a prefix.
+ */
+function antoninolattene_child_custom_archive_title( $title ) {
+	if ( is_category() || is_tag() || is_tax() ) {
+		// For any taxonomy (category, tag, custom), just return the term name.
+		$title = single_term_title( '', false );
+	} elseif ( is_post_type_archive() ) {
+		$title = post_type_archive_title( '', false );
+	}
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'antoninolattene_child_custom_archive_title' );
 
 
 
@@ -571,3 +655,22 @@ add_action( 'login_enqueue_scripts', 'login_logo' );
 //   }
 // }
 // add_action('init', 'admin_bar' );
+
+/**
+ * Adds custom classes to the array of body classes.
+ *
+ * @param array $classes Classes for the body element.
+ * @return array
+ */
+function antoninolattene_child_body_classes( $classes ) {
+	if ( is_home() || is_category() || is_tag() || is_single() && get_post_type() === 'post') {
+		// Add 'blog' class to all blog related pages.
+		$classes[] = 'blog';
+	} elseif ( is_post_type_archive( 'portfolio' ) || is_tax( 'portfolio_category' ) || is_tax( 'portfolio_tag' ) || is_singular( 'portfolio' ) ) {
+		// Add 'portfolio' class to all portfolio related pages.
+		$classes[] = 'portfolio';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'antoninolattene_child_body_classes' );

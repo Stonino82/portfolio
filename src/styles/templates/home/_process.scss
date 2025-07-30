@@ -53,7 +53,7 @@
             //         border: none;
             //         padding: 0;
             //         margin: 0 5px;
-            //         color: $color-primary;
+            //         color: $color-blue;
             //         cursor: pointer;
             //     }
             //     .previous {
@@ -97,10 +97,10 @@
                     }
                     &.tns-nav-active {
                         font-weight: var(--fw-bold);
-                        color: $color-primary;
+                        color: $color-blue;
                         opacity: 1;
                         &::before {
-                            background-color: $color-primary;
+                            background-color: $color-blue;
                             opacity: 1;
                         }
                     }

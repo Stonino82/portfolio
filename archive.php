@@ -1,35 +1,48 @@
 <?php 
-/*
- * Template Name: Archive Template
- * description: Archive Template
+/**
+ * The template for displaying archive pages.
+ *
+ * This template handles all archive types: blog categories, tags, dates,
+ * as well as the main portfolio archive and its taxonomies.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package antoninolattene-child
  */
-	get_header(); ?>
-	<main class="container">
-		<?php
-			get_template_part( 'template-parts/presentation-section', null, [
-				'title'       => single_term_title( '', false ),
-				'description' => get_the_archive_description(),
-			] );
-		?>
 
-        <section class="right-side">
+get_header();
 
-            <?php if ( get_post_type() === 'post' ) : ?>
-            <section class="blog">
-                <?php while ( have_posts() ) : the_post();
-					get_template_part('template-parts/project-tile');
+// --- 1. Determine Context and Title/Description ---
+$title       = '';
+$description = '';
+
+if ( is_post_type_archive( 'portfolio' ) ) {
+	// We are on the main portfolio archive page (/portfolio).
+	$title       = get_theme_mod( 'portfolio_archive_title' );
+	$description = get_theme_mod( 'portfolio_archive_description' );
+} else {
+	// We are on any other archive page (blog category, portfolio category, tag, etc.).
+	$title       = get_the_archive_title(); // Use the full title with prefix for context.
+	$description = get_the_archive_description();
+}
+?>
+<main class="container">
+	<?php
+		get_template_part( 'template-parts/presentation-section', null, [
+			'title'       => $title,
+			'description' => $description,
+		] );
+	?>
+
+	<section class="right-side">
+		<?php if ( have_posts() ) : ?>
+			<section>
+				<?php while ( have_posts() ) : the_post();
+					get_template_part( 'template-parts/project-tile' );
 				endwhile; ?>
-            </section>
-            <?php endif; ?>
+			</section>
+		<?php endif; ?>
 
-            <?php if ( get_post_type() === 'portfolio' ) : ?>
-            <section class="portfolio">
-                <?php while ( have_posts() ) : the_post();
-					get_template_part('template-parts/project-tile');
-				endwhile; ?>
-            </section>
-            <?php endif; ?>
-
-            <?php get_footer(); ?>
-        </section>
-	</main>
+		<?php get_footer(); ?>
+	</section>
+</main>

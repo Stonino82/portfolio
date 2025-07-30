@@ -6,7 +6,7 @@
     display: grid;
     gap: var(--size-400);
 
-    .post-thumbnail {
+    .project__image {
         height: 100%;
         max-height: 300px;
         position: relative;
@@ -18,6 +18,9 @@
             top: var(--size-200);
             left: var(--size-200);
             z-index: 1;
+            .chip {
+                background-color: var(--color-section-primary);
+            }
         }
 
         a {
@@ -36,18 +39,21 @@
         }
     }
 
-    .article__content {
+    .project__content {
         display: flex;
         flex-direction: column;
         gap: var(--size-500);
 
-        .article__title {
+        .project__header {
             display: flex;
             flex-direction: column;
             gap: var(--size-50);
+            .project__title {
+                color: var(--color-section-primary);
+            }
         }
 
-        .article__description {
+        .project__description {
             display: flex;
             flex-direction: column;
             gap: var(--size-50);

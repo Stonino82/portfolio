@@ -3,6 +3,10 @@ import { defineConfig } from 'vite';
 import liveReload from 'vite-plugin-live-reload';
 
 export default defineConfig({
+  css: {
+    // Enable CSS source maps during development
+    devSourcemap: true
+  },
   // For production, we use a relative base path. This ensures that the paths in the
   // manifest.json are relative to the 'dist' folder (e.g., 'assets/style.css'),
   // making the build portable and letting WordPress handle the full URL construction.

@@ -4,7 +4,7 @@
         <?php
             get_template_part( 'template-parts/presentation-section', null, [
                 'title'                    => 'I shape stunning Experiences that resonate on a Human level',
-                'description'              => 'Hey I\'m Tony, <strong class="text-highlight">👷🏻‍♂️ Product Designer</strong> based in Barcelona. I solve <strong class="text-gradient">complex business challenges</strong> and meet <strong class="text-gradient">user needs</strong> through thoughtful design.<br>My process covers the entire product lifecycle, from <strong class="text-gradient">defining strategy</strong> to crafting <strong class="text-gradient">intuitive UX/UI</strong> and <strong class="text-gradient">scalable Design Systems</strong>, all grounded in a background of <strong class="text-gradient">Front-end development</strong>.',
+                'description'              => 'Hey I\'m Tony, <strong class="text-highlight">👷🏻‍♂️ Product Designer</strong> based in Barcelona. I solve <strong class="text-gradient">complex business challenges</strong> and meet <strong class="text-gradient">user needs</strong> through thoughtful design.<br>My process covers the entire product lifecycle, from defining strategy to crafting intuitive UX/UI and scalable Design Systems, all grounded in a background of Front-end development.',
                 'show_breadcrumbs'         => false,
             ] );
         ?>

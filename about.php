@@ -15,7 +15,7 @@
 
     <section class="process">
         <h2 class="text-heading-1 tt-up tc-neutral-700 margin-0 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">About Me</h2>
-        <h2 class="text-md-body-1 tc-primary margin-block-200 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">From UX Research, to Front End Development, through UI Design: bridging the gap between Design and Development</h2>
+        <h2 class="text-md-body-1 tc-blue margin-block-200 ta-center" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250">From UX Research, to Front End Development, through UI Design: bridging the gap between Design and Development</h2>
         <!-- <img class="process__image margin-block-800 margin-inline-auto" src="<?php echo wp_get_upload_dir()['baseurl']; ?>/2023/10/double-diamond-design-model-1.png" alt="double diamond design model" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250"/> -->
         <div class="process__description margin-block-700" data-aos="fade-up" data-aos-duration="800" data-aos-offset="0">
             <div class="even-columns">
@@ -33,7 +33,7 @@
         </div>
         <div class="process__toolkit margin-block-800" data-aos="fade-up" data-aos-duration="800" data-aos-offset="250" data-aos-delay="350">
             <div class="column">
-                <h2 class="text-md-body-1 tc-primary margin-block-200 ta-center">UX Research Toolkit</h2>
+                <h2 class="text-md-body-1 tc-blue margin-block-200 ta-center">UX Research Toolkit</h2>
                 <div class="slider margin-block-700">
                     <div class="slide">
                         <!-- <h6>1. Discover</h6> -->
@@ -103,7 +103,7 @@
             <div class="column">
                 <div class="no-slider">
                     <div class="slide">
-                        <h2 class="text-md-body-1 tc-primary margin-block-200 ta-center">UI Design Toolkit</h2>
+                        <h2 class="text-md-body-1 tc-blue margin-block-200 ta-center">UI Design Toolkit</h2>
                         <ul>
                             <li class="chip chip--subtle fw-regular tt-cap">Adobe Suite</li>
                             <li class="chip chip--subtle fw-regular tt-cap">Adobe XD</li>
@@ -115,7 +115,7 @@
             <div class="column">
                 <div class="no-slider">
                     <div class="slide">
-                        <h2 class="text-md-body-1 tc-primary margin-block-200 ta-center">Front End Toolkit</h2>
+                        <h2 class="text-md-body-1 tc-blue margin-block-200 ta-center">Front End Toolkit</h2>
                         <ul>
                             <li class="chip chip--subtle fw-regular tt-cap">HTML5</li>
                             <li class="chip chip--subtle fw-regular tt-cap">CSS3</li>

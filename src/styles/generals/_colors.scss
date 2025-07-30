@@ -1,21 +1,21 @@
 // COLORS
 
 // Color Primary
-$color-primary--lightest: #DFE2FC;
-$color-primary--lighter: #7F8AF4;
-$color-primary: #5F6DF1;
-$color-primary--darker: #4D58C8;
-$color-primary--darkest: #282F77;
+$color-blue--lightest: #DFE2FC;
+$color-blue--lighter: #7F8AF4;
+$color-blue: #5F6DF1;
+$color-blue--darker: #4D58C8;
+$color-blue--darkest: #282F77;
 
 // Color Accent
-$color-accent--lightest: #F9D5F6;
-$color-accent--lighter: #E855D9;
-$color-accent: #E22BD0;
-$color-accent--darker: #B522A6;
-$color-accent--darkest: #5A1153;
+$color-rose--lightest: #F9D5F6;
+$color-rose--lighter: #E855D9;
+$color-rose: #E22BD0;
+$color-rose--darker: #B522A6;
+$color-rose--darkest: #5A1153;
 
 // Color Gradient
-$color-gradient: linear-gradient(135deg, $color-primary 0%, $color-accent 100%);
+$color-gradient: linear-gradient(135deg, $color-blue 0%, $color-rose 100%);
 
 // Color Neutral
 $color-neutral-white: #fff;
@@ -49,6 +49,8 @@ $availability-colors: (
 );
 
 
+
+
 // Utility Classes
 .text-gradient {
     background: $color-gradient;
@@ -56,14 +58,72 @@ $availability-colors: (
     -webkit-text-fill-color: transparent;
 }
 .text-highlight {
-    background-color: $color-primary--lightest;
-    color: $color-primary;
+    background-color: $color-blue--lightest;
+    color: $color-blue;
     border-radius: 8px;
     margin-block: 2px;
     padding: 2px 8px;
     display: inline-block;
 }
 .text-highlight.is--rose {
-    background-color: $color-accent--lightest;
-    color: $color-accent;
+    background-color: $color-rose--lightest;
+    color: $color-rose;
+}
+
+
+
+
+
+
+
+
+
+// --- Thematic Colors ---
+// We define semantic CSS variables that will change based on the context (body class).
+// This is the modern, scalable way to handle theming for different sections.
+:root {
+  // Set default values. Let's use portfolio colors as the default.
+  --color-section-primary: #{$color-blue};
+  --color-section-primary-lighter: #{$color-blue--lighter};
+  --color-section-primary-lightest: #{$color-blue--lightest};
+  --color-section-primary-darker: #{$color-blue--darker};
+  --color-section-primary-darkest: #{$color-blue--darkest};
+}
+
+body.portfolio {
+  --color-section-primary: #{$color-blue};
+  --color-section-primary-lighter: #{$color-blue--lighter};
+  --color-section-primary-lightest: #{$color-blue--lightest};
+  --color-section-primary-darker: #{$color-blue--darker};
+  --color-section-primary-darkest: #{$color-blue--darkest};
+}
+body.blog {
+  --color-section-primary: #{$color-rose};
+  --color-section-primary-lighter: #{$color-rose--lighter};
+  --color-section-primary-lightest: #{$color-rose--lightest};
+  --color-section-primary-darker: #{$color-rose--darker};
+  --color-section-primary-darkest: #{$color-rose--darkest};
+}
+article.portfolio {
+  --color-section-primary: #{$color-blue};
+  --color-section-primary-lighter: #{$color-blue--lighter};
+  --color-section-primary-lightest: #{$color-blue--lightest};
+  --color-section-primary-darker: #{$color-blue--darker};
+  --color-section-primary-darkest: #{$color-blue--darkest};
+}
+article.blog {
+  --color-section-primary: #{$color-rose};
+  --color-section-primary-lighter: #{$color-rose--lighter};
+  --color-section-primary-lightest: #{$color-rose--lightest};
+  --color-section-primary-darker: #{$color-rose--darker};
+  --color-section-primary-darkest: #{$color-rose--darkest};
+}
+
+
+//Set specific colors for all Blog or Portfolio page blocks
+.wp-block-group-featured {
+    background-color: var(--color-section-primary);
+}
+.entry-content ul li::before {
+    background: var(--color-section-primary);
 }

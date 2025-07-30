@@ -34,16 +34,16 @@
     color: $color-neutral-700; // Default text color
     text-transform: lowercase;
     box-shadow: $box-shadow-dp1;
-    &.chip--primary { color: $color-primary; }
-    &.chip--accent { color: $color-accent; }
+    &.chip--primary { color: $color-blue; }
+    &.chip--accent { color: $color-rose; }
 }
 .chip--bold {
     background-color: $color-neutral-700; // Default backgroumd-color
     color: $color-neutral-white; // Default text color
     box-shadow: $box-shadow-dp1;
     text-transform: uppercase;
-    &.chip--primary { background: $color-primary; }
-    &.chip--accent { background: $color-accent; }
+    &.chip--primary { background: $color-blue; }
+    &.chip--accent { background: $color-rose; }
 }
 
 // --- Small Size ---

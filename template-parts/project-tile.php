@@ -14,34 +14,31 @@
  * de las taxonomías reales de WordPress (categorías y etiquetas).
  */
 $post_type = get_post_type();
-$is_portfolio = ($post_type === 'portfolio');
-
+$is_portfolio      = ( 'portfolio' === $post_type );
 $category_taxonomy = $is_portfolio ? 'portfolio_category' : 'category';
-
+// Use clear, distinct variables, consistent with project-card.php.
+$article_class     = $is_portfolio ? 'portfolio' : 'blog';
+$chip_label        = ucfirst( $article_class ); // 'Portfolio' or 'Blog'
+$chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-feather-pointed';
 ?>
 
-<article class="project-tile">
-    <div class="post-thumbnail">
-        <div class="project__section">
-            <?php
-            $chip_class = $is_portfolio ? 'chip--primary' : 'chip--accent';
-            $chip_icon  = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-feather-pointed';
-            $chip_text  = $is_portfolio ? 'Portfolio' : 'Blog';
-            ?>
-            <ul class="chip-list chip-list--sm">
-                <li>
-                    <span class="chip chip--bold <?php echo esc_attr( $chip_class ); ?>"><i class="<?php echo esc_attr( $chip_icon ); ?>"></i><?php echo esc_html( $chip_text ); ?></span>
-                </li>
-            </ul>
-        </div>
+<article class="project-tile <?php echo esc_attr( $article_class ); ?>">
+    <div class="project__image">
         <?php if ( has_post_thumbnail() ) : ?>
             <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
                 <?php the_post_thumbnail(); ?>
             </a>
         <?php endif; ?>
+        <div class="project__section">
+            <ul class="chip-list chip-list--sm">
+                <li>
+                    <span class="chip chip--bold"><i class="<?php echo esc_attr( $chip_icon ); ?>"></i><?php echo esc_html( $chip_label ); ?></span>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="article__content">
-        <div class="article__title">
+    <div class="project__content">
+        <div class="project__header">
             <?php
                 // Use the breadcrumbs function in 'category_only' mode.
                 antoninolattene_breadcrumbs( [
@@ -52,8 +49,6 @@ $category_taxonomy = $is_portfolio ? 'portfolio_category' : 'category';
             <h3 class="project__title text-heading-5"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
             <small><?php antoninolattene_posted_on(); antoninolattene_posted_by();?></small>
         </div>
-        <div class="article__description">
-            <p><?php echo get_the_excerpt(); ?></p>
-        </div>
+        <p class="project__description"><?php echo get_the_excerpt(); ?></p>
     </div>
 </article>
