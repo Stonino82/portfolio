@@ -26,7 +26,7 @@ small, figcaption {font-size: var(--fs-300); line-height: var(--lh-700); color: 
 
 
 a {
-    text-decoration: none; // A modern approach is often to remove underlines.
+    // text-decoration: none; // A modern approach is often to remove underlines.
     transition: color 0.2s ease-in-out;
     &,
     &:visited,
