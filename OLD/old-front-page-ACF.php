@@ -10,7 +10,7 @@
             ] );
         ?>
 
-        <div class="right-side">
+        <div class="content">
             <section class="showcase">
                 <!-- ACF -->
                 <?php if( have_rows('projects') ): ?>

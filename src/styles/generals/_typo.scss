@@ -9,9 +9,11 @@ h3 {font-size: var(--fs-700); line-height: var(--lh-200); letter-spacing: var(--
 h4 {font-size: var(--fs-650); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-bold)}
 h5 {font-size: var(--fs-600); line-height: var(--lh-200); font-weight:var(--fw-bold)}
 h6 {font-size: var(--fs-500); line-height: var(--lh-200); font-weight:var(--fw-bold)}
-p, li {font-size: var(--fs-500); line-height: var(--lh-700); margin-block: var(--size-100)}
+p, li {font-size: var(--fs-500); line-height: var(--lh-700);}
 b, strong {font-size: var(--fs-500); line-height: var(--lh-700); font-weight: var(--fw-bold); color: var(--color-section-primary)}
 small, figcaption {font-size: var(--fs-300); line-height: var(--lh-700); color: $color-neutral-500;}
+
+.text-eyebrow {font-size: var(--fs-300); line-height: var(--lh-200); letter-spacing: var(--ls-scattered); font-weight:var(--fw-bold); text-transform: uppercase;}
 
 @media (min-width: 992px) {
     h1 {font-size: var(--fs-850);}
@@ -21,7 +23,7 @@ small, figcaption {font-size: var(--fs-300); line-height: var(--lh-700); color: 
     h5 {font-size: var(--fs-650);}
     h6 {font-size: var(--fs-600);}
     p, li {font-size: var(--fs-500);}
-    small, figcaption {font-size: var(--fs-300);}
+    small, figcaption {font-size: var(--fs-200);}
 }
 
 

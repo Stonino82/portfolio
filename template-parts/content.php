@@ -35,7 +35,7 @@ if ( $is_portfolio ) {
 	] );
 ?>
 
-<section class="right-side">
+<section class="content">
 
 	<section class="blog">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >

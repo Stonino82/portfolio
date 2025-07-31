@@ -2,7 +2,7 @@
 @use '../../generals/utility-classes' as *;
 
 
-.right-side {
+.content {
     & > *:not(.site-footer) {
         border-radius: 1rem;
         overflow: hidden;
@@ -26,17 +26,13 @@
 }
 
 @media (min-width: 576px) {
-    .right-side {
+    .content {
         section.showcase {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
     }
 }
 @media (min-width: 768px) {}
-@media (min-width: 992px) {
-    .right-side {
-        margin-top: 96px; //header height
-    }
-}
+@media (min-width: 992px) {}
 @media (min-width: 1050px) {}
 @media (min-width: 1400px) {}

@@ -3,9 +3,9 @@
 // Styles for single-portfolio template
 body.single-post, body.single-portfolio { // --> inject in the body
     main.container { // --> inject from single-portfolio.php
-        .right-side {
+        .content {
             section {
-                padding: 0; //para que no herede el padding de los section en _right-side.scss, así las imagenes son full-width
+                padding: 0; //para que no herede el padding de los section en _content.scss, así las imagenes son full-width
                 grid-auto-rows: unset;
                 align-content: unset;
                 align-items: unset;
@@ -57,7 +57,7 @@ body.single-post, body.single-portfolio { // --> inject in the body
                     color: $color-neutral-white !important;
                 }
                 &.wp-block-group-featured-2 {
-                    background: $color-neutral-200;
+                    // background: $color-neutral-200;
                 }
                 p {
                     a::after {

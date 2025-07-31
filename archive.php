@@ -34,7 +34,7 @@ if ( is_post_type_archive( 'portfolio' ) ) {
 		] );
 	?>
 
-	<section class="right-side">
+	<section class="content">
 		<?php if ( have_posts() ) : ?>
 			<section>
 				<?php while ( have_posts() ) : the_post();

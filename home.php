@@ -17,7 +17,7 @@
 			] );
 		?>
 
-		<section class="right-side">
+		<section class="content">
 			<section>
 				<?php while ( have_posts() ) : the_post();
 					get_template_part('template-parts/project-tile');

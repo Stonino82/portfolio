@@ -27,7 +27,7 @@ $show_breadcrumbs         = $args['show_breadcrumbs'] ?? true;
 			// This is a more secure and explicit way to allow specific classes than disabling sanitization.
 			$allowed_html = array(
 				'strong' => array(
-					'class' => array(),
+				'class' => array(),
 				),
 				'br'     => array(),
 			);
@@ -35,10 +35,11 @@ $show_breadcrumbs         = $args['show_breadcrumbs'] ?? true;
 			<h2 class="text-md-body-1 fw-regular"><?php echo wp_kses( $description, $allowed_html ); ?></h2>
 		</div>
 		<div class="presentation__headlines">
-			<?php // The title is not expected to contain HTML, so esc_html() is the most appropriate function. ?>
-			<h1 class="text-heading-1 text-gradient margin-block-100"><?php echo esc_html( $title ); ?></h1>
+			<h1 class="text-heading-1 text-gradient margin-block-100"><?php echo wp_kses( $title, $allowed_html ); ?></h1>
 		</div>
-
+		<div class="presentation__taxonomy">
+			<?php get_template_part( 'template-parts/archive-context-label' ); ?>
+		</div>
 		<?php if ( $show_breadcrumbs ) { get_template_part( 'template-parts/breadcrumbs' ); } ?>
 	</div>
 	<?php get_template_part( 'template-parts/scroll-indicator' ); ?>

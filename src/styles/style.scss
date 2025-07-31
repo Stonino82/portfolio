@@ -14,7 +14,7 @@
 @use 'templates/layout' as *;
 /* Pages Templates */
 /* home (re-exports from components) */
-@use 'templates/home/right-side' as *;
+@use 'templates/home/content' as *;
 @use 'templates/home/process' as *;
 /* single-portfolio (hereda también estilos de la home) */
 @use 'templates/single/single' as *;

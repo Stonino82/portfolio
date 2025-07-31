@@ -2,57 +2,51 @@
 @use '../generals/utility-classes' as *;
 
 section.presentation {
-        width: 100%;
-        position: sticky;
-        z-index: 1;
-        top: 0;
-        height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
-        padding: var(--size-600);
+    position: sticky;
+    top: 96px;
+    height: calc(100dvh - 96px);
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: var(--size-600);
     & > * {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: flex-start;
     }
     .presentation__central {
         max-width: 425px;
         flex-grow: 1;
-        justify-content: center;
+        justify-content: flex-start;
         .breadcrumbs {
             order: 1;
-            justify-content: center;
-            margin-bottom: var(--size-400);
+            margin-bottom: var(--size-600);
         }
         .presentation__headlines {
-            order: 2;
+            order: 3;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .presentation__description {
-            order: 3;
+            order: 4;
+        }
+        .presentation__taxonomy {
+            order: 2;
+            color: var(--color-section-primary);
         }
     }
 }
 
 @media (min-width: 992px) {
     section.presentation {
-        top: 96px;
-        height: calc(100dvh - 96px);
-        align-items: flex-start;
         z-index: 2;
-        & > * {
-            align-items: flex-start !important;
-            text-align: left;
-        }
         .presentation__central {
             justify-content: flex-start;
-            .breadcrumbs { justify-content: flex-start; }
             .presentation__headlines { align-items: flex-start; }
         }
 
