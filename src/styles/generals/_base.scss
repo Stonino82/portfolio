@@ -11,8 +11,8 @@ body {
   font-family: var(--ff-body);
   font-size: var(--fs-400);
   font-weight: var(--fw-regular);
-  color: $color-neutral-700;
-  background-color: $color-neutral-200; // Base background color for the entire site.
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-page); // Base background color for the entire site.
 }
 
 @media (min-width: 992px) {

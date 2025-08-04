@@ -19,9 +19,9 @@
     width: $size;
     height: $size;
     background-color: $color;
-    border: 3px solid $color-neutral-200;
+    border: 3px solid var(--color-surface-content);
     border-radius: 50%;
-    box-shadow: $box-shadow-dp1;
+    box-shadow: var(--box-shadow-dp1);
 
     // The animation is now defined inside the mixin to use the dynamic color.
     $animation-name: pulse-shadow-#{string.slice(meta.inspect($color), 2)};

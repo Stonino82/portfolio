@@ -17,7 +17,7 @@
         align-content: start;
         gap: var(--size-900);
         padding: var(--size-600);
-        background-color: $color-neutral-white;
+        background-color: var(--color-surface-content);
         overflow: hidden;
     }
     section.showcase {

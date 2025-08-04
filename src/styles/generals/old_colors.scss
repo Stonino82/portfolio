@@ -1,0 +1,116 @@
+
+// Color Primary
+$color-blue--lightest: #DFE2FC;
+$color-blue--lighter: #7F8AF4;
+$color-blue: #5F6DF1;
+$color-blue--darker: #4D58C8;
+$color-blue--darkest: #282F77;
+
+// Color Accent
+$color-rose--lightest: #F9D5F6;
+$color-rose--lighter: #E855D9;
+$color-rose: #E22BD0;
+$color-rose--darker: #B522A6;
+$color-rose--darkest: #5A1153;
+
+// Color Gradient
+$color-gradient: linear-gradient(135deg, $color-blue 0%, $color-rose 100%);
+
+// Color Neutral
+$color-neutral-white: #fff;
+$color-neutral-200: #fafafa;
+$color-neutral-300: #eeeeee;
+$color-neutral-400: #c5c5c5;    
+$color-neutral-500: #8f8f8f;    
+$color-neutral-600: #686868;
+$color-neutral-700: #333333;
+$color-neutral-black: black;
+
+// Color Specific
+$color-dribbble: #ea4c89;
+$color-behance: #1769ff;
+$color-github: #333;
+$color-linkedin: #0077b5;
+$color-codepen: rgb(189, 189, 189);
+
+//Color Box-Shadow
+$box-shadow-dp1: 0px 2px 4px rgba(99, 108, 140, 0.08), 0px 1px 2px rgba(99, 108, 140, 0.06); //utilizada en buttons, chips y .wp-block-quote
+$box-shadow-dp2: 0px 5px 10px rgba(99, 108, 140, 0.1), 0px 2px 5px rgba(99, 108, 140, 0.08);;
+$box-shadow-dp3: 0px 12px 24px rgba(99, 108, 140, 0.12), 0px 6px 12px rgba(99, 108, 140, 0.1);;
+
+// --- Component-specific Color Maps ---
+// This map defines the allowed colors for the availability indicator.
+// Using a map ensures consistency and makes the system easier to maintain.
+$availability-colors: (
+  'available': #10B981, // A modern, clear green for "Available".
+  'limited':   #F59E0B, // A warm, vibrant amber for "Limited Availability".
+  'not-available': #EF4444  // A clear, modern red for "Not Available".
+);
+
+
+
+
+// Utility Classes
+.text-gradient {
+    background: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.text-highlight {
+    background-color: $color-blue--lightest;
+    color: $color-blue;
+    border-radius: 8px;
+    margin-block: 2px;
+    padding: 2px 8px;
+    display: inline-block;
+}
+.text-highlight.is--rose {
+    background-color: $color-rose--lightest;
+    color: $color-rose;
+}
+
+
+
+
+
+
+
+
+
+// --- Thematic Colors ---
+// We define semantic CSS variables that will change based on the context (body class).
+// This is the modern, scalable way to handle theming for different sections.
+:root {
+  // Set default values. Let's use portfolio colors as the default.
+  --color-section-primary: #{$color-blue};
+  --color-section-primary-lighter: #{$color-blue--lighter};
+  --color-section-primary-lightest: #{$color-blue--lightest};
+  --color-section-primary-darker: #{$color-blue--darker};
+  --color-section-primary-darkest: #{$color-blue--darkest};
+}
+
+body.portfolio,
+article.portfolio {
+  --color-section-primary: #{$color-blue};
+  --color-section-primary-lighter: #{$color-blue--lighter};
+  --color-section-primary-lightest: #{$color-blue--lightest};
+  --color-section-primary-darker: #{$color-blue--darker};
+  --color-section-primary-darkest: #{$color-blue--darkest};
+}
+body.blog,
+article.blog  {
+  --color-section-primary: #{$color-rose};
+  --color-section-primary-lighter: #{$color-rose--lighter};
+  --color-section-primary-lightest: #{$color-rose--lightest};
+  --color-section-primary-darker: #{$color-rose--darker};
+  --color-section-primary-darkest: #{$color-rose--darkest};
+}
+
+
+//Set specific colors for all Blog or Portfolio page blocks
+.wp-block-group-featured {
+    background-color: var(--color-section-primary);
+}
+.entry-content ul li::before {
+    background: var(--color-section-primary);
+}

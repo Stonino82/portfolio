@@ -11,7 +11,7 @@
   // The size of the spinner is now controlled by the mixin parameter.
   width: $size;
   height: $size;
-  background: $color-gradient;
+  background: var(--color-brand-gradient);
   animation: spinner-animation 2s linear infinite;
 
   // Use the $thickness parameter to control the ring's width.

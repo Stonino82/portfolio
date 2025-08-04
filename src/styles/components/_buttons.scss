@@ -73,32 +73,32 @@ input[type="submit"]:hover {
 }
 
 .btn-primary {
-	background: $color-gradient;
+	background: var(--color-brand-gradient);
 	border-radius: 8px;
-	box-shadow: $box-shadow-dp1;
+	box-shadow: var(--box-shadow-dp1);
 	.btn-text {
-		color: $color-neutral-white !important;
+		color: var(--color-neutral-0) !important;
 	}
 	.btn-icon {
-		color: $color-neutral-white !important;
+		color: var(--color-neutral-0) !important;
 	}
 }
 .btn-secondary {
-	background: linear-gradient(#fafafa, #fafafa) padding-box, $color-gradient border-box;
+	background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
 	border: 1px solid transparent;
 	border-radius: 8px;
-	box-shadow: $box-shadow-dp1;
+	box-shadow: var(--box-shadow-dp1);
 	.btn-text {
-		background: $color-gradient;
+		background: var(--color-brand-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 	.btn-icon {
-		color: $color-rose !important;
+		color: var(--color-brand-accent) !important;
 	}
 }
 .btn-tertiary {
-	color: $color-blue !important;
+	color: var(--color-text-link) !important;
 }
 .btn-primary,
 .btn-secondary,

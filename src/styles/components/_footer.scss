@@ -10,8 +10,7 @@
     justify-content: flex-end;
     padding-block: var(--size-400);
     padding-inline: var(--size-600);
-    background-color: $color-neutral-200;
-    color: $color-neutral-700;
+    background-color: var(--color-surface-page);
     
     &>* {
         margin-block: var(--size-200);

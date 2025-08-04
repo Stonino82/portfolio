@@ -1,5 +1,3 @@
-@use 'colors' as *;
-
 // UTILITY CLASSES for Spacing
 
 .padding-block-0 {padding-block: var(--size-0)}
@@ -91,13 +89,6 @@
 .fw-bold {font-weight: var(--fw-bold);}
 .fw-extrabold {font-weight: var(--fw-extrabold);}
 
-// Text Color
-.tc-blue {color: $color-blue;}
-.tc-rose {color: $color-rose;}
-.tc-neutral-500 {color: $color-neutral-500;}
-.tc-neutral-600 {color: $color-neutral-600;}
-.tc-neutral-700 {color: $color-neutral-700;}
-.tc-neutral-black {color: $color-neutral-black;}
 
 // Text Align
 .ta-left {text-align: left;}

@@ -16,7 +16,7 @@ section.presentation {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        text-align: flex-start;
+        text-align: left;
     }
     .presentation__central {
         max-width: 425px;
@@ -37,7 +37,7 @@ section.presentation {
         }
         .presentation__taxonomy {
             order: 2;
-            color: var(--color-section-primary);
+            color: var(--color-brand-primary);
         }
     }
 }

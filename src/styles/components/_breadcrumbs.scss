@@ -6,7 +6,7 @@
 
 .breadcrumbs {
     // 1. Thematic Colors (using CSS variables for dynamic theming)
-    color: var(--color-section-primary);
+    color: var(--color-brand-primary);
 
     // 2. Layout & Structure
     display: flex;
@@ -52,18 +52,17 @@
     // The separator should have a slightly reduced opacity
     .breadcrumbs__separator {
         opacity: 0.6;
-        color: $color-neutral-500; // Set a consistent grey color for all separators.
+        color: var(--color-border-secondary); // Set a consistent grey color for all separators.
     }
     // The current item is not a link and should be bolder
     .breadcrumbs__item--current {
         font-weight: var(--fw-regular);
-        color: var(--color-section-primary-lighter);
         opacity: 1;
     }
     // The "Home" link should always be a neutral grey, overriding the section color.
     .breadcrumbs__item--home {
         // Using a neutral color variable from the design system.
-        color: $color-neutral-400;
+        color: var(--color-text-tertiary);
 
         // Remove margin from the icon since there is no text.
         .breadcrumbs__link i {

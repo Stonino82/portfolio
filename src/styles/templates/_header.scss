@@ -23,10 +23,10 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        background-color: $color-neutral-200;
-        border: 1px solid $color-neutral-300;
+        background-color: var(--color-surface-content);
+        border: 1px solid var(--color-border-primary);
         border-radius: 1rem;
-        box-shadow: $box-shadow-dp3;
+        box-shadow: var(--box-shadow-dp3);
         overflow: hidden;
         // --- Animation: Initial State (Hidden) ---
         // Use transform and opacity for smooth, performant animations.
@@ -66,45 +66,43 @@
                     margin: 0;
                     border-radius: .5rem;
                     overflow: hidden;
-                    .btn, div {
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-start;
-                    }
-                    &:hover {
-                        background-color: $color-neutral-300;
-                    }
                     i {
                         margin-left: auto;
                         &.rotate {
                             transform: rotate(-135deg);
                         }
                     }
+                    a.btn, div {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-start;
+                        color: var(--palette-primary-foreground) !important;
+                    }
+                    // Specific styles for Blog menu item
+                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919) { 
+                        a {
+                            color: var(--palette-accent-foreground) !important;
+                        }
+                    }
+                    &:hover {
+                        background-color: var(--palette-primary-background);
+                    }
+                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919):hover {
+                        background-color: var(--palette-accent-background);
+                    }
+                    // Active and parent menu items
+                    // These selectors target the active page and its parent items.
+                    // For example:
                     // Home > ".current_page_item"
                     // Portfolio > ".current_page_parent"
                     // Blog > ".current_page_item"
-                    
-                    // Active and parent menu items
                     &:is(.current_page_item, .current_page_parent) {
-                        background-color: $color-blue--lightest;
-                        a {
-                            color: $color-blue !important;
-                        }
+                        background-color: var(--palette-primary-background);
                     }
-        
-                    // When a blog-related item is the active page or a parent, use the accent color for the background.
-                    // This selector is more specific and will override the general active state above.
                     &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919):is(.current_page_item, .current_page_parent) {
-                        background-color: $color-rose--lightest;
-                    }
-    
-                    // Specific styles for Blog menu items
-                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919) { 
-                        a {
-                            color: $color-rose !important;
-                        }
+                        background-color: var(--palette-accent-background);
                     }
                 }
             }
@@ -131,8 +129,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    // Apply a semi-transparent background and the backdrop-filter for the blur effect.
-    background-color: rgba($color-neutral-white, 0.5);
+    // Apply a backdrop-filter for the blur effect.
     -webkit-backdrop-filter: blur(3px); // For Safari
     backdrop-filter: blur(3px);
     z-index: 998; // Position it just below the header (which is 999).

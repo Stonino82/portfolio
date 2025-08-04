@@ -1,129 +1,206 @@
-// COLORS
+/*
+================================================================================
+COLOR SYSTEM
+================================================================================
+This file defines the color palette using a modern, two-layer system:
 
-// Color Primary
-$color-blue--lightest: #DFE2FC;
-$color-blue--lighter: #7F8AF4;
-$color-blue: #5F6DF1;
-$color-blue--darker: #4D58C8;
-$color-blue--darkest: #282F77;
+1.  PRIMITIVES:
+    - Raw, non-semantic color values (e.g., --color-blue-500).
+    - They are the single source of truth for all available colors.
+    - Named by color family and shade (100-900).
 
-// Color Accent
-$color-rose--lightest: #F9D5F6;
-$color-rose--lighter: #E855D9;
-$color-rose: #E22BD0;
-$color-rose--darker: #B522A6;
-$color-rose--darkest: #5A1153;
+2.  SEMANTIC TOKENS:
+    - Reference primitives to give them a specific purpose (e.g., --color-brand-primary).
+    - These are the variables that should be used throughout the application.
+    - They describe the *function* of the color, not the color itself.
 
-// Color Gradient
-$color-gradient: linear-gradient(135deg, $color-blue 0%, $color-rose 100%);
+This approach makes the design system scalable, themeable, and easy to maintain.
+================================================================================
+*/
 
-// Color Neutral
-$color-neutral-white: #fff;
-$color-neutral-200: #fafafa;
-$color-neutral-300: #eeeeee;
-$color-neutral-400: #c5c5c5;    
-$color-neutral-500: #8f8f8f;    
-$color-neutral-600: #686868;
-$color-neutral-700: #333333;
-$color-neutral-black: black;
+:root {
+  // ==========================================================================
+  // 1. COLOR PRIMITIVES
+  // ==========================================================================
+  // Do not use these directly in components. Use semantic tokens instead.
 
-// Color Specific
-$color-dribbble: #ea4c89;
-$color-behance: #1769ff;
-$color-github: #333;
-$color-linkedin: #0077b5;
-$color-codepen: rgb(189, 189, 189);
+  // -- Primitives: Primary (Blue)
+  --color-blue-50: #EFF0FE;
+  --color-blue-100: #DFE2FC; // Formerly $color-blue--lightest
+  --color-blue-200: #BFC5F9;
+  --color-blue-300: #9FA7F7;
+  --color-blue-400: #7F8AF4; // Formerly $color-blue--lighter
+  --color-blue-500: #5F6DF1; // Formerly $color-blue
+  --color-blue-600: #4D58C8; // Formerly $color-blue--darker
+  --color-blue-700: #3A449F;
+  --color-blue-800: #282F77; // Formerly $color-blue--darkest
+  --color-blue-900: #151B4E;
+  --color-blue-950: #0C1039;
 
-//Color Box-Shadow
-$box-shadow-dp1: 0px 2px 4px rgba(99, 108, 140, 0.08), 0px 1px 2px rgba(99, 108, 140, 0.06); //utilizada en buttons, chips y .wp-block-quote
-$box-shadow-dp2: 0px 5px 10px rgba(99, 108, 140, 0.1), 0px 2px 5px rgba(99, 108, 140, 0.08);;
-$box-shadow-dp3: 0px 12px 24px rgba(99, 108, 140, 0.12), 0px 6px 12px rgba(99, 108, 140, 0.1);;
+  // -- Primitives: Accent (Rose)
+  --color-rose-50: #FCEAFA;
+  --color-rose-100: #F9D5F6; // Formerly $color-rose--lightest
+  --color-rose-200: #F3AAEC;
+  --color-rose-300: #EE80E3;
+  --color-rose-400: #E855D9; // Formerly $color-rose--lighter
+  --color-rose-500: #E22BD0; // Formerly $color-rose
+  --color-rose-600: #B522A6; // Formerly $color-rose--darker
+  --color-rose-700: #881A7D;
+  --color-rose-800: #5A1153; // Formerly $color-rose--darkest
+  --color-rose-900: #440D3E;
+  --color-rose-950: #2D092A;
 
-// --- Component-specific Color Maps ---
-// This map defines the allowed colors for the availability indicator.
-// Using a map ensures consistency and makes the system easier to maintain.
+  // -- Primitives: Neutral
+  --color-neutral-0: #ffffff;
+  --color-neutral-25: #F9F9FA;
+  --color-neutral-50: #F0F1F2;
+  --color-neutral-100: #E1E3E6;
+  --color-neutral-200: #D3D5D9;
+  --color-neutral-300: #C4C7CC;
+  --color-neutral-400: #A6AAB3;
+  --color-neutral-500: #898E99;
+  --color-neutral-600: #6B7280;
+  --color-neutral-700: #565B66;
+  --color-neutral-800: #40444D;
+  --color-neutral-900: #2B2E33;
+  --color-neutral-950: #202226;
+  --color-neutral-1000: #000000;
+
+  // -- Primitives: Specifics
+  --color-social-dribbble: #ea4c89;
+  --color-social-behance: #1769ff;
+  --color-social-github: #333;
+  --color-social-linkedin: #0077b5;
+  --color-social-codepen: rgb(189, 189, 189);
+
+  // ==========================================================================
+  // 2. SEMANTIC TOKENS
+  // ==========================================================================
+  // These tokens should be used in the application.
+  // They assign a purpose to the primitive values.
+  
+  // THESE DON'T CHANGE WITH THEME SWITCHING
+  // -- Tokens: Brand Identity
+  --color-brand-primary: var(--color-blue-500);
+  --color-brand-accent: var(--color-rose-500);
+  --color-brand-gradient: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-accent) 100%);
+  
+  // --------------------------------------------------------------------------
+
+  // THESE CHANGE WITH THEME SWITCHING (Dark Mode and/or Accent Theme)
+  // -- Tokens: Global UI (Surface, Text, Border, Shadows)
+  --color-surface-page: var(--color-neutral-25);
+  --color-surface-content: var(--color-neutral-0);
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-800);
+  --color-text-tertiary: var(--color-neutral-500);
+  --color-text-brand: var(--color-brand-primary);
+  --color-text-link: var(--color-brand-primary);
+  --color-text-link-hover: var(--color-blue-300);
+  --color-text-link-active: var(--color-blue-700);
+  --color-border-primary: var(--color-neutral-100);
+  --color-border-secondary: var(--color-neutral-200);
+  --box-shadow-dp1: 0px 2px 4px rgba(99, 108, 140, 0.08), 0px 1px 2px rgba(99, 108, 140, 0.06);
+  --box-shadow-dp2: 0px 5px 10px rgba(99, 108, 140, 0.1), 0px 2px 5px rgba(99, 108, 140, 0.08);
+  --box-shadow-dp3: 0px 12px 24px rgba(99, 108, 140, 0.12), 0px 6px 12px rgba(99, 108, 140, 0.1);
+
+    // -- Tokens: Component Palettes
+  --palette-primary-background: var(--color-blue-100);
+  --palette-primary-foreground: var(--color-blue-500);
+  --palette-accent-background: var(--color-rose-100);
+  --palette-accent-foreground: var(--color-rose-500);
+
+  // -- Tokens: Active Component Theme
+  // Components should use these variables to be themeable.
+  --color-component-background: var(--palette-primary-background);
+  --color-component-foreground: var(--palette-primary-foreground);
+}
+
+
+// ==========================================================================
+// 3. THEME SWITCHING
+// ==========================================================================
+
+// --------------------------------------------------------------------------
+// DARK MODE THEME
+// --------------------------------------------------------------------------
+body[data-theme="dark"],
+.dark-theme {
+  // -- Redefine Global UI
+  --color-surface-page: var(--color-neutral-950);
+  --color-surface-content: var(--color-neutral-900);
+  --color-text-primary: var(--color-neutral-25);
+  --color-text-secondary: var(--color-neutral-100);
+  --color-text-tertiary: var(--color-neutral-300);
+  --color-text-brand: var(--color-brand-primary);
+  --color-text-link: var(--color-brand-primary);
+  // --color-text-link-hover & --color-text-link-active are not redefined here, they remain the same.
+  --color-border-primary: var(--color-neutral-200);
+  --color-border-secondary: var(--color-neutral-100);
+  --box-shadow-dp1: 0px 2px 4px rgba(255, 255, 255, 0.08), 0px 1px 2px rgba(255, 255, 255, 0.06);
+  --box-shadow-dp2: 0px 5px 10px rgba(255, 255, 255, 0.1), 0px 2px 5px rgba(255, 255, 255, 0.08);
+  --box-shadow-dp3: 0px 12px 24px rgba(255, 255, 255, 0.12), 0px 6px 12px rgba(255, 255, 255, 0.1);
+
+  // -- Redefine Component Palettes
+  --palette-primary-background: var(--color-blue-900);
+  --palette-primary-foreground: var(--color-blue-200);
+  --palette-accent-background: var(--color-rose-900);
+  --palette-accent-foreground: var(--color-rose-200);
+}
+
+// --------------------------------------------------------------------------
+// ACCENT THEME (BLOG)
+// --------------------------------------------------------------------------
+// When .blog class is applied, components switch to the accent palette.
+body.blog,
+article.blog {
+  // Update brand-sensitive tokens
+  --color-brand-primary: var(--color-brand-accent); // Ensure primary brand color is accent
+
+  --color-text-brand: var(--color-brand-accent);
+  --color-text-link: var(--color-brand-accent);
+  --color-text-link-hover: var(--color-rose-300);
+  --color-text-link-active: var(--color-rose-700);
+
+  // Redirect active component theme to use the accent palette
+  --color-component-background: var(--palette-accent-background);
+  --color-component-foreground: var(--palette-accent-foreground);
+}
+
+
+
+
+
+
+
+// ==========================================================================
+// 4. SCSS VARIABLES & MAPS (Compile-Time)
+// ==========================================================================
+// Use SCSS variables for values needed at compile time (e.g., in mixins
+// or loops). This map requires literal color values for Sass functions.
+
 $availability-colors: (
-  'available': #10B981, // A modern, clear green for "Available".
-  'limited':   #F59E0B, // A warm, vibrant amber for "Limited Availability".
-  'not-available': #EF4444  // A clear, modern red for "Not Available".
+  'available': #10B981,
+  'limited':   #F59E0B,
+  'not-available': #EF4444
 );
 
 
+// ==========================================================================
+// 5. UTILITY CLASSES & COMPONENT STYLES
+// ==========================================================================
+// Update styles to use the new semantic tokens.
 
-
-// Utility Classes
 .text-gradient {
-    background: $color-gradient;
+    background: var(--color-brand-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .text-highlight {
-    background-color: $color-blue--lightest;
-    color: $color-blue;
+    background-color: var(--color-component-background);
+    color: var(--color-component-foreground);
     border-radius: 8px;
     margin-block: 2px;
     padding: 2px 8px;
     display: inline-block;
-}
-.text-highlight.is--rose {
-    background-color: $color-rose--lightest;
-    color: $color-rose;
-}
-
-
-
-
-
-
-
-
-
-// --- Thematic Colors ---
-// We define semantic CSS variables that will change based on the context (body class).
-// This is the modern, scalable way to handle theming for different sections.
-:root {
-  // Set default values. Let's use portfolio colors as the default.
-  --color-section-primary: #{$color-blue};
-  --color-section-primary-lighter: #{$color-blue--lighter};
-  --color-section-primary-lightest: #{$color-blue--lightest};
-  --color-section-primary-darker: #{$color-blue--darker};
-  --color-section-primary-darkest: #{$color-blue--darkest};
-}
-
-body.portfolio {
-  --color-section-primary: #{$color-blue};
-  --color-section-primary-lighter: #{$color-blue--lighter};
-  --color-section-primary-lightest: #{$color-blue--lightest};
-  --color-section-primary-darker: #{$color-blue--darker};
-  --color-section-primary-darkest: #{$color-blue--darkest};
-}
-body.blog {
-  --color-section-primary: #{$color-rose};
-  --color-section-primary-lighter: #{$color-rose--lighter};
-  --color-section-primary-lightest: #{$color-rose--lightest};
-  --color-section-primary-darker: #{$color-rose--darker};
-  --color-section-primary-darkest: #{$color-rose--darkest};
-}
-article.portfolio {
-  --color-section-primary: #{$color-blue};
-  --color-section-primary-lighter: #{$color-blue--lighter};
-  --color-section-primary-lightest: #{$color-blue--lightest};
-  --color-section-primary-darker: #{$color-blue--darker};
-  --color-section-primary-darkest: #{$color-blue--darkest};
-}
-article.blog {
-  --color-section-primary: #{$color-rose};
-  --color-section-primary-lighter: #{$color-rose--lighter};
-  --color-section-primary-lightest: #{$color-rose--lightest};
-  --color-section-primary-darker: #{$color-rose--darker};
-  --color-section-primary-darkest: #{$color-rose--darkest};
-}
-
-
-//Set specific colors for all Blog or Portfolio page blocks
-.wp-block-group-featured {
-    background-color: var(--color-section-primary);
-}
-.entry-content ul li::before {
-    background: var(--color-section-primary);
 }

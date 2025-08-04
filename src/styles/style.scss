@@ -2,20 +2,20 @@
 @use 'resets/overwrite-rules' as *;
 
 /* Generals */
-@use 'generals/custom-variables' as *;
-@use 'generals/base' as *;
-@use 'generals/colors' as *;
-@use 'generals/typo' as *;
-@use 'generals/utility-classes' as *;
-@use 'generals/animations' as *;
+@use 'generals/custom-variables' as *; // 1. Variables de CSS (tamaños, etc.)
+@use 'generals/colors' as *;           // 2. Sistema de colores (depende de variables)
+@use 'generals/typo' as *;             // 3. Tipografía (puede usar colores)
+@use 'generals/animations' as *;       // 4. Animaciones (pueden usar variables)
+@use 'generals/base' as *;             // 5. Estilos base (usa todo lo anterior)
+@use 'generals/utility-classes' as *;  // 6. Clases de utilidad (pueden sobreescribir base)
 
 /* Layout */
 @use 'templates/header' as *;
 @use 'templates/layout' as *;
+
 /* Pages Templates */
 /* home (re-exports from components) */
 @use 'templates/home/content' as *;
-@use 'templates/home/process' as *;
 /* single-portfolio (hereda también estilos de la home) */
 @use 'templates/single/single' as *;
 /* archive (hereda también estilos de la home) */

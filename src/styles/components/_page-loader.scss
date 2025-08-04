@@ -19,7 +19,7 @@ body:not(.page-ready) #page {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: $color-neutral-white; // Usa el color de fondo de tu sitio.
+  background-color: var(--color-surface-content); // Usa el color de fondo de tu sitio.
   z-index: 9999;
 
   // GSAP se encargará de la transición, pero esto sirve como fallback

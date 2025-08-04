@@ -30,16 +30,16 @@
 
 // 3. Style Modifiers (.chip--subtle, .chip--bold)
 .chip--subtle {
-    background-color: $color-neutral-300;
-    color: var(--color-section-primary); // Make the text color theme-aware.
+    background-color: var(--color-neutral-0);
+    color: var(--color-brand-primary); // Make the text color theme-aware.
     text-transform: lowercase;
-    box-shadow: $box-shadow-dp1;
+    box-shadow: var(--box-shadow-dp1);
 }
 .chip--bold {
     // Use the section's primary color for the background, making it theme-aware.
-    background-color: var(--color-section-primary);
-    color: $color-neutral-white;
-    box-shadow: $box-shadow-dp1;
+    background-color: var(--color-brand-primary);
+    color: var(--color-neutral-0);
+    box-shadow: var(--box-shadow-dp1);
     text-transform: uppercase;
 }
 

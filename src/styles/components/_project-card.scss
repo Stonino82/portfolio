@@ -15,10 +15,8 @@
     height: 100%;
     position: relative;
     transition: $transition;
-    border: 1px solid $color-neutral-300;
+    border: 1px solid var(--color-border-primary);
     border-radius: var(--size-400);
-    // background-color: $color-neutral-200;
-    // box-shadow: $box-shadow-dp1;
     a {
         height: 100%;
         display: flex;
@@ -34,8 +32,7 @@
             width: 100%;
             border-radius: var(--size-100);
             overflow: hidden;
-            border: 1px solid $color-neutral-300;
-            // box-shadow: $box-shadow-dp1;
+            border: 1px solid var(--color-border-primary);
             img, video {
                 width: 100%;
                 height: 100%;
@@ -81,14 +78,14 @@
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
-                color: var(--color-section-primary);
+                color: var( --color-text-brand);
             }
         }
     }
 
     &:hover {
         // A subtle lift and scale effect on hover.
-        box-shadow: $box-shadow-dp1;
+        box-shadow: var(--box-shadow-dp1);
         transform: scale(1.02);
     }
 }
