@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import liveReload from 'vite-plugin-live-reload';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   css: {
@@ -31,6 +32,14 @@ export default defineConfig({
     liveReload([
       path.resolve(__dirname, '**/*.php'),
     ]),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/img/*',
+          dest: 'assets/img'
+        }
+      ]
+    })
   ],
   server: {
     // usePolling es necesario en MAMP si los eventos del sistema de archivos no se detectan.
@@ -40,5 +49,13 @@ export default defineConfig({
     host: true, // This allows access from other devices on the same network.
     port: 3000,
     cors: true,
+    proxy: {
+      // Proxy requests that are not for Vite's assets to the WordPress backend.
+      // This allows assets in CSS (e.g., url('/src/img/file.svg')) to work correctly in dev mode.
+      '^(?!/@vite/|/src/|/node_modules/|/favicon.ico).*$': {
+        target: 'http://localhost/antoninolattene',
+        changeOrigin: true,
+      }
+    }
   }
 });

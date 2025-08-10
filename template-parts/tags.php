@@ -2,8 +2,7 @@
 /**
  * Reusable template part for displaying a list of tags as chips.
  *
- * This template is designed to be flexible and can display tags from
- * both standard WordPress taxonomies and ACF fields.
+ * This template is designed to be flexible and can display tags from WordPress.
  *
  * @package antoninolattene
  *

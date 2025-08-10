@@ -22,7 +22,7 @@ section.presentation {
         max-width: 425px;
         flex-grow: 1;
         justify-content: flex-start;
-        .breadcrumbs {
+        .presentation__breadcrumbs {
             order: 1;
             margin-bottom: var(--size-600);
         }

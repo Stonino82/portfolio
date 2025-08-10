@@ -40,7 +40,11 @@ $show_breadcrumbs         = $args['show_breadcrumbs'] ?? true;
 		<div class="presentation__taxonomy">
 			<?php get_template_part( 'template-parts/archive-context-label' ); ?>
 		</div>
-		<?php if ( $show_breadcrumbs ) { get_template_part( 'template-parts/breadcrumbs' ); } ?>
+		<?php if ( $show_breadcrumbs ) : ?>
+		<div class="presentation__breadcrumbs">
+			<?php get_template_part( 'template-parts/breadcrumbs' ); ?>
+		</div>
+		<?php endif; ?>
 	</div>
-	<?php get_template_part( 'template-parts/scroll-indicator' ); ?>
+	<?php /* get_template_part( 'template-parts/scroll-indicator' ); */?>
 </section>

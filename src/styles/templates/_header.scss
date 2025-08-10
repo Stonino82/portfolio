@@ -2,8 +2,100 @@
 @use '../generals/utility-classes' as *;
 @use '../components/separator' as *;
 
+// --- Custom Menu Icons ---
+// General pseudo-element styles
+.menu-item-home > a::before,
+.menu-item-portfolio > a::before,
+.menu-item-blog > a::before,
+.menu-item-nino > a::before,
+.menu-item-about > a::before,
+.menu-item-resume > a::before,
+.menu-item-linkedin > a::before,
+.menu-item-github > a::before,
+.menu-item-mail > a::before {
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    width: 16px;
+    height: 23.8px;
+    vertical-align: middle;
+}
+// --- Font Family and Weight Assignments ---
+// fa-solid and fa-regular icons
+.menu-item-home > a::before,
+.menu-item-portfolio > a::before,
+.menu-item-blog > a::before,
+// .menu-item-nino > a::before,
+.menu-item-about > a::before,
+.menu-item-resume > a::before,
+.menu-item-mail > a::before {
+    font-family: "Font Awesome 6 Free";
+}
+// fa-brands icons
+.menu-item-linkedin > a::before,
+.menu-item-github > a::before {
+    font-family: "Font Awesome 6 Brands";
+}
+// Font weight for fa-solid
+.menu-item-home > a::before,
+.menu-item-blog > a::before,
+// .menu-item-nino > a::before,
+.menu-item-about > a::before,
+.menu-item-mail > a::before {
+    font-weight: 900;
+}
+// Font weight for fa-regular and fa-brands
+.menu-item-portfolio > a::before,
+.menu-item-resume > a::before,
+.menu-item-linkedin > a::before,
+.menu-item-github > a::before {
+    font-weight: 400;
+}
+// --- Icon Content Assignment ---
+.menu-item-home > a::before {
+    content: "\f015"; // fa-solid fa-house
+}
+.menu-item-portfolio > a::before {
+    content: "\f07c"; // fa-regular fa-folder-open
+}
+.menu-item-blog > a::before {
+    content: "\f56b"; // fa-solid fa-feather-pointed
+}
+// .menu-item-nino > a::before {
+//     content: "\f544"; // fa-solid fa-robot
+// }
+.menu-item-about > a::before {
+    content: "\f007"; // fa-solid fa-user
+}
+.menu-item-resume > a::before {
+    content: "\f1c1"; // fa-regular fa-file-pdf
+}
+.menu-item-linkedin > a::before {
+    content: "\f0e1"; // fa-brands fa-linkedin (Note: using the correct unicode)
+}
+.menu-item-github > a::before {
+    content: "\f09b"; // fa-brands fa-github
+}
+.menu-item-mail > a::before {
+    content: "\f1d8"; // fa-solid fa-paper-plane
+}
+.menu-item-nino > a::before {
+    content: '';
+    display: inline-block;
+    background-image: url('/src/img/nino-ai.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    vertical-align: middle;
+}
+
+
+
 .site-header {
-    position: fixed;
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
     height: max-content;
     display: flex;
@@ -78,19 +170,28 @@
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
-                        color: var(--palette-primary-foreground) !important;
+                        color: var(--palette-primary-foreground);
                     }
                     // Specific styles for Blog menu item
-                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919) { 
+                    &:is(.menu-item-blog, .menu-item-nino) {
                         a {
-                            color: var(--palette-accent-foreground) !important;
+                            color: var(--palette-accent-foreground);
                         }
                     }
                     &:hover {
                         background-color: var(--palette-primary-background);
                     }
-                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919):hover {
+                    &:is(.menu-item-blog):hover {
                         background-color: var(--palette-accent-background);
+                    }
+                    &:is(.menu-item-nino):hover {
+                        background: var(--color-brand-gradient);
+                        a {
+                            color: white;
+                            &:before {
+                                filter: brightness(0) invert(1);
+                            }
+                        }
                     }
                     // Active and parent menu items
                     // These selectors target the active page and its parent items.
@@ -101,7 +202,7 @@
                     &:is(.current_page_item, .current_page_parent) {
                         background-color: var(--palette-primary-background);
                     }
-                    &:is(.menu-item-blog, .menu-item-2874, .menu-item-2919):is(.current_page_item, .current_page_parent) {
+                    &:is(.menu-item-blog):is(.current_page_item, .current_page_parent) {
                         background-color: var(--palette-accent-background);
                     }
                 }

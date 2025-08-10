@@ -38,35 +38,31 @@
         <hr />
         
         <ul class="menu">
-            <li>
-                <a class="btn btn-md btn-tertiary" href="https://github.com/Stonino82" target="_blank">
-                    <span class="btn-icon btn-icon--left"><i class="fab fa-github"></i></span>
-                    <span class="btn-text">Github</span>
-                    <i class="fas fa-arrow-down rotate"></i>
-                </a>
-            </li>
-            <li>
+            <li class="menu-item-resume">
                 <a class="btn btn-md btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                    <span class="btn-icon btn-icon--left"><i class="far fa-file-pdf"></i></span>
-                    <span class="btn-text">Resume</span>
+                    Resume
                     <i class="fas fa-arrow-down"></i>
                 </a>
             </li>
-            <li>
+            <li class="menu-item-linkedin">
                 <a class="btn btn-md btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
-                    <span class="btn-icon btn-icon--left"><i class="fab fa-linkedin-in"></i></span>
-                    <span class="btn-text">Linkedin</span>
+                    Linkedin
                     <i class="fas fa-arrow-down rotate"></i>
                 </a>
             </li>
-        </ul>
-
-        <a class="btn btn-lg btn-full btn-primary" href="mailto:antoninolattene@gmail.com" target="_blank" rel="noopener noreferrer">
-            <span class="shine-animation"></span>
-            <span class="btn-icon btn-icon--left"><i class="fas fa-paper-plane"></i></span>
-            <span class="btn-text">Get in touch</span>
-        </a>
-        
+            <li class="menu-item-github">
+                <a class="btn btn-md btn-tertiary" href="https://github.com/Stonino82" target="_blank">
+                    Github
+                    <i class="fas fa-arrow-down rotate"></i>
+                </a>
+            </li>
+            <li class="menu-item-mail">
+                <a class="btn btn-lg btn-full btn-primary" href="mailto:antoninolattene@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <span class="shine-animation"></span>
+                    Get in touch
+                </a>
+            </li>
+        </ul>        
     </div>
 
     

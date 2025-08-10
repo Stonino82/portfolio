@@ -69,6 +69,31 @@ function add_type_module_to_vite_scripts($tag, $handle, $src) {
 add_filter('script_loader_tag', 'add_type_module_to_vite_scripts', 10, 3);
 
 /**
+ * Gets the correct URL for a static asset, whether in development or production.
+ *
+ * This function checks if the Vite development server is running.
+ * - If yes, it returns the full URL to the asset served by Vite's dev server.
+ * - If no (production), it returns the URL to the asset in the 'dist' directory.
+ *
+ * @param string $asset The path to the asset relative to the project root (e.g., 'src/img/logo.svg').
+ * @return string The full, correct URL to the asset.
+ */
+function get_vite_asset($asset) {
+    // Check if we are in development mode (the 'hot' file exists).
+    if (is_vite_dev_mode()) {
+        // In dev, return the full URL to the asset served by the Vite dev server.
+        // The asset path must be relative to the project root.
+        return 'http://localhost:3000/' . $asset;
+    } else {
+        // In production, we need to map the 'src' path to the 'dist' path.
+        // Based on vite.config.js, 'src/img/' becomes 'dist/assets/img/'.
+        // Note: This mapping needs to be updated if vite.config.js changes.
+        $production_asset = str_replace('src/img/', 'assets/img/', $asset);
+        return get_theme_file_uri('/dist/' . $production_asset);
+    }
+}
+
+/**
  * Returns the array of availability statuses and their labels.
  * Centralizes the choices for reuse in the Customizer and templates.
  *
@@ -243,8 +268,6 @@ function antoninolattene_child_sanitize_availability_status( $input ) {
 
 
 
-
-
 //PARA MENU
 //aggregar clases a los links del menú
 function add_menu_link_class( $atts, $item, $args ) {
@@ -265,7 +288,7 @@ function theme_remove_cpt_blog_class( $classes, $item, $args ) {
   endif;
   return $classes;
 }
-add_filter( 'nav_menu_css_class', 'theme_remove_cpt_blog_class', 10, 3 );
+add_filter( 'nav_menu_css_class', 'theme_remove_cpt_blog_class', 10, 3);
 
 // This snippet adds a current_page_parent class on the archive menu item of a CPT:
 function theme_add_cpt_ancestor_class( $classes, $item, $args ) {
@@ -280,7 +303,7 @@ function theme_add_cpt_ancestor_class( $classes, $item, $args ) {
       $classes[] = 'current_page_parent';
   return $classes;
 }
-add_action( 'nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3 );
+add_action( 'nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
 
 
 
@@ -674,3 +697,32 @@ function antoninolattene_child_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'antoninolattene_child_body_classes' );
+
+
+
+
+/**
+ * Solución definitiva: Asegura que el elemento del menú del blog SIEMPRE
+ * tenga su clase personalizada, sin importar la página actual.
+ *
+ * Esto soluciona un bug/quirk de WordPress que elimina la clase en
+ * ciertos contextos, como la página de inicio o archivos.
+ */
+function always_add_blog_menu_item_class( $classes, $item, $args ) {
+    // 1. Obtenemos el ID de la página que está configurada como "Página de entradas" en Ajustes > Lectura.
+    $blog_page_id = get_option( 'page_for_posts' );
+
+    // 2. Si el ID de la página de entradas existe y coincide con el ID del objeto al que enlaza este elemento del menú...
+    if ( $blog_page_id && $item->object_id == $blog_page_id ) {
+        
+        // 3. ...entonces este es el elemento del menú del Blog.
+        // Nos aseguramos de que la clase 'menu-item-blog' esté en la lista.
+        if ( ! in_array( 'menu-item-blog', $classes ) ) {
+            $classes[] = 'menu-item-blog';
+        }
+    }
+    
+    // 4. Devolvemos la lista de clases (modificada o no).
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3 );

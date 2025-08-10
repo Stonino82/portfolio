@@ -2,7 +2,6 @@
 main.container {
     display:grid;
     grid-template-columns: 1fr;
-    margin-top: 96px;
 
     &::before {
         all: unset !important;

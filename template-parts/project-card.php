@@ -2,8 +2,7 @@
 /**
  * Template part for displaying a project card.
  *
- * This template is now designed to work within a standard WordPress loop,
- * fetching data using native functions instead of ACF sub-fields.
+ * This template is now designed to work within a standard WordPress loop, fetching data using native functions.
  *
  * @package antoninolattene
  */

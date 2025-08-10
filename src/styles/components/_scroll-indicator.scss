@@ -6,12 +6,12 @@
 .scroll-indicator {
     // The line container/track
     position: absolute;
-    bottom: var(--size-400);
+    bottom: var(--size-600);
     left: 50%;
     transform: translateX(-50%);
     width: 5px;
     height: 35px;
-    background: linear-gradient(to top, var(--color-border-secondary), rgba(0, 0, 0, 0));
+    background: linear-gradient(to top, var(--color-neutral-50), rgba(0, 0, 0, 0));
     border-radius: 50px;
     overflow: hidden; // Crucial to contain the sliding gradient.
 

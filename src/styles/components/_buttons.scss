@@ -21,6 +21,7 @@ input[type="submit"]:hover {
 	display: flex !important;
 	align-items: center;
 	justify-content: center;
+	gap: 0.5rem;
 	text-decoration: none; //for A links converted in buttons
 	overflow: hidden;
 	font-weight: var(--fw-medium) !important;
@@ -29,59 +30,27 @@ input[type="submit"]:hover {
 	border: none;
 	background: none;
 	cursor: pointer;
-	.btn-icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-	.btn-text {}
 }
 .btn-md {
 	height: 34px;
 	width: max-content;
 	padding: var(--size-100) var(--size-200);
 	font-size: var(--fs-400) !important;
-	.btn-icon {
-		font-size: var(--fs-500) !important;
-		&--left {
-			margin-right: .5rem;
-		}
-		&--right {
-			margin-left: .5rem;
-		}
-	}
-	.btn-text {}
 }
 .btn-lg {
 	width: max-content;
 	padding: var(--size-300) var(--size-400);
 	font-size: var(--fs-500) !important;
-	.btn-icon {
-		font-size: var(--fs-600) !important;
-		&--left {
-			margin-right: .875rem;
-		}
-		&--right {
-			margin-left: .875rem;
-		}
-	}
-	.btn-text {}
 }
-
 .btn-full {
 	width: 100% !important;
+	justify-content: center !important;
 }
-
 .btn-primary {
 	background: var(--color-brand-gradient);
 	border-radius: 8px;
 	box-shadow: var(--box-shadow-dp1);
-	.btn-text {
-		color: var(--color-neutral-0) !important;
-	}
-	.btn-icon {
-		color: var(--color-neutral-0) !important;
-	}
+	color: var(--color-neutral-0) !important;
 }
 .btn-secondary {
 	background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
@@ -93,13 +62,8 @@ input[type="submit"]:hover {
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
-	.btn-icon {
-		color: var(--color-brand-accent) !important;
-	}
 }
-.btn-tertiary {
-	color: var(--color-text-link) !important;
-}
+.btn-tertiary {}
 .btn-primary,
 .btn-secondary,
 .btn-tertiary {

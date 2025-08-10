@@ -44,13 +44,25 @@
 	0% {
 		transform: skew(-30deg) translateX(-145%);
 	}
-	30% {
+	7% {
 		transform: skew(-30deg) translateX(145%);
 	}
 	100% {
 		transform: skew(-30deg) translateX(145%);
 	}
 }
+
+// 5. Shake animation for attention-seeking elements.
+@keyframes shake-animation {
+  0% { transform: rotate(0deg); }
+  2% { transform: rotate(15deg); }
+  4% { transform: rotate(-10deg); }
+  6% { transform: rotate(5deg); }
+  8% { transform: rotate(-2deg); }
+  10% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
 // --- Animation-specific Utility Classes ---
 
 // This is a utility class. Its only purpose is to apply the 'shine-animation'
@@ -67,5 +79,5 @@
 	height: 100%;
 	transform: skew(-30deg) translateX(-145%);
 	background-color: rgba(255, 255, 255, 0.3);
-	animation: shine-animation 2.5s ease infinite;
+	animation: shine-animation 8s ease infinite;
 }
