@@ -266,8 +266,6 @@ function antoninolattene_child_sanitize_availability_status( $input ) {
 
 
 
-
-
 //PARA MENU
 //aggregar clases a los links del menú
 function add_menu_link_class( $atts, $item, $args ) {
@@ -322,7 +320,6 @@ function get_category_icon_map() {
         'graphic-design'        => 'fa-solid fa-palette'
     );
 }
-
 
 
 
@@ -558,9 +555,9 @@ function antoninolattene_display_categories_as_breadcrumbs( $args, $icon_map ) {
 		echo '<li class="breadcrumbs__item">';
 		if ( $is_linked ) {
 			echo '<a class="breadcrumbs__link" href="' . esc_url( get_term_link( $child_cat ) ) . '">' . esc_html( $child_cat->name ) . '</a>';
-		} else {
+	} else {
 			echo '<span class="breadcrumbs__link is-not-linked">' . esc_html( $child_cat->name ) . '</span>';
-		}
+	}
 		echo '</li>';
 	}
 	echo '</ul>';
@@ -726,3 +723,69 @@ function always_add_blog_menu_item_class( $classes, $item, $args ) {
     return $classes;
 }
 add_filter( 'nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3 );
+
+/**
+ * Shortcode para mostrar un banner inline personalizable.
+ *
+ * Uso: [inline_banner text="Tu texto obligatorio aquí" title="Título opcional" button_text="Botón opcional"]
+ * El campo 'text' es obligatorio.
+ *
+ * @param array $atts Atributos del shortcode.
+ * @return string HTML del banner.
+ */
+function antoninolattene_inline_banner_shortcode( $atts ) {
+    $atts = shortcode_atts(
+        array(
+            'title'          => '',
+            'text'           => 'Este es el texto obligatorio.', // Campo obligatorio
+            'button_text'    => '',
+            'button_url'     => '#',
+            'button_classes' => 'btn btn-secondary btn-md',
+            'button_icon'    => '',
+        ),
+        $atts,
+        'inline_banner'
+    );
+
+    // Si el campo de texto obligatorio está vacío, no mostrar nada.
+    if ( empty( $atts['text'] ) ) {
+        return '';
+    }
+
+    // --- Construir el contenido del texto ---
+    $content_html = '';
+    if ( ! empty( $atts['title'] ) ) {
+        $content_html .= '<h4>' . esc_html( $atts['title'] ) . '</h4>';
+    }
+    // El texto es obligatorio, así que lo añadimos.
+    $content_html .= '<p>' . wp_kses_post( $atts['text'] ) . '</p>';
+
+    // --- Construir el botón ---
+    $action_html = '';
+    if ( ! empty( $atts['button_text'] ) ) {
+        $button_classes = esc_attr( $atts['button_classes'] );
+        $button_icon    = esc_attr( $atts['button_icon'] );
+        $icon_html      = '';
+
+        if ( ! empty( $button_icon ) ) {
+            $icon_html = '<i class="' . $button_icon . '"></i>';
+        }
+
+        $action_html = '<a href="' . esc_url( $atts['button_url'] ) . '" class="' . $button_classes . '">' . $icon_html . '<span class="btn-text">' . esc_html( $atts['button_text'] ) . '</span></a>';
+    }
+
+    // --- Ensamblar la salida final ---
+    $output = '<div class="inline-banner">';
+
+    // El div de contenido siempre se mostrará porque el texto es obligatorio.
+    $output .= '<div class="inline-banner__content">' . $content_html . '</div>';
+
+    if ( ! empty( $action_html ) ) {
+        $output .= '<div class="inline-banner__action">' . $action_html . '</div>';
+    }
+
+    $output .= '</div>';
+
+    return $output;
+}
+add_shortcode( 'inline_banner', 'antoninolattene_inline_banner_shortcode' );

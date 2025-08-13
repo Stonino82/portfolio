@@ -19,7 +19,7 @@ $description              = $args['description'] ?? '';
 $show_breadcrumbs         = $args['show_breadcrumbs'] ?? true;
 
 ?>
-<section class="presentation">
+<div class="presentation">
 	<div class="presentation__central">
 		<div class="presentation__description">
 			<?php
@@ -47,4 +47,4 @@ $show_breadcrumbs         = $args['show_breadcrumbs'] ?? true;
 		<?php endif; ?>
 	</div>
 	<?php /* get_template_part( 'template-parts/scroll-indicator' ); */?>
-</section>
+</div>

@@ -1,0 +1,50 @@
+/*------------------------------------*\
+  #INLINE-BANNER
+\*------------------------------------*/
+
+.inline-banner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-600); // Espacio entre contenido y botón en móvil
+  padding: var(--size-400);
+  background: linear-gradient(var(--color-surface-page), var(--color-surface-page)) padding-box, var(--color-brand-gradient) border-box;
+	border: 1px solid transparent;
+  color: var(--color-text-primary);
+  border-radius: var(--size-400);
+  box-shadow: var(--box-shadow-dp1);
+
+  &__content {
+    text-align: center;
+  }
+
+  &__action {
+    display: flex;
+    justify-content: center;
+  }
+
+  h4 {
+    color: var(--color-text-brand);
+    margin-bottom: var(--size-100);
+  }
+
+  p {}
+
+  // Los estilos del botón ahora se aplican directamente a través de clases en el shortcode.
+  // ej. [inline_banner button_classes="btn btn-primary btn-lg"]
+
+  // Desktop layout
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: var(--size-600);
+
+    &__content {
+      text-align: left;
+    }
+
+    &__action {
+      // No specific styles needed for action wrapper on desktop
+    }
+  }
+}

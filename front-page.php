@@ -33,6 +33,7 @@
                 ?>
             </section> <!-- /Showcase -->
 
-            <?php get_footer(); ?>
         </div>
-    </main>
+    </main><!-- .container -->
+
+<?php get_footer(); ?>

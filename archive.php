@@ -34,7 +34,7 @@ if ( is_post_type_archive( 'portfolio' ) ) {
 		] );
 	?>
 
-	<section class="content">
+	<div class="content">
 		<?php if ( have_posts() ) : ?>
 			<section>
 				<?php while ( have_posts() ) : the_post();
@@ -42,7 +42,7 @@ if ( is_post_type_archive( 'portfolio' ) ) {
 				endwhile; ?>
 			</section>
 		<?php endif; ?>
+	</div>
+</main><!-- .container -->
 
-		<?php get_footer(); ?>
-	</section>
-</main>
+<?php get_footer(); ?>

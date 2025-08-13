@@ -16,4 +16,6 @@
 
 		endwhile; // End of the loop.
 		?>
-	</main>
+	</main><!-- .container -->
+
+<?php get_footer(); ?>

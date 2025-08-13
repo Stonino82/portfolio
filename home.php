@@ -3,7 +3,7 @@
  * Template Name: Blog Template
  * description: Blog Template
  */
-	get_header(); ?>
+get_header(); ?>
 	
 	<main class="container">
 		<?php
@@ -17,13 +17,13 @@
 			] );
 		?>
 
-		<section class="content">
+		<div class="content">
 			<section>
 				<?php while ( have_posts() ) : the_post();
 					get_template_part('template-parts/project-tile');
 				endwhile; ?>
 			</section>
+		</div>
+	</main><!-- .container -->
 
-			<?php get_footer(); ?>
-		</section>
-	</main>
+<?php get_footer(); ?>

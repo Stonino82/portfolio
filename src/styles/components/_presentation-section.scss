@@ -1,7 +1,7 @@
 @use '../generals/colors' as *;
 @use '../generals/utility-classes' as *;
 
-section.presentation {
+.presentation {
     position: sticky;
     top: 96px;
     height: calc(100dvh - 96px);
@@ -43,7 +43,7 @@ section.presentation {
 }
 
 @media (min-width: 992px) {
-    section.presentation {
+    .presentation {
         z-index: 2;
         .presentation__central {
             justify-content: flex-start;
