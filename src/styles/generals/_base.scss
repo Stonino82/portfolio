@@ -9,14 +9,7 @@ body {
   margin: 0 auto !important;
   padding: 0 !important;
   font-family: var(--ff-body);
-  font-size: var(--fs-400);
   font-weight: var(--fw-regular);
   color: var(--color-text-primary);
   background-color: var(--color-surface-page); // Base background color for the entire site.
-}
-
-@media (min-width: 992px) {
-  body {
-    font-size: var(--fs-500);
-  }
 }

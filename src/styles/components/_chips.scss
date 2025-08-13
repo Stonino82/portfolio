@@ -1,5 +1,5 @@
 @use '../generals/colors' as *;
-@use '../generals/utility-classes' as *;
+@use '../generals/custom-variables' as *;
 @use '../generals/mixins' as *;
 
 // --- Component-Based Chip Styles ---
@@ -16,10 +16,11 @@
     width: max-content;
     display: inline-flex; // Use inline-flex for better alignment
     align-items: center;
-    gap: 0.25rem; // Space between icon and text
-    // Font-size is now controlled by the parent list modifier
-    font-weight: var(--fw-medium);
+    gap: var(--size-50); // Space between icon and text
     text-align: center;
+    // Common text styles for all chips
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-tight);
     border-radius: 50px;
     text-decoration: none;
 
@@ -63,7 +64,7 @@
 .chip--md {
     height: 30px;
     padding: .5rem .8rem;
-    font-size: var(--fs-300);
+    font-size: var(--fs-400);
     i {
         font-size: 14px;
     }

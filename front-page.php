@@ -3,8 +3,8 @@
     <main class="container">
         <?php
             get_template_part( 'template-parts/presentation-section', null, [
-                'title'                    => 'I shape stunning<br>Experiences that resonate<br>on a Human level',
-                'description'              => 'Hey I\'m Tony, Senior Product Designer based in Barcelona. I solve <strong class="text-gradient">complex business challenges<br></strong> and meet <strong class="text-gradient">user needs</strong> through thoughtful design.<br>My process covers the entire product lifecycle, from defining strategy to crafting intuitive UX/UI and scalable Design Systems, all grounded in a background of Front-end development.',
+                'title'                    => 'I shape stunning Experiences that resonate on a Human level',
+                'description'              => 'Hey I\'m Tony, Senior Product Designer based in Barcelona. I solve <strong class="text-gradient">complex business challenges </strong> and meet <strong class="text-gradient">user needs</strong> through thoughtful design. My process covers the entire product lifecycle, from defining strategy to crafting intuitive UX/UI and scalable Design Systems, all grounded in a background of Front-end development.',
                 'show_breadcrumbs'         => false,
             ] );
         ?>

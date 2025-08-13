@@ -1,4 +1,7 @@
-// Root Variables
+// Sass Variables (Compile-Time)
+$transition: all 0.2s ease-out;
+
+// CSS Custom Properties (Runtime)
 :root {
     --size-0: 0;
     --size-50: .25rem; //4px
@@ -19,34 +22,41 @@
     --ff-heading: var(--ff-primary);
     --ff-body: var(--ff-primary);
     --ff-font-awesome: "Font Awesome 5 Free";
-
-    // Font Size (base font-size: 16px)
-    --fs-100: 0.625rem; //10px
-    --fs-200: 0.6875rem; //11px
-    --fs-300: 0.8125rem; //13px
-    --fs-400: 0.875rem; //14px
-    --fs-500: 1rem; //16px
-    --fs-600: 1.125rem; //18px
-    --fs-650: 1.25rem; //20px
-    --fs-700: 1.4375rem; //23px
-    --fs-750: 1.625rem; //26px
-    --fs-800: 1.8125rem; //29px
-    --fs-850: 2rem; //32px
-    --fs-900: 2.25rem; //36px
-    --fs-950: 2.5625rem; //41px
-
+    
+    /*
+    ================================================================================
+    ESCALA TIPOGRÁFICA FLUIDA Y MODULAR
+    ================================================================================
+    - Ratio: 1.125 (Tercera Menor Aumentada) - Ideal para interfaces de usuario.
+    - Base: 16px (anclado en --fs-500)
+    - Técnica: clamp(MIN, PREFERRED, MAX) para una responsividad suave.
+    ================================================================================
+    */
+    --fs-200: clamp(0.70rem, 0.61rem + 0.24vw, 0.79rem); /* 11.2px -> 12.6px */
+    --fs-300: clamp(0.79rem, 0.69rem + 0.27vw, 0.89rem); /* 12.6px -> 14.2px */
+    --fs-400: clamp(0.89rem, 0.78rem + 0.30vw, 1.00rem); /* 14.2px -> 16px */
+    --fs-500: clamp(1.00rem, 0.88rem + 0.34vw, 1.13rem); /* 16px -> 18px (BASE) */
+    --fs-600: clamp(1.13rem, 0.99rem + 0.38vw, 1.27rem); /* 18px -> 20.3px */
+    --fs-700: clamp(1.27rem, 1.11rem + 0.43vw, 1.42rem); /* 20.3px -> 22.8px */
+    --fs-800: clamp(1.42rem, 1.25rem + 0.48vw, 1.60rem); /* 22.8px -> 25.6px */
+    --fs-900: clamp(1.60rem, 1.41rem + 0.54vw, 1.80rem); /* 25.6px -> 28.8px */
+    --fs-950: clamp(1.80rem, 1.58rem + 0.61vw, 2.03rem); /* 28.8px -> 32.4px */
+    --fs-1000: clamp(2.03rem, 1.78rem + 0.68vw, 2.28rem); /* 32.4px -> 36.5px */
+    --fs-1100: clamp(2.28rem, 2.00rem + 0.77vw, 2.57rem); /* 36.5px -> 41.1px */
+    
     // Line Height
-    --lh-200: 1.2;
-    --lh-700: 1.7;
-
+    --lh-tight: 1.2;   // Para títulos y elementos de display.
+    --lh-medium: 1.4;  // Intermedio, para subtítulos o texto denso.
+    --lh-loose: 1.7;   // Para párrafos y cuerpo de texto, mejora la legibilidad.
+    
     // Font Weight
     --fw-regular: 400;
     --fw-medium: 500;
     --fw-bold: 600;
     --fw-extrabold: 800;
-
+    
     // Letter Spacing
     --ls-normal: 0;
-    --ls-dense: -.02rem;
-    --ls-scattered: .1rem;
+    --ls-dense: -0.02em;  // Ideal para títulos grandes.
+    --ls-scattered: 0.1em; // Para "eyebrows" o texto estilizado.
 }

@@ -53,9 +53,23 @@ body.single-post, body.single-portfolio { // --> inject in the body
             .wp-block-group {
                 padding: var(--size-600);
                 &.wp-block-group-featured {
-                    margin: 1rem 0;
+                    position: relative; // 1. Crea un contexto de posicionamiento para el pseudo-elemento.
+                    margin-block: var(--size-600);
+                    border-radius: 8px;
+                    border: 1px solid var(--color-border-primary);
                     background-color: var(--color-surface-page);
                     color: var(--color-text-brand);
+                    overflow: hidden;
+                    &::before {
+                        // 2. Posiciona el pseudo-elemento de forma absoluta dentro de su padre.
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        content: '';
+                        width: 6px;
+                        height: 100%;
+                        background-color: var(--color-brand-primary);
+                    }
                 }
                 &.wp-block-group-featured-2 {}
                 p {
@@ -67,7 +81,7 @@ body.single-post, body.single-portfolio { // --> inject in the body
                         font: var(--fa-font-solid);
                         content: '\f35d';
                         margin-left: .25rem;
-                        font-size: 12px;
+                        font-size: var(--fs-200);
                     }
                 }
             }

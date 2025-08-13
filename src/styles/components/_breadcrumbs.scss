@@ -1,4 +1,5 @@
 @use '../generals/colors' as *;
+@use '../generals/custom-variables' as *;
 
 // --- Breadcrumbs Styles ---
 // This component uses CSS variables to adapt its color based on the section (Blog/Portfolio).
@@ -32,7 +33,7 @@
     .breadcrumbs__link {
         text-decoration: none;
         color: inherit;
-        transition: opacity 0.2s ease-in-out;
+        transition: $transition;
         font-weight: var(--fw-medium);
 
         // Apply hover effect only to actual links, not to the non-linked spans.

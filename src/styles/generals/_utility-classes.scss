@@ -1,4 +1,5 @@
 // UTILITY CLASSES for Spacing
+// no se usa ninguna de momento
 
 .padding-block-0 {padding-block: var(--size-0)}
 .padding-block-50 {padding-block: var(--size-50)}
@@ -79,57 +80,3 @@
 .margin-800 {margin: var(--size-800)}
 .margin-900 {margin: var(--size-900)}
 .margin-950 {margin: var(--size-950)}
-
-
-// UTILITY CLASSES for Typography (+ HTML typography tags styles)
-
-// Font Weight
-.fw-regular {font-weight: var(--fw-regular);}
-.fw-medium {font-weight: var(--fw-medium);}
-.fw-bold {font-weight: var(--fw-bold);}
-.fw-extrabold {font-weight: var(--fw-extrabold);}
-
-
-// Text Align
-.ta-left {text-align: left;}
-.ta-center {text-align: center;}
-.ta-right {text-align: right;}
-
-// Text Transform
-.tt-low {text-transform: lowercase;}
-.tt-cap {text-transform: capitalize;}
-.tt-up {text-transform: uppercase;}
-
-// Text Headings & Paragraphs
-.text-display-1,
-.text-display-2 {font-size: var(--fs-900); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-extrabold)}
-.text-heading-1 {font-size: var(--fs-800); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-extrabold)}
-.text-heading-2 {font-size: var(--fs-750); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-bold)}
-.text-heading-3 {font-size: var(--fs-700); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-bold)}
-.text-heading-4 {font-size: var(--fs-650); line-height: var(--lh-200); letter-spacing: var(--ls-dense); font-weight:var(--fw-bold)}
-.text-heading-5 {font-size: var(--fs-600); line-height: var(--lh-200); font-weight:var(--fw-bold)}
-.text-heading-6 {font-size: var(--fs-500); line-height: var(--lh-200); font-weight:var(--fw-bold)}
-.text-md-body-1 {font-size: var(--fs-500); line-height: var(--lh-700);}
-.text-md-body-2 {font-size: var(--fs-400); line-height: var(--lh-700);}
-.text-sm {font-size: var(--fs-200); line-height: var(--lh-700);}
-.text-xs {font-size: var(--fs-100); line-height: var(--lh-700);}
-.text-xxs {font-size: var(--fs-100); line-height: var(--lh-700);}
-
-@media (min-width: 992px) {
-    .text-display-1 {font-size: var(--fs-950);}
-    .text-display-2 {font-size: var(--fs-900);}
-    .text-heading-1 {font-size: var(--fs-850);}
-    .text-heading-2 {font-size: var(--fs-800);}
-    .text-heading-3 {font-size: var(--fs-750);}
-    .text-heading-4 {font-size: var(--fs-700);}
-    .text-heading-5 {font-size: var(--fs-650);}
-    .text-heading-6 {font-size: var(--fs-600);}
-    .text-md-body-1 {font-size: var(--fs-500);}
-    .text-md-body-2 {font-size: var(--fs-400);}
-    .text-sm {font-size: var(--fs-300);}
-    .text-xs {font-size: var(--fs-200);}
-    .text-xxs {font-size: var(--fs-100);}
-}
-
-
-$transition: all 0.2s ease-out;
