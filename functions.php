@@ -179,39 +179,6 @@ function antoninolattene_child_customize_register( $wp_customize ) {
 		'settings' => 'portfolio_archive_description',
 		'type'     => 'textarea',
 	) );
-
-	// --- Blog Page Settings (for home.php) ---
-	$wp_customize->add_section( 'blog_page_section', array(
-		'title'       => __( 'Página del Blog', 'antoninolattene-child' ),
-		'priority'    => 36,
-		'description' => __( 'Configura el título y la descripción para la página principal del blog.', 'antoninolattene-child' ),
-	) );
-
-	// Title Setting
-	$wp_customize->add_setting( 'blog_page_title', array(
-		'default'           => 'Design & Code Dialogues',
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
-	$wp_customize->add_control( 'blog_page_title_control', array(
-		'label'    => __( 'Título de la Página del Blog', 'antoninolattene-child' ),
-		'section'  => 'blog_page_section',
-		'settings' => 'blog_page_title',
-		'type'     => 'text',
-	) );
-
-	// Description Setting
-	$wp_customize->add_setting( 'blog_page_description', array(
-		'default'           => 'Dive into the world of <strong">UX, UI, and Front-end Development!</strong> I\'ll share insights, explore trends, and spark conversation on everything from <strong>user research to pixel-perfect interfaces.</strong>',
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'wp_kses_post', // Allows safe HTML
-	) );
-	$wp_customize->add_control( 'blog_page_description_control', array(
-		'label'    => __( 'Descripción de la Página del Blog', 'antoninolattene-child' ),
-		'section'  => 'blog_page_section',
-		'settings' => 'blog_page_description',
-		'type'     => 'textarea',
-	) );
 }
 add_action( 'customize_register', 'antoninolattene_child_customize_register' );
 
@@ -444,6 +411,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 		if ( mb_strlen( $title ) > $max_length ) {
 			$truncated_title = mb_substr( $title, 0, $max_length ) . $truncation_suffix;
 		}
+
 		echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 		echo '<li class="breadcrumbs__item breadcrumbs__item--current" title="' . esc_attr( $title ) . '">' . esc_html( $truncated_title ) . '</li>';
 
@@ -461,6 +429,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 		if ( mb_strlen( $title ) > $max_length ) {
 			$truncated_title = mb_substr( $title, 0, $max_length ) . $truncation_suffix;
 		}
+
 		echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 		echo '<li class="breadcrumbs__item breadcrumbs__item--current" title="' . esc_attr( $title ) . '">' . esc_html( $truncated_title ) . '</li>';
 
@@ -789,3 +758,82 @@ function antoninolattene_inline_banner_shortcode( $atts ) {
     return $output;
 }
 add_shortcode( 'inline_banner', 'antoninolattene_inline_banner_shortcode' );
+
+
+// --- Custom Field for Featured Video URL ---
+
+/**
+ * Adds a meta box to the post and portfolio edit screens for the featured video URL.
+ */
+function antoninolattene_child_add_featured_video_meta_box() {
+    add_meta_box(
+        'antoninolattene_child_featured_video',
+        __( 'Featured Video URL', 'antoninolattene-child' ),
+        'antoninolattene_child_featured_video_meta_box_callback',
+        array( 'post', 'portfolio' ), // Show on posts and portfolio custom post type
+        'side', // Changed to 'side'
+        'low'   // Changed to 'low'
+    );
+}
+add_action( 'add_meta_boxes', 'antoninolattene_child_add_featured_video_meta_box' );
+
+/**
+ * Displays the meta box content for the featured video URL.
+ *
+ * @param WP_Post $post The current post object.
+ */
+function antoninolattene_child_featured_video_meta_box_callback( $post ) {
+    wp_nonce_field( 'antoninolattene_child_save_featured_video', 'antoninolattene_child_featured_video_nonce' );
+
+    $video_url = get_post_meta( $post->ID, '_featured_video_url', true );
+    ?>
+    <p>
+        <label for="antoninolattene_child_video_url"><?php _e( 'Enter the URL for the featured video (e.g., MP4, WebM):', 'antoninolattene-child' ); ?></label>
+        <br>
+        <input type="url" id="antoninolattene_child_video_url" name="antoninolattene_child_video_url" value="<?php echo esc_url( $video_url ); ?>" style="width: 100%;" />
+        <p class="description"><?php _e( 'This video will be displayed instead of the featured image if provided.', 'antoninolattene-child' ); ?></p>
+    </p>
+    <?php
+}
+
+/**
+ * Saves the featured video URL when the post is saved.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function antoninolattene_child_save_featured_video_meta_data( $post_id ) {
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['antoninolattene_child_featured_video_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    if ( ! wp_verify_nonce( $_POST['antoninolattene_child_featured_video_nonce'], 'antoninolattene_child_save_featured_video' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don't want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Check the user's permissions.
+    if ( isset( $_POST['post_type'] ) && 'portfolio' == $_POST['post_type'] ) {
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+    } else {
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+    }
+
+    // Sanitize and save the data.
+    if ( isset( $_POST['antoninolattene_child_video_url'] ) ) {
+        $new_video_url = esc_url_raw( $_POST['antoninolattene_child_video_url'] );
+        update_post_meta( $post_id, '_featured_video_url', $new_video_url );
+    } else {
+        delete_post_meta( $post_id, '_featured_video_url' );
+    }
+}
+add_action( 'save_post', 'antoninolattene_child_save_featured_video_meta_data' );

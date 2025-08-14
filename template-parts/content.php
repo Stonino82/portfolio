@@ -49,7 +49,19 @@ if ( $is_portfolio ) {
 						</li>
 					</ul>
 				</div>
-				<?php antoninolattene_post_thumbnail(); ?>
+
+				<?php
+				$video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );
+
+				if ( $video_url ) : ?>
+					<video autoplay loop muted preload="metadata" class="wp-post-image">
+						<source src="<?php echo esc_url( $video_url ); ?>" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				<?php elseif ( has_post_thumbnail() ) : ?>
+					<?php the_post_thumbnail( 'post-thumbnail' ); ?>
+				<?php endif; ?>
+				
 				<?php
 				// Use the reusable template part for tags.
 				get_template_part( 'template-parts/tags', null, [ 'tags' => $tags ] );

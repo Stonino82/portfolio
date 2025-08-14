@@ -24,11 +24,23 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
 
 <article class="project-tile <?php echo esc_attr( $article_class ); ?>">
     <div class="project__image">
-        <?php if ( has_post_thumbnail() ) : ?>
+
+        <?php
+        $video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );
+
+        if ( $video_url ) : ?>
             <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-                <?php the_post_thumbnail(); ?>
+                <video autoplay loop muted preload="metadata" class="wp-post-image">
+                    <source src="<?php echo esc_url( $video_url ); ?>" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        <?php elseif ( has_post_thumbnail() ) : ?>
+            <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+                <?php the_post_thumbnail( 'post-thumbnail' ); ?>
             </a>
         <?php endif; ?>
+
         <div class="project__section">
             <ul class="chip-list chip-list--sm">
                 <li>

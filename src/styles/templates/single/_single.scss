@@ -21,14 +21,17 @@ body.single-post, body.single-portfolio { // --> inject in the body
                 left: var(--size-200);
                 z-index: 1;
             }
-            .post-thumbnail {
-                height: 60vh;
-                img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                }
+            img {
+                height: 500px;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            video {
+                height: 100vh;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
             }
             .tags {
                 display: flex;
@@ -51,7 +54,7 @@ body.single-post, body.single-portfolio { // --> inject in the body
             height: 100%;
             margin: 0;
             .wp-block-group {
-                padding: var(--size-600);
+                padding: var(--size-100) var(--size-600);
                 &.wp-block-group-featured {
                     position: relative; // 1. Crea un contexto de posicionamiento para el pseudo-elemento.
                     margin-block: var(--size-600);
