@@ -1,0 +1,16 @@
+figcaption.credit {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: .5rem;
+color: var(--color-text-tertiary);
+    a {
+        padding: 6px;
+        font-weight: var(--fw-bold);
+        text-decoration: none;
+        background-color: var(--color-brand-primary);
+        color: var(--color-neutral-0);
+        border-radius: 4px;
+        transition: background-color 0.2s ease-in-out;
+    }
+}

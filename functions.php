@@ -302,8 +302,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 	// --- Settings ---
 	$separator         = '/';
 	$home_title        = 'Home';
-	$max_length        = 18; // Max characters for the last item.
-	$truncation_suffix = '...';
+	// PHP-based truncation removed in favor of CSS.
 	$icon_map          = get_category_icon_map(); // Get the category icon map.
 
 	// --- Default arguments ---
@@ -405,15 +404,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 			echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_term_link( $main_term ) ) . '">' . $main_term_icon . esc_html( $main_term->name ) . '</a></li>';
 		}
-		// Current post title
-		$title = get_the_title();
-		$truncated_title = $title;
-		if ( mb_strlen( $title ) > $max_length ) {
-			$truncated_title = mb_substr( $title, 0, $max_length ) . $truncation_suffix;
-		}
-
-		echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-		echo '<li class="breadcrumbs__item breadcrumbs__item--current" title="' . esc_attr( $title ) . '">' . esc_html( $truncated_title ) . '</li>';
+		// Current post title removed as requested.
 
 	// 4. Standard Page
 	} elseif ( is_page() ) {
@@ -424,14 +415,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a></li>';
 			}
 		}
-		$title = get_the_title();
-		$truncated_title = $title;
-		if ( mb_strlen( $title ) > $max_length ) {
-			$truncated_title = mb_substr( $title, 0, $max_length ) . $truncation_suffix;
-		}
-
-		echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-		echo '<li class="breadcrumbs__item breadcrumbs__item--current" title="' . esc_attr( $title ) . '">' . esc_html( $truncated_title ) . '</li>';
+		// Current page title removed as requested.
 
 	// 5. Archive Page (Category, Tag, etc.)
 	} elseif ( is_archive() ) { // This now only handles taxonomy archives due to the early exit above.
@@ -448,32 +432,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 			}
 		}
 
-		// Current archive title
-		$archive_title = '';
-		$archive_icon  = '';
-
-		if ( is_category() || is_tag() || is_tax() ) {
-			// For any term archive, get the name without the "Category:", "Tag:", etc. prefix.
-			$archive_title = single_term_title( '', false );
-		} else {
-			// For other archives (date, author), keep the default title which includes a prefix.
-			$archive_title = get_the_archive_title();
-		}
-
-		// Determine the icon based on the archive type
-		if ( is_category() || is_tax( 'portfolio_category' ) ) {
-			$archive_icon = isset( $icon_map[ $term->slug ] ) ? '<i class="' . esc_attr( $icon_map[ $term->slug ] ) . '"></i> ' : '';
-		} elseif ( is_tag() || is_tax( 'portfolio_tag' ) ) {
-			$archive_icon = '<i class="fa-solid fa-hashtag"></i> ';
-		}
-
-		$truncated_archive_title = $archive_title;
-		if ( mb_strlen( $archive_title ) > $max_length ) {
-			$truncated_archive_title = mb_substr( $archive_title, 0, $max_length ) . $truncation_suffix;
-		}
-
-		echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-		echo '<li class="breadcrumbs__item breadcrumbs__item--current" title="' . esc_attr( $archive_title ) . '">' . $archive_icon . esc_html( $truncated_archive_title ) . '</li>';
+		// Current archive title removed as requested.
 	}
 
 	echo '</ul>';
@@ -557,7 +516,7 @@ if ( ! function_exists( 'antoninolattene_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		echo '<span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
+		echo '<i class="fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
 	}
 endif;
 
@@ -567,7 +526,7 @@ if ( ! function_exists( 'antoninolattene_posted_by' ) ) :
 	 * This version removes the link to the author archive.
 	 */
 	function antoninolattene_posted_by() {
-		echo '<span class="byline"> by <span class="author vcard">' . esc_html( get_the_author() ) . '</span></span>'; // WPCS: XSS OK.
+		echo '<i class="fa-regular fa-user"></i> <span class="author vcard">' . esc_html( get_the_author() ) . '</span>'; // WPCS: XSS OK.
 	}
 endif;
 
@@ -758,6 +717,38 @@ function antoninolattene_inline_banner_shortcode( $atts ) {
     return $output;
 }
 add_shortcode( 'inline_banner', 'antoninolattene_inline_banner_shortcode' );
+
+
+
+/**
+ * Shortcode to display a photography credit.
+ *
+ * Usage: [credit name="Author Name" link="https://example.com"]
+ */
+function photography_credit_shortcode($atts) {
+    // Set default attributes and parse the user's input
+    $atts = shortcode_atts(
+        array(
+            'name' => 'Author',
+            'link' => '#',
+        ),
+        $atts,
+        'credit'
+    );
+
+    // Sanitize the attributes for security
+    $name = esc_html($atts['name']);
+    $link = esc_url($atts['link']);
+
+    // Build the HTML output
+    $output .= '<figcaption class="credit">Cover photo by';
+    $output .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer">';
+    $output .= '<span>' . $name . '</span>';
+    $output .= '</figcaption></a>';
+
+    return $output;
+}
+add_shortcode('credit', 'photography_credit_shortcode');
 
 
 // --- Custom Field for Featured Video URL ---

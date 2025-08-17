@@ -16,8 +16,8 @@ input[type="submit"]:hover {
 // Custom buttons
 .btn {
 	position: relative;
-	min-height: 24px;
-	min-width: 24px;
+	min-height: 36px;
+	width: max-content;
 	display: flex !important;
 	align-items: center;
 	justify-content: center;
@@ -33,16 +33,23 @@ input[type="submit"]:hover {
 	cursor: pointer;
 	transition: $transition;
 }
+.btn-sm {
+	height: 36px;
+	padding: var(--size-50) var(--size-100);
+	font-size: var(--fs-300);
+	border-radius: 6px;
+}
 .btn-md {
-	height: 34px;
-	width: max-content;
+	height: 44px;
 	padding: var(--size-100) var(--size-200);
 	font-size: var(--fs-400);
+	border-radius: 8px;
 }
 .btn-lg {
-	width: max-content;
+	height: 52px;
 	padding: var(--size-300) var(--size-400);
 	font-size: var(--fs-500);
+	border-radius: 10px;
 }
 .btn-full {
 	width: 100% !important;
@@ -50,14 +57,12 @@ input[type="submit"]:hover {
 }
 .btn-primary {
 	background: var(--color-brand-gradient);
-	border-radius: 8px;
 	box-shadow: var(--box-shadow-dp1);
 	color: var(--color-neutral-0) !important;
 }
 .btn-secondary {
 	background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
-	border: 1px solid transparent;
-	border-radius: 8px;
+	border: 1.9px solid transparent;
 	box-shadow: var(--box-shadow-dp1);
 	.btn-text {
 		background: var(--color-brand-gradient);
@@ -66,6 +71,7 @@ input[type="submit"]:hover {
 	}
 }
 .btn-tertiary {}
+
 .btn-primary,
 .btn-secondary,
 .btn-tertiary {

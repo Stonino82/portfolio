@@ -100,16 +100,6 @@ body.single-post, body.single-portfolio { // --> inject in the body
                 }
             }
             .wp-block-image img {}
-            .credit {
-                display: flex;
-                justify-content: flex-end;
-                align-items: center;
-                color: var(--color-text-secondary);
-                font-size: var(--fs-400);
-                a {
-                    margin-left: .5rem;
-                }
-            }
             ul, ol {
                 position: relative;
                 margin: 0 0 var(--size-600) var(--size-400);

@@ -13,12 +13,14 @@
 .menu-item-linkedin > a::before,
 .menu-item-github > a::before,
 .menu-item-mail > a::before {
+    display: flex;
+    align-items: center;
+    font-size: var(--fs-400);
     font-style: normal;
     font-variant: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
-    width: 16px;
-    height: 23.8px;
+    height: inherit;
     vertical-align: middle;
 }
 // --- Font Family and Weight Assignments ---
@@ -91,7 +93,12 @@
 }
 
 
-
+/* Override parent theme clearfix for site-header to allow flexbox layout */
+.site-header::before,
+.site-header::after {
+    content: none;
+}
+// --- Site Header Styles ---
 .site-header {
     position: sticky;
     top: 0;
@@ -99,6 +106,8 @@
     width: 100%;
     height: max-content;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: var(--size-600) var(--size-600) 0 var(--size-600);
     z-index: 999;
     .logo {
@@ -164,11 +173,8 @@
                             transform: rotate(-135deg);
                         }
                     }
-                    a.btn, div {
+                    a.btn {
                         width: 100%;
-                        height: 100%;
-                        display: flex;
-                        align-items: center;
                         justify-content: flex-start;
                         color: var(--palette-primary-foreground);
                     }

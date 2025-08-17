@@ -24,10 +24,7 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
 
 <article class="project-tile <?php echo esc_attr( $article_class ); ?>">
     <div class="project__image">
-
-        <?php
-        $video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );
-
+        <?php $video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );
         if ( $video_url ) : ?>
             <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
                 <video autoplay loop muted preload="metadata" class="wp-post-image">
@@ -40,7 +37,6 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
                 <?php the_post_thumbnail( 'post-thumbnail' ); ?>
             </a>
         <?php endif; ?>
-
         <div class="project__section">
             <ul class="chip-list chip-list--sm">
                 <li>
@@ -59,8 +55,12 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
                 ] );
             ?>
             <h3 class="project__title text-heading-5"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
-            <small><?php antoninolattene_posted_on(); antoninolattene_posted_by();?></small>
         </div>
-        <p class="project__description"><?php echo get_the_excerpt(); ?></p>
+        <!-- <p class="project__description"><?php echo get_the_excerpt(); ?></p> -->
+        <!-- <p class="project__description"><?php echo get_secondary_title(); ?></p> -->
+        <div class="project__meta">
+            <small><?php antoninolattene_posted_by();?></small>
+            <small><?php antoninolattene_posted_on();?></small>
+        </div>
     </div>
 </article>

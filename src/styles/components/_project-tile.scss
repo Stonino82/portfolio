@@ -1,22 +1,28 @@
 @use '../generals/colors' as *;
+@use '../generals/mixins' as *;
 
 .project-tile {
-    height: 100%;
+    height: 160px;
     width: 100%;
-    display: grid;
+    display: flex;
     gap: var(--size-400);
+    padding: var(--size-200);
+    border: 1px solid var(--color-border-primary);
+    border-radius: var(--size-400);
+    overflow: hidden;
 
     .project__image {
         height: 100%;
-        max-height: 300px;
         position: relative;
-        border-radius: 8px;
+        flex: 0 0 30%;
+        border-radius: var(--size-100);
+        border: 1px solid var(--color-border-primary);
         overflow: hidden;
 
         .project__section {
             position: absolute;
-            top: var(--size-200);
-            left: var(--size-200);
+            top: var(--size-50);
+            left: var(--size-50);
             z-index: 1;
         }
 
@@ -37,28 +43,42 @@
     }
 
     .project__content {
+        flex-grow: 1;
         display: flex;
         flex-direction: column;
-        gap: var(--size-500);
+        justify-content: space-between;
+        padding: var(--size-50) 0;
+        overflow: hidden;
 
         .project__header {
             display: flex;
             flex-direction: column;
             gap: var(--size-50);
+            .breadcrumbs {
+                display: block;
+                // When a flex item (like .breadcrumbs) has `white-space: nowrap`, its minimum
+                // width becomes the full width of its content. Setting `min-width: 0` allows
+                // the item to shrink and be truncated by its parent flex container.
+                min-width: 0;
+                @include truncate-text;
+
+                // Force list items to flow like text instead of flex items.
+                .breadcrumbs__item, .breadcrumbs__separator {
+                    display: inline;
+                }
+                // Replicate the flex `gap` with margin, as `gap` is not supported by `display: inline`.
+                .breadcrumbs__separator { margin: 0 0.25rem; }
+            }
             .project__title {
                 a {
                     text-decoration: none;
                 }
             }
         }
-
-        .project__description {
+        .project__description {}
+        .project__meta {
             display: flex;
-            flex-direction: column;
-            gap: var(--size-50);
-            p {
-                margin: 0;
-            }
+            gap: var(--size-400);
         }
     }
 }

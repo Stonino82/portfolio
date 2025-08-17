@@ -1,5 +1,6 @@
 @use '../generals/colors' as *;
 @use '../generals/custom-variables' as *;
+@use '../generals/mixins' as *;
 
 // --- Breadcrumbs Styles ---
 // This component uses CSS variables to adapt its color based on the section (Blog/Portfolio).
@@ -59,6 +60,7 @@
     .breadcrumbs__item--current {
         font-weight: var(--fw-regular);
         opacity: 1;
+        @include truncate-text;
     }
     // The "Home" link should always be a neutral grey, overriding the section color.
     .breadcrumbs__item--home {

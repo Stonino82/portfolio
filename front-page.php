@@ -15,7 +15,7 @@
                 // Use a native WordPress Query to automatically fetch and display the latest posts.
                 $args = array(
                     'post_type'      => array( 'portfolio', 'post' ), // Fetch from both post types.
-                    'posts_per_page' => 6,                           // Show the 6 most recent items.
+                    'posts_per_page' => -1,                          // Show all items.
                     'orderby'        => 'date',
                     'order'          => 'DESC',
                 );

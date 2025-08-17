@@ -32,6 +32,7 @@ $transition: all 0.2s ease-out;
     - Técnica: clamp(MIN, PREFERRED, MAX) para una responsividad suave.
     ================================================================================
     */
+    --fs-100: clamp(0.62rem, 0.53rem + 0.21vw, 0.70rem); /* 9.9px -> 11.2px */
     --fs-200: clamp(0.70rem, 0.61rem + 0.24vw, 0.79rem); /* 11.2px -> 12.6px */
     --fs-300: clamp(0.79rem, 0.69rem + 0.27vw, 0.89rem); /* 12.6px -> 14.2px */
     --fs-400: clamp(0.89rem, 0.78rem + 0.30vw, 1.00rem); /* 14.2px -> 16px */
