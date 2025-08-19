@@ -2,36 +2,64 @@
 
 
 .content {
+    z-index: 2;
+    min-height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding: var(--size-400);
+    border-radius: 1rem;
+    background-color: var(--color-surface-page);
+    overflow: hidden;
     & > *:not(.site-footer) {
         border-radius: 1rem;
-        overflow: hidden;
+    }
+    .section__header {
+        height: max-content;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: -4rem; // Counteracts the .content gap
+        &>* {
+            margin: 0;
+        }
+        .section__title {
+            display: flex;
+            align-items: center;
+            gap: .25rem;
+        }
     }
     section {
         position: relative;
-        min-height: 100vh;
-        z-index: 2;
+        min-height: max-content;
+        height: 100%;
         display: grid;
         grid-template-columns: 1fr; // Default: 1 column (< 576px)
         align-items: start;
         align-content: start;
         gap: var(--size-400);
-        padding: var(--size-600);
+        padding: var(--size-400);
         background-color: var(--color-surface-content);
         overflow: hidden;
     }
-    section.showcase {
-        gap: var(--size-600);
+    section.showcase-portfolio {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    section.showcase-blog {
+        background-color: unset;
+        padding: 0;
+        border-radius: 0;
     }
 }
-
-@media (min-width: 576px) {
+@media (min-width: 576px) {}
+@media (min-width: 768px) {
     .content {
-        section.showcase {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        section {
+            padding: var(--size-600);
+            gap: var(--size-600);
         }
     }
 }
-@media (min-width: 768px) {}
 @media (min-width: 992px) {}
 @media (min-width: 1050px) {}
 @media (min-width: 1400px) {}

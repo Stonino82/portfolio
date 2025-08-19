@@ -3,7 +3,8 @@
 .presentation {
     position: sticky;
     top: 96px;
-    height: calc(100dvh - 96px);
+    min-height: max-content;
+    height: calc(70dvh - 96px);
     width: 100%;
     z-index: 1;
     display: flex;
@@ -24,6 +25,10 @@
         .presentation__breadcrumbs {
             order: 1;
             margin-bottom: var(--size-600);
+            padding: var(--size-50) var(--size-100);
+            border-radius: var(--size-100);
+            border: 1px solid var(--color-border-primary);
+            background-color: var(--color-surface-content);
         }
         .presentation__headlines {
             order: 3;

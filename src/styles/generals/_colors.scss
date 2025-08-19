@@ -152,8 +152,7 @@ body[data-theme="dark"],
 // ACCENT THEME (BLOG)
 // --------------------------------------------------------------------------
 // When .blog class is applied, components switch to the accent palette.
-body.blog,
-article.blog {
+.blog {
   // Update brand-sensitive tokens
   --color-brand-primary: var(--color-brand-accent); // Ensure primary brand color is accent
 
@@ -190,7 +189,12 @@ $availability-colors: (
 // 5. UTILITY CLASSES & COMPONENT STYLES
 // ==========================================================================
 // Update styles to use the new semantic tokens.
-
+.text-primary {
+  color: var(--color-brand-primary);
+}
+.text-accent {
+  color: var(--color-brand-accent);
+}
 .text-gradient {
     background: var(--color-brand-gradient);
     -webkit-background-clip: text;

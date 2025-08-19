@@ -18,12 +18,8 @@ $post_type = get_post_type();
 $is_portfolio = ( 'portfolio' === $post_type );
 
 if ( $is_portfolio ) {
-	$section_chip_icon  = 'fa-solid fa-folder-open';
-	$section_chip_text  = 'Portfolio';
 	$tags               = get_the_terms( get_the_ID(), 'portfolio_tag' );
 } else { // Default to Blog Post.
-	$section_chip_icon  = 'fa-solid fa-feather-pointed';
-	$section_chip_text  = 'Blog';
 	$tags               = get_the_tags();
 }
 ?>
@@ -37,23 +33,17 @@ if ( $is_portfolio ) {
 
 <div class="content">
 
-	<section class="blog">
+	<section>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
 			<header class="entry-header"></header><!-- .entry-header -->
 
-			<div class="thumbnail">
-				<div class="project__section">
-					<ul class="chip-list chip-list--sm">
-						<li>
-							<span class="chip chip--bold"><i class="<?php echo esc_attr( $section_chip_icon ); ?>"></i><?php echo esc_html( $section_chip_text ); ?></span>
-						</li>
-					</ul>
-				</div>
-
-				<?php
-				$video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );
-
-				if ( $video_url ) : ?>
+			<?php
+			// Determine the class for the .thumbnail based on whether it contains a video or an image.
+			$video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );
+			$thumbnail_class = $video_url ? 'has-video' : ( has_post_thumbnail() ? 'has-image' : '' );
+			?>
+			<div class="thumbnail <?php echo esc_attr( $thumbnail_class ); ?>">
+				<?php if ( $video_url ) : ?>
 					<video autoplay loop muted preload="metadata" class="wp-post-image">
 						<source src="<?php echo esc_url( $video_url ); ?>" type="video/mp4">
 						Your browser does not support the video tag.
@@ -62,10 +52,7 @@ if ( $is_portfolio ) {
 					<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 				<?php endif; ?>
 				
-				<?php
-				// Use the reusable template part for tags.
-				get_template_part( 'template-parts/tags', null, [ 'tags' => $tags ] );
-				?>
+				<?php get_template_part( 'template-parts/tags', null, [ 'tags' => $tags ] ); ?>
 			</div>
 			<div class="entry-content">
 				<?php

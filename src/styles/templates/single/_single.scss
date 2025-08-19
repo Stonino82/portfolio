@@ -13,26 +13,6 @@ body.single-post, body.single-portfolio { // --> inject in the body
         }
         .thumbnail {
             position: relative;
-
-            // Position the section chip (Portfolio/Blog) over the thumbnail.
-            .project__section {
-                position: absolute;
-                top: var(--size-200);
-                left: var(--size-200);
-                z-index: 1;
-            }
-            img {
-                height: 500px;
-                width: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
-            video {
-                height: 100vh;
-                width: 100%;
-                object-fit: cover;
-                object-position: center;
-            }
             .tags {
                 display: flex;
                 flex-direction: column;
@@ -49,12 +29,24 @@ body.single-post, body.single-portfolio { // --> inject in the body
                     align-items: center;
                     justify-content: center;}
             }
+            &.has-image {
+                height: 500px;
+            }
+            &.has-video {
+                height: 100vh;
+            }
+            img, video {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
         }
         .entry-content {
             height: 100%;
             margin: 0;
             .wp-block-group {
-                padding: var(--size-100) var(--size-600);
+                padding: var(--size-400);
                 &.wp-block-group-featured {
                     position: relative; // 1. Crea un contexto de posicionamiento para el pseudo-elemento.
                     margin-block: var(--size-600);
@@ -63,16 +55,6 @@ body.single-post, body.single-portfolio { // --> inject in the body
                     background-color: var(--color-surface-page);
                     color: var(--color-text-brand);
                     overflow: hidden;
-                    &::before {
-                        // 2. Posiciona el pseudo-elemento de forma absoluta dentro de su padre.
-                        position: absolute;
-                        left: 0;
-                        top: 0;
-                        content: '';
-                        width: 6px;
-                        height: 100%;
-                        background-color: var(--color-brand-primary);
-                    }
                 }
                 &.wp-block-group-featured-2 {}
                 p {

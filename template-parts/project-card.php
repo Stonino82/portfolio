@@ -12,8 +12,6 @@ $is_portfolio      = ( 'portfolio' === $post_type );
 $category_taxonomy = $is_portfolio ? 'portfolio_category' : 'category';
 // Use clear, distinct variables to avoid confusion and bugs.
 $article_class     = $is_portfolio ? 'portfolio' : 'blog';
-$chip_label        = ucfirst( $article_class ); // 'Portfolio' or 'Blog'
-$chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-feather-pointed';
 ?>
 
 <article class="project-card <?php echo esc_attr( $article_class ); ?>">
@@ -32,13 +30,7 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
 				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 			<?php endif; ?>
 
-			<div class="project__section">
-				<ul class="chip-list chip-list--sm">
-					<li>
-						<span class="chip chip--bold"><i class="<?php echo esc_attr( $chip_icon ); ?>"></i><?php echo esc_html( $chip_label ); ?></span>
-					</li>
-				</ul>
-			</div>
+			<?php /* get_template_part( 'template-parts/project-section' ); */ ?>
 		</div>
 		<div class="project__content">
 			<?php
@@ -49,7 +41,7 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
 					'is_linked'    => false, // Prevent nested links inside the card.
 				] );
 			?>
-			<h3 class="project__title text-heading-6"><?php the_title(); ?></h3>
+			<h3 class="project__title text-heading-5"><?php the_title(); ?></h3>
 		</div>
     </a>
 </article>

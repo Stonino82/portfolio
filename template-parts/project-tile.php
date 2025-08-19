@@ -18,8 +18,6 @@ $is_portfolio      = ( 'portfolio' === $post_type );
 $category_taxonomy = $is_portfolio ? 'portfolio_category' : 'category';
 // Use clear, distinct variables, consistent with project-card.php.
 $article_class     = $is_portfolio ? 'portfolio' : 'blog';
-$chip_label        = ucfirst( $article_class ); // 'Portfolio' or 'Blog'
-$chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-feather-pointed';
 ?>
 
 <article class="project-tile <?php echo esc_attr( $article_class ); ?>">
@@ -37,13 +35,6 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
                 <?php the_post_thumbnail( 'post-thumbnail' ); ?>
             </a>
         <?php endif; ?>
-        <div class="project__section">
-            <ul class="chip-list chip-list--sm">
-                <li>
-                    <span class="chip chip--bold"><i class="<?php echo esc_attr( $chip_icon ); ?>"></i><?php echo esc_html( $chip_label ); ?></span>
-                </li>
-            </ul>
-        </div>
     </div>
     <div class="project__content">
         <div class="project__header">
@@ -54,12 +45,12 @@ $chip_icon         = $is_portfolio ? 'fa-solid fa-folder-open' : 'fa-solid fa-fe
                     'taxonomy'     => $category_taxonomy,
                 ] );
             ?>
-            <h3 class="project__title text-heading-5"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
+            <h3 class="project__title text-heading-6"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
         </div>
         <!-- <p class="project__description"><?php echo get_the_excerpt(); ?></p> -->
         <!-- <p class="project__description"><?php echo get_secondary_title(); ?></p> -->
         <div class="project__meta">
-            <small><?php antoninolattene_posted_by();?></small>
+            <!-- <small><?php antoninolattene_posted_by();?></small> -->
             <small><?php antoninolattene_posted_on();?></small>
         </div>
     </div>

@@ -13,6 +13,7 @@
 .menu-item-linkedin > a::before,
 .menu-item-github > a::before,
 .menu-item-mail > a::before {
+    width: 16px;
     display: flex;
     align-items: center;
     font-size: var(--fs-400);
@@ -84,12 +85,10 @@
 }
 .menu-item-nino > a::before {
     content: '';
-    display: inline-block;
     background-image: url('/src/img/nino-ai.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    vertical-align: middle;
 }
 
 
