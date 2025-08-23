@@ -1,6 +1,7 @@
 import path from 'path';
 import { defineConfig } from 'vite';
 import liveReload from 'vite-plugin-live-reload';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
   css: {
@@ -31,6 +32,14 @@ export default defineConfig({
     liveReload([
       path.resolve(__dirname, '**/*.php'),
     ]),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, 'src/img/*'),
+          dest: 'img'
+        }
+      ]
+    }),
   ],
   server: {
     // usePolling es necesario en MAMP si los eventos del sistema de archivos no se detectan.

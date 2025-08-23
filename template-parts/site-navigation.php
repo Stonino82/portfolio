@@ -31,7 +31,7 @@
             'menu'              => 'primary',
             'menu_id'           => 'primary-menu',
             'container'         => false,
-            'link_class'        => 'btn btn-sm btn-tertiary',
+            'link_class'        => 'btn btn-md btn-tertiary',
             'walker'            => new Custom_Nav_Walker(),
         ) );
         ?>
@@ -40,21 +40,21 @@
         
         <ul class="menu">
             <li class="menu-item-resume">
-                <a class="btn btn-sm btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                <a class="btn btn-md btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
                     <i class="fa-regular fa-file-lines"></i>
                     Resume
                     <i class="icon-trailing fa-solid fa-arrow-down"></i>
                 </a>
             </li>
             <li class="menu-item-linkedin">
-                <a class="btn btn-sm btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
+                <a class="btn btn-md btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
                     <i class="fa-brands fa-linkedin-in"></i>
                     Linkedin
                     <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
                 </a>
             </li>
             <li class="menu-item-github">
-                <a class="btn btn-sm btn-tertiary" href="https://github.com/Stonino82" target="_blank">
+                <a class="btn btn-md btn-tertiary" href="https://github.com/Stonino82" target="_blank">
                     <i class="fa-brands fa-github"></i>
                     Github
                     <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>

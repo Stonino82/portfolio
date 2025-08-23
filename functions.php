@@ -1,13 +1,33 @@
 <?php
 
-require_once get_stylesheet_directory() . '/inc/custom-nav-walker.php';
-
 // --- Vite Asset Enqueueing ---
 
 function is_vite_dev_mode() {
     // The 'hot' file is a flag created by 'npm run dev'.
     return file_exists(get_stylesheet_directory() . '/hot');
 }
+
+/**
+ * Gets the correct URL for a static asset from Vite.
+ *
+ * This function is the single source of truth for asset URLs.
+ * It checks if the Vite development server is running and returns the appropriate URL.
+ *
+ * @param string $path The path to the asset relative to the 'src' directory (e.g., 'img/logo.svg').
+ * @return string The full, correct URL to the asset.
+ */
+function get_vite_asset($path) {
+    if (is_vite_dev_mode()) {
+        // In development, return the full URL to the asset served by the Vite dev server.
+        return 'http://localhost:3000/src/' . $path;
+    } else {
+        // In production, the asset is in the 'dist' folder.
+        // This assumes your build process places assets in 'dist' with the same structure as 'src'.
+        return get_theme_file_uri('/dist/' . $path);
+    }
+}
+
+require_once get_stylesheet_directory() . '/inc/custom-nav-walker.php';
 
 // Enqueue scripts and styles
 function my_theme_enqueue_styles()
@@ -70,30 +90,7 @@ function add_type_module_to_vite_scripts($tag, $handle, $src) {
 }
 add_filter('script_loader_tag', 'add_type_module_to_vite_scripts', 10, 3);
 
-/**
- * Gets the correct URL for a static asset, whether in development or production.
- *
- * This function checks if the Vite development server is running.
- * - If yes, it returns the full URL to the asset served by Vite's dev server.
- * - If no (production), it returns the URL to the asset in the 'dist' directory.
- *
- * @param string $asset The path to the asset relative to the project root (e.g., 'src/img/logo.svg').
- * @return string The full, correct URL to the asset.
- */
-function get_vite_asset($asset) {
-    // Check if we are in development mode (the 'hot' file exists).
-    if (is_vite_dev_mode()) {
-        // In dev, return the full URL to the asset served by the Vite dev server.
-        // The asset path must be relative to the project root.
-        return 'http://localhost:3000/' . $asset;
-    } else {
-        // In production, we need to map the 'src' path to the 'dist' path.
-        // Based on vite.config.js, 'src/img/' becomes 'dist/assets/img/'.
-        // Note: This mapping needs to be updated if vite.config.js changes.
-        $production_asset = str_replace('src/img/', 'assets/img/', $asset);
-        return get_theme_file_uri('/dist/' . $production_asset);
-    }
-}
+
 
 /**
  * Returns the array of availability statuses and their labels.

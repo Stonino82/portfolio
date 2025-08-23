@@ -2,32 +2,6 @@
 @use '../generals/utility-classes' as *;
 @use '../components/separator' as *;
 
-// --- Custom Menu Icons ---
-// General pseudo-element styles
-.menu-item-nino > a::before {
-    width: 16px;
-    display: flex;
-    align-items: center;
-    font-size: var(--fs-400);
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    height: inherit;
-    vertical-align: middle;
-}
-// .menu-item-nino > a::before {
-//     content: "\f544"; // fa-solid fa-robot
-// }
-.menu-item-nino > a::before {
-    content: '';
-    background-image: url('/src/img/nino-ai.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
 /* Override parent theme clearfix for site-header to allow flexbox layout */
 .site-header::before,
 .site-header::after {
@@ -125,15 +99,6 @@
                     }
                     &:is(.menu-item-blog):hover {
                         background-color: var(--palette-accent-background);
-                    }
-                    &:is(.menu-item-nino):hover {
-                        background: var(--color-brand-gradient);
-                        a {
-                            color: white;
-                            &:before {
-                                filter: brightness(0) invert(1);
-                            }
-                        }
                     }
                     // Active and parent menu items
                     // These selectors target the active page and its parent items.
