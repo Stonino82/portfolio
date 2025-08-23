@@ -25,7 +25,6 @@ input[type="submit"]:hover {
 	text-decoration: none; //for A links converted in buttons
 	// Common text styles for all buttons
 	font-weight: var(--fw-medium);
-	text-transform: uppercase;
 	line-height: var(--lh-tight);
 	overflow: hidden;
 	border: none;
@@ -35,21 +34,33 @@ input[type="submit"]:hover {
 }
 .btn-sm {
 	height: 36px;
+	min-width: 36px;
 	padding: var(--size-50) var(--size-100);
-	font-size: var(--fs-300);
+	font-size: var(--fs-400);
 	border-radius: 6px;
+	i {
+		font-size: var(--fs-500);
+	}
 }
 .btn-md {
 	height: 44px;
+	min-width: 44px;
 	padding: var(--size-100) var(--size-200);
-	font-size: var(--fs-400);
+	font-size: var(--fs-500);
 	border-radius: 8px;
+	i {
+		font-size: var(--fs-600);
+	}
 }
 .btn-lg {
 	height: 52px;
+	min-width: 52px;
 	padding: var(--size-300) var(--size-400);
-	font-size: var(--fs-500);
+	font-size: var(--fs-600);
 	border-radius: 10px;
+	i {
+		font-size: var(--fs-700);
+	}
 }
 .btn-full {
 	width: 100% !important;
@@ -59,18 +70,26 @@ input[type="submit"]:hover {
 	background: var(--color-brand-gradient);
 	box-shadow: var(--box-shadow-dp1);
 	color: var(--color-neutral-0) !important;
+	i {
+		color: var();
+	}
 }
 .btn-secondary {
 	background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
 	border: 1.9px solid transparent;
 	box-shadow: var(--box-shadow-dp1);
+	i {
+		color: var();
+	}
 	.btn-text {
 		background: var(--color-brand-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 }
-.btn-tertiary {}
+.btn-tertiary {
+	i {}
+}
 
 .btn-primary,
 .btn-secondary,

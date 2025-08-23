@@ -13,13 +13,14 @@
   border-radius: var(--size-400);
   box-shadow: var(--box-shadow-dp1);
 
-  &__content {
-    text-align: center;
-  }
+  &__content {}
 
   &__action {
     display: flex;
     justify-content: center;
+    a {
+      width: 100%
+    }
   }
 
   h4 {
@@ -44,7 +45,9 @@
     }
 
     &__action {
-      // No specific styles needed for action wrapper on desktop
+      a {
+        width: max-content
+      }
     }
   }
 }

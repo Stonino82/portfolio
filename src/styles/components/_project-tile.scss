@@ -2,7 +2,7 @@
 @use '../generals/mixins' as *;
 
 .project-tile {
-    height: 120px;
+    height: 100px;
     width: 100%;
     display: flex;
     gap: var(--size-200);

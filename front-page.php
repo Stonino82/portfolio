@@ -6,7 +6,7 @@
                 // 'title'                    => 'I shape stunning Experiences that resonate on a Human level',
                 'title'                    => 'Impactful Design for Scalable Products',
                 // 'description'              => 'Hey I\'m Tony, Senior Product Designer based in Barcelona. I solve <strong class="text-gradient">complex business challenges </strong> and meet <strong class="text-gradient">user needs</strong> through thoughtful design. My process covers the entire product lifecycle, from defining strategy to crafting intuitive UX/UI and scalable Design Systems, all grounded in a background of Front-end development.',
-                'description'              => 'I\'m Tony, a Senior Product Designer in Barcelona. I lead the complete product design lifecycle — from discovery to delivery — translating <strong class="text-primary">complex business goals</strong> into <strong class="text-accent">human-centered experiences</strong> that deliver measurable impact. My front-end background ensures every solution is technically feasible and built with excellence.',
+                'description'              => 'Hey, I\'m Tony, a Senior Product Designer in Barcelona. I lead the complete product design lifecycle — from discovery to delivery — translating <strong class="text-primary">complex business goals</strong> into <strong class="text-accent">human-centered experiences</strong> that deliver measurable impact. My front-end background ensures every solution is technically feasible and built with excellence.',
                 'show_breadcrumbs'         => false,
             ] );
         ?>

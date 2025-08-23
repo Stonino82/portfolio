@@ -1,5 +1,7 @@
 <?php
 
+require_once get_stylesheet_directory() . '/inc/custom-nav-walker.php';
+
 // --- Vite Asset Enqueueing ---
 
 function is_vite_dev_mode() {
@@ -16,7 +18,7 @@ function my_theme_enqueue_styles()
 
     // --- Dependencies from CDNs ---
     wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
-    wp_enqueue_style('load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+    // wp_enqueue_style('load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
     wp_enqueue_style('css-reset-and-normalize', 'https://cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css');
 
     if (is_vite_dev_mode()) {
@@ -347,7 +349,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 	echo '<ul class="breadcrumbs">';
 
 	// 1. Home Link
-	echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '"><i class="fa-solid fa-house"></i></a></li>';
+	echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '"><i class="fa-regular fa-house"></i></a></li>';
 
 	// 2. Section Link (Blog or Portfolio)
 	if ( $is_portfolio ) {
@@ -356,9 +358,9 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 			// If we are on the portfolio archive page, it's the current item.
 			if ( is_post_type_archive( 'portfolio' ) ) {
-				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="fa-solid fa-folder-open"></i> Portfolio</li>';
+				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="fa-regular fa-folder-open"></i> Portfolio</li>';
 			} else {
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( $archive_link ) . '"><i class="fa-solid fa-folder-open"></i> Portfolio</a></li>';
+				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( $archive_link ) . '"><i class="fa-regular fa-folder-open"></i> Portfolio</a></li>';
 			}
 		}
 	} else { // This covers 'post', 'category', 'tag', and standard pages
@@ -367,9 +369,9 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 			// If we are on the blog page (home.php), it's the current item.
 			if ( is_home() ) {
-				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="fa-solid fa-feather-pointed"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</li>';
+				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</li>';
 			} else {
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $blog_page_id ) ) . '"><i class="fa-solid fa-feather-pointed"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</a></li>';
+				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $blog_page_id ) ) . '"><i class="fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</a></li>';
 			}
 		}
 	}

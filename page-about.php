@@ -1,65 +1,216 @@
 <?php get_header(); ?>
 
-    <main class="container"  style="margin: 0 auto;">
+    <main class="container"  style="grid-template-columns: 1fr;">
 
         <div class="content">
-            <section style="display: flex; flex-direction: column; width: 800px; height: max-content; gap: var(--size-950); padding-block: var(--size-800);">
-                
+            <section style="margin: 0 auto; display: flex; flex-direction: column; height: max-content; gap: var(--size-950); padding-block: var(--size-800);">
+                                
                 <div style="border: 1px solid black; padding: var(--size-400);">
+                    <h3>Font Awesome 7 Icons Test</h3>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-heart"></i>
+                    <i class="fa-brands fa-wordpress"></i>
+                    <i class="fa-regular fa-mug-hot"></i>
+                    <i class="fa-brands fa-github"></i>
+                </div>
+
+                <div style="border: 1px solid black; padding: var(--size-400); width: 100%;">
                     <h3>Buttons</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--size-600); width: 100%;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
                         <div style="display: flex; flex-direction: column; gap: var(--size-400);">
                             <a class="btn btn-lg btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                Bigger
                             </a>
                             <a class="btn btn-lg btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                Bigger
                             </a>
                             <a class="btn btn-lg btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                Bigger
                             </a>
                             <a class="btn btn-lg btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                Bigger
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-lg btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                                Bigger
+                            </a>
+                            <a class="btn btn-lg btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                                Bigger
+                            </a>
+                            <a class="btn btn-lg btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                                Bigger
+                            </a>
+                            <a class="btn btn-lg btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                                Bigger
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-lg btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Bigger
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-lg btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Bigger
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-lg btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Bigger
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-lg btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Bigger
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-lg btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-lg btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-lg btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-lg btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-md btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                            </a>
+                            <a class="btn btn-md btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                            </a>
+                            <a class="btn btn-md btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                            </a>
+                            <a class="btn btn-md btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
                             </a>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: var(--size-400);">
                             <a class="btn btn-md btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Medium
                             </a>
                             <a class="btn btn-md btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Medium
                             </a>
                             <a class="btn btn-md btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Medium
                             </a>
                             <a class="btn btn-md btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Medium
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-md btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-md btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-md btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-md btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Medium
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-md btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-md btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-md btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-md btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-sm btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                            </a>
+                            <a class="btn btn-sm btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                            </a>
+                            <a class="btn btn-sm btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                            </a>
+                            <a class="btn btn-sm btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
                             </a>
                         </div>
                         <div style="display: flex; flex-direction: column; gap: var(--size-400);">
                             <a class="btn btn-sm btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Smaller
                             </a>
                             <a class="btn btn-sm btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Smaller
                             </a>
                             <a class="btn btn-sm btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Smaller
                             </a>
                             <a class="btn btn-sm btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
-                                Resume
-                                <i class="fas fa-arrow-down"></i>
+                                <i class="fa-regular fa-user"></i>
+                                Smaller
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-sm btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-sm btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-sm btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-sm btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                Smaller
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                            <a class="btn btn-sm btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-sm btn-secondary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-sm btn-tertiary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
+                            </a>
+                            <a class="btn btn-sm btn-full btn-primary" href="<?php echo get_bloginfo('wpurl'); ?>/cv-resume-antonino-lattene-product-designer-ux-ui-designer/" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-regular fa-user"></i>
                             </a>
                         </div>
                     </div>
