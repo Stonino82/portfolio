@@ -117,6 +117,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
             'Portfolio' => 'fa-regular fa-folder-open',
             'Blog'      => 'fa-regular fa-pen-to-square',
             'About'     => 'fa-regular fa-user',
+            'Nino AI'   => 'fa-regular fa-message',
         );
 
         $item_output = $args->before;
@@ -124,13 +125,8 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
         $item_output .= $args->link_before;
 
         $icon_html = '';
-        // Check for Nino AI item first
-        if ( 'Nino AI' === $item->title ) {
-            $icon_url = get_vite_asset('img/nino-ai.svg');
-            $icon_html = '<img src="' . esc_url( $icon_url ) . '" alt="Nino AI icon"> ';
-        }
         // Check if the current menu item's title exists in our icon map for other icons
-        else if ( isset( $icon_map[ $item->title ] ) ) {
+        if ( isset( $icon_map[ $item->title ] ) ) {
             $icon_class = $icon_map[ $item->title ];
             $icon_html = '<i class="' . esc_attr( $icon_class ) . '"></i> ';
         }

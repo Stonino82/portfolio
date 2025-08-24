@@ -14,7 +14,7 @@ input[type="submit"]:hover {
 }
 
 // Custom buttons
-.btn {
+@mixin btn {
 	position: relative;
 	min-height: 36px;
 	width: max-content;
@@ -32,37 +32,39 @@ input[type="submit"]:hover {
 	cursor: pointer;
 	transition: $transition;
 }
-.btn-sm {
+.btn {
+	@include btn;
+}
+
+@mixin btn-sm {
 	height: 36px;
 	min-width: 36px;
-	padding: var(--size-50) var(--size-100);
+	padding: var(--size-50) var(--size-200);
 	font-size: var(--fs-400);
 	border-radius: 6px;
 	i {
 		font-size: var(--fs-500);
 	}
-	img {	
-		height: var(--fs-500);
-		width: 1.25rem;
-		vertical-align: middle;
-	}
 }
-.btn-md {
+.btn-sm {
+	@include btn-sm;
+}
+
+@mixin btn-md {
 	height: 44px;
 	min-width: 44px;
-	padding: var(--size-100) var(--size-200);
+	padding: var(--size-100) var(--size-300);
 	font-size: var(--fs-500);
 	border-radius: 8px;
 	i {
 		font-size: var(--fs-600);
 	}
-	img {
-		height: var(--fs-600);
-		width: 1.40625rem;
-		vertical-align: middle;
-	}
 }
-.btn-lg {
+.btn-md {
+	@include btn-md;
+}
+
+@mixin btn-lg {
 	height: 52px;
 	min-width: 52px;
 	padding: var(--size-300) var(--size-400);
@@ -71,17 +73,20 @@ input[type="submit"]:hover {
 	i {
 		font-size: var(--fs-700);
 	}
-	img {
-		height: var(--fs-700);
-		width: 1.5625rem;
-		vertical-align: middle;
-	}
 }
-.btn-full {
+.btn-lg {
+	@include btn-lg;
+}
+
+@mixin btn-full {
 	width: 100% !important;
 	justify-content: center !important;
 }
-.btn-primary {
+.btn-full {
+	@include btn-full;
+}
+
+@mixin btn-primary {
 	background: var(--color-brand-gradient);
 	box-shadow: var(--box-shadow-dp1);
 	color: var(--color-neutral-0) !important;
@@ -89,7 +94,11 @@ input[type="submit"]:hover {
 		color: var();
 	}
 }
-.btn-secondary {
+.btn-primary {
+	@include btn-primary;
+}
+
+@mixin btn-secondary {
 	background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
 	border: 1.9px solid transparent;
 	box-shadow: var(--box-shadow-dp1);
@@ -102,8 +111,15 @@ input[type="submit"]:hover {
 		-webkit-text-fill-color: transparent;
 	}
 }
-.btn-tertiary {
+.btn-secondary {
+	@include btn-secondary;
+}
+
+@mixin btn-tertiary {
 	i {}
+}
+.btn-tertiary {
+	@include btn-tertiary;
 }
 
 .btn-primary,

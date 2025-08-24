@@ -1,20 +1,22 @@
 @use 'spinner' as *;
+@use '../components/buttons' as *;
 
 #chatbase-bubble-button {
+    @include btn;
+    @include btn-md;
+    @include btn-primary;
     bottom: var(--size-600) !important;
     right: var(--size-600) !important;
-    min-width: 97px !important;
-    min-height: 42px !important;
+    min-width: 110px !important;
+    min-height: 44px !important;
     height: max-content !important;
     width: max-content !important;
-    padding: 2px 2px 2px 8px !important;
     border-radius: 8px !important;
-    background: var(--color-brand-gradient) !important;
-    color: var(--color-neutral-0) !important;
-    box-shadow: var(--box-shadow-dp2) !important;
     border: 1px solid var(--color-neutral-0) !important;
-    position: relative; // Necesario para posicionar el pseudo-elemento
-    overflow: hidden;   // Oculta el brillo fuera del botón
+    padding: var(--size-100) var(--size-300) !important;
+    font-size: var(--fs-500) !important;
+    
+    
     &::before {
         content: '';
         position: absolute;
@@ -34,12 +36,12 @@
             font-weight: var(--fw-bold);
         }
         img {
-            height: 32px !important;
-            width: 32px !important;
+            height: 28px !important;
+            width: 28px !important;
             margin-left: 4px;
         }
         #closeIcon {
-            width: 32px;
+            width: 28px;
             margin-left: 4px;
             path {
                 // filter: invert(40%) sepia(72%) saturate(6783%) hue-rotate(289deg) brightness(97%) contrast(95%); //color-brand-accent

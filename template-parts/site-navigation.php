@@ -46,17 +46,17 @@
                     <i class="icon-trailing fa-solid fa-arrow-down"></i>
                 </a>
             </li>
-            <li class="menu-item-linkedin">
-                <a class="btn btn-md btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    Linkedin
-                    <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
-                </a>
-            </li>
             <li class="menu-item-github">
                 <a class="btn btn-md btn-tertiary" href="https://github.com/Stonino82" target="_blank">
                     <i class="fa-brands fa-github"></i>
                     Github
+                    <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
+                </a>
+            </li>
+            <li class="menu-item-linkedin">
+                <a class="btn btn-md btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                    Linkedin
                     <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
                 </a>
             </li>
