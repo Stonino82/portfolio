@@ -18,7 +18,8 @@
     "vite-plugin-static-copy": "^3.1.2"
   },
   "dependencies": {
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "swiper": "^11.2.10"
   },
   "type": "module"
 }

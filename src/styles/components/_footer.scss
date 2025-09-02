@@ -5,13 +5,10 @@
     z-index: 2;
     min-height: 70px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
-    padding-block: var(--size-400);
-    padding-inline: var(--size-600);
+    justify-content: center;
+    padding: var(--size-500) var(--size-500);
     background-color: var(--color-surface-page);
-    
     &>* {
         margin-block: var(--size-200);
     }
@@ -21,7 +18,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
     }
     &::before,
     &::after {
@@ -34,9 +30,6 @@
         flex-direction: row;
         &>* {
             margin: 0;
-        }
-        .site-info {
-            align-items: flex-end;
         }
     }
 }

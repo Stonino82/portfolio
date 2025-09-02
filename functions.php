@@ -38,7 +38,7 @@ function my_theme_enqueue_styles()
 
     // --- Dependencies from CDNs ---
     wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
-    // wp_enqueue_style('load-font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css');
+    wp_enqueue_style( 'material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200', array(), null );
     wp_enqueue_style('css-reset-and-normalize', 'https://cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css');
 
     if (is_vite_dev_mode()) {
@@ -178,6 +178,27 @@ function antoninolattene_child_customize_register( $wp_customize ) {
 		'settings' => 'portfolio_archive_description',
 		'type'     => 'textarea',
 	) );
+
+	// --- Resume Link Setting ---
+	$wp_customize->add_section( 'resume_link_section', array(
+		'title'       => __( 'Enlace al Currículum', 'antoninolattene-child' ),
+		'priority'    => 36,
+		'description' => __( 'Configura el enlace a la página o archivo del currículum.', 'antoninolattene-child' ),
+	) );
+
+	$wp_customize->add_setting( 'resume_url', array(
+		'default'           => home_url( '/cv-resume-antonino-lattene-product-designer-ux-ui-designer/' ),
+		'transport'         => 'refresh',
+		'sanitize_callback' => 'esc_url_raw',
+	) );
+
+	$wp_customize->add_control( 'resume_url_control', array(
+		'label'       => __( 'URL del Currículum', 'antoninolattene-child' ),
+		'section'     => 'resume_link_section',
+		'settings'    => 'resume_url',
+		'type'        => 'url',
+		'description' => __( 'Puedes pegar aquí el enlace a la página de WordPress o al archivo PDF de la biblioteca de medios.', 'antoninolattene-child' ),
+	) );
 }
 add_action( 'customize_register', 'antoninolattene_child_customize_register' );
 
@@ -222,6 +243,16 @@ add_filter( 'post_thumbnail_html', 'antoninolattene_strip_thumbnail_wrapper' );
 function antoninolattene_child_sanitize_availability_status( $input ) {
 	$valid = array( 'available', 'limited', 'not-available' );
 	return in_array( $input, $valid, true ) ? $input : 'limited';
+}
+
+/**
+ * Gets the URL for the resume from the Theme Customizer.
+ *
+ * @return string The resume URL.
+ */
+function get_resume_url() {
+	// Get the URL from the customizer and provide a fallback for safety.
+	return get_theme_mod( 'resume_url', home_url( '/cv-resume-antonino-lattene-product-designer-ux-ui-designer/' ) );
 }
 
 
@@ -280,10 +311,10 @@ add_action( 'nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
  */
 function get_category_icon_map() {
     return array(
-        'front-end-development' => 'fa-solid fa-code',
-        'ui-design'             => 'fa-solid fa-pen-ruler',
-        'ux-design'             => 'fa-solid fa-user-group',
-        'graphic-design'        => 'fa-solid fa-palette'
+        'front-end-development' => 'icon-leading fa-solid fa-code',
+        'ui-design'             => 'icon-leading fa-solid fa-pen-ruler',
+        'ux-design'             => 'icon-leading fa-solid fa-user-group',
+        'graphic-design'        => 'icon-leading fa-solid fa-palette'
     );
 }
 
@@ -346,7 +377,7 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 	echo '<ul class="breadcrumbs">';
 
 	// 1. Home Link
-	echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '"><i class="fa-regular fa-house"></i></a></li>';
+	echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '"><i class="icon-leading fa-regular fa-house"></i></a></li>';
 
 	// 2. Section Link (Blog or Portfolio)
 	if ( $is_portfolio ) {
@@ -355,9 +386,9 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 			// If we are on the portfolio archive page, it's the current item.
 			if ( is_post_type_archive( 'portfolio' ) ) {
-				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="fa-regular fa-folder-open"></i> Portfolio</li>';
+				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</li>';
 			} else {
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( $archive_link ) . '"><i class="fa-regular fa-folder-open"></i> Portfolio</a></li>';
+				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( $archive_link ) . '"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</a></li>';
 			}
 		}
 	} else { // This covers 'post', 'category', 'tag', and standard pages
@@ -366,9 +397,9 @@ function antoninolattene_breadcrumbs( $args = array() ) {
 			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
 			// If we are on the blog page (home.php), it's the current item.
 			if ( is_home() ) {
-				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</li>';
+				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</li>';
 			} else {
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $blog_page_id ) ) . '"><i class="fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</a></li>';
+				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $blog_page_id ) ) . '"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</a></li>';
 			}
 		}
 	}
@@ -515,7 +546,7 @@ if ( ! function_exists( 'antoninolattene_posted_on' ) ) :
 			esc_html( get_the_modified_date() )
 		);
 
-		echo '<i class="fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
+		echo '<i class="icon-leading fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
 	}
 endif;
 
@@ -525,7 +556,7 @@ if ( ! function_exists( 'antoninolattene_posted_by' ) ) :
 	 * This version removes the link to the author archive.
 	 */
 	function antoninolattene_posted_by() {
-		echo '<i class="fa-regular fa-user"></i> <span class="author vcard">' . esc_html( get_the_author() ) . '</span>'; // WPCS: XSS OK.
+		echo '<i class="icon-leading fa-regular fa-user"></i> <span class="author vcard">' . esc_html( get_the_author() ) . '</span>'; // WPCS: XSS OK.
 	}
 endif;
 
@@ -741,7 +772,7 @@ function photography_credit_shortcode($atts) {
 
     // Build the HTML output
     $output .= '<figcaption class="credit">Cover photo by';
-    $output .= '<a href="' . $link . '" target="_blank" rel="noopener noreferrer">';
+    $output .= '<a href="' . $link . '" target="_blank">';
     $output .= '<span>' . $name . '</span>';
     $output .= '</figcaption></a>';
 
@@ -827,3 +858,39 @@ function antoninolattene_child_save_featured_video_meta_data( $post_id ) {
     }
 }
 add_action( 'save_post', 'antoninolattene_child_save_featured_video_meta_data' );
+
+
+/**
+ * Permite a WordPress encontrar plantillas de página en subdirectorios
+ * dentro de la carpeta 'page-templates'. Esto facilita una organización
+ * por componentes, donde cada plantilla puede tener su propia carpeta.
+ *
+ * @param array $templates Array de plantillas de página encontradas por WordPress.
+ * @return array El array modificado con las nuevas plantillas encontradas.
+ */
+function antoninolattene_child_add_nested_page_templates( $templates ) {
+
+    // Directorio a escanear, relativo a la raíz del tema.
+    $dir = get_stylesheet_directory() . '/page-templates/';
+
+    // Busca archivos .php en cualquier subcarpeta dentro de 'page-templates'.
+    // El patrón '*/*.php' significa 'cualquier-carpeta/cualquier-archivo.php'.
+    $files = glob( $dir . '*/*.php' );
+
+    if ( $files ) {
+        foreach ( $files as $file ) {
+            // Obtenemos los datos del encabezado del archivo de forma segura.
+            $template_data = get_file_data( $file, array( 'Template Name' => 'Template Name' ) );
+
+            // Si tiene un nombre de plantilla, la añadimos a la lista.
+            if ( ! empty( $template_data['Template Name'] ) ) {
+                // La clave del array debe ser la ruta relativa desde la raíz del tema.
+                $template_key = str_replace( get_stylesheet_directory() . '/', '', $file );
+                $templates[ $template_key ] = $template_data['Template Name'];
+            }
+        }
+    }
+
+    return $templates;
+}
+add_filter( 'theme_page_templates', 'antoninolattene_child_add_nested_page_templates' );

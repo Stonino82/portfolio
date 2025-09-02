@@ -1,7 +1,7 @@
 
 <?php get_header(); ?>
 
-	<main class="container">
+	<main class="container grid-layout">
 		<?php
 		while ( have_posts() ) : the_post();
 

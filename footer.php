@@ -13,7 +13,6 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-
 		<div class="site-info">
 			<small>antoninolattene@gmail.com ©<?PHP echo date("Y"); ?></small>
 			<small>made with <i class="fas fa-heart" title="Love"></i> in Barcelona</small>

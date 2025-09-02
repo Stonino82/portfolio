@@ -11,7 +11,7 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="text-heading-1 text-gradient">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="text-display-3 text-gradient">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
 	<?php

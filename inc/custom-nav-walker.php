@@ -128,7 +128,7 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
         // Check if the current menu item's title exists in our icon map for other icons
         if ( isset( $icon_map[ $item->title ] ) ) {
             $icon_class = $icon_map[ $item->title ];
-            $icon_html = '<i class="' . esc_attr( $icon_class ) . '"></i> ';
+            $icon_html = '<i class="icon-leading ' . esc_attr( $icon_class ) . '"></i> ';
         }
 
         $item_output .= $icon_html . apply_filters( 'the_title', $item->title, $item->ID );

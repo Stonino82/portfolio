@@ -35,7 +35,7 @@ $show_breadcrumbs         = $args['show_breadcrumbs'] ?? true;
 			<h2 class="text-body-md fw-regular"><?php echo wp_kses( $description, $allowed_html ); ?></h2>
 		</div>
 		<div class="presentation__headlines">
-			<h1 class="text-heading-1 text-gradient"><?php echo wp_kses( $title, $allowed_html ); ?></h1>
+			<h1 class="text-display-3 text-gradient"><?php echo wp_kses( $title, $allowed_html ); ?></h1>
 		</div>
 		<div class="presentation__taxonomy">
 			<?php get_template_part( 'template-parts/archive-context-label' ); ?>

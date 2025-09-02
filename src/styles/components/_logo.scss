@@ -1,8 +1,8 @@
 @use 'spinner' as *;
 
 .logo {
-    width: 64px;
-    height: 64px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
     position: relative; // Required for positioning pseudo-elements and children.
     padding: var(--size-100);

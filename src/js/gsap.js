@@ -81,7 +81,7 @@ const initGsapAnimations = () => {
     mobileTimeline
       // Add 'page-ready' to the body to reveal the page content, preventing FOUC.
       .call(() => document.body.classList.add('page-ready'))
-      .from(".site-header .logo", fromFadeUp, "<") // The "<" starts this animation at the same time as the previous one.
+      .from(".site-header", fromFadeUp, "<") // The "<" starts this animation at the same time as the previous one.
       .from(".presentation__central", fromFadeInPlace, `<${SEQUENCE_OFFSET}`);
 
     // 3. En móvil, la animación de los artículos se activa inmediatamente con el scroll.
@@ -108,7 +108,7 @@ const initGsapAnimations = () => {
 
     desktopTimeline
       .call(() => document.body.classList.add('page-ready'))
-      .from(".site-header .logo", fromFadeUp, "<")
+      .from(".site-header", fromFadeUp, "<")
       .from(".presentation__central", fromFadeLeft, `<${SEQUENCE_OFFSET}`);
 
     // Animate the first card as the final step of the intro sequence.

@@ -26,7 +26,7 @@ if ( is_post_type_archive( 'portfolio' ) ) {
 	$description = get_the_archive_description();
 }
 ?>
-<main class="container">
+<main class="container grid-layout">
 	<?php
 		get_template_part( 'template-parts/presentation-section', null, [
 			'title'       => $title,

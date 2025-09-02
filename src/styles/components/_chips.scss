@@ -21,8 +21,8 @@
     // Common text styles for all chips
     font-weight: var(--fw-medium);
     line-height: var(--lh-tight);
-    border-radius: 50px;
     text-decoration: none;
+    box-shadow: var(--box-shadow-dp1);
 
     // Ensure all chips truncate their text if it's too long.
     @include truncate-text;
@@ -31,16 +31,15 @@
 
 // 3. Style Modifiers (.chip--subtle, .chip--bold)
 .chip--subtle {
-    background-color: var(--color-neutral-0);
-    color: var(--color-brand-primary); // Make the text color theme-aware.
+    background-color: var(--color-surface-page);
+    color: var(--color-text-tertiary); // Make the text color theme-aware.
     text-transform: lowercase;
-    box-shadow: var(--box-shadow-dp1);
+    border: 1px solid var(--color-border-primary);
 }
 .chip--bold {
     // Use the section's primary color for the background, making it theme-aware.
     background-color: var(--color-brand-primary);
     color: var(--color-neutral-0);
-    box-shadow: var(--box-shadow-dp1);
     text-transform: uppercase;
 }
 
@@ -51,9 +50,10 @@
 .chip--sm {
     height: 24px;
     padding: .25rem .6rem;
-    font-size: var(--fs-100);
+    font-size: var(--fs-200);
+    border-radius: var(--size-50);
     i {
-        font-size: 12px;
+        font-size: var(--fs-300);
     }
 }
 
@@ -64,9 +64,10 @@
 .chip--md {
     height: 30px;
     padding: .5rem .8rem;
-    font-size: var(--fs-200);
+    font-size: var(--fs-300);
+    border-radius: var(--size-100);
     i {
-        font-size: 14px;
+        font-size: var(--fs-400);
     }
 }
 

@@ -1,19 +1,150 @@
+@use '../generals/mixins' as *;
+
 /* For the moment same layout for all the pages */
-main.container {
-    display:grid;
-    grid-template-columns: 1fr;
-
-    &::before {
-        all: unset !important;
+main {
+    &::before, &::after {
+        content: unset;
     }
-
+    &.grid-layout {
+        display:grid;
+        grid-template-columns: 1fr;
+    }
+    .content {
+        z-index: 2;
+        @include min-height-viewport-minus-header; // Correctly calculates height minus header
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--size-800); // Was 4rem
+        background-color: var(--color-surface-page); // Base background for the content area
+        overflow: hidden;
+        section {
+            position: relative;
+            min-height: max-content;
+            height: 100%;
+            display: grid;
+            grid-template-columns: 1fr; // Default: 1 column (< 576px)
+            align-items: start;
+            align-content: start;
+            gap: var(--size-500);
+            padding: var(--size-500);
+            background-color: var(--color-surface-content);
+            overflow: hidden;
+            .section__header {
+                height: max-content;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                &>* {
+                    margin: 0;
+                }
+                .section__title {
+                    display: flex;
+                    align-items: center;
+                    gap: .25rem;
+                }
+            }
+        }
+        section.showcase-portfolio {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        section.showcase-blog {
+            background-color: transparent;
+            border-radius: 0;
+        }
+    }
+    .presentation {
+        // max-width: 420px;
+        position: sticky;
+        top: var(--header-height);
+        min-height: max-content;
+        @include min-height-viewport-minus-header(70);
+        width: 100%;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: var(--size-500);
+        & > * {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            @include media-up($breakpoint-lg) {
+                align-items: flex-start;
+                text-align: left;
+            }
+        }
+        .presentation__central {
+            flex-grow: 1;
+            justify-content: center;
+            @include media-up($breakpoint-lg) {
+                justify-content: flex-start;
+            }
+            .presentation__breadcrumbs {
+                order: 1;
+                margin-bottom: var(--size-600);
+                padding: var(--size-50) var(--size-100);
+                border-radius: var(--size-100);
+                border: 1px solid var(--color-border-primary);
+                background-color: var(--color-surface-content);
+            }
+            .presentation__headlines {
+                order: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-block: var(--size-100);
+            }
+            .presentation__description {
+                order: 4;
+            }
+            .presentation__taxonomy {
+                order: 2;
+                color: var(--color-brand-primary);
+            }
+        }
+    }
+}
+.container {
+    width: 100%;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
 }
 
-@media (min-width: 576px) {}
-@media (min-width: 768px) {}
-@media (min-width: 992px) { 
+@include media-up($breakpoint-md) {
+    .content {
+        & > *:not(.site-footer) {
+            border-radius: 1rem;
+        }
+        section {
+            // Increase spacing on larger screens for better layout
+            padding: var(--size-600);
+            gap: var(--size-600);
+        }
+    }
+}
+@include media-up($breakpoint-lg) {
     main.container {
-        grid-template-columns: minmax(420px, 0.32fr) 1fr;
+        &.grid-layout {
+            grid-template-columns: minmax(420px, 0.32fr) 1fr;
+        }
+        .content {
+            padding: var(--size-500);
+        }
+        .presentation {
+            z-index: 2;
+            .presentation__central {
+                justify-content: flex-start;
+                .presentation__headlines { align-items: flex-start; }
+            }
+
+            // Hide the scroll indicator on desktop, as the layout is different.
+            .scroll-indicator {
+                display: none;
+            }
+        }
     }
 }
-@media (min-width: 1400px) {}

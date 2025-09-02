@@ -5,6 +5,7 @@
  * @package antoninolattene
  */
 ?>
+
 <div class="logotipo">
     <p class="logotipo__name">Antonino Lattene</p>
     <!-- <p class="logotipo__tagline"><strong class="text-gradient">Product Designer</strong></p> -->

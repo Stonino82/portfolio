@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-    <main class="container">
+    <main class="container grid-layout">
         <?php
             get_template_part( 'template-parts/presentation-section', null, [
                 // 'title'                    => 'I shape stunning Experiences that resonate on a Human level',
@@ -12,14 +12,7 @@
         ?>
 
         <div class="content">
-            <!-- <div class="section__header portfolio">
-                <h5 class="section__title">Latest projects</h5>
-                <a class="btn btn-sm btn-tertiary" href="<?php echo get_post_type_archive_link( 'portfolio' ); ?>">
-                    More Projects
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div> -->
-            <section class="showcase-portfolio">
+            <section class="showcase-portfolio portfolio">
                 <?php
                 // First, query for 'portfolio' post type.
                 $portfolio_args = array(
@@ -40,14 +33,14 @@
                 }
                 ?>
             </section> <!-- /Showcase -->
-            <div class="section__header blog">
-                <h5 class="section__title">Latest articles</h5>
-                <a class="btn btn-sm btn-tertiary" href="<?php echo get_post_type_archive_link( 'post' ); ?>">
-                    Read More
-                    <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-            <section class="showcase-blog">
+            <section class="showcase-blog blog">
+                <div class="section__header">
+                    <h5 class="section__title">Latest articles</h5>
+                    <a class="btn btn-sm btn-tertiary" href="<?php echo get_post_type_archive_link( 'post' ); ?>">
+                        Read More
+                        <i class="icon-trailing fas fa-arrow-right"></i>
+                    </a>
+                </div>
                 <?php
                 // Next, query for 'post' post type.
                 $blog_args = array(
@@ -68,7 +61,6 @@
                 }
                 ?>
             </section> <!-- /Showcase -->
-
         </div>
     </main><!-- .container -->
 

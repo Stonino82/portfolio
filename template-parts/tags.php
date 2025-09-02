@@ -21,7 +21,7 @@ if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) : ?>
         <?php foreach ( $tags as $tag ) : ?>
             <li>
                 <a class="chip chip--subtle <?php echo esc_attr( $chip_color_class ); ?>" href="<?php echo esc_url( get_term_link( $tag ) ); ?>">
-                    <i class="fa-solid fa-hashtag"></i>
+                    <i class="icon-leading fa-solid fa-hashtag"></i>
                     <?php echo esc_html( $tag->name ); ?>
                 </a>
             </li>

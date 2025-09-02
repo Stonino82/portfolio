@@ -5,7 +5,7 @@
  */
 get_header(); ?>
 	
-	<main class="container">
+	<main class="container grid-layout">
 		<?php
 			// Get title and description from the Theme Customizer for flexibility.
 			$title       = get_theme_mod( 'blog_page_title', '' );

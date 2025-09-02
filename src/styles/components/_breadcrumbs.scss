@@ -33,7 +33,7 @@
     }
     .breadcrumbs__link {
         text-decoration: none;
-        color: inherit;
+        color: var(--color-brand-primary);
         transition: $transition;
         font-weight: var(--fw-medium);
 
@@ -58,6 +58,7 @@
     }
     // The current item is not a link and should be bolder
     .breadcrumbs__item--current {
+        color: var(--color-brand-primary);
         font-weight: var(--fw-regular);
         opacity: 1;
         @include truncate-text;

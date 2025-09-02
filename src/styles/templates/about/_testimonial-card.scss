@@ -1,0 +1,63 @@
+@use '../../generals/colors' as *;
+@use '../../generals/icons' as *;
+
+.testimonials {
+    .swiper {
+    .swiper-wrapper {
+        .swiper-slide {
+            .testimonial-card {
+                height: 400px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: var(--size-500);
+                background-color: var(--color-surface-content);
+                border: 1px solid var(--color-border-primary);
+                border-radius: var(--size-400);
+                // &::after {
+                //     content: '\f10e'; /* Unicode for fa-quote-right */
+                //     font-family: 'Font Awesome 6 Free';
+                //     font-weight: 900;
+                //     position: absolute;
+                //     bottom: 0;
+                //     right: var(--size-400);
+                //     font-size: 4rem;
+                //     color: rgba(0, 0, 0, 0.05);
+                //     z-index: 1;
+                //     pointer-events: none;
+                // }
+                .testimonial-card__header {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--size-400);
+                    margin-bottom: var(--size-400);
+                    .testimonial-card__avatar {
+                        width: 48px;
+                        height: 48px;
+                        border-radius: 50%;
+                        box-shadow: var(--box-shadow-dp2);
+                    }
+                    .testimonial-card__author {
+                        h5 {
+                            margin: 0;
+                            color: var(--color-text-primary);
+                        }
+                        .text-caption {
+                            margin: 0;
+                            color: var(--color-text-tertiary);
+                        }
+                    }
+                }
+                .testimonial-card__body {
+                    p {
+                        display: -webkit-box;
+                        -webkit-line-clamp: 12;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+    }
+}

@@ -1,0 +1,267 @@
+@use '../../generals/mixins' as *;
+
+main {
+    .content-about {
+        // General Sections Styles
+        section {
+            background-color: var(--color-surface-page);
+            border-radius: unset !important;
+            &:nth-of-type(even) {
+                background-color: var(--color-surface-content);
+            }
+            .section__inner {
+                max-width: 1200px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: var(--size-600);
+                margin: 0 auto;
+                padding: var(--size-800) var(--size-500);
+                .section__header {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: var(--size-400);
+                    @include media-up($breakpoint-md) {
+                        flex-direction: row;
+                        justify-content: space-between;
+                    }
+                    .section__title {
+                        margin: 0;
+                    }
+                }
+                .section__content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: var(--size-800);
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        .column__header {
+                            display: flex;
+                            align-items: center;
+                            gap: var(--size-400);
+                            margin-bottom: var(--size-400);
+                            color: var(--color-text-primary);
+                            .material-symbols-rounded {
+                                font-size: 36px;
+                            }
+                        }
+                        .column__content {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                        @include media-up($breakpoint-md) {
+                            align-items: flex-start;
+                            text-align: left;
+                            .column__content {
+                                align-items: flex-start;
+                            }
+                        }
+                        .text-gradient {
+                            width: max-content;
+                        }
+                    }
+                    .column-big, .column-small {
+                        display: grid;
+                        grid-template-columns: 1fr;
+                        gap: var(--size-600);
+                        place-content: center;
+                        text-align: center;
+                        @include media-up($breakpoint-md) {
+                            place-content: start;
+                            text-align: left;
+                        }
+                        .sub-column {}
+                        .column-item {}
+                    }
+                    .column-big {}
+                    .column-small {}
+                    .details-item {
+                        display: flex;
+                        gap: var(--size-100);
+                        .material-symbols-rounded {
+                            font-size: 22px;
+                            color: var(--color-text-tertiary);
+                        }
+                        .details-item-content {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: flex-start;
+                            align-items: flex-start;
+                            margin-top: 3px;
+                            h6 {
+                                color: var(--color-text-primary);
+                                margin: 0;
+                            }
+                            p {
+                                margin-top: var(--size-50);
+                                color: var(--color-text-tertiary);
+                            }
+                            .chip-list {
+                                margin-top: var(--size-200);
+                            }
+                        }
+                    }
+                }
+                .section__footer {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: var(--size-600);
+                    padding: var(--size-600);
+                    background-color: var(--color-surface-content);
+                    border: 1px solid var(--color-border-primary);
+                    border-radius: var(--size-400);
+                    @include media-up($breakpoint-md) {
+                        flex-direction: row;
+                        gap: var(--size-400);
+                        padding: var(--size-400);
+                    }
+                    .column-left, .column-right {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: var(--size-600);
+                        .btn {
+                            width: 100%;
+                        }
+                        @include media-up($breakpoint-md) {
+                            width: max-content;
+                            flex-direction: row;
+                        }
+                    }
+                    .column-left {
+                        .testimonial-images {
+                            display: flex;
+                            align-items: center;
+                            img {
+                                width: 42px;
+                                height: 42px;
+                                border-radius: 50%;
+                                box-shadow: var(--box-shadow-dp2);
+                                margin-right: calc(var(--size-500) * -1);
+                                border: 2px solid var(--color-surface-content);
+                            }
+                        }
+                    }
+                }
+            }
+            // General Sections Styles
+
+            // Hero Section Styles
+            &.hero {
+                // It has its own style file
+            }
+            &.philosophy {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-md) {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+                    }
+                }
+            }
+            &.stats {
+                .section__inner {
+                    .section__content {
+                        padding: var(--size-600);
+                        background-color: var(--color-surface-content);
+                        border: 1px solid var(--color-border-primary);
+                        border-radius: var(--size-400);
+                        box-shadow: var(--box-shadow-dp1);
+                        @include media-up($breakpoint-md) {
+                            grid-template-columns: repeat(4, 1fr);
+                            gap: var(--size-600);
+                            .column {
+                                justify-content: space-between;
+                                .column__header {
+                                    margin-bottom: var(--size-900);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &.journey {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+                        }
+                        .column-big {
+                            @include media-up($breakpoint-md) {
+                                grid-template-columns: 1fr 1fr;
+                            }
+                        }
+                        .column-small {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+            &.testimonials {
+                .section__inner {
+                    .section__header {
+                        .swiper-navigation {
+                            display: none;
+                            @include media-up($breakpoint-md) {
+                                display: flex;
+                                gap: var(--size-200);
+                            }
+                        }
+                    }
+                }
+            }
+            &.skills {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                    }
+                }
+            }
+            &.passions {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+                        }
+                    }
+                }
+            }
+            &.blog {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: 1fr 1fr;
+                        }
+                        .column:nth-of-type(2) {
+                            gap: var(--size-600);
+                            min-width: 0;
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+            &.last {
+                .section__inner {
+                    .section__content {
+                        .promotional-banner {
+                            padding: var(--size-600);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

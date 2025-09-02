@@ -4,6 +4,9 @@ $transition: all 0.2s ease-out;
 // CSS Custom Properties (Runtime)
 :root {
     --size-0: 0;
+    // --- Layout Variables ---
+    --header-height: 78px; // Altura base de la cabecera para cálculos de viewport.
+
     --size-50: .25rem; //4px
     --size-100: .5rem; //8px
     --size-200: .75rem; //12px
@@ -59,6 +62,8 @@ $transition: all 0.2s ease-out;
     --fs-950: 1.8125rem; // 29px
     --fs-1000: 2rem; // 32px
     --fs-1100: 2.25rem; // 36px;
+    --fs-1200: 2.5rem; // 40px;
+    --fs-1300: 2.8125rem; // 45px;
     
     // Line Height
     --lh-tight: 1.2;   // Para títulos y elementos de display.

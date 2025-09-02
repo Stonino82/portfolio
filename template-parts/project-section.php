@@ -12,7 +12,7 @@ $is_portfolio = ( 'portfolio' === $post_type );
 
 // Define chip variables based on the context
 $chip_label = $is_portfolio ? 'Portfolio' : 'Blog';
-$chip_icon  = $is_portfolio ? 'fa-regular fa-folder-open' : 'fa-regular fa-pen-to-square';
+$chip_icon  = $is_portfolio ? 'icon-leading fa-regular fa-folder-open' : 'icon-leading fa-regular fa-pen-to-square';
 ?>
 <div class="project__section">
     <ul class="chip-list chip-list--sm">

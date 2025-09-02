@@ -1,0 +1,26 @@
+// Material Symbols Icons
+.material-symbols-outlined,
+.material-symbols-rounded,
+.material-symbols-sharp,
+.material-symbols-two-tone {
+    // Redefine font sizes for Material Symbols context
+    --fs-50: 0.8125rem; // 13px
+    --fs-100: 0.875rem; // 14px
+    --fs-200: 1rem; // 16px
+    --fs-300: 1.125rem; // 18px
+    --fs-400: 1.25rem; // 20px
+    --fs-500: 1.4375rem; // 23px
+    --fs-600: 1.625rem; // 26px
+    --fs-700: 1.8125rem; // 29px
+    --fs-800: 2rem; // 32px
+    --fs-900: 2.25rem; // 36px;
+    --fs-950: 2.5rem; // 40px
+    --fs-1000: 2.625rem; // 42px
+
+    font-size: var(--fs-500); // Adjust as needed, e.g., 24px or 1.5rem
+    vertical-align: middle; // Helps align icons with text
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 28;
+}
+.rotate {
+    transform: rotate(-135deg);
+}

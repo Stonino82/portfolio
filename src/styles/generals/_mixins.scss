@@ -1,6 +1,52 @@
 // --- Reusable Mixins ---
 // This file centralizes common style patterns that can be reused across components.
 
+
+
+
+// ==========================================================================
+// Breakpoints
+// ==========================================================================
+
+// 1. Define los breakpoints como variables para tener una única fuente de verdad.
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+// 2. Crea un mixin para media queries "min-width" (el más común).
+// Esto nos permite escribir @include media-up($breakpoint-md) { ... }
+@mixin media-up($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// 3. (Opcional pero recomendado) Crea un mixin para "max-width".
+@mixin media-down($breakpoint) {
+  @media (max-width: #{$breakpoint - 1px}) {
+    @content;
+  }
+}
+
+
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+
+/**
+ * Sets the minimum height of an element to a percentage of the dynamic viewport
+ * height, subtracting the global header height.
+ * @param {number} $dvh-value - The percentage of dvh (e.g., 100 for 100dvh).
+ */
+@mixin min-height-viewport-minus-header($dvh-value: 100) {
+  min-height: calc(#{$dvh-value}dvh - var(--header-height));
+}
+
+
+
+
 /**
  * Truncates text that overflows its container on a single line, adding an ellipsis.
  */

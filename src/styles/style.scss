@@ -2,42 +2,58 @@
 @use 'resets/overwrite-rules' as *;
 
 /* Generals */
-@use 'generals/custom-variables' as *; // 1. Variables de CSS (tamaños, etc.)
-@use 'generals/colors' as *;           // 2. Sistema de colores (depende de variables)
-@use 'generals/typo' as *;             // 3. Tipografía (puede usar colores)
-@use 'generals/animations' as *;       // 4. Animaciones (pueden usar variables)
-@use 'generals/base' as *;             // 5. Estilos base (usa todo lo anterior)
-@use 'generals/utility-classes' as *;  // 6. Clases de utilidad (pueden sobreescribir base)
+@use 'generals/custom-variables' as *; // 1. Variables
+@use 'generals/mixins' as *;           // 2. Mixins
+@use 'generals/colors' as *;           // 3. Colores
+@use 'generals/typo' as *;             // 4. Tipografía
+@use 'generals/icons' as *;             // 5. Iconos
+@use 'generals/animations' as *;       // 6. Animaciones
+@use 'generals/base' as *;             // 7. Estilos base
+@use 'generals/utility-classes' as *;  // 8. Clases de utilidad
+
+
+
+
 
 /* Layout */
-@use 'templates/header' as *;
 @use 'templates/layout' as *;
 
-/* Pages Templates */
-/* home (re-exports from components) */
-@use 'templates/home/content' as *;
-/* single-portfolio (hereda también estilos de la home) */
-@use 'templates/single/single' as *;
-/* archive (hereda también estilos de la home) */
-@use 'templates/archive/archive' as *;
+
+
 
 /* Components */
 @use 'components/availability-indicator' as *;
 @use 'components/availability-chip' as *;
-@use 'components/project-tile' as *;
+@use 'components/breadcrumbs' as *;
 @use 'components/buttons' as *;
 @use 'components/chips' as *;
+@use 'components/footer' as *;
+@use 'components/header' as *;
+@use 'components/inline-banner' as *;
+@use 'components/logo' as *;
+@use 'components/logotipo' as *;
 @use 'components/page-loader' as *;
 @use 'components/project-card' as *;
 @use 'components/project-section' as *;
-@use 'components/logotipo' as *;
-@use 'components/spinner' as *;
+@use 'components/project-tile' as *;
+@use 'components/promotional-banner' as *;
 @use 'components/scroll-indicator' as *;
-@use 'components/footer' as *;
-@use 'components/logo' as *;
 @use 'components/separator' as *;
-@use 'components/breadcrumbs' as *;
-@use 'components/presentation-section' as *;
-@use 'components/chatbase' as *;
-@use 'components/inline-banner' as *;
-@use 'components/credit' as *;
+@use 'components/spinner' as *;
+@use 'components/swiper' as *;
+
+
+
+
+
+/* Pages Templates */
+/* archive (hereda también estilos de la home) */
+@use 'templates/archive/archive' as *;
+/* single-portfolio (hereda también estilos de la home) */
+@use 'templates/single/single' as *;
+/* about (hereda también estilos de la home) */
+@use 'templates/about/about' as *;
+@use 'templates/about/hero' as *;
+@use 'templates/about/testimonial-card' as *;
+/* chatbase */
+@use 'templates/chatbase/chatbase' as *;

@@ -6,6 +6,9 @@ import initGsapAnimations from './js/gsap.js';
 import initLogoScrollAnimation from './js/logo-scroll-animation.js';
 
 
+// Import Swiper configuration
+import initTestimonialSwiper, { initHeroSwiper } from './js/swiper-config.js';
+
 /**
  * Run all initialization logic after the DOM is fully loaded.
  * This ensures all elements are available before scripts try to access them.
@@ -13,4 +16,14 @@ import initLogoScrollAnimation from './js/logo-scroll-animation.js';
 document.addEventListener('DOMContentLoaded', () => {
   initGsapAnimations();
   initLogoScrollAnimation();
+
+  // Only initialize Swiper if the .swiper element exists on the page
+  if (document.querySelector('.testimonials-swiper')) {
+    initTestimonialSwiper();
+  }
+
+    // Initialize Hero Swiper if the .hero-swiper element exists on the page
+  if (document.querySelector('.hero-swiper')) {
+    initHeroSwiper();
+  }
 });

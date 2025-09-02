@@ -66,12 +66,23 @@ This approach makes the design system scalable, themeable, and easy to maintain.
   --color-neutral-950: #202226;
   --color-neutral-1000: #000000;
 
-  // -- Primitives: Specifics
+  // -- Primitives: Extended Palette
+  --color-green-500: #198754;
+  --color-red-500: #DC3545;
+  --color-yellow-500: #FFC107;
+  --color-cyan-500: #0bb5d7;
+  --color-azul-500: #1769ff;
+  --color-orange-500: #FD7E14;
+  --color-purple-500: #6F42C1;
+  --color-teal-500: #20C997;
+
+  // -- Primitives: Specifics for Brands
   --color-social-dribbble: #ea4c89;
   --color-social-behance: #1769ff;
   --color-social-github: #333;
   --color-social-linkedin: #0077b5;
   --color-social-codepen: rgb(189, 189, 189);
+
 
   // ==========================================================================
   // 2. SEMANTIC TOKENS
@@ -94,6 +105,7 @@ This approach makes the design system scalable, themeable, and easy to maintain.
   --color-text-primary: var(--color-neutral-950);
   --color-text-secondary: var(--color-neutral-800);
   --color-text-tertiary: var(--color-neutral-500);
+  --color-text-neutral: var(--color-neutral-0);
   --color-text-brand: var(--color-brand-primary);
   --color-text-link: var(--color-brand-primary);
   --color-text-link-hover: var(--color-blue-300);
@@ -132,6 +144,7 @@ body[data-theme="dark"],
   --color-text-primary: var(--color-neutral-25);
   --color-text-secondary: var(--color-neutral-100);
   --color-text-tertiary: var(--color-neutral-300);
+  --color-text-tertiary: var(--color-neutral-1000);
   --color-text-brand: var(--color-brand-primary);
   --color-text-link: var(--color-brand-primary);
   // --color-text-link-hover & --color-text-link-active are not redefined here, they remain the same.
@@ -165,10 +178,6 @@ body[data-theme="dark"],
   --color-component-background: var(--palette-accent-background);
   --color-component-foreground: var(--palette-accent-foreground);
 }
-
-
-
-
 
 
 

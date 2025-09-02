@@ -19,6 +19,6 @@ $text = isset( $choices[ $status ] ) ? $choices[ $status ] : ucfirst( $status );
 $chip_modifier_class = 'availability-chip--' . $status;
 ?>
 
-<span class="chip chip--bold chip--sm <?php echo esc_attr( $chip_modifier_class ); ?>">
+<span class="chip chip--bold chip--sm availability-chip <?php echo esc_attr( $chip_modifier_class ); ?>">
     <span><?php echo esc_html( $text ); ?></span>
 </span>
