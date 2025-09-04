@@ -31,7 +31,7 @@ switch ( $status ) {
 ?>
 
 <ul class="chip-list chip-list--sm">
-    <li class="chip chip--pill chip--sm dark <?php echo esc_attr( $color_class ); ?>">
+    <li class="chip chip--pill dark <?php echo esc_attr( $color_class ); ?>">
         <span><?php echo esc_html( $text ); ?></span>
     </li>
 </ul>

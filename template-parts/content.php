@@ -17,10 +17,18 @@
 $post_type = get_post_type();
 $is_portfolio = ( 'portfolio' === $post_type );
 
+// Initialize $tags and $chip_color_class
+$tags = null;
+$chip_color_class = 'chip--primary'; // Default for non-blog content
+
 if ( $is_portfolio ) {
-	$tags               = get_the_terms( get_the_ID(), 'portfolio_tag' );
+	$tags = get_the_terms( get_the_ID(), 'portfolio_tag' );
 } else { // Default to Blog Post.
-	$tags               = get_the_tags();
+	$tags = get_the_tags();
+    // If it's a regular 'post' type, it's blog-related, so use chip--accent
+    if ( 'post' === $post_type ) {
+        $chip_color_class = 'chip--accent';
+    }
 }
 ?>
 
@@ -52,7 +60,7 @@ if ( $is_portfolio ) {
 					<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 				<?php endif; ?>
 				
-				<?php get_template_part( 'template-parts/tags', null, [ 'tags' => $tags ] ); ?>
+				<?php get_template_part( 'template-parts/tags', null, [ 'tags' => $tags, 'chip_color_class' => $chip_color_class ] ); ?>
 			</div>
 			<div class="entry-content">
 				<?php

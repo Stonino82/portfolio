@@ -16,8 +16,6 @@ $chip_icon  = $is_portfolio ? 'icon-leading fa-regular fa-folder-open' : 'icon-l
 ?>
 <div class="project__section">
     <ul class="chip-list chip-list--sm">
-        <li>
-            <span class="chip chip--bold"><i class="<?php echo esc_attr( $chip_icon ); ?>"></i><?php echo esc_html( $chip_label ); ?></span>
-        </li>
+        <li class="chip chip--semi-squared"><i class="<?php echo esc_attr( $chip_icon ); ?>"></i><?php echo esc_html( $chip_label ); ?></li>
     </ul>
 </div>

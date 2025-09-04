@@ -323,13 +323,13 @@ get_header(); ?>
                                 <div class="details-item-content">
                                     <h6 class="text-eyebrow-normal">Skills</h6>
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--subtle">Product strategy</span>
-                                        <span class="chip chip--subtle">Interaction design</span>
-                                        <span class="chip chip--subtle">Design System</span>
-                                        <span class="chip chip--subtle">Prototyping</span>
-                                        <span class="chip chip--subtle">Accessibility</span>
-                                        <span class="chip chip--subtle">Visual Design</span>
-                                        <span class="chip chip--subtle">Information Architecture</span>
+                                        <span class="chip chip--squared">Product strategy</span>
+                                        <span class="chip chip--squared">Interaction design</span>
+                                        <span class="chip chip--squared">Design System</span>
+                                        <span class="chip chip--squared">Prototyping</span>
+                                        <span class="chip chip--squared">Accessibility</span>
+                                        <span class="chip chip--squared">Visual Design</span>
+                                        <span class="chip chip--squared">Information Architecture</span>
                                     </div>
                                 </div>
                             </div>
@@ -338,24 +338,24 @@ get_header(); ?>
                                 <div class="details-item-content">
                                     <h6 class="text-eyebrow-normal">Tools & Technology</h6>
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--subtle">Figma</span>
-                                        <span class="chip chip--subtle">Adobe XD</span>
-                                        <span class="chip chip--subtle">Sketch</span>
-                                        <span class="chip chip--subtle">Adobe</span>
-                                        <span class="chip chip--subtle">Jira</span>
-                                        <span class="chip chip--subtle">Slack</span>
-                                        <span class="chip chip--subtle">Miro</span>
-                                        <span class="chip chip--subtle">Notion</span>
-                                        <span class="chip chip--subtle">HTML5</span>
-                                        <span class="chip chip--subtle">CSS3 / SASS</span>
-                                        <span class="chip chip--subtle">JavaScript</span>
-                                        <span class="chip chip--subtle">React</span>
-                                        <span class="chip chip--subtle">Angular</span>
-                                        <span class="chip chip--subtle">PHP</span>
-                                        <span class="chip chip--subtle">Git</span>
-                                        <span class="chip chip--subtle">Vite</span>
-                                        <span class="chip chip--subtle">Tailwind</span>
-                                        <span class="chip chip--subtle">Meterial Design</span>
+                                        <span class="chip chip--squared">Figma</span>
+                                        <span class="chip chip--squared">Adobe XD</span>
+                                        <span class="chip chip--squared">Sketch</span>
+                                        <span class="chip chip--squared">Adobe</span>
+                                        <span class="chip chip--squared">Jira</span>
+                                        <span class="chip chip--squared">Slack</span>
+                                        <span class="chip chip--squared">Miro</span>
+                                        <span class="chip chip--squared">Notion</span>
+                                        <span class="chip chip--squared">HTML5</span>
+                                        <span class="chip chip--squared">CSS3 / SASS</span>
+                                        <span class="chip chip--squared">JavaScript</span>
+                                        <span class="chip chip--squared">React</span>
+                                        <span class="chip chip--squared">Angular</span>
+                                        <span class="chip chip--squared">PHP</span>
+                                        <span class="chip chip--squared">Git</span>
+                                        <span class="chip chip--squared">Vite</span>
+                                        <span class="chip chip--squared">Tailwind</span>
+                                        <span class="chip chip--squared">Meterial Design</span>
                                     </div>
                                 </div>
                             </div>
@@ -364,12 +364,12 @@ get_header(); ?>
                                 <div class="details-item-content">
                                     <h6 class="text-eyebrow-normal">Currently Learning</h6>
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--subtle">Generative AI</span>
-                                        <span class="chip chip--subtle">AI in Design</span>
-                                        <span class="chip chip--subtle">Vibe Design</span>
-                                        <span class="chip chip--subtle">Vibe Coding</span>
-                                        <span class="chip chip--subtle">v0</span>
-                                        <span class="chip chip--subtle">Lovable</span>
+                                        <span class="chip chip--squared">Generative AI</span>
+                                        <span class="chip chip--squared">AI in Design</span>
+                                        <span class="chip chip--squared">Vibe Design</span>
+                                        <span class="chip chip--squared">Vibe Coding</span>
+                                        <span class="chip chip--squared">v0</span>
+                                        <span class="chip chip--squared">Lovable</span>
                                     </div>
                                 </div>
                             </div>
@@ -391,11 +391,11 @@ get_header(); ?>
                                 <div class="details-item-content">
                                     <!-- <h6 class="text-eyebrow-normal">Tools & Technology</h6> -->
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--subtle"><i>🏐</i> Beach Volleyball</span>
-                                        <span class="chip chip--subtle"><i>🏍️</i> Riding</span>
-                                        <span class="chip chip--subtle"><i>📷</i> Photography</span>
-                                        <span class="chip chip--subtle"><i>📖</i> Reading</span>
-                                        <span class="chip chip--subtle"><i>☕️</i> Coffee Lover</span>
+                                        <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
+                                        <span class="chip chip--squared"><i>🏍️</i> Riding</span>
+                                        <span class="chip chip--squared"><i>📷</i> Photography</span>
+                                        <span class="chip chip--squared"><i>📖</i> Reading</span>
+                                        <span class="chip chip--squared"><i>☕️</i> Coffee Lover</span>
                                     </div>
                                 </div>
                             </div>

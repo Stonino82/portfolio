@@ -20,7 +20,7 @@ if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) : ?>
     <ul class="chip-list chip-list--md">
         <?php foreach ( $tags as $tag ) : ?>
             <li>
-                <a class="chip chip--subtle <?php echo esc_attr( $chip_color_class ); ?>" href="<?php echo esc_url( get_term_link( $tag ) ); ?>">
+                <a class="chip chip--pill dark <?php echo esc_attr( $chip_color_class ); ?>" href="<?php echo esc_url( get_term_link( $tag ) ); ?>">
                     <i class="icon-leading fa-solid fa-hashtag"></i>
                     <?php echo esc_html( $tag->name ); ?>
                 </a>
