@@ -4,7 +4,7 @@ COLOR SYSTEM
 ================================================================================
 This file defines the color palette using a modern, two-layer system:
 
-1.  PRIMITIVES:
+1.  PRIMITIVES (in _custom-variables.scss):
     - Raw, non-semantic color values (e.g., --color-blue-500).
     - They are the single source of truth for all available colors.
     - Named by color family and shade (100-900).
@@ -19,71 +19,6 @@ This approach makes the design system scalable, themeable, and easy to maintain.
 */
 
 :root {
-  // ==========================================================================
-  // 1. COLOR PRIMITIVES
-  // ==========================================================================
-  // Do not use these directly in components. Use semantic tokens instead.
-
-  // -- Primitives: Primary (Blue)
-  --color-blue-50: #EFF0FE;
-  --color-blue-100: #DFE2FC; // Formerly $color-blue--lightest
-  --color-blue-200: #BFC5F9;
-  --color-blue-300: #9FA7F7;
-  --color-blue-400: #7F8AF4; // Formerly $color-blue--lighter
-  --color-blue-500: #5F6DF1; // Formerly $color-blue
-  --color-blue-600: #4D58C8; // Formerly $color-blue--darker
-  --color-blue-700: #3A449F;
-  --color-blue-800: #282F77; // Formerly $color-blue--darkest
-  --color-blue-900: #151B4E;
-  --color-blue-950: #0C1039;
-
-  // -- Primitives: Accent (Rose)
-  --color-rose-50: #FCEAFA;
-  --color-rose-100: #F9D5F6; // Formerly $color-rose--lightest
-  --color-rose-200: #F3AAEC;
-  --color-rose-300: #EE80E3;
-  --color-rose-400: #E855D9; // Formerly $color-rose--lighter
-  --color-rose-500: #E22BD0; // Formerly $color-rose
-  --color-rose-600: #B522A6; // Formerly $color-rose--darker
-  --color-rose-700: #881A7D;
-  --color-rose-800: #5A1153; // Formerly $color-rose--darkest
-  --color-rose-900: #440D3E;
-  --color-rose-950: #2D092A;
-
-  // -- Primitives: Neutral
-  --color-neutral-0: #ffffff;
-  --color-neutral-25: #F9F9FA;
-  --color-neutral-50: #F0F1F2;
-  --color-neutral-100: #E1E3E6;
-  --color-neutral-200: #D3D5D9;
-  --color-neutral-300: #C4C7CC;
-  --color-neutral-400: #A6AAB3;
-  --color-neutral-500: #898E99;
-  --color-neutral-600: #6B7280;
-  --color-neutral-700: #565B66;
-  --color-neutral-800: #40444D;
-  --color-neutral-900: #2B2E33;
-  --color-neutral-950: #202226;
-  --color-neutral-1000: #000000;
-
-  // -- Primitives: Extended Palette
-  --color-green-500: #198754;
-  --color-red-500: #DC3545;
-  --color-yellow-500: #FFC107;
-  --color-cyan-500: #0bb5d7;
-  --color-azul-500: #1769ff;
-  --color-orange-500: #FD7E14;
-  --color-purple-500: #6F42C1;
-  --color-teal-500: #20C997;
-
-  // -- Primitives: Specifics for Brands
-  --color-social-dribbble: #ea4c89;
-  --color-social-behance: #1769ff;
-  --color-social-github: #333;
-  --color-social-linkedin: #0077b5;
-  --color-social-codepen: rgb(189, 189, 189);
-
-
   // ==========================================================================
   // 2. SEMANTIC TOKENS
   // ==========================================================================
@@ -100,32 +35,74 @@ This approach makes the design system scalable, themeable, and easy to maintain.
 
   // THESE CHANGE WITH THEME SWITCHING (Dark Mode and/or Accent Theme)
   // -- Tokens: Global UI (Surface, Text, Border, Shadows)
+
+  // General surfaces colors
   --color-surface-page: var(--color-neutral-25);
   --color-surface-content: var(--color-neutral-0);
+  // Text colors
   --color-text-primary: var(--color-neutral-950);
   --color-text-secondary: var(--color-neutral-800);
   --color-text-tertiary: var(--color-neutral-500);
   --color-text-neutral: var(--color-neutral-0);
   --color-text-brand: var(--color-brand-primary);
+  // Link colors
   --color-text-link: var(--color-brand-primary);
   --color-text-link-hover: var(--color-blue-300);
   --color-text-link-active: var(--color-blue-700);
+  // Border colors
   --color-border-primary: var(--color-neutral-100);
   --color-border-secondary: var(--color-neutral-200);
+  // Shadow colors
   --box-shadow-dp1: 0px 2px 4px rgba(99, 108, 140, 0.08), 0px 1px 2px rgba(99, 108, 140, 0.06);
   --box-shadow-dp2: 0px 5px 10px rgba(99, 108, 140, 0.1), 0px 2px 5px rgba(99, 108, 140, 0.08);
   --box-shadow-dp3: 0px 12px 24px rgba(99, 108, 140, 0.12), 0px 6px 12px rgba(99, 108, 140, 0.1);
 
-    // -- Tokens: Component Palettes
-  --palette-primary-background: var(--color-blue-100);
-  --palette-primary-foreground: var(--color-blue-500);
-  --palette-accent-background: var(--color-rose-100);
-  --palette-accent-foreground: var(--color-rose-500);
 
-  // -- Tokens: Active Component Theme
-  // Components should use these variables to be themeable.
-  --color-component-background: var(--palette-primary-background);
-  --color-component-foreground: var(--palette-primary-foreground);
+  // -- Tokens: Component Palettes
+  --component-neutral-background: var(--color-neutral-100);
+  --component-neutral-foreground: var(--color-neutral-900);
+  --component-primary-background: var(--color-blue-100);
+  --component-primary-foreground: var(--color-blue-500);
+  --component-accent-background: var(--color-rose-100);
+  --component-accent-foreground: var(--color-rose-500);
+  --component-red-background: var(--color-red-100);
+  --component-red-foreground: var(--color-red-500);
+  --component-orange-background: var(--color-orange-100);
+  --component-orange-foreground: var(--color-orange-500);
+  --component-amber-background: var(--color-amber-100);
+  --component-amber-foreground: var(--color-amber-500);
+  --component-yellow-background: var(--color-yellow-100);
+  --component-yellow-foreground: var(--color-yellow-500);
+  --component-lime-background: var(--color-lime-100);
+  --component-lime-foreground: var(--color-lime-500);
+  --component-green-background: var(--color-green-100);
+  --component-green-foreground: var(--color-green-500);
+  --component-esmerald-background: var(--color-esmerald-100);
+  --component-esmerald-foreground: var(--color-esmerald-500);
+  --component-teal-background: var(--color-teal-100);
+  --component-teal-foreground: var(--color-teal-500);
+  --component-cyan-background: var(--color-cyan-100);
+  --component-cyan-foreground: var(--color-cyan-500);
+  --component-sky-background: var(--color-sky-100);
+  --component-sky-foreground: var(--color-sky-500);
+  --component-indigo-background: var(--color-indigo-100);
+  --component-indigo-foreground: var(--color-indigo-500);
+  --component-violet-background: var(--color-violet-100);
+  --component-violet-foreground: var(--color-violet-500);
+  --component-purple-background: var(--color-purple-100);
+  --component-purple-foreground: var(--color-purple-500);
+  --component-fuchsia-background: var(--color-fuchsia-100);
+  --component-fuchsia-foreground: var(--color-fuchsia-500);
+  --component-pink-background: var(--color-pink-100);
+  --component-pink-foreground: var(--color-pink-500);
+  --component-slate-background: var(--color-slate-100);
+  --component-slate-foreground: var(--color-slate-500);
+  --component-gray-background: var(--color-gray-100);
+  --component-gray-foreground: var(--color-gray-500);
+  --component-zinc-background: var(--color-zinc-100);
+  --component-zinc-foreground: var(--color-zinc-500);
+  --component-stone-background: var(--color-stone-100);
+  --component-stone-foreground: var(--color-stone-500);
 }
 
 
@@ -137,29 +114,85 @@ This approach makes the design system scalable, themeable, and easy to maintain.
 // DARK MODE THEME
 // --------------------------------------------------------------------------
 body[data-theme="dark"],
-.dark-theme {
+.dark-theme, .dark {
   // -- Redefine Global UI
+
+  // General surfaces colors
   --color-surface-page: var(--color-neutral-950);
   --color-surface-content: var(--color-neutral-900);
+  // Text colors
   --color-text-primary: var(--color-neutral-25);
   --color-text-secondary: var(--color-neutral-100);
   --color-text-tertiary: var(--color-neutral-300);
-  --color-text-tertiary: var(--color-neutral-1000);
+  --color-text-neutral: var(--color-neutral-1000);
   --color-text-brand: var(--color-brand-primary);
+  // Link colors
   --color-text-link: var(--color-brand-primary);
-  // --color-text-link-hover & --color-text-link-active are not redefined here, they remain the same.
+  // --color-text-link-hover not defined here, remain the same
+  //--color-text-link-active not defined here, remain the same
+  // Border colors
   --color-border-primary: var(--color-neutral-200);
   --color-border-secondary: var(--color-neutral-100);
+  // Shadow colors
   --box-shadow-dp1: 0px 2px 4px rgba(255, 255, 255, 0.08), 0px 1px 2px rgba(255, 255, 255, 0.06);
   --box-shadow-dp2: 0px 5px 10px rgba(255, 255, 255, 0.1), 0px 2px 5px rgba(255, 255, 255, 0.08);
   --box-shadow-dp3: 0px 12px 24px rgba(255, 255, 255, 0.12), 0px 6px 12px rgba(255, 255, 255, 0.1);
 
+
+
   // -- Redefine Component Palettes
-  --palette-primary-background: var(--color-blue-900);
-  --palette-primary-foreground: var(--color-blue-200);
-  --palette-accent-background: var(--color-rose-900);
-  --palette-accent-foreground: var(--color-rose-200);
+  --component-neutral-background: var(--color-neutral-800);
+  --component-neutral-foreground: var(--color-neutral-50);
+  --component-primary-background: var(--color-blue-600);
+  --component-primary-foreground: var(--color-blue-50);
+  --component-accent-background: var(--color-rose-600);
+  --component-accent-foreground: var(--color-rose-50);
+  --component-red-background: var(--color-red-600);
+  --component-red-foreground: var(--color-red-50);
+  --component-orange-background: var(--color-orange-600);
+  --component-orange-foreground: var(--color-orange-50);
+  --component-amber-background: var(--color-amber-600);
+  --component-amber-foreground: var(--color-amber-50);
+  --component-yellow-background: var(--color-yellow-600);
+  --component-yellow-foreground: var(--color-yellow-50);
+  --component-lime-background: var(--color-lime-600);
+  --component-lime-foreground: var(--color-lime-50);
+  --component-green-background: var(--color-green-600);
+  --component-green-foreground: var(--color-green-50);
+  --component-esmerald-background: var(--color-esmerald-600);
+  --component-esmerald-foreground: var(--color-esmerald-50);
+  --component-teal-background: var(--color-teal-600);
+  --component-teal-foreground: var(--color-teal-50);
+  --component-cyan-background: var(--color-cyan-600);
+  --component-cyan-foreground: var(--color-cyan-50);
+  --component-sky-background: var(--color-sky-600);
+  --component-sky-foreground: var(--color-sky-50);
+  --component-indigo-background: var(--color-indigo-600);
+  --component-indigo-foreground: var(--color-indigo-50);
+  --component-violet-background: var(--color-violet-600);
+  --component-violet-foreground: var(--color-violet-50);
+  --component-purple-background: var(--color-purple-600);
+  --component-purple-foreground: var(--color-purple-50);
+  --component-fuchsia-background: var(--color-fuchsia-600);
+  --component-fuchsia-foreground: var(--color-fuchsia-50);
+  --component-pink-background: var(--color-pink-600);
+  --component-pink-foreground: var(--color-pink-50);
+  --component-slate-background: var(--color-slate-600);
+  --component-slate-foreground: var(--color-slate-50);
+  --component-gray-background: var(--color-gray-600);
+  --component-gray-foreground: var(--color-gray-50);
+  --component-zinc-background: var(--color-zinc-600);
+  --component-zinc-foreground: var(--color-zinc-50);
+  --component-stone-background: var(--color-stone-600);
+  --component-stone-foreground: var(--color-stone-50);
 }
+
+
+
+
+
+
+
 
 // --------------------------------------------------------------------------
 // ACCENT THEME (BLOG)
@@ -173,10 +206,6 @@ body[data-theme="dark"],
   --color-text-link: var(--color-brand-accent);
   --color-text-link-hover: var(--color-rose-300);
   --color-text-link-active: var(--color-rose-700);
-
-  // Redirect active component theme to use the accent palette
-  --color-component-background: var(--palette-accent-background);
-  --color-component-foreground: var(--palette-accent-foreground);
 }
 
 
@@ -188,9 +217,9 @@ body[data-theme="dark"],
 // or loops). This map requires literal color values for Sass functions.
 
 $availability-colors: (
-  'available': #10B981,
-  'limited':   #F59E0B,
-  'not-available': #EF4444
+  'available': #22c55e, //--color-green-500
+  'limited':   #fb923c, //--color-orange-400
+  'not-available': #ef4444 //--color-red-500
 );
 
 
@@ -210,8 +239,8 @@ $availability-colors: (
     -webkit-text-fill-color: transparent;
 }
 .text-highlight {
-    background-color: var(--color-component-background);
-    color: var(--color-component-foreground);
+    background-color: var(--palette-default-background);
+    color: var(--palette-default-foreground);
     border-radius: 8px;
     margin-block: 2px;
     padding: 2px 8px;

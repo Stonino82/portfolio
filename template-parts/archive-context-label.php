@@ -29,5 +29,5 @@ if ( is_category() || is_tax( 'portfolio_category' ) ) { // Check for standard o
 // Only render the HTML if a label has been set. This prevents empty <p> tags
 // on pages where the label is not applicable (e.g., the front page).
 if ( ! empty( $archive_label ) ) : ?>
-	<h3 class="text-eyebrow-scattered"><?php echo esc_html( $archive_label ); ?></h3>
+	<h3 class="text-eyebrow-normal"><?php echo esc_html( $archive_label ); ?></h3>
 <?php endif; ?>

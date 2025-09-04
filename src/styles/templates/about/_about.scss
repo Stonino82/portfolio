@@ -18,6 +18,9 @@ main {
                 gap: var(--size-600);
                 margin: 0 auto;
                 padding: var(--size-800) var(--size-500);
+                & > * {
+                    width: 100%;
+                }
                 .section__header {
                     width: 100%;
                     display: flex;

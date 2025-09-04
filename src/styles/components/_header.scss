@@ -71,12 +71,10 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
+                    // gap: 5px;
                     height: 80px; // tamaño logo scaled cuando .toggled activo
                     margin-left: 80px; // tamaño logo scaled cuando .toggled activo
-                    padding: var(--size-100);
-                    .availability-chip {
-                        width: 100%;
-                    }
+                    padding: var(--size-100) var(--size-50);
                 }
                 ul.menu {
                     width: 100%;
@@ -113,7 +111,7 @@
                             background-color: var(--color-neutral-50);
                         }
                         // &:is(.menu-item-blog):hover {
-                        //     background-color: var(--palette-accent-background);
+                        //     background-color: var(--component-accent-background);
                         // }
                         // Active and parent menu items
                         // These selectors target the active page and its parent items.
@@ -122,20 +120,20 @@
                         // Portfolio > ".current_page_parent"
                         // Blog > ".current_page_item"
                         &:is(.current_page_item, .current_page_parent) {
-                            background-color: var(--color-component-background);
+                            background-color: var(--component-primary-background);
                             a {
-                                color: var(--color-component-foreground);
+                                color: var(--component-primary-foreground);
                                 i {
-                                    color: var(--color-component-foreground);
+                                    color: var(--component-primary-foreground);
                                 }
                             }
                         }
                         &:is(.menu-item-blog):is(.current_page_item, .current_page_parent) {
-                            background-color: var(--color-component-background);
+                            background-color: var(--component-accent-background);
                             a {
-                                color: var(--color-component-foreground);
+                                color: var(--component-accent-foreground);
                                 i {
-                                    color: var(--color-component-foreground);
+                                    color: var(--component-accent-foreground);
                                 }
                             }
                         }

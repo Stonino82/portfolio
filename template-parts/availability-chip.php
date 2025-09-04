@@ -15,10 +15,23 @@ $choices = function_exists( 'antoninolattene_child_get_availability_choices' ) ?
 // Find the display text (e.g., 'Limited Availability') corresponding to the saved status key.
 $text = isset( $choices[ $status ] ) ? $choices[ $status ] : ucfirst( $status );
 
-// Construct the modifier class for the chip based on the selected status.
-$chip_modifier_class = 'availability-chip--' . $status;
+// Map status to the corresponding color class.
+$color_class = '';
+switch ( $status ) {
+	case 'limited':
+		$color_class = 'chip--orange';
+		break;
+	case 'available':
+		$color_class = 'chip--green';
+		break;
+	case 'not-available':
+		$color_class = 'chip--red';
+		break;
+}
 ?>
 
-<span class="chip chip--bold chip--sm availability-chip <?php echo esc_attr( $chip_modifier_class ); ?>">
-    <span><?php echo esc_html( $text ); ?></span>
-</span>
+<ul class="chip-list chip-list--sm">
+    <li class="chip chip--pill chip--sm dark <?php echo esc_attr( $color_class ); ?>">
+        <span><?php echo esc_html( $text ); ?></span>
+    </li>
+</ul>

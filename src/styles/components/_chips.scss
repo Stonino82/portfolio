@@ -1,79 +1,209 @@
-@use '../generals/colors' as *;
 @use '../generals/custom-variables' as *;
 @use '../generals/mixins' as *;
 
-// --- Component-Based Chip Styles ---
-
+// 1. Contenedor principal
 .chip-list {
     display: flex;
     flex-flow: row wrap;
     list-style-type: none;
-    // Gap is now defined by size modifiers
+    padding: 0;
+    margin: 0;
 }
 
-// 1. Base .chip class (contains non-size related styles)
+// 2. Estilos base del componente .chip
 .chip {
     width: max-content;
-    display: inline-flex; // Use inline-flex for better alignment
+    display: inline-flex;
     align-items: center;
-    gap: var(--size-50); // Space between icon and text
-    text-align: center;
-    // Common text styles for all chips
+    justify-content: center;
+    gap: var(--size-50);
+    text-decoration: none;
     font-weight: var(--fw-medium);
     line-height: var(--lh-tight);
-    text-decoration: none;
+    // border: 1px solid var(--component-neutral-foreground);
     box-shadow: var(--box-shadow-dp1);
-
-    // Ensure all chips truncate their text if it's too long.
-    @include truncate-text;
     transition: $transition;
+    @include truncate-text;
+    background-color: var(--component-neutral-background);
+    color: var(--component-neutral-foreground);
 }
 
-// 3. Style Modifiers (.chip--subtle, .chip--bold)
-.chip--subtle {
-    background-color: var(--color-surface-page);
-    color: var(--color-text-tertiary); // Make the text color theme-aware.
-    text-transform: lowercase;
-    border: 1px solid var(--color-border-primary);
+// 3. Modificadores de Esquema de Color
+.chip--neutral {
+    background-color: var(--component-neutral-background);
+    color: var(--component-neutral-foreground);
+    border-color: var(--component-neutral-foreground);
 }
-.chip--bold {
-    // Use the section's primary color for the background, making it theme-aware.
-    background-color: var(--color-brand-primary);
-    color: var(--color-neutral-0);
-    text-transform: uppercase;
+.chip--primary {
+    background-color: var(--component-primary-background);
+    color: var(--component-primary-foreground);
+    border-color: var(--component-primary-foreground);
 }
+.chip--accent {
+    background-color: var(--component-accent-background);
+    color: var(--component-accent-foreground);
+    border-color: var(--component-accent-foreground);
+}
+.chip--red {
+    background-color: var(--component-red-background);
+    color: var(--component-red-foreground);
+    border-color: var(--component-red-foreground);
+}
+.chip--orange {
+    background-color: var(--component-orange-background);
+    color: var(--component-orange-foreground);
+    border-color: var(--component-orange-foreground);
+}
+.chip--amber {
+    background-color: var(--component-amber-background);
+    color: var(--component-amber-foreground);
+    border-color: var(--component-amber-foreground);
+}
+.chip--yellow {
+    background-color: var(--component-yellow-background);
+    color: var(--component-yellow-foreground);
+    border-color: var(--component-yellow-foreground);
+}
+.chip--lime {
+    background-color: var(--component-lime-background);
+    color: var(--component-lime-foreground);
+    border-color: var(--component-lime-foreground);
+}
+.chip--green {
+    background-color: var(--component-green-background);
+    color: var(--component-green-foreground);
+    border-color: var(--component-green-foreground);
+}
+.chip--emerald {
+    background-color: var(--component-emerald-background);
+    color: var(--component-emerald-foreground);
+    border-color: var(--component-emerald-foreground);
+}
+.chip--teal {
+    background-color: var(--component-teal-background);
+    color: var(--component-teal-foreground);
+    border-color: var(--component-teal-foreground);
+}
+.chip--cyan {
+    background-color: var(--component-cyan-background);
+    color: var(--component-cyan-foreground);
+    border-color: var(--component-cyan-foreground);
+}
+.chip--sky {
+    background-color: var(--component-sky-background);
+    color: var(--component-sky-foreground);
+    border-color: var(--component-sky-foreground);
+}
+.chip--indigo {
+    background-color: var(--component-indigo-background);
+    color: var(--component-indigo-foreground);
+    border-color: var(--component-indigo-foreground);
+}
+.chip--violet {
+    background-color: var(--component-violet-background);
+    color: var(--component-violet-foreground);
+    border-color: var(--component-violet-foreground);
+}
+.chip--purple {
+    background-color: var(--component-purple-background);
+    color: var(--component-purple-foreground);
+    border-color: var(--component-purple-foreground);
+}
+.chip--fuchsia {
+    background-color: var(--component-fuchsia-background);
+    color: var(--component-fuchsia-foreground);
+    border-color: var(--component-fuchsia-foreground);
+}
+.chip--pink {
+    background-color: var(--component-pink-background);
+    color: var(--component-pink-foreground);
+    border-color: var(--component-pink-foreground);
+}
+.chip--slate {
+    background-color: var(--component-slate-background);
+    color: var(--component-slate-foreground);
+    border-color: var(--component-slate-foreground);
+}
+.chip--gray {
+    background-color: var(--component-gray-background);
+    color: var(--component-gray-foreground);
+    border-color: var(--component-gray-foreground);
+}
+.chip--zinc {
+    background-color: var(--component-zinc-background);
+    color: var(--component-zinc-foreground);
+    border-color: var(--component-zinc-foreground);
+}
+.chip--stone {
+    background-color: var(--component-stone-background);
+    color: var(--component-stone-foreground);
+    border-color: var(--component-stone-foreground);
+}
+
+
+// 4. Modificadores de Forma
+.chip--pill {
+    border-radius: var(--radius-full);
+}
+.chip--squared {
+    // El radio se define dentro de cada tamaño para mantener la proporción
+}
+
+// 5. Modificadores de Tamaño (aplicados al .chip-list)
 
 // --- Small Size ---
-// These styles can be applied by wrapping chips in a `.chip-list--sm`
-// or by adding the `.chip--sm` class directly to a chip.
-.chip-list--sm .chip,
-.chip--sm {
-    height: 24px;
-    padding: .25rem .6rem;
-    font-size: var(--fs-200);
-    border-radius: var(--size-50);
-    i {
+.chip-list--sm {
+    gap: var(--size-50);
+
+    .chip {
+        height: var(--size-500);
+        padding: 0 var(--size-100);
         font-size: var(--fs-300);
+
+        &.chip--icon-only {
+            width: var(--size-500);
+            padding: 0;
+        }
+        &.chip--squared {
+            border-radius: var(--radius-sm);
+        }
     }
 }
 
 // --- Medium Size ---
-// These styles can be applied by wrapping chips in a `.chip-list--md`
-// or by adding the `.chip--md` class directly to a chip.
-.chip-list--md .chip,
-.chip--md {
-    height: 30px;
-    padding: .5rem .8rem;
-    font-size: var(--fs-300);
-    border-radius: var(--size-100);
-    i {
+.chip-list--md {
+    gap: var(--size-100);
+
+    .chip {
+        height: var(--size-600);
+        padding: 0 var(--size-200);
         font-size: var(--fs-400);
+
+        &.chip--icon-only {
+            width: var(--size-600);
+            padding: 0;
+        }
+        &.chip--squared {
+            border-radius: var(--radius-md);
+        }
     }
 }
 
-.chip-list--sm {
-    gap: .25rem; // A smaller gap for smaller chips
-}
-.chip-list--md {
-    gap: .5rem; // A slightly larger gap for medium chips
+// --- Large Size ---
+.chip-list--lg {
+    gap: var(--size-200);
+
+    .chip {
+        height: var(--size-700);
+        padding: 0 var(--size-400);
+        font-size: var(--fs-500);
+
+        &.chip--icon-only {
+            width: var(--size-700);
+            padding: 0;
+        }
+        &.chip--squared {
+            border-radius: var(--radius-lg);
+        }
+    }
 }

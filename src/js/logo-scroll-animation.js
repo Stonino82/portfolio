@@ -1,4 +1,4 @@
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // It's crucial to register the plugin with GSAP.
@@ -11,12 +11,12 @@ const initLogoScrollAnimation = () => {
   const logoImage = document.querySelector('.logo-image');
 
   // Proceed only if the logo and the necessary data attributes exist.
-  if (!logoImage || !logoImage.dataset.origSrc || !logoImage.dataset.altSrc) {
+  if (!logoImage || !logoImage.dataset.logoOrig || !logoImage.dataset.logoAlt) {
     return;
   }
 
-  const origSrc = logoImage.dataset.origSrc;
-  const altSrc = logoImage.dataset.altSrc;
+  const origSrc = logoImage.dataset.logoOrig;
+  const altSrc = logoImage.dataset.logoAlt;
 
   // Ensure the logo starts with the default image, regardless of browser refresh state.
   logoImage.setAttribute('src', origSrc);
