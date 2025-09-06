@@ -79,19 +79,19 @@
                 </a>
             </li>
             <li class="menu-item-linkedin">
-                <a class="btn btn-md btn-tertiary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
+                <a class="btn btn-md btn-full btn-primary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
                     <i class="icon-leading fa-brands fa-linkedin-in"></i>
-                    Linkedin
+                    Get in touch
                     <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
                 </a>
             </li>
-            <li class="menu-item-mail">
+            <!-- <li class="menu-item-mail">
                 <a class="btn btn-md btn-full btn-primary" href="mailto:antoninolattene@gmail.com" target="_blank">
                     <span class="shine-animation"></span>
                     <i class="icon-leading fa-solid fa-paper-plane"></i>
                     Get in touch
                 </a>
-            </li>
+            </li> -->
         </ul>        
     </div>
 

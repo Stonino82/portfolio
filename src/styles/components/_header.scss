@@ -17,6 +17,10 @@
     left: 0;
     z-index: 999;
     background-color: var(--color-surface-page);
+    transition: box-shadow 0.3s ease-in-out;
+    &.is-scrolled {
+        box-shadow: var(--box-shadow-dp1);
+    }
     .container {
         position: relative;
         width: 100%;
@@ -85,24 +89,26 @@
                     margin: 0;
                     li {
                         width: 100%;
-                    }
-                    li:not(.menu-item-mail) {
                         display: flex;
                         align-items: center;
                         justify-content: flex-start;
                         margin: 0;
                         border-radius: .5rem;
                         overflow: hidden;
-                        .icon-trailing {
-                            margin-left: auto;
-                            font-size: inherit !important;
-                        }
                         a.btn {
                             width: 100%;
                             justify-content: flex-start;
+                            .icon-trailing {
+                                margin-left: auto;
+                                font-size: inherit !important;
+                            }
+                        }
+                    }
+                    li:not(.menu-item-linkedin) {
+                        a.btn {
                             color: var(--color-text-secondary);
                             i {
-                            color: var(--color-text-tertiary);
+                                color: var(--color-text-tertiary);
                             }
                         }
                         // Specific styles for Blog menu item
@@ -110,15 +116,6 @@
                         &:hover {
                             background-color: var(--color-neutral-50);
                         }
-                        // &:is(.menu-item-blog):hover {
-                        //     background-color: var(--component-accent-background);
-                        // }
-                        // Active and parent menu items
-                        // These selectors target the active page and its parent items.
-                        // For example:
-                        // Home > ".current_page_item"
-                        // Portfolio > ".current_page_parent"
-                        // Blog > ".current_page_item"
                         &:is(.current_page_item, .current_page_parent) {
                             background-color: var(--component-primary-background);
                             a {

@@ -52,7 +52,7 @@ main .content-about{
                             align-items: center;
                             justify-content: center;
                             flex-wrap: nowrap;
-                            gap: var(--size-500);
+                            gap: var(--size-200);
                             overflow-x: scroll;
                             scrollbar-width: none;
                             @include media-up($breakpoint-md) {
@@ -94,13 +94,13 @@ main .content-about{
                                     }
                                 }
                                 &.swiper-pagination-bullet-active {
-                                    margin-inline: var(--size-500);
+                                    margin-inline: var(--size-200);
                                     &:first-child {
                                         margin-left: 0;
-                                        margin-right: var(--size-500);
+                                        margin-right: var(--size-200);
                                     }
                                     &:last-child {
-                                        margin-left: var(--size-500);
+                                        margin-left: var(--size-200);
                                         margin-right: 0;
                                     }
                                 }

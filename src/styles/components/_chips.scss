@@ -12,6 +12,7 @@
 
 // 2. Estilos base del componente .chip
 .chip {
+    min-width: max-content;
     width: max-content;
     display: inline-flex;
     align-items: center;

@@ -193,4 +193,47 @@ const initGsapAnimations = () => {
   }
 };
 
+// --- Continuous Carousel Animation ---
+const coursesWrapper = document.querySelector('.courses-wrapper');
+if (coursesWrapper) {
+  const originalCourses = gsap.utils.toArray('.courses-wrapper .course');
+  let originalWidth = 0;
+
+  // Calculate the width of the original set of courses
+  originalCourses.forEach(course => {
+    originalWidth += course.offsetWidth + parseFloat(getComputedStyle(course).marginRight || 0);
+  });
+
+  // Only proceed if we have valid dimensions
+  if (coursesWrapper.offsetWidth > 0 && originalWidth > 0) {
+    // Fixed cloning: clone the original set a few times to ensure enough content
+    const fixedCloningIterations = 5; // Adjust this number if needed
+
+    for (let i = 0; i < fixedCloningIterations; i++) {
+      originalCourses.forEach(course => {
+        const clone = course.cloneNode(true);
+        coursesWrapper.appendChild(clone);
+      });
+    }
+
+    // Recalculate total width after cloning (though not strictly needed for animation, good for debugging) and log it
+    const allCourses = gsap.utils.toArray('.courses-wrapper .course');
+    let totalClonedWidth = 0;
+    allCourses.forEach(course => {
+      totalClonedWidth += course.offsetWidth + parseFloat(getComputedStyle(course).marginRight || 0);
+    });
+    
+    // Now, animate the coursesWrapper
+    gsap.to(coursesWrapper, {
+      x: -originalWidth, // Animate by the width of the original set
+      ease: "none",
+      duration: 35, // Adjust duration for desired speed
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % originalWidth) // Seamless looping based on original width
+      }
+    });
+  }
+}
+
 export default initGsapAnimations;

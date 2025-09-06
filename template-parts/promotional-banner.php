@@ -78,7 +78,7 @@ if ($title_icon_type) {
             </h4>
         <?php endif; ?>
         <?php if ($text) : ?>
-            <p class="promotional-banner__text text-body-sm"><?php echo wp_kses_post($text); ?></p>
+            <p class="promotional-banner__text text-body-md"><?php echo wp_kses_post($text); ?></p>
         <?php endif; ?>
     </div>
     <?php if ($primary_cta_text || $secondary_cta_text) : ?>

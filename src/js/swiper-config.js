@@ -37,6 +37,56 @@ const initTestimonialSwiper = () => {
           slidesPerView: 3,
           spaceBetween: 16
         }
+      },
+      on: {
+        init: function () {
+          this.slides.forEach(slide => {
+            const btn = slide.querySelector('.read-more-btn');
+            if (!btn) return;
+      
+            const card = slide.querySelector('.testimonial-card');
+            const paragraph = slide.querySelector('.testimonial-card__body p');
+      
+            btn.classList.add('read-more-hidden');
+
+            if (paragraph.scrollHeight > paragraph.clientHeight) {
+              btn.classList.remove('read-more-hidden');
+            } else {
+              btn.classList.add('read-more-hidden');
+            }
+      
+            btn.addEventListener('click', () => {
+              const isExpanded = paragraph.classList.contains('expanded');
+              paragraph.classList.toggle('expanded');
+              
+              if (!isExpanded) {
+                btn.textContent = 'Read less...';
+                card.style.height = 'auto';
+              } else {
+                btn.textContent = 'Read more...';
+                card.style.height = '440px';
+              }
+              this.update(); // Update swiper layout
+            });
+          });
+        },
+        update: function () {
+          this.slides.forEach(slide => {
+              const btn = slide.querySelector('.read-more-btn');
+              if (!btn) return;
+      
+              const paragraph = slide.querySelector('.testimonial-card__body p');
+              const isExpanded = paragraph.classList.contains('expanded');
+      
+              if (!isExpanded) {
+                  if (paragraph.scrollHeight > paragraph.clientHeight) {
+                      btn.classList.remove('read-more-hidden');
+                  } else {
+                      btn.classList.add('read-more-hidden');
+                  }
+              }
+          });
+        }
       }
     });
   }

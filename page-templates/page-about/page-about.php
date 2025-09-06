@@ -162,44 +162,83 @@ get_header(); ?>
                             </div>
                         </div>
                         <div class="column-small">
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">license</span>
-                                <div class="details-item-content">
+                            <?php
+                                get_template_part(
+                                    'template-parts/promotional-banner',
+                                    null,
+                                    array(
+                                        'layout' => 'vertical', // or 'horizontal'
+                                        'type' => 'primary',
+                                        'title' => 'Nino AI',
+                                        'title_icon_type' => 'custom',
+                                        'title_icon_path' => 'img/nino-ai-white.svg',
+                                        'title_icon_position' => 'icon-leading',
+                                        'text' => 'Have specific questions about my professional journey? You can have a conversation with my AI Clone to explore my skills and experience interactively. It\'s the fastest way to get to know my professional profile.',
+
+                                        'primary_cta_text' => 'Nino AI',
+                                        'primary_cta_url' => get_permalink( get_page_by_path( 'nino-ai' ) ),
+                                        'primary_cta_classes' => 'btn-sm btn-secondary',
+
+                                        'primary_cta_icon_type' => 'fa',
+                                        'primary_cta_icon_class' => 'fa-regular fa-message',
+                                        'primary_cta_icon_position' => 'icon-leading',
+                                    )
+                                );
+                            ?>
+                        </div>
+                    </div>
+                    <div class="section__footer">
+                        <div class="courses-wrapper">
+                            <div class="course">
+                                <div class="course__logo">
+                                    <img src="<?php echo esc_url(get_vite_asset('img/google-icon.svg')); ?>" alt="google-icon">
+                                </div>
+                                <div class="course__content">
                                     <h6 class="text-eyebrow-normal">Google UX Design</h6>
                                     <p class="text-caption">2024 · Certificate · Google Career</p>
                                 </div>
                             </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">license</span>
-                                <div class="details-item-content">
+                            <div class="course">
+                                <div class="course__logo">
+                                    <img src="<?php echo esc_url(get_vite_asset('img/uc-san-diego-logo.svg')); ?>" alt="google-icon">
+                                </div>
+                                <div class="course__content">
                                     <h6 class="text-eyebrow-normal">User Experience: Research & Prototyping</h6>
                                     <p class="text-caption">2020 · Certificate · UC San Diego</p>
                                 </div>
                             </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">school</span>
-                                <div class="details-item-content">
+                            <div class="course">
+                                <div class="course__logo">
+                                    <img src="<?php echo esc_url(get_vite_asset('img/uoc-logo.svg')); ?>" alt="google-icon">
+                                </div>
+                                <div class="course__content">
                                     <h6 class="text-eyebrow-normal">User Experience</h6>
                                     <p class="text-caption">2018-2019 · Master's Degree · UOC</p>
                                 </div>
                             </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">license</span>
-                                <div class="details-item-content">
+                            <div class="course">
+                                <div class="course__logo">
+                                    <img src="<?php echo esc_url(get_vite_asset('img/uc-san-diego-logo.svg')); ?>" alt="google-icon">
+                                </div>
+                                <div class="course__content">
                                     <h6 class="text-eyebrow-normal">Human-Centered Design</h6>
                                     <p class="text-caption">2017 · Certificate · UC San Diego</p>
                                 </div>
                             </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">license</span>
-                                <div class="details-item-content">
+                            <div class="course">
+                                <div class="course__logo">
+                                    <img src="<?php echo esc_url(get_vite_asset('img/CEI-escuela-logo.svg')); ?>" alt="google-icon">
+                                </div>
+                                <div class="course__content">
                                     <h6 class="text-eyebrow-normal">Graphic & Web Design, Web Development</h6>
                                     <p class="text-caption">2010-2011 · Certificate · CEI</p>
                                 </div>
                             </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">school</span>
-                                <div class="details-item-content">
+                            <div class="course">
+                                <div class="course__logo">
+                                    <img src="<?php echo esc_url(get_vite_asset('img/universita-di-messina-logo.jpeg')); ?>" alt="google-icon">
+                                </div>
+                                <div class="course__content">
                                     <h6 class="text-eyebrow-normal">Information Technologies (Cognitive Science)</h6>
                                     <p class="text-caption">2006-2010 · Bachelor's Degree · Università di Messina</p>
                                 </div>
@@ -236,6 +275,9 @@ get_header(); ?>
                                         <div class="testimonial-card__body">
                                             <p class="text-body-md">I had the pleasure of working with Antonino while we were on the same team at SAP. <strong>He took great care of our design system and made sure everything we built looked and felt consistent,</strong> with a real eye for detail. As a person he is very approachable and collaborative — always available for a quick chat, whether to clarify a design decision, discuss a weird edge case, or brainstorm together. This kind of openness really helped smooth the connection between design and development. A great teammate — someone who genuinely listens, brings thoughtful feedback, and always keeps users in mind.</p>
                                         </div>
+                                        <div class="testimonial-card__footer">
+                                            <button class="read-more-btn btn btn-sm btn-tertiary">Read more...</button>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
@@ -249,6 +291,9 @@ get_header(); ?>
                                         </div>
                                         <div class="testimonial-card__body">
                                             <p class="text-body-md">I had the pleasure of working closely with Toni in SAP Learning, where he consistently demonstrated deep expertise in UI design and design systems. <strong>He brings a holistic perspective to his work—anticipating the broader impact of design decisions on both the user experience and cross-functional implementation.</strong> Toni's background in web development is a clear asset. It enables seamless collaboration with engineers and allows him to spot feasibility issues early in the process. He's proactive, open to feedback, and builds feedback loops into his workflow, which helps accelerate alignment and delivery. I believe he would be a valuable addition to any team.</p>
+                                        </div>
+                                        <div class="testimonial-card__footer">
+                                            <button class="read-more-btn btn btn-sm btn-tertiary">Read more...</button>
                                         </div>
                                     </div>
                                 </div>
@@ -265,6 +310,9 @@ get_header(); ?>
                                             <p class="text-body-md">I had the chance to work with Antonino on a SAP project, and his UX skills truly stood out. <strong>He excels at turning complex requirements into intuitive, user-friendly designs.</strong></p>
                                             <br>
                                             <p class="text-body-md"> Antonino is a thoughtful designer and he'd be a great asset to any UX team! </p>
+                                        </div>
+                                        <div class="testimonial-card__footer">
+                                            <button class="read-more-btn btn btn-sm btn-tertiary">Read more...</button>
                                         </div>
                                     </div>
                                 </div>
@@ -283,6 +331,9 @@ get_header(); ?>
                                             <p class="text-body-md">I thoroughly enjoyed collaborating with him; <strong>he consistently brought innovative ideas to the table and was always incredibly quick to offer help.</strong> </p>
                                             <br>
                                             <p class="text-body-md">A true asset to any team!</p>
+                                        </div>
+                                        <div class="testimonial-card__footer">
+                                            <button class="read-more-btn btn btn-sm btn-tertiary">Read more...</button>
                                         </div>
                                     </div>
                                 </div>
@@ -400,31 +451,7 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="column-small">
-                            <?php
-                                get_template_part(
-                                    'template-parts/promotional-banner',
-                                    null,
-                                    array(
-                                        'layout' => 'vertical', // or 'horizontal'
-                                        'type' => 'primary',
-                                        'title' => 'Nino AI',
-                                        'title_icon_type' => 'custom',
-                                        'title_icon_path' => 'img/nino-ai-white.svg',
-                                        'title_icon_position' => 'icon-leading',
-                                        'text' => 'Have specific questions about my professional journey? You can have a conversation with my AI Clone to explore my skills and experience interactively. It\'s the fastest way to get to know my professional profile.',
-
-                                        'primary_cta_text' => 'Nino AI',
-                                        'primary_cta_url' => get_permalink( get_page_by_path( 'nino-ai' ) ),
-                                        'primary_cta_classes' => 'btn-sm btn-secondary',
-
-                                        'primary_cta_icon_type' => 'fa',
-                                        'primary_cta_icon_class' => 'fa-regular fa-message',
-                                        'primary_cta_icon_position' => 'icon-leading',
-                                    )
-                                );
-                            ?>
-                        </div>
+                        <div class="column-small"></div>
                     </div>
                 </div>
             </section>

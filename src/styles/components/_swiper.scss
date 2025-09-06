@@ -4,6 +4,8 @@
   width: 100%;
   height: 100%;
   .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
     // gap: var(--size-500);
     .swiper-slide {
       // width: 100% !important;

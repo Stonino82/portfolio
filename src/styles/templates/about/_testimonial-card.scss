@@ -6,7 +6,7 @@
     .swiper-wrapper {
         .swiper-slide {
             .testimonial-card {
-                height: 400px;
+                height: 440px;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
@@ -54,6 +54,22 @@
                         -webkit-line-clamp: 12;
                         -webkit-box-orient: vertical;
                         overflow: hidden;
+                        &.expanded {
+                            -webkit-line-clamp: unset;
+                            height: auto;
+                        }
+                    }
+                }
+                .testimonial-card__footer {
+                    margin-top: auto;
+                    .read-more-btn {
+                        padding-inline: 0;
+                        text-decoration: underline;
+                    }
+                    .read-more-btn.read-more-hidden {
+                        display: none !important;
+                        padding: 0;
+                        text-decoration: underline;
                     }
                 }
             }
