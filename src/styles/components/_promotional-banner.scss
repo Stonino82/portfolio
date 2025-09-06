@@ -2,10 +2,11 @@
 
 .promotional-banner {
   // Vertical & Horizontal layout
+  height: 100%;;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: left;
   gap: var(--size-700);
   padding: var(--size-500);

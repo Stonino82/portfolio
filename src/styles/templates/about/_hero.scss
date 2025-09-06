@@ -16,7 +16,7 @@ main .content-about{
                 @include media-up($breakpoint-md) {
                     grid-template-columns: minmax(180px, 280px) minmax(0, 620px);
                 }
-                .column-left {
+                & > .column:first-child {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -31,7 +31,7 @@ main .content-about{
                         }
                     }
                 }
-                .column-right {
+                & > .column:nth-child(2) {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -107,7 +107,6 @@ main .content-about{
                             }
                         }
                         .swiper-wrapper {
-
                             .swiper-slide {
                                 text-align: center;
                                 p {}
@@ -126,17 +125,21 @@ main .content-about{
                     .hero-ctas {
                         display: flex;
                         flex-direction: column;
-                        gap: var(--size-300); // Gap between buttons
-
-                        @include media-up($breakpoint-sm) {
+                        gap: var(--size-300);
+                        .btn {
+                            width: 100%;
+                        }
+                        .btn-primary {
+                            display: none !important;
+                        }
+                        @include media-up($breakpoint-md) {
                             flex-direction: row;
                             flex-wrap: wrap;
-                        }
-
-                        .btn {
-                            width: 100%; // Full width on mobile
-                            @include media-up($breakpoint-sm) {
+                            .btn {
                                 width: auto; // Auto width for horizontal buttons
+                            }
+                            .btn:first-child {
+                                display: flex !important;
                             }
                         }
                     }

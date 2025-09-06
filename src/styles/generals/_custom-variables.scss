@@ -4,6 +4,7 @@ $transition: all 0.2s ease-out;
 // CSS Custom Properties (Runtime)
 :root {
     // --- Layout Variables ---
+    --max-width: 1200px;
     --header-height: 78px; // Altura base de la cabecera para cálculos de viewport.
     
     --size-0: 0;

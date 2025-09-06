@@ -194,46 +194,96 @@ const initGsapAnimations = () => {
 };
 
 // --- Continuous Carousel Animation ---
-const coursesWrapper = document.querySelector('.courses-wrapper');
-if (coursesWrapper) {
-  const originalCourses = gsap.utils.toArray('.courses-wrapper .course');
-  let originalWidth = 0;
+const createWrapperCarousel = (wrapper, itemSelector, duration = 35) => {
+  if (!wrapper) return;
 
-  // Calculate the width of the original set of courses
-  originalCourses.forEach(course => {
-    originalWidth += course.offsetWidth + parseFloat(getComputedStyle(course).marginRight || 0);
+  const originalItems = Array.from(wrapper.querySelectorAll(itemSelector));
+  if (originalItems.length === 0) return;
+
+  let originalWidth = 0;
+  originalItems.forEach(item => {
+    const style = getComputedStyle(item);
+    originalWidth += item.offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
   });
 
-  // Only proceed if we have valid dimensions
-  if (coursesWrapper.offsetWidth > 0 && originalWidth > 0) {
-    // Fixed cloning: clone the original set a few times to ensure enough content
-    const fixedCloningIterations = 5; // Adjust this number if needed
-
-    for (let i = 0; i < fixedCloningIterations; i++) {
-      originalCourses.forEach(course => {
-        const clone = course.cloneNode(true);
-        coursesWrapper.appendChild(clone);
+  if (wrapper.offsetWidth > 0 && originalWidth > 0) {
+    const cloneCount = Math.ceil(wrapper.offsetWidth / originalWidth) + 2;
+    for (let i = 0; i < cloneCount; i++) {
+      originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        wrapper.appendChild(clone);
       });
     }
 
-    // Recalculate total width after cloning (though not strictly needed for animation, good for debugging) and log it
-    const allCourses = gsap.utils.toArray('.courses-wrapper .course');
-    let totalClonedWidth = 0;
-    allCourses.forEach(course => {
-      totalClonedWidth += course.offsetWidth + parseFloat(getComputedStyle(course).marginRight || 0);
-    });
-    
-    // Now, animate the coursesWrapper
-    gsap.to(coursesWrapper, {
-      x: -originalWidth, // Animate by the width of the original set
+    gsap.to(wrapper, {
+      x: -originalWidth,
       ease: "none",
-      duration: 35, // Adjust duration for desired speed
+      duration: duration,
       repeat: -1,
       modifiers: {
-        x: gsap.utils.unitize(x => parseFloat(x) % originalWidth) // Seamless looping based on original width
+        x: gsap.utils.unitize(x => parseFloat(x) % originalWidth)
       }
     });
   }
+};
+
+const createInnerScrollerCarousel = (wrapper, itemSelector, duration = 30) => {
+  if (!wrapper) return;
+
+  wrapper.classList.add('chip-list--animated');
+
+  const originalItems = Array.from(wrapper.querySelectorAll(itemSelector));
+  if (originalItems.length === 0) return;
+
+  const scroller = document.createElement('div');
+  scroller.className = 'chip-list__scroller';
+  
+  const wrapperStyle = getComputedStyle(wrapper);
+  const gap = parseFloat(wrapperStyle.gap) || 0;
+  scroller.style.gap = wrapperStyle.gap;
+  
+  originalItems.forEach(item => scroller.appendChild(item));
+  wrapper.appendChild(scroller);
+
+  // Calculate the width of a single set of items
+  const originalWidth = scroller.scrollWidth;
+
+  if (wrapper.offsetWidth > 0 && originalWidth > 0) {
+    // The total width of one repeating unit, including the gap after the last item
+    const repeatingWidth = originalWidth + gap;
+
+    // Clone items to ensure the scroller is wide enough for a seamless loop
+    const cloneCount = Math.ceil(wrapper.offsetWidth / repeatingWidth) + 1;
+    for (let i = 0; i < cloneCount; i++) {
+      originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        scroller.appendChild(clone);
+      });
+    }
+
+    // Animate the scroller
+    gsap.to(scroller, {
+      x: -repeatingWidth,
+      ease: "none",
+      duration: duration,
+      repeat: -1,
+      modifiers: {
+        x: gsap.utils.unitize(x => parseFloat(x) % repeatingWidth)
+      }
+    });
+  }
+};
+
+// Apply the carousel to courses
+const coursesWrapper = document.querySelector('.courses-wrapper');
+if (coursesWrapper) {
+  createWrapperCarousel(coursesWrapper, '.course', 35);
 }
+
+// Apply the carousel to chip lists only in specific sections
+const chipLists = document.querySelectorAll('.skills .chip-list');
+chipLists.forEach((chipList) => {
+  createInnerScrollerCarousel(chipList, '.chip', 40);
+});
 
 export default initGsapAnimations;

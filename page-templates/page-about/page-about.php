@@ -14,10 +14,10 @@ get_header(); ?>
             <section class="hero">
                 <div class="section__inner">
                     <div class="section__content">
-                        <div class="column-left">
+                        <div class="column">
                             <img src="<?php echo esc_url(get_vite_asset('img/photo-of-antonino-lattene-product-designer-in-barcelona.png')); ?>" alt="Antonino Lattene Product Designer">
                         </div>
-                        <div class="column-right">
+                        <div class="column">
                             <div class="hero-content hero-swiper swiper">
                                 <div class="hero-swiper-pagination">
                                     <p class="text-body-sm" data-swiper-pagination-bullet><i>👋🏻</i> <span>For Anyone</span></p>
@@ -151,96 +151,73 @@ get_header(); ?>
                         <h2 class="section__title text-gradient">My journey to Product Design</h2>
                     </div>
                     <div class="section__content">
-                        <div class="column-big">
-                            <div class="sub-column">
-                                <p>Ever since I can remember, I've been fascinated by how we think, learn, and perceive, and how we see and interact with information. This curiosity led me to study Information Technology with a focus on <strong>Cognitive Science</strong>, exploring the intricacies of human cognition and language. It provided the academic foundation for my future, grounding me in the 'why' behind <strong>human-computer interaction</strong> long before I officially became a designer.</p>
-                                <p>This academic passion soon met a hands-on fascination with visual design and code. I found joy not just in understanding the user, but in building the tangible interfaces they would use.</p>
-                            </div>
-                            <div class="sub-column">
-                                <p><strong>Product Design</strong> ultimately became the place where my two worlds converged: the human-centered inquiry of cognitive science and the practical craft of digital products. Now, I use this holistic view to create products that are not only intuitive but also thoughtfully engineered.</p>
-                                <p>Today, as a Senior Product Designer at <strong>SAP - Learning Systems</strong>, my journey comes full circle: I get to apply my foundational knowledge of how humans learn and process information directly to the challenge of designing more effective and engaging learning platforms for a global audience.</p>
-                            </div>
-                        </div>
-                        <div class="column-small">
-                            <?php
-                                get_template_part(
-                                    'template-parts/promotional-banner',
-                                    null,
-                                    array(
-                                        'layout' => 'vertical', // or 'horizontal'
-                                        'type' => 'primary',
-                                        'title' => 'Nino AI',
-                                        'title_icon_type' => 'custom',
-                                        'title_icon_path' => 'img/nino-ai-white.svg',
-                                        'title_icon_position' => 'icon-leading',
-                                        'text' => 'Have specific questions about my professional journey? You can have a conversation with my AI Clone to explore my skills and experience interactively. It\'s the fastest way to get to know my professional profile.',
-
-                                        'primary_cta_text' => 'Nino AI',
-                                        'primary_cta_url' => get_permalink( get_page_by_path( 'nino-ai' ) ),
-                                        'primary_cta_classes' => 'btn-sm btn-secondary',
-
-                                        'primary_cta_icon_type' => 'fa',
-                                        'primary_cta_icon_class' => 'fa-regular fa-message',
-                                        'primary_cta_icon_position' => 'icon-leading',
-                                    )
-                                );
-                            ?>
-                        </div>
-                    </div>
-                    <div class="section__footer">
-                        <div class="courses-wrapper">
-                            <div class="course">
-                                <div class="course__logo">
-                                    <img src="<?php echo esc_url(get_vite_asset('img/google-icon.svg')); ?>" alt="google-icon">
+                        <div class="column">
+                            <div class="column__paragraph">
+                                <div>
+                                    <p>Ever since I can remember, I've been fascinated by how we think, learn, and perceive, and how we see and interact with information. This curiosity led me to study Information Technology with a focus on <strong>Cognitive Science</strong>, exploring the intricacies of human cognition and language. It provided the academic foundation for my future, grounding me in the 'why' behind <strong>human-computer interaction</strong> long before I officially became a designer.</p>
+                                    <p>This academic passion soon met a hands-on fascination with visual design and code. I found joy not just in understanding the user, but in building the tangible interfaces they would use.</p>
                                 </div>
-                                <div class="course__content">
-                                    <h6 class="text-eyebrow-normal">Google UX Design</h6>
-                                    <p class="text-caption">2024 · Certificate · Google Career</p>
+                                <div>
+                                    <p><strong>Product Design</strong> ultimately became the place where my two worlds converged: the human-centered inquiry of cognitive science and the practical craft of digital products. Now, I use this holistic view to create products that are not only intuitive but also thoughtfully engineered.</p>
+                                    <p>Today, as a Senior Product Designer at <strong>SAP - Learning Systems</strong>, my journey comes full circle: I get to apply my foundational knowledge of how humans learn and process information directly to the challenge of designing more effective and engaging learning platforms for a global audience.</p>
                                 </div>
                             </div>
-                            <div class="course">
-                                <div class="course__logo">
-                                    <img src="<?php echo esc_url(get_vite_asset('img/uc-san-diego-logo.svg')); ?>" alt="google-icon">
-                                </div>
-                                <div class="course__content">
-                                    <h6 class="text-eyebrow-normal">User Experience: Research & Prototyping</h6>
-                                    <p class="text-caption">2020 · Certificate · UC San Diego</p>
-                                </div>
-                            </div>
-                            <div class="course">
-                                <div class="course__logo">
-                                    <img src="<?php echo esc_url(get_vite_asset('img/uoc-logo.svg')); ?>" alt="google-icon">
-                                </div>
-                                <div class="course__content">
-                                    <h6 class="text-eyebrow-normal">User Experience</h6>
-                                    <p class="text-caption">2018-2019 · Master's Degree · UOC</p>
-                                </div>
-                            </div>
-                            <div class="course">
-                                <div class="course__logo">
-                                    <img src="<?php echo esc_url(get_vite_asset('img/uc-san-diego-logo.svg')); ?>" alt="google-icon">
-                                </div>
-                                <div class="course__content">
-                                    <h6 class="text-eyebrow-normal">Human-Centered Design</h6>
-                                    <p class="text-caption">2017 · Certificate · UC San Diego</p>
-                                </div>
-                            </div>
-                            <div class="course">
-                                <div class="course__logo">
-                                    <img src="<?php echo esc_url(get_vite_asset('img/CEI-escuela-logo.svg')); ?>" alt="google-icon">
-                                </div>
-                                <div class="course__content">
-                                    <h6 class="text-eyebrow-normal">Graphic & Web Design, Web Development</h6>
-                                    <p class="text-caption">2010-2011 · Certificate · CEI</p>
-                                </div>
-                            </div>
-                            <div class="course">
-                                <div class="course__logo">
-                                    <img src="<?php echo esc_url(get_vite_asset('img/universita-di-messina-logo.jpeg')); ?>" alt="google-icon">
-                                </div>
-                                <div class="course__content">
-                                    <h6 class="text-eyebrow-normal">Information Technologies (Cognitive Science)</h6>
-                                    <p class="text-caption">2006-2010 · Bachelor's Degree · Università di Messina</p>
+                            <div class="column__footer">
+                                <div class="courses-wrapper">
+                                    <div class="course">
+                                        <div class="course__logo">
+                                            <img src="<?php echo esc_url(get_vite_asset('img/google-icon.svg')); ?>" alt="google-icon">
+                                        </div>
+                                        <div class="course__content">
+                                            <h6 class="text-eyebrow-normal">Google UX Design</h6>
+                                            <p class="text-caption">2024 · Certificate · Google Career</p>
+                                        </div>
+                                    </div>
+                                    <div class="course">
+                                        <div class="course__logo">
+                                            <img src="<?php echo esc_url(get_vite_asset('img/uc-san-diego-logo.svg')); ?>" alt="google-icon">
+                                        </div>
+                                        <div class="course__content">
+                                            <h6 class="text-eyebrow-normal">User Experience: Research & Prototyping</h6>
+                                            <p class="text-caption">2020 · Certificate · UC San Diego</p>
+                                        </div>
+                                    </div>
+                                    <div class="course">
+                                        <div class="course__logo">
+                                            <img src="<?php echo esc_url(get_vite_asset('img/uoc-logo.svg')); ?>" alt="google-icon">
+                                        </div>
+                                        <div class="course__content">
+                                            <h6 class="text-eyebrow-normal">User Experience</h6>
+                                            <p class="text-caption">2018-2019 · Master's Degree · UOC</p>
+                                        </div>
+                                    </div>
+                                    <div class="course">
+                                        <div class="course__logo">
+                                            <img src="<?php echo esc_url(get_vite_asset('img/uc-san-diego-logo.svg')); ?>" alt="google-icon">
+                                        </div>
+                                        <div class="course__content">
+                                            <h6 class="text-eyebrow-normal">Human-Centered Design</h6>
+                                            <p class="text-caption">2017 · Certificate · UC San Diego</p>
+                                        </div>
+                                    </div>
+                                    <div class="course">
+                                        <div class="course__logo">
+                                            <img src="<?php echo esc_url(get_vite_asset('img/CEI-escuela-logo.svg')); ?>" alt="google-icon">
+                                        </div>
+                                        <div class="course__content">
+                                            <h6 class="text-eyebrow-normal">Graphic & Web Design, Web Development</h6>
+                                            <p class="text-caption">2010-2011 · Certificate · CEI</p>
+                                        </div>
+                                    </div>
+                                    <div class="course">
+                                        <div class="course__logo">
+                                            <img src="<?php echo esc_url(get_vite_asset('img/universita-di-messina-logo.jpeg')); ?>" alt="google-icon">
+                                        </div>
+                                        <div class="course__content">
+                                            <h6 class="text-eyebrow-normal">Information Technologies (Cognitive Science)</h6>
+                                            <p class="text-caption">2006-2010 · Bachelor's Degree · Università di Messina</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -341,16 +318,16 @@ get_header(); ?>
                         </div>
                     </div>
                     <div class="section__footer">
-                        <div class="column-left">
+                        <div class="column">
                             <div class="testimonial-images">
-                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-tatiana.png')); ?>" alt="testimonial Tatiana">
-                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-gabriela.png')); ?>" alt="testimonial Gabriela">
-                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-constantin.png')); ?>" alt="testimonial Constantin">
-                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-ece.png')); ?>" alt="testimonial Ece">
+                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-1.png')); ?>" alt="testimonial Tatiana">
+                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-2.png')); ?>" alt="testimonial Gabriela">
+                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-3.png')); ?>" alt="testimonial Constantin">
+                                <img src="<?php echo esc_url(get_vite_asset('img/testimonial-4.png')); ?>" alt="testimonial Ece">
                             </div>
                             <p class="text-body-md">See more testimonials</p>
                         </div>
-                        <div class="column-right">
+                        <div class="column">
                             <a class="btn btn-sm btn-primary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
                                 Linkedin
                                 <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
@@ -361,66 +338,91 @@ get_header(); ?>
             </section>
             <section class="skills">
                 <div class="section__inner">
-                    <div class="section__header">
-                        <h2 class="section__title text-gradient">Skills & Stack</h2>
-                    </div>
                     <div class="section__content">
-                        <div class="column-small">
-                            <p>I'm a hands-on product designer passionate about the full end-to-end process. While I partner on early product strategy, my core strength lies in execution: translating insights into engaging Interaction Designs, polished UI, and high-fidelity prototypes. I specialize in creating and scaling robust Design Systems. Grounded in my front-end background, I'm always exploring new tools to stay at the forefront of the craft.</p>                            
+                        <div class="column">
+                            <?php
+                                get_template_part(
+                                    'template-parts/promotional-banner',
+                                    null,
+                                    array(
+                                        'layout' => 'vertical', // or 'horizontal'
+                                        'type' => 'primary',
+                                        'title' => 'Nino AI',
+                                        'title_icon_type' => 'custom',
+                                        'title_icon_path' => 'img/nino-ai-white.svg',
+                                        'title_icon_position' => 'icon-leading',
+                                        'text' => 'Have specific questions about my professional journey? You can have a conversation with my AI Clone to explore my skills and experience interactively. It\'s the fastest way to get to know my professional profile.',
+
+                                        'primary_cta_text' => 'Nino AI',
+                                        'primary_cta_url' => get_permalink( get_page_by_path( 'nino-ai' ) ),
+                                        'primary_cta_classes' => 'btn-sm btn-secondary',
+
+                                        'primary_cta_icon_type' => 'fa',
+                                        'primary_cta_icon_class' => 'fa-regular fa-message',
+                                        'primary_cta_icon_position' => 'icon-leading',
+                                    )
+                                );
+                            ?>
                         </div>
-                        <div class="column-big">
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">chess</span>
-                                <div class="details-item-content">
-                                    <h6 class="text-eyebrow-normal">Skills</h6>
+                        <div class="column">
+                            <div class="column__header">
+                                <h2 class="section__header text-gradient">Skills & Stack</h2>
+                            </div>
+                            <p>I'm a hands-on product designer passionate about the full end-to-end process. While I partner on early product strategy, my core strength lies in execution: translating insights into engaging Interaction Designs, polished UI, and high-fidelity prototypes. I specialize in creating and scaling robust Design Systems. Grounded in my front-end background, I'm always exploring new tools to stay at the forefront of the craft.</p>
+                            <div class="column__footer">
+                                <div class="list">
+                                    <div class="list__header">
+                                        <span class="material-symbols-rounded">chess</span>
+                                        <h6 class="text-eyebrow-normal">Skills</h6>
+                                    </div>
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared">Product strategy</span>
-                                        <span class="chip chip--squared">Interaction design</span>
-                                        <span class="chip chip--squared">Design System</span>
-                                        <span class="chip chip--squared">Prototyping</span>
-                                        <span class="chip chip--squared">Accessibility</span>
-                                        <span class="chip chip--squared">Visual Design</span>
-                                        <span class="chip chip--squared">Information Architecture</span>
+                                        <span class="chip chip--squared chip--amber">Product strategy</span>
+                                        <span class="chip chip--squared chip--amber">Interaction design</span>
+                                        <span class="chip chip--squared chip--amber">Design System</span>
+                                        <span class="chip chip--squared chip--amber">Prototyping</span>
+                                        <span class="chip chip--squared chip--amber">Accessibility</span>
+                                        <span class="chip chip--squared chip--amber">Visual Design</span>
+                                        <span class="chip chip--squared chip--amber">Information Architecture</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">tools_power_drill</span>
-                                <div class="details-item-content">
-                                    <h6 class="text-eyebrow-normal">Tools & Technology</h6>
+                                <div class="list">
+                                    <div class="list__header">
+                                        <span class="material-symbols-rounded">tools_power_drill</span>
+                                        <h6 class="text-eyebrow-normal">Tools & Technology</h6>
+                                    </div>
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared">Figma</span>
-                                        <span class="chip chip--squared">Adobe XD</span>
-                                        <span class="chip chip--squared">Sketch</span>
-                                        <span class="chip chip--squared">Adobe</span>
-                                        <span class="chip chip--squared">Jira</span>
-                                        <span class="chip chip--squared">Slack</span>
-                                        <span class="chip chip--squared">Miro</span>
-                                        <span class="chip chip--squared">Notion</span>
-                                        <span class="chip chip--squared">HTML5</span>
-                                        <span class="chip chip--squared">CSS3 / SASS</span>
-                                        <span class="chip chip--squared">JavaScript</span>
-                                        <span class="chip chip--squared">React</span>
-                                        <span class="chip chip--squared">Angular</span>
-                                        <span class="chip chip--squared">PHP</span>
-                                        <span class="chip chip--squared">Git</span>
-                                        <span class="chip chip--squared">Vite</span>
-                                        <span class="chip chip--squared">Tailwind</span>
-                                        <span class="chip chip--squared">Meterial Design</span>
+                                        <span class="chip chip--squared chip--sky">Figma</span>
+                                        <span class="chip chip--squared chip--sky">Adobe XD</span>
+                                        <span class="chip chip--squared chip--sky">Sketch</span>
+                                        <span class="chip chip--squared chip--sky">Adobe</span>
+                                        <span class="chip chip--squared chip--sky">Jira</span>
+                                        <span class="chip chip--squared chip--sky">Slack</span>
+                                        <span class="chip chip--squared chip--sky">Miro</span>
+                                        <span class="chip chip--squared chip--sky">Notion</span>
+                                        <span class="chip chip--squared chip--sky">HTML5</span>
+                                        <span class="chip chip--squared chip--sky">CSS3 / SASS</span>
+                                        <span class="chip chip--squared chip--sky">JavaScript</span>
+                                        <span class="chip chip--squared chip--sky">React</span>
+                                        <span class="chip chip--squared chip--sky">Angular</span>
+                                        <span class="chip chip--squared chip--sky">PHP</span>
+                                        <span class="chip chip--squared chip--sky">Git</span>
+                                        <span class="chip chip--squared chip--sky">Vite</span>
+                                        <span class="chip chip--squared chip--sky">Tailwind</span>
+                                        <span class="chip chip--squared chip--sky">Meterial Design</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="details-item">
-                                <span class="material-symbols-rounded">auto_stories</span>
-                                <div class="details-item-content">
-                                    <h6 class="text-eyebrow-normal">Currently Learning</h6>
+                                <div class="list">
+                                    <div class="list__header">
+                                        <span class="material-symbols-rounded">auto_stories</span>
+                                        <h6 class="text-eyebrow-normal">Currently Learning</h6>
+                                    </div>
                                     <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared">Generative AI</span>
-                                        <span class="chip chip--squared">AI in Design</span>
-                                        <span class="chip chip--squared">Vibe Design</span>
-                                        <span class="chip chip--squared">Vibe Coding</span>
-                                        <span class="chip chip--squared">v0</span>
-                                        <span class="chip chip--squared">Lovable</span>
+                                        <span class="chip chip--squared chip--teal">Generative AI</span>
+                                        <span class="chip chip--squared chip--teal">AI in Design</span>
+                                        <span class="chip chip--squared chip--teal">Vibe Design</span>
+                                        <span class="chip chip--squared chip--teal">Vibe Coding</span>
+                                        <span class="chip chip--squared chip--teal">v0</span>
+                                        <span class="chip chip--squared chip--teal">Lovable</span>
                                     </div>
                                 </div>
                             </div>
@@ -434,13 +436,13 @@ get_header(); ?>
                         <h2 class="section__title text-gradient">Beyond the Pixels</h2>
                     </div>
                     <div class="section__content">
-                        <div class="column-big">
-                            <p>When I'm not designing, I'm usually out exploring. You might find me riding my motorbike through the Catalan countryside, playing beach volley, or discovering new corners of Barcelona with my camera.  I believe that disconnecting and experiencing the world, whether through travel or just a good book in a new coffee shop, is the best way to bring a fresh, human perspective back to my work.</p>
-                            <p>I'm a life-long learner, passionate about applying new knowledge over collecting certifications and I'm a firm believer in giving back to the design community. I find great joy in connecting with and informally mentoring aspiring designers who are starting their journey. Whether it's a portfolio review over coffee or sharing advice, I think it's essential to support the next generation of talent in our industry.</p>
-                            <div class="details-item">
-                                <!-- <span class="material-symbols-rounded">tools_power_drill</span> -->
-                                <div class="details-item-content">
-                                    <!-- <h6 class="text-eyebrow-normal">Tools & Technology</h6> -->
+                        <div class="column">
+                            <div class="column__paragraph">
+                                <p>When I'm not designing, I'm usually out exploring. You might find me riding my motorbike through the Catalan countryside, playing beach volley, or discovering new corners of Barcelona with my camera.  I believe that disconnecting and experiencing the world, whether through travel or just a good book in a new coffee shop, is the best way to bring a fresh, human perspective back to my work.</p>
+                                <p>I'm a life-long learner, passionate about applying new knowledge over collecting certifications and I'm a firm believer in giving back to the design community. I find great joy in connecting with and informally mentoring aspiring designers who are starting their journey. Whether it's a portfolio review over coffee or sharing advice, I think it's essential to support the next generation of talent in our industry.</p>
+                            </div>
+                            <div class="column__footer">
+                                <div class="list">
                                     <div class="chip-list chip-list--md">
                                         <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
                                         <span class="chip chip--squared"><i>🏍️</i> Riding</span>
@@ -451,7 +453,6 @@ get_header(); ?>
                                 </div>
                             </div>
                         </div>
-                        <div class="column-small"></div>
                     </div>
                 </div>
             </section>

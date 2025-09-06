@@ -34,7 +34,7 @@
     
     <a class="btn btn-sm btn-primary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
         <i class="icon-leading fa-brands fa-linkedin-in"></i>
-        Linkedin
+        Let's connect
     </a>
 </div>
 
