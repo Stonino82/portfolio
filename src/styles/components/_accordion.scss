@@ -1,0 +1,74 @@
+@use '../generals/variables' as v;
+@use '../generals/mixins' as m;
+
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .accordion-item {
+    width: 100%;
+    padding: var(--size-200) 0;
+    border-bottom: 1px solid var(--color-border-secondary);
+
+    .accordion-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+      gap: var(--size-100);
+
+      .accordion-title-icon {
+        flex-shrink: 0;
+        color: var(--color-text-tertiary);
+        svg {
+          display: block;
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      .accordion-title {
+        flex-grow: 1;
+        margin: 0;
+      }
+
+      .accordion-toggle-icon {
+        flex-shrink: 0;
+        transition: transform 0.3s ease-in-out;
+        color: var(--color-brand-primary)
+      }
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out;
+
+      .accordion-content-inner {
+        padding: var(--size-300) var(--size-600);
+
+        & > *:first-child {
+          margin-top: 0;
+        }
+
+        & > *:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    // Active state
+    &.active {
+      .accordion-header {
+        .accordion-toggle-icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

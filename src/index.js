@@ -9,6 +9,7 @@ import initHeaderScroll from './js/header-scroll.js';
 
 // Import Swiper configuration
 import initTestimonialSwiper, { initHeroSwiper } from './js/swiper-config.js';
+import './js/accordion.js';
 
 /**
  * Run all initialization logic after the DOM is fully loaded.

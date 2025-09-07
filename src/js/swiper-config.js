@@ -12,7 +12,7 @@ const initTestimonialSwiper = () => {
       // Optional parameters
       loop: true,
       autoplay: {
-        delay: 5000000,
+        delay: 5000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
       },

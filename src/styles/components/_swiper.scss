@@ -32,7 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between !important;
-  color: var(--palette-primary-foreground) !important;
+  color: var(--component-primary-foreground) !important;
   &::after {
     content: none !important;
   }

@@ -2,7 +2,7 @@
 @use 'resets/overwrite-rules' as *;
 
 /* Generals */
-@use 'generals/custom-variables' as *; // 1. Variables
+@use 'generals/variables' as *; // 1. Variables
 @use 'generals/mixins' as *;           // 2. Mixins
 @use 'generals/colors' as *;           // 3. Colores
 @use 'generals/typo' as *;             // 4. Tipografía
@@ -40,6 +40,7 @@
 @use 'components/separator' as *;
 @use 'components/spinner' as *;
 @use 'components/swiper' as *;
+@use 'components/accordion' as *;
 
 
 

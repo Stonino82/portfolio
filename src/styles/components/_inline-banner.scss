@@ -7,7 +7,7 @@
   flex-direction: column;
   gap: var(--size-600); // Espacio entre contenido y botón en móvil
   padding: var(--size-400);
-  background: linear-gradient(var(--color-surface-page), var(--color-surface-page)) padding-box, var(--color-brand-gradient) border-box;
+  background: linear-gradient(var(--color-surface-secondary), var(--color-surface-secondary)) padding-box, var(--color-brand-gradient) border-box;
 	border: 1px solid transparent;
   color: var(--color-text-primary);
   border-radius: var(--size-400);

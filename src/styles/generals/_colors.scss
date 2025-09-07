@@ -4,7 +4,7 @@ COLOR SYSTEM
 ================================================================================
 This file defines the color palette using a modern, two-layer system:
 
-1.  PRIMITIVES (in _custom-variables.scss):
+1.  PRIMITIVES (in variables.scss):
     - Raw, non-semantic color values (e.g., --color-blue-500).
     - They are the single source of truth for all available colors.
     - Named by color family and shade (100-900).
@@ -37,8 +37,8 @@ This approach makes the design system scalable, themeable, and easy to maintain.
   // -- Tokens: Global UI (Surface, Text, Border, Shadows)
 
   // General surfaces colors
-  --color-surface-page: var(--color-neutral-25);
-  --color-surface-content: var(--color-neutral-0);
+  --color-surface-primary: var(--color-neutral-0);
+  --color-surface-secondary: var(--color-neutral-25);
   // Text colors
   --color-text-primary: var(--color-neutral-950);
   --color-text-secondary: var(--color-neutral-800);
@@ -118,8 +118,8 @@ body[data-theme="dark"],
   // -- Redefine Global UI
 
   // General surfaces colors
-  --color-surface-page: var(--color-neutral-950);
-  --color-surface-content: var(--color-neutral-900);
+  --color-surface-primary: var(--color-neutral-900);
+  --color-surface-secondary: var(--color-neutral-950);
   // Text colors
   --color-text-primary: var(--color-neutral-25);
   --color-text-secondary: var(--color-neutral-100);

@@ -4,10 +4,10 @@ main {
     .content-about {
         // General Sections Styles
         section {
-            background-color: var(--color-surface-page);
+            background-color: var(--color-surface-secondary);
             border-radius: unset !important;
             &:nth-of-type(even) {
-                background-color: var(--color-surface-content);
+                background-color: var(--color-surface-primary);
             }
             .section__inner {
                 max-width: var(--max-width);
@@ -17,7 +17,7 @@ main {
                 justify-content: center;
                 gap: var(--size-600);
                 margin: 0 auto;
-                padding: var(--size-800) var(--size-500);
+                padding: var(--size-950) var(--size-500);
                 & > * {
                     width: 100%;
                 }
@@ -82,6 +82,8 @@ main {
                             width: 100%;
                             display: flex;
                             flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
                             gap: var(--size-400);
                             overflow: hidden;
                             border: none;
@@ -102,7 +104,7 @@ main {
                     justify-content: space-between;
                     gap: var(--size-600);
                     padding: var(--size-600);
-                    background-color: var(--color-surface-content);
+                    background-color: var(--color-surface-primary);
                     border: 1px solid var(--color-border-primary);
                     border-radius: var(--size-400);
                     @include media-up($breakpoint-md) {
@@ -134,7 +136,7 @@ main {
                                 border-radius: 50%;
                                 box-shadow: var(--box-shadow-dp2);
                                 margin-right: calc(var(--size-500) * -1);
-                                border: 2px solid var(--color-surface-content);
+                                border: 2px solid var(--color-surface-primary);
                             }
                         }
                     }
@@ -159,7 +161,7 @@ main {
                 .section__inner {
                     .section__content {
                         padding: var(--size-600);
-                        background-color: var(--color-surface-content);
+                        background-color: var(--color-surface-primary);
                         border: 1px solid var(--color-border-primary);
                         border-radius: var(--size-400);
                         box-shadow: var(--box-shadow-dp1);
@@ -178,6 +180,7 @@ main {
             }
             &.journey {
                 .section__inner {
+                    max-width: 992px;
                     .section__content {
                         .column {
                             gap: var(--size-500);
@@ -191,7 +194,7 @@ main {
                                         align-items: center;
                                         gap: var(--size-100);
                                         padding: var(--size-200);
-                                        background-color: var(--color-surface-page);
+                                        background-color: var(--color-surface-secondary);
                                         border: 1px solid var(--color-border-primary);
                                         border-radius: var(--radius-xl);
                                         margin-right: var(--size-400);
@@ -237,6 +240,7 @@ main {
             }
             &.skills {
                 .section__inner {
+                    max-width: 992px;
                     .section__content {
                         @include media-up($breakpoint-lg) {
                             grid-template-columns:  minmax(180px, 240px) minmax(0, 1fr);
@@ -244,43 +248,17 @@ main {
                     }
                     .column {
                         .column__footer {
-                            .list{
-                                display: flex;
-                                flex-direction: column;
-                                gap: var(--size-100);
-                                width: 50%;
-                                .list__header {
-                                    display: flex;
-                                    align-items: center;
-                                    gap: var(--size-100);
-                                    .material-symbols-rounded {
-                                        font-size: 22px;
-                                        color: var(--color-text-tertiary);
-                                    }
-                                    h6 {
-                                        color: var(--color-text-primary);
-                                        margin: 0;
-                                    }
-                                }
-                                .chip-list--animated {
-                                    flex-wrap: nowrap;
-                                    overflow: hidden;
-                                    .chip-list__scroller {
-                                        display: flex;
-                                        flex-wrap: nowrap;
-                                        gap: var(--size-100);
-                                    }
-                                }
-                            }
                         }
                     }
                 }
             }
             &.passions {
                 .section__inner {
+                    max-width: 992px;
                     .section__content {
                         @include media-up($breakpoint-lg) {
-                            grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+                            grid-template-columns: 1fr 1fr;
+                            // grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
                         }
                     }
                 }
@@ -289,7 +267,7 @@ main {
                 .section__inner {
                     .section__content {
                         @include media-up($breakpoint-lg) {
-                            grid-template-columns: 1fr 1fr;
+                            // grid-template-columns: 1fr 1fr;
                             grid-template-columns: minmax(180px, 340px) minmax(0, 1fr);
                         }
                         .column:nth-of-type(2) {
@@ -302,6 +280,7 @@ main {
             }
             &.last {
                 .section__inner {
+                    max-width: 992px;
                     .section__content {
                         .promotional-banner {
                             padding: var(--size-600);

@@ -370,61 +370,62 @@ get_header(); ?>
                             </div>
                             <p>I'm a hands-on product designer passionate about the full end-to-end process. While I partner on early product strategy, my core strength lies in execution: translating insights into engaging Interaction Designs, polished UI, and high-fidelity prototypes. I specialize in creating and scaling robust Design Systems. Grounded in my front-end background, I'm always exploring new tools to stay at the forefront of the craft.</p>
                             <div class="column__footer">
-                                <div class="list">
-                                    <div class="list__header">
-                                        <span class="material-symbols-rounded">chess</span>
-                                        <h6 class="text-eyebrow-normal">Skills</h6>
-                                    </div>
-                                    <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared chip--amber">Product strategy</span>
-                                        <span class="chip chip--squared chip--amber">Interaction design</span>
-                                        <span class="chip chip--squared chip--amber">Design System</span>
-                                        <span class="chip chip--squared chip--amber">Prototyping</span>
-                                        <span class="chip chip--squared chip--amber">Accessibility</span>
-                                        <span class="chip chip--squared chip--amber">Visual Design</span>
-                                        <span class="chip chip--squared chip--amber">Information Architecture</span>
-                                    </div>
-                                </div>
-                                <div class="list">
-                                    <div class="list__header">
-                                        <span class="material-symbols-rounded">tools_power_drill</span>
-                                        <h6 class="text-eyebrow-normal">Tools & Technology</h6>
-                                    </div>
-                                    <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared chip--sky">Figma</span>
-                                        <span class="chip chip--squared chip--sky">Adobe XD</span>
-                                        <span class="chip chip--squared chip--sky">Sketch</span>
-                                        <span class="chip chip--squared chip--sky">Adobe</span>
-                                        <span class="chip chip--squared chip--sky">Jira</span>
-                                        <span class="chip chip--squared chip--sky">Slack</span>
-                                        <span class="chip chip--squared chip--sky">Miro</span>
-                                        <span class="chip chip--squared chip--sky">Notion</span>
-                                        <span class="chip chip--squared chip--sky">HTML5</span>
-                                        <span class="chip chip--squared chip--sky">CSS3 / SASS</span>
-                                        <span class="chip chip--squared chip--sky">JavaScript</span>
-                                        <span class="chip chip--squared chip--sky">React</span>
-                                        <span class="chip chip--squared chip--sky">Angular</span>
-                                        <span class="chip chip--squared chip--sky">PHP</span>
-                                        <span class="chip chip--squared chip--sky">Git</span>
-                                        <span class="chip chip--squared chip--sky">Vite</span>
-                                        <span class="chip chip--squared chip--sky">Tailwind</span>
-                                        <span class="chip chip--squared chip--sky">Meterial Design</span>
-                                    </div>
-                                </div>
-                                <div class="list">
-                                    <div class="list__header">
-                                        <span class="material-symbols-rounded">auto_stories</span>
-                                        <h6 class="text-eyebrow-normal">Currently Learning</h6>
-                                    </div>
-                                    <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared chip--teal">Generative AI</span>
-                                        <span class="chip chip--squared chip--teal">AI in Design</span>
-                                        <span class="chip chip--squared chip--teal">Vibe Design</span>
-                                        <span class="chip chip--squared chip--teal">Vibe Coding</span>
-                                        <span class="chip chip--squared chip--teal">v0</span>
-                                        <span class="chip chip--squared chip--teal">Lovable</span>
-                                    </div>
-                                </div>
+                                <?php
+                                    $accordions = [
+                                        [
+                                            'title'   => 'Skills',
+                                            'icon'    => '<span class="material-symbols-rounded">chess</span>',
+                                            'content' => '<ul class="chip-list chip-list--md">
+                                                            <li class="chip chip--squared chip--neutral">Product strategy</li>
+                                                            <li class="chip chip--squared chip--neutral">Interaction design</li>
+                                                            <li class="chip chip--squared chip--neutral">Design System</li>
+                                                            <li class="chip chip--squared chip--neutral">Prototyping</li>
+                                                            <li class="chip chip--squared chip--neutral">Accessibility</li>
+                                                            <li class="chip chip--squared chip--neutral">Visual Design</li>
+                                                            <li class="chip chip--squared chip--neutral">Information Architecture</li>
+                                                        </ul>',
+                                            'is_open' => true // Este aparecerá cerrado por defecto
+                                        ],
+                                        [
+                                            'title'   => 'Tools & Technology',
+                                            'icon'    => '<span class="material-symbols-rounded">tools_power_drill</span>',
+                                            'content' => '<ul class="chip-list chip-list--md">
+                                                            <li class="chip chip--squared chip--neutral">Figma</li>
+                                                            <li class="chip chip--squared chip--neutral">Adobe XD</li>
+                                                            <li class="chip chip--squared chip--neutral">Sketch</li>
+                                                            <li class="chip chip--squared chip--neutral">Adobe</li>
+                                                            <li class="chip chip--squared chip--neutral">Jira</li>
+                                                            <li class="chip chip--squared chip--neutral">Slack</li>
+                                                            <li class="chip chip--squared chip--neutral">Miro</li>
+                                                            <li class="chip chip--squared chip--neutral">Notion</li>
+                                                            <li class="chip chip--squared chip--neutral">HTML5</li>
+                                                            <li class="chip chip--squared chip--neutral">CSS3 / SASS</li>
+                                                            <li class="chip chip--squared chip--neutral">JavaScript</li>
+                                                            <li class="chip chip--squared chip--neutral">React</li>
+                                                            <li class="chip chip--squared chip--neutral">Angular</li>
+                                                            <li class="chip chip--squared chip--neutral">PHP</li>
+                                                            <li class="chip chip--squared chip--neutral">Git</li>
+                                                            <li class="chip chip--squared chip--neutral">Vite</li>
+                                                            <li class="chip chip--squared chip--neutral">Tailwind</li>
+                                                            <li class="chip chip--squared chip--neutral">Material Design</li>
+                                                        </ul>'
+                                        ],
+                                        [
+                                            'title'   => 'Currently learning',
+                                            'icon'    => '<span class="material-symbols-rounded">auto_stories</span>',
+                                            'content' => '<ul class="chip-list chip-list--md">
+                                                            <li class="chip chip--squared chip--neutral">Generative AI</li>
+                                                            <li class="chip chip--squared chip--neutral">AI in Design</li>
+                                                            <li class="chip chip--squared chip--neutral">Vibe Design</li>
+                                                            <li class="chip chip--squared chip--neutral">Vibe Coding</li>
+                                                            <li class="chip chip--squared chip--neutral">v0</li>
+                                                            <li class="chip chip--squared chip--neutral">Lovable</li>
+                                                        </ul>'
+                                        ]
+                                    ];
+
+                                    get_template_part('template-parts/accordion', null, ['items' => $accordions]);
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -437,21 +438,20 @@ get_header(); ?>
                     </div>
                     <div class="section__content">
                         <div class="column">
-                            <div class="column__paragraph">
-                                <p>When I'm not designing, I'm usually out exploring. You might find me riding my motorbike through the Catalan countryside, playing beach volley, or discovering new corners of Barcelona with my camera.  I believe that disconnecting and experiencing the world, whether through travel or just a good book in a new coffee shop, is the best way to bring a fresh, human perspective back to my work.</p>
-                                <p>I'm a life-long learner, passionate about applying new knowledge over collecting certifications and I'm a firm believer in giving back to the design community. I find great joy in connecting with and informally mentoring aspiring designers who are starting their journey. Whether it's a portfolio review over coffee or sharing advice, I think it's essential to support the next generation of talent in our industry.</p>
-                            </div>
-                            <div class="column__footer">
-                                <div class="list">
-                                    <div class="chip-list chip-list--md">
-                                        <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
-                                        <span class="chip chip--squared"><i>🏍️</i> Riding</span>
-                                        <span class="chip chip--squared"><i>📷</i> Photography</span>
-                                        <span class="chip chip--squared"><i>📖</i> Reading</span>
-                                        <span class="chip chip--squared"><i>☕️</i> Coffee Lover</span>
-                                    </div>
+                            <p>When I'm not designing, I'm usually out exploring. You might find me riding my motorbike through the Catalan countryside, playing beach volley, or discovering new corners of Barcelona with my camera. I believe that disconnecting and experiencing the world, whether through travel or just a good book in a new coffee shop, is the best way to bring a fresh, human perspective back to my work.</p>
+                            <div class="list">
+                                <div class="chip-list chip-list--md">
+                                    <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
+                                    <span class="chip chip--squared"><i>🏍️</i> Riding</span>
+                                    <span class="chip chip--squared"><i>📷</i> Photography</span>
+                                    <span class="chip chip--squared"><i>📖</i> Reading</span>
+                                    <span class="chip chip--squared"><i>☕️</i> Coffee Lover</span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="column">
+                            <p>I find great joy in connecting with and informally mentoring aspiring designers who are starting their journey. Whether it's a portfolio review over coffee or sharing advice, I think it's essential to support the next generation of talent in our industry.</p>
+                            <p>I'm a life-long learner, passionate about applying new knowledge over collecting certifications and I'm a firm believer in giving back to the design community.</p>
                         </div>
                     </div>
                 </div>

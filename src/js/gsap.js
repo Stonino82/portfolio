@@ -227,63 +227,10 @@ const createWrapperCarousel = (wrapper, itemSelector, duration = 35) => {
   }
 };
 
-const createInnerScrollerCarousel = (wrapper, itemSelector, duration = 30) => {
-  if (!wrapper) return;
-
-  wrapper.classList.add('chip-list--animated');
-
-  const originalItems = Array.from(wrapper.querySelectorAll(itemSelector));
-  if (originalItems.length === 0) return;
-
-  const scroller = document.createElement('div');
-  scroller.className = 'chip-list__scroller';
-  
-  const wrapperStyle = getComputedStyle(wrapper);
-  const gap = parseFloat(wrapperStyle.gap) || 0;
-  scroller.style.gap = wrapperStyle.gap;
-  
-  originalItems.forEach(item => scroller.appendChild(item));
-  wrapper.appendChild(scroller);
-
-  // Calculate the width of a single set of items
-  const originalWidth = scroller.scrollWidth;
-
-  if (wrapper.offsetWidth > 0 && originalWidth > 0) {
-    // The total width of one repeating unit, including the gap after the last item
-    const repeatingWidth = originalWidth + gap;
-
-    // Clone items to ensure the scroller is wide enough for a seamless loop
-    const cloneCount = Math.ceil(wrapper.offsetWidth / repeatingWidth) + 1;
-    for (let i = 0; i < cloneCount; i++) {
-      originalItems.forEach(item => {
-        const clone = item.cloneNode(true);
-        scroller.appendChild(clone);
-      });
-    }
-
-    // Animate the scroller
-    gsap.to(scroller, {
-      x: -repeatingWidth,
-      ease: "none",
-      duration: duration,
-      repeat: -1,
-      modifiers: {
-        x: gsap.utils.unitize(x => parseFloat(x) % repeatingWidth)
-      }
-    });
-  }
-};
-
 // Apply the carousel to courses
 const coursesWrapper = document.querySelector('.courses-wrapper');
 if (coursesWrapper) {
   createWrapperCarousel(coursesWrapper, '.course', 35);
 }
-
-// Apply the carousel to chip lists only in specific sections
-const chipLists = document.querySelectorAll('.skills .chip-list');
-chipLists.forEach((chipList) => {
-  createInnerScrollerCarousel(chipList, '.chip', 40);
-});
 
 export default initGsapAnimations;

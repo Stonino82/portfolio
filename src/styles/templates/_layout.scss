@@ -15,7 +15,7 @@ main {
         display: grid;
         grid-template-columns: 1fr;
         gap: var(--size-800); // Was 4rem
-        background-color: var(--color-surface-page); // Base background for the content area
+        background-color: var(--color-surface-secondary); // Base background for the content area
         overflow: hidden;
         section {
             position: relative;
@@ -27,7 +27,7 @@ main {
             align-content: start;
             gap: var(--size-500);
             padding: var(--size-500);
-            background-color: var(--color-surface-content);
+            background-color: var(--color-surface-primary);
             overflow: hidden;
             .section__header {
                 height: max-content;
@@ -89,7 +89,7 @@ main {
                 padding: var(--size-50) var(--size-100);
                 border-radius: var(--size-100);
                 border: 1px solid var(--color-border-primary);
-                background-color: var(--color-surface-content);
+                background-color: var(--color-surface-primary);
             }
             .presentation__headlines {
                 order: 3;
