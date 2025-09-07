@@ -366,7 +366,7 @@ get_header(); ?>
                         </div>
                         <div class="column">
                             <div class="column__header">
-                                <h2 class="section__header text-gradient">Skills & Stack</h2>
+                                <h2 class="column__title text-gradient">Skills & Stack</h2>
                             </div>
                             <p>I'm a hands-on product designer passionate about the full end-to-end process. While I partner on early product strategy, my core strength lies in execution: translating insights into engaging Interaction Designs, polished UI, and high-fidelity prototypes. I specialize in creating and scaling robust Design Systems. Grounded in my front-end background, I'm always exploring new tools to stay at the forefront of the craft.</p>
                             <div class="column__footer">
@@ -377,7 +377,7 @@ get_header(); ?>
                                             'icon'    => '<span class="material-symbols-rounded">chess</span>',
                                             'content' => '<ul class="chip-list chip-list--md">
                                                             <li class="chip chip--squared chip--neutral">Product strategy</li>
-                                                            <li class="chip chip--squared chip--neutral">Interaction design</li>
+                                                            <li class="chip chip--squared chip--neutral">Interaction Design</li>
                                                             <li class="chip chip--squared chip--neutral">Design System</li>
                                                             <li class="chip chip--squared chip--neutral">Prototyping</li>
                                                             <li class="chip chip--squared chip--neutral">Accessibility</li>
@@ -439,19 +439,21 @@ get_header(); ?>
                     <div class="section__content">
                         <div class="column">
                             <p>When I'm not designing, I'm usually out exploring. You might find me riding my motorbike through the Catalan countryside, playing beach volley, or discovering new corners of Barcelona with my camera. I believe that disconnecting and experiencing the world, whether through travel or just a good book in a new coffee shop, is the best way to bring a fresh, human perspective back to my work.</p>
-                            <div class="list">
-                                <div class="chip-list chip-list--md">
-                                    <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
-                                    <span class="chip chip--squared"><i>🏍️</i> Riding</span>
-                                    <span class="chip chip--squared"><i>📷</i> Photography</span>
-                                    <span class="chip chip--squared"><i>📖</i> Reading</span>
-                                    <span class="chip chip--squared"><i>☕️</i> Coffee Lover</span>
-                                </div>
-                            </div>
                         </div>
                         <div class="column">
                             <p>I find great joy in connecting with and informally mentoring aspiring designers who are starting their journey. Whether it's a portfolio review over coffee or sharing advice, I think it's essential to support the next generation of talent in our industry.</p>
                             <p>I'm a life-long learner, passionate about applying new knowledge over collecting certifications and I'm a firm believer in giving back to the design community.</p>
+                            <div class="chip-list chip-list--md">
+                                <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
+                                <span class="chip chip--squared"><i>🏍️</i> Riding</span>
+                                <span class="chip chip--squared"><i>📷</i> Photography</span>
+                                <span class="chip chip--squared"><i>📖</i> Reading</span>
+                                <span class="chip chip--squared"><i>☕️</i> Coffee Lover</span>
+                            </div>
+                            <!-- <div class="column__header"> -->
+                                <!-- <h2 class="column__title text-gradient">Tunes for Pixels</h2> -->
+                            <!-- </div> -->
+                            <!-- <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2CeFvNxMXKIjgS6OqQadFz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe> -->
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ main {
                 background-color: var(--color-surface-primary);
             }
             .section__inner {
-                max-width: var(--max-width);
+                max-width: var(--max-width) !important;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -53,7 +53,7 @@ main {
                             gap: var(--size-400);
                             margin-bottom: var(--size-400);
                             color: var(--color-text-primary);
-                            .section__header {
+                            .column__title {
                                 margin: 0;
                             }
                             .material-symbols-rounded {
@@ -102,15 +102,13 @@ main {
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
-                    gap: var(--size-600);
-                    padding: var(--size-600);
+                    gap: var(--size-500);
+                    padding: var(--size-500);
                     background-color: var(--color-surface-primary);
                     border: 1px solid var(--color-border-primary);
                     border-radius: var(--size-400);
                     @include media-up($breakpoint-md) {
                         flex-direction: row;
-                        gap: var(--size-400);
-                        padding: var(--size-400);
                     }
                     .column {
                         width: 100%;
@@ -160,14 +158,14 @@ main {
             &.stats {
                 .section__inner {
                     .section__content {
-                        padding: var(--size-600);
+                        padding: var(--size-500);
                         background-color: var(--color-surface-primary);
                         border: 1px solid var(--color-border-primary);
                         border-radius: var(--size-400);
                         box-shadow: var(--box-shadow-dp1);
                         @include media-up($breakpoint-md) {
                             grid-template-columns: repeat(4, 1fr);
-                            gap: var(--size-600);
+                            gap: var(--size-700);
                             .column {
                                 justify-content: space-between;
                                 .column__header {
@@ -180,7 +178,6 @@ main {
             }
             &.journey {
                 .section__inner {
-                    max-width: 992px;
                     .section__content {
                         .column {
                             gap: var(--size-500);
@@ -240,7 +237,6 @@ main {
             }
             &.skills {
                 .section__inner {
-                    max-width: 992px;
                     .section__content {
                         @include media-up($breakpoint-lg) {
                             grid-template-columns:  minmax(180px, 240px) minmax(0, 1fr);
@@ -254,11 +250,15 @@ main {
             }
             &.passions {
                 .section__inner {
-                    max-width: 992px;
                     .section__content {
+                        .chip-list {
+                            justify-content: center;
+                        }
                         @include media-up($breakpoint-lg) {
                             grid-template-columns: 1fr 1fr;
-                            // grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+                            .chip-list {
+                                justify-content: flex-start;
+                            }
                         }
                     }
                 }
@@ -280,10 +280,9 @@ main {
             }
             &.last {
                 .section__inner {
-                    max-width: 992px;
                     .section__content {
                         .promotional-banner {
-                            padding: var(--size-600);
+                            padding: var(--size-500);
                         }
                     }
                 }
