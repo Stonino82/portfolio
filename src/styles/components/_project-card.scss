@@ -15,6 +15,7 @@
     height: 100%;
     position: relative;
     transition: $transition;
+    background-color: var(--color-surface-secondary);
     border: 1px solid var(--color-border-primary);
     border-radius: var(--size-400);
     a {

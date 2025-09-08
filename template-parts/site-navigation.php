@@ -14,6 +14,11 @@
 <?php get_template_part( 'template-parts/logo' ); ?>
 
 <div class="sub-menu">
+    <button class="theme-switch btn-sm">
+        <span class="theme-switch__icon material-symbols-rounded">light_mode</span>
+        <span class="theme-switch__icon material-symbols-rounded">dark_mode</span>
+        <span class="theme-switch__handle"></span>
+    </button>
 	<?php
 	// Conditionally display the link based on the current page.
 	if ( is_page( 'about' ) ) :
@@ -44,8 +49,15 @@
     <div class="menu-container">
 
         <div class="menu-header">
-            <?php get_template_part( 'template-parts/logotipo' ); ?>
-            <?php get_template_part( 'template-parts/availability-chip' ); ?>
+            <div class="information">
+                <?php get_template_part( 'template-parts/logotipo' ); ?>
+                <?php get_template_part( 'template-parts/availability-chip' ); ?>
+            </div>
+            <button class="theme-switch btn-sm">
+                <span class="theme-switch__icon material-symbols-rounded">light_mode</span>
+                <span class="theme-switch__icon material-symbols-rounded">dark_mode</span>
+                <span class="theme-switch__handle"></span>
+            </button>
         </div>
 
         <hr />

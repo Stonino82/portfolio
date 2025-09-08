@@ -5,6 +5,7 @@ import './styles/style.scss';
 import initGsapAnimations from './js/gsap.js';
 import initLogoScrollAnimation from './js/logo-scroll-animation.js';
 import initHeaderScroll from './js/header-scroll.js';
+import './js/theme-switch.js';
 
 
 // Import Swiper configuration

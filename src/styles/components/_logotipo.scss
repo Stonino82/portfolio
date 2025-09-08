@@ -1,5 +1,6 @@
 // --- Logotipo Component ---
 // Styles for the text-based logo displayed within the navigation panel.
+@use '../generals/mixins' as *;
 
 .logotipo {
     & > * {
@@ -9,6 +10,11 @@
     .logotipo__name {
         font-size: var(--fs-400);
         font-weight: var(--fw-medium);
+        @include truncate-text;
     }
-    .logotipo__tagline {}
+    .logotipo__tagline {
+        display: block;
+        width: 100%;
+        @include truncate-text;
+    }
 }

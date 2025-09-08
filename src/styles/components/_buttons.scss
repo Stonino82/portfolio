@@ -1,5 +1,6 @@
 @use '../generals/colors' as *;
 @use '../generals/variables' as *;
+@use '../generals/mixins' as *;
 
 // Reset buttons
 button {
@@ -130,6 +131,79 @@ input[type="submit"]:hover {
 
 
 
+
+
 .icon-leading {}
 .icon-trailing {}
 .icon-only {}
+
+
+
+
+
+
+
+
+.theme-switch {
+    position: relative;
+    min-width: 56px;
+    width: 56px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    padding: var(--size-50);
+    background-color: var(--component-neutral-background);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+    .theme-switch__icon {
+        z-index: 1;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-full);
+		color: var(--color-text-tertiary);
+        transition: color 0.3s ease, font-variation-settings 0.3s ease;
+
+        &.material-symbols-rounded {
+            font-size: var(--fs-100);
+        }
+
+		&:first-child {
+			color: var(--color-yellow-500);
+            font-variation-settings: 'FILL' 1;
+		}
+    }
+
+    .theme-switch__handle {
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 24px;
+        height: 24px;
+        background-color: var(--color-surface-primary);
+        border-radius: var(--radius-full);
+        transition: transform 0.3s ease;
+        box-shadow: var(--box-shadow-dp1);
+    }
+}
+
+body[data-theme="dark"] .theme-switch {
+    .theme-switch__icon {
+        &:first-child {
+            color: var(--color-text-tertiary);
+            font-variation-settings: 'FILL' 0;
+        }
+        &:nth-child(2) {
+            color: var(--color-blue-500);
+            font-variation-settings: 'FILL' 1;
+        }
+    }
+
+    .theme-switch__handle {
+        transform: translateX(24px);
+    }
+}

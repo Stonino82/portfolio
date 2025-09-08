@@ -21,6 +21,11 @@
     vertical-align: middle; // Helps align icons with text
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 28;
 }
+
+.icon-filled {
+    font-variation-settings: 'FILL' 1;
+}
+
 .rotate {
     transform: rotate(-135deg);
 }
