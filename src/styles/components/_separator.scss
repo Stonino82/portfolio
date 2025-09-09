@@ -10,7 +10,7 @@
 @mixin separator($margin-top: var(--size-400), $margin-bottom: var(--size-400)) {
     width: 100%;
     height: 1px;
-    background-color: var(--color-border-primary);
+    background-color: var(--color-border-secondary);
     border: 0;
     // Use logical properties for better internationalization support.
     margin-block-start: $margin-top;
