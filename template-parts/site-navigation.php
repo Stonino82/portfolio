@@ -38,6 +38,7 @@
 	<?php endif; ?>
     
     <a class="btn btn-sm btn-primary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
+        <span class="shine-animation"></span>
         <i class="icon-leading fa-brands fa-linkedin-in"></i>
         Let's connect
     </a>
@@ -92,6 +93,7 @@
             </li>
             <li class="menu-item-linkedin">
                 <a class="btn btn-md btn-full btn-primary" href="https://www.linkedin.com/in/antoninolattene/" target="_blank">
+                    <span class="shine-animation"></span>
                     <i class="icon-leading fa-brands fa-linkedin-in"></i>
                     Get in touch
                     <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>

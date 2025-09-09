@@ -83,13 +83,12 @@
   }
 
   &.promotional-banner--primary {
-    color: var(--color-text-neutral);
     background: var(--color-brand-gradient);
     .promotional-banner__title {
-      color: var(--color-text-neutral);
+      color: var(--color-neutral-0);
     }
     .promotional-banner__text {
-      color: var(--color-text-neutral);
+      color: var(--color-neutral-0);
     }
   }
   &.promotional-banner--secondary {
