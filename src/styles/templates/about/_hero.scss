@@ -15,14 +15,14 @@ main .content-about{
             .section__content {
                 gap: var(--size-600);
                 @include media-up($breakpoint-md) {
-                    grid-template-columns: minmax(180px, 280px) minmax(0, 620px);
+                    grid-template-columns: minmax(180px, 360px) minmax(0, 620px);
                 }
                 & > .column:first-child {
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     img {
-                        height: 140px;
+                        height: 200px;
                         width: auto;
                         object-fit: contain;
                         object-position: center;

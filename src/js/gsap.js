@@ -30,7 +30,7 @@ const initGsapAnimations = () => {
 
   // --- Initial State Setup ---
   // Hide all cards (project-card on homepage, project-tile on archives) to prevent a flash of unstyled content.
-  const cards = gsap.utils.toArray('.project-card, .project-tile');
+  const cards = gsap.utils.toArray('.project-card, .project-tile, .philosophy .column, .stats .column__content, .journey .section__header, .journey .section__content, .testimonials .section__header, .testimonials .testimonial-card, .testimonials .section__footer, .skills .column, .passions .section__header, .passions .column, .blog .section__header, .blog .column, .last .promotional-banner');
   gsap.set(cards, { autoAlpha: 0, y: FADE_IN_DISTANCE });
 
   // --- Reusable Animation Configurations ---
@@ -82,7 +82,8 @@ const initGsapAnimations = () => {
       // Add 'page-ready' to the body to reveal the page content, preventing FOUC.
       .call(() => document.body.classList.add('page-ready'))
       .from(".site-header", fromFadeUp, "<") // The "<" starts this animation at the same time as the previous one.
-      .from(".presentation__central", fromFadeInPlace, `<${SEQUENCE_OFFSET}`);
+      .from(".presentation__central", fromFadeInPlace, `<${SEQUENCE_OFFSET}`)
+      .from(".hero .column", { ...fromFadeInPlace, stagger: STAGGER_TIME }, `<${SEQUENCE_OFFSET}`);
 
     // 3. En móvil, la animación de los artículos se activa inmediatamente con el scroll.
     ScrollTrigger.batch(cards, articlesBatchConfig);
@@ -109,7 +110,8 @@ const initGsapAnimations = () => {
     desktopTimeline
       .call(() => document.body.classList.add('page-ready'))
       .from(".site-header", fromFadeUp, "<")
-      .from(".presentation__central", fromFadeLeft, `<${SEQUENCE_OFFSET}`);
+      .from(".presentation__central", fromFadeLeft, `<${SEQUENCE_OFFSET}`)
+      .from(".hero .column", { ...fromFadeInPlace, stagger: STAGGER_TIME }, `<${SEQUENCE_OFFSET}`);
 
     // Animate the first card as the final step of the intro sequence.
     if (firstCard) {
