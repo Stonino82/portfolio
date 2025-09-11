@@ -28,7 +28,6 @@ main {
             gap: var(--size-500);
             padding: var(--size-500);
             background-color: var(--color-surface-primary);
-            overflow: hidden;
             .section__header {
                 height: max-content;
                 display: flex;
@@ -136,6 +135,7 @@ main {
         }
         .presentation {
             z-index: 2;
+            align-self: start;
             .presentation__central {
                 justify-content: flex-start;
                 .presentation__headlines { align-items: flex-start; }

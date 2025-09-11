@@ -9,7 +9,7 @@ const initGsapAnimations = () => {
   // Define duration and ease in one place for a consistent feel across the site.
   const ANIM_DURATION = 0.4;
   const ANIM_EASE = "power1.out";
-  const FADE_IN_DISTANCE = 30; // The distance elements travel during their fade-in animation.
+  const FADE_IN_DISTANCE = 50; // The distance elements travel during their fade-in animation.
   const STAGGER_TIME = 0.3;    // The delay between each item in a staggered animation.
   const SEQUENCE_OFFSET = 0.3; // The time offset for sequencing animations in a timeline.
   const INITIAL_DELAY = 0.3;   // The initial delay before the main page load animation starts.
