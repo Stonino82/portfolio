@@ -111,7 +111,7 @@ get_header(); ?>
                                 <h4 class="text-eyebrow-normal">Years of Experience</h4>
                             </div>
                             <div class="column__content">
-                                <p class="text-display-1 text-gradient">15+</p>
+                                <p class="text-display-1 text-gradient stat-counter" data-final-value="15">0+</p>
                                 <p>A professional journey evolving from Web Design & Development to Product Design in the SaaS, enterprise, and agency space, gaining a unique perspective on the entire end-to-end product development lifecycle, from initial ideation to final launch and post-launch iteration.</p>
                             </div>
                         </div>
@@ -120,7 +120,7 @@ get_header(); ?>
                                 <h4 class="text-eyebrow-normal">Industries Served</h4>
                             </div>
                             <div class="column__content">
-                                <p class="text-display-1 text-gradient">5+</p>
+                                <p class="text-display-1 text-gradient stat-counter" data-final-value="5">0+</p>
                                 <p>Bringing deep, user-centered product design expertise to a diverse range of  industries, including EdTech, Pharma, SaaS, and E-Commerce.</p>
                             </div>
                         </div>
@@ -129,7 +129,7 @@ get_header(); ?>
                             <h4 class="text-eyebrow-normal">Cross-Functional Teams</h4>
                             </div>
                             <div class="column__content">
-                                <p class="text-display-1 text-gradient">12+</p>
+                                <p class="text-display-1 text-gradient stat-counter" data-final-value="12">0+</p>
                                 <p>A history of building strong, successful partnerships with Product Managers and Engineers to ship unified and effective product solutions that not only meet user needs but also achieve key, ambitious business objectives.</p>
                             </div>
                         </div>
@@ -138,7 +138,7 @@ get_header(); ?>
                                 <h4 class="text-eyebrow-normal">Design Systems Contributed</h4>
                             </div>
                             <div class="column__content">
-                                <p class="text-display-1 text-gradient">7+</p>
+                                <p class="text-display-1 text-gradient stat-counter" data-final-value="7">0+</p>
                                 <p>Experience building and scaling design systems from scratch to ensure brand consistency across all digital products and platforms, and improve overall team efficiency.</p>
                             </div>
                         </div>
