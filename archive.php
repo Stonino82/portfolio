@@ -42,6 +42,13 @@ if ( is_post_type_archive( 'portfolio' ) ) {
 				endwhile; ?>
 			</section>
 		<?php endif; ?>
+		
+		<?php
+		// Display Snapshots Section only on the main Portfolio archive page.
+		if ( is_post_type_archive( 'portfolio' ) ) {
+			get_template_part( 'template-parts/snapshots-section' );
+		}
+		?>
 	</div>
 </main><!-- .container -->
 

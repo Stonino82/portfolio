@@ -1,0 +1,206 @@
+@use '../generals/variables' as *;
+
+
+// src/styles/components/_snapshots.scss
+.snapshots {
+  padding: var(--size-900) 0;
+    .snapshots-carousel {
+      height: max-content;
+      padding: 20px;
+      .swiper-wrapper {
+        .swiper-slide {
+          width: 45%;
+          aspect-ratio: 10 / 16;
+          flex-shrink: 0;
+          transition: $transition;
+          cursor: pointer;
+          @media (min-width: 480px) { width: 30%; }
+          @media (min-width: 768px) { width: 23%; }
+          @media (min-width: 1024px) { width: 19%; }
+          .snapshot-item {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--box-shadow-dp1);
+            overflow: hidden;
+            img, video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            .snapshot-item__title {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              padding: var(--size-500) var(--size-400) var(--size-400);
+              background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+              color: var(--color-neutral-0);
+              text-align: center;
+              h5 {
+                margin: 0;
+                font-size: var(--fs-500);
+                font-weight: var(--fw-bold);
+              }
+            }
+          }
+          &:hover {
+              transform: scale(1.05);
+          }
+        }
+      }
+    }
+}
+
+.snapshot-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10000000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    .snapshot-modal__content {
+      transform: scale(1);
+    }
+  }
+  .snapshot-modal__container {
+    position: relative;
+    .snapshot-modal__nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 12;
+      width: var(--size-600);
+      height: var(--size-600);
+      padding: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--color-neutral-0);
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      visibility: visible;
+      &:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.1);
+      }
+      &--prev {
+        left: calc(var(--size-500) * -1);
+      }
+      &--next {
+        right: calc(var(--size-500) * -1);
+      }
+    }
+    .snapshot-modal__close-btn {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      transform: translateY(calc(-100% - var(--size-100)));
+      z-index: 12;
+      width: var(--size-600);
+      height: var(--size-600);
+      padding: 0;
+      background: rgba(0, 0, 0, 0.5);
+      color: var(--color-neutral-0);
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      &:hover {
+        background: rgba(0, 0, 0, 0.8);
+        transform: translateY(calc(-100% - var(--size-100))) scale(1.1);
+      }
+    }
+    .snapshot-modal__content {
+      position: relative;
+      width: 90vw;
+      max-width: 680px;
+      height: 90vh;
+      // max-height: 720px;
+      background-color: var(--color-zinc-900);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+      .snapshot-modal__progress-bars {
+        position: absolute;
+        top: var(--size-100);
+        left: var(--size-100);
+        right: var(--size-100);
+        display: flex;
+        gap: var(--size-50);
+        z-index: 11;
+        .progress-bar {
+          flex: 1;
+          height: 3px;
+          background-color: rgba(255,255,255,0.3);
+          border-radius: 3px;
+          overflow: hidden;
+          .progress-bar__inner {
+            width: 0%;
+            height: 100%;
+            background-color: var(--color-neutral-0);
+          }
+        }
+      }
+      .snapshot-modal__header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--size-500) var(--size-400);
+        z-index: 10;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+        .snapshot-modal__title {
+          color: var(--color-neutral-0);
+        }
+      }
+      .snapshot-modal__body {
+        flex-grow: 1;
+        position: relative;
+        color: var(--color-neutral-0);
+        img, video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+        .snapshot-content-wrapper {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: var(--size-500) var(--size-400);
+          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+          &>* {
+            color: var(--color-neutral-0);
+          }
+        }
+      }
+    }
+  }
+}

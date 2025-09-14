@@ -45,8 +45,12 @@ main {
         }
         section.showcase-portfolio {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            .section__header {
+                grid-column: 1 / -1;
+            }
         }
-        section.showcase-blog {
+        section.showcase-blog, section.snapshots {
             background-color: transparent;
             border-radius: 0;
         }

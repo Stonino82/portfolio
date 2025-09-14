@@ -142,6 +142,7 @@ const initGsapAnimations = () => {
     createSectionBatch('.last .promotional-banner');
     createSectionBatch('.project-card');
     createSectionBatch('.project-tile');
+    createSectionBatch('.snapshots .section__header, .snapshots .snapshot-item'); // Animation for the snapshots section
 
     // Special Batch for Stats section (with counter)
     const statsElements = gsap.utils.toArray('.stats .column__content');

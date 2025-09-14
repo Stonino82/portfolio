@@ -12,6 +12,7 @@ import './js/carousel.js';
 // Import Swiper configuration
 import initTestimonialSwiper, { initHeroSwiper } from './js/swiper-config.js';
 import './js/accordion.js';
+import './js/snapshots.js';
 
 /**
  * Run all initialization logic after the DOM is fully loaded.

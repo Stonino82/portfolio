@@ -791,7 +791,7 @@ function antoninolattene_child_add_featured_video_meta_box() {
         'antoninolattene_child_featured_video',
         __( 'Featured Video URL', 'antoninolattene-child' ),
         'antoninolattene_child_featured_video_meta_box_callback',
-        array( 'post', 'portfolio' ), // Show on posts and portfolio custom post type
+        array( 'post', 'portfolio', 'snapshots' ), // Show on posts, portfolio and snapshots
         'side', // Changed to 'side'
         'low'   // Changed to 'low'
     );
@@ -894,3 +894,61 @@ function antoninolattene_child_add_nested_page_templates( $templates ) {
     return $templates;
 }
 add_filter( 'theme_page_templates', 'antoninolattene_child_add_nested_page_templates' );
+
+// Register Custom Post Type for Snapshots
+function create_snapshot_cpt() {
+
+    $labels = array(
+        'name'                  => _x( 'Snapshots', 'Post Type General Name', 'antoninolattene-child' ),
+        'singular_name'         => _x( 'Snapshot', 'Post Type Singular Name', 'antoninolattene-child' ),
+        'menu_name'             => __( 'Snapshots', 'antoninolattene-child' ),
+        'name_admin_bar'        => __( 'Snapshot', 'antoninolattene-child' ),
+        'archives'              => __( 'Snapshot Archives', 'antoninolattene-child' ),
+        'attributes'            => __( 'Snapshot Attributes', 'antoninolattene-child' ),
+        'parent_item_colon'     => __( 'Parent Snapshot:', 'antoninolattene-child' ),
+        'all_items'             => __( 'All Snapshots', 'antoninolattene-child' ),
+        'add_new_item'          => __( 'Add New Snapshot', 'antoninolattene-child' ),
+        'add_new'               => __( 'Add New', 'antoninolattene-child' ),
+        'new_item'              => __( 'New Snapshot', 'antoninolattene-child' ),
+        'edit_item'             => __( 'Edit Snapshot', 'antoninolattene-child' ),
+        'update_item'           => __( 'Update Snapshot', 'antoninolattene-child' ),
+        'view_item'             => __( 'View Snapshot', 'antoninolattene-child' ),
+        'view_items'            => __( 'View Snapshots', 'antoninolattene-child' ),
+        'search_items'          => __( 'Search Snapshot', 'antoninolattene-child' ),
+        'not_found'             => __( 'Not found', 'antoninolattene-child' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'antoninolattene-child' ),
+        'featured_image'        => __( 'Snapshot Image', 'antoninolattene-child' ),
+        'set_featured_image'    => __( 'Set snapshot image', 'antoninolattene-child' ),
+        'remove_featured_image' => __( 'Remove snapshot image', 'antoninolattene-child' ),
+        'use_featured_image'    => __( 'Use as snapshot image', 'antoninolattene-child' ),
+        'insert_into_item'      => __( 'Insert into snapshot', 'antoninolattene-child' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this snapshot', 'antoninolattene-child' ),
+        'items_list'            => __( 'Snapshots list', 'antoninolattene-child' ),
+        'items_list_navigation' => __( 'Snapshots list navigation', 'antoninolattene-child' ),
+        'filter_items_list'     => __( 'Filter snapshots list', 'antoninolattene-child' ),
+    );
+    $args = array(
+        'label'                 => __( 'Snapshot', 'antoninolattene-child' ),
+        'description'           => __( 'A post type for Instagram-like story snapshots.', 'antoninolattene-child' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'taxonomies'            => array( 'category', 'post_tag' ),
+        'hierarchical'          => false,
+        'public'                => false, // Not publicly accessible on its own
+        'show_ui'               => true,  // Show in the admin dashboard
+        'show_in_menu'          => true,  // Show in the admin menu
+        'menu_position'         => 20,
+        'menu_icon'             => 'dashicons-images-alt2',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => false,
+        'can_export'            => true,
+        'has_archive'           => false,
+        'exclude_from_search'   => true,
+        'publicly_queryable'    => false,
+        'capability_type'       => 'post',
+        'show_in_rest'          => true, // Good for future headless use
+    );
+    register_post_type( 'snapshots', $args );
+
+}
+add_action( 'init', 'create_snapshot_cpt', 0 );
