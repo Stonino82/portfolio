@@ -2,29 +2,30 @@
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 
-const Snapshots = {
+class Snapshots {
   // DOM Elements
-  modal: null,
-  closeBtn: null,
-  prevBtn: null,
-  nextBtn: null,
-  pausePlayBtn: null,
-  modalTitle: null,
-  modalBody: null,
-  progressBarsContainer: null,
+  modal = null;
+  closeBtn = null;
+  prevBtn = null;
+  nextBtn = null;
+  pausePlayBtn = null;
+  modalTitle = null;
+  modalBody = null;
+  progressBarsContainer = null;
 
   // Properties
-  snapshotsData: [],
-  currentIndex: 0,
-  storyTimer: null,
-  STORY_DURATION: 6500, // 6.5 seconds
-  touchStartX: 0,
-  touchEndX: 0,
-  touchStartTarget: null,
-  minSwipeX: 50, // Minimum distance for a swipe
-  isPaused: false,
-  startTime: 0,
-  remainingTime: 0,
+  snapshotsData = [];
+  currentIndex = 0;
+  storyTimer = null;
+  STORY_DURATION = 6500; // 6.5 seconds
+  touchStartX = 0;
+  touchEndX = 0;
+  touchStartTarget = null;
+  minSwipeX = 50; // Minimum distance for a swipe
+  isPaused = false;
+  isDragging = false; // For mouse drag tracking
+  startTime = 0;
+  remainingTime = 0;
 
   /**
    * Decodes HTML entities from a string.
@@ -36,9 +37,9 @@ const Snapshots = {
     const textArea = document.createElement('textarea');
     textArea.innerHTML = text;
     return textArea.value;
-  },
+  }
 
-  init() {
+  constructor() {
     const section = document.getElementById('snapshots');
     if (!section) return;
 
@@ -70,8 +71,8 @@ const Snapshots = {
     this.progressBarsContainer = this.modal.querySelector('.snapshot-modal__progress-bars');
 
     this.initCarousel();
-    this.addEventListeners();
-  },
+    this._addEventListeners();
+  }
 
   initCarousel() {
     new Swiper('.snapshots-carousel', {
@@ -83,9 +84,9 @@ const Snapshots = {
         prevEl: '#snapshots .swiper-button-prev',
       },
     });
-  },
+  }
 
-  addEventListeners() {
+  _addEventListeners() {
     // Open modal from carousel
     document.querySelectorAll('.snapshot-item').forEach((item, index) => {
       item.addEventListener('click', () => this.openModal(index));
@@ -93,9 +94,9 @@ const Snapshots = {
 
     // Desktop controls
     this.closeBtn.addEventListener('click', () => this.closeModal());
-    this.prevBtn.addEventListener('click', () => this.showPrevStory());
+    this.prevBtn.addEventListener('click', this.showPrevStory.bind(this));
     this.nextBtn.addEventListener('click', () => this.showNextStory(true));
-    this.pausePlayBtn.addEventListener('click', () => this.togglePause());
+    this.pausePlayBtn.addEventListener('click', this.togglePause.bind(this));
 
     // Keyboard control
     document.addEventListener('keydown', (e) => {
@@ -104,50 +105,94 @@ const Snapshots = {
       }
     });
 
-    // Touch controls for mobile (tap and swipe)
-    this.modal.addEventListener('touchstart', (e) => this.handleTouchStart(e), false);
-    this.modal.addEventListener('touchmove', (e) => this.handleTouchMove(e), false);
-    this.modal.addEventListener('touchend', () => this.handleTouchEnd(), false);
-  },
+    // Close modal on background click (desktop)
+    this.modal.addEventListener('click', (e) => {
+      if (e.target === this.modal) {
+        this.closeModal();
+      }
+    });
 
-  handleTouchStart(e) {
-    this.touchStartX = e.touches[0].clientX;
-    this.touchEndX = e.touches[0].clientX; // Reset end position on new touch
+    // --- Unified Pointer Controls (Touch & Mouse) ---
+    this.modal.addEventListener('touchstart', this.handlePointerStart.bind(this), { passive: true });
+    this.modal.addEventListener('touchmove', this.handlePointerMove.bind(this), { passive: true });
+    this.modal.addEventListener('touchend', this.handlePointerEnd.bind(this));
+
+    this.modal.addEventListener('mousedown', this.handlePointerStart.bind(this));
+    this.modal.addEventListener('mousemove', this.handlePointerMove.bind(this));
+    this.modal.addEventListener('mouseup', this.handlePointerEnd.bind(this));
+    this.modal.addEventListener('mouseleave', this.handlePointerLeave.bind(this));
+  }
+
+  getEventClientX(e) {
+    if (e.touches && e.touches.length > 0) {
+      return e.touches[0].clientX;
+    }
+    if (e.changedTouches && e.changedTouches.length > 0) {
+      return e.changedTouches[0].clientX;
+    }
+    return e.clientX;
+  }
+
+  handlePointerStart(e) {
+    if (e.type === 'mousedown') {
+      // Prevent text selection on drag
+      e.preventDefault();
+      this.isDragging = true;
+    }
+    this.touchStartX = this.getEventClientX(e);
+    this.touchEndX = this.touchStartX; // Reset end position
     this.touchStartTarget = e.target;
-  },
+  }
 
-  handleTouchMove(e) {
-    this.touchEndX = e.touches[0].clientX;
-  },
+  handlePointerMove(e) {
+    if (e.type === 'mousemove' && !this.isDragging) return;
+    this.touchEndX = this.getEventClientX(e);
+  }
 
-  handleTouchEnd() {
+  handlePointerEnd(e) {
+    if (e.type === 'mouseup' && !this.isDragging) return;
+    this.isDragging = false;
+
     const diffX = this.touchStartX - this.touchEndX;
+    const isSwipe = Math.abs(diffX) > this.minSwipeX;
 
-    // Check if it was a swipe
-    if (Math.abs(diffX) > this.minSwipeX) {
+    // Check if the action started on the content wrapper
+    const contentWrapper = this.touchStartTarget.closest('.snapshot-content-wrapper');
+
+    if (isSwipe) {
+      // It's a swipe, change story
       if (diffX > 0) {
-        // Swiped left
         this.showNextStory(true);
       } else {
-        // Swiped right
         this.showPrevStory();
       }
+    } else if (contentWrapper) {
+      // It's a tap/click on the content, toggle it
+      contentWrapper.classList.toggle('is-expanded');
     } else {
-      // It was a tap, not a swipe. Handle tap actions.
-      const contentWrapper = this.touchStartTarget.closest('.snapshot-content-wrapper');
-      if (contentWrapper) {
-        contentWrapper.classList.toggle('is-expanded');
-      } else if (this.touchStartTarget === this.modal) {
-        // Only close if the tap was directly on the modal background
-        this.closeModal();
+      // It's a tap/click on the background, close modal
+      // The 'click' event listener on the modal already handles this for desktop.
+      // This part handles the tap on mobile.
+      if (e.type === 'touchend' && this.touchStartTarget === this.modal) {
+          this.closeModal();
       }
     }
 
-    // Reset touch positions
+    // Reset positions
     this.touchStartX = 0;
     this.touchEndX = 0;
     this.touchStartTarget = null;
-  },
+  }
+
+  handlePointerLeave() {
+    // If the mouse leaves the modal while dragging, cancel the drag
+    if (this.isDragging) {
+      this.isDragging = false;
+      this.touchStartX = 0;
+      this.touchEndX = 0;
+      this.touchStartTarget = null;
+    }
+  }
 
   openModal(index) {
     if (!this.modal) return;
@@ -156,7 +201,7 @@ const Snapshots = {
     this.showStory(this.currentIndex);
     this.modal.classList.add('is-active');
     document.body.style.overflow = 'hidden';
-  },
+  }
 
   closeModal() {
     if (!this.modal) return;
@@ -165,7 +210,7 @@ const Snapshots = {
     this.clearStoryTimer();
     this.modalBody.innerHTML = '';
     this.modalTitle.textContent = '';
-  },
+  }
 
   showStory(index) {
     this.clearStoryTimer();
@@ -210,7 +255,7 @@ const Snapshots = {
     this.startTime = Date.now();
     this.remainingTime = this.STORY_DURATION;
     this.storyTimer = setTimeout(() => this.showNextStory(false), this.remainingTime);
-  },
+  }
 
   showNextStory(isUserAction = false) {
     if (this.currentIndex < this.snapshotsData.length - 1) {
@@ -219,14 +264,14 @@ const Snapshots = {
     } else if (!isUserAction) {
       this.closeModal();
     }
-  },
+  }
 
   showPrevStory() {
     if (this.currentIndex > 0) {
       this.currentIndex--;
       this.showStory(this.currentIndex);
     }
-  },
+  }
 
   buildProgressBars() {
     this.progressBarsContainer.innerHTML = '';
@@ -236,7 +281,7 @@ const Snapshots = {
       bar.innerHTML = '<div class="progress-bar__inner"></div>';
       this.progressBarsContainer.appendChild(bar);
     });
-  },
+  }
 
   updateProgressBars(activeIndex, resume = false) {
     const bars = this.progressBarsContainer.querySelectorAll('.progress-bar__inner');
@@ -255,27 +300,27 @@ const Snapshots = {
         bar.style.width = '100%';
       }
     });
-  },
+  }
 
   updateNavButtons() {
     this.prevBtn.style.visibility = this.currentIndex === 0 ? 'hidden' : 'visible';
     this.nextBtn.style.visibility = this.currentIndex === this.snapshotsData.length - 1 ? 'hidden' : 'visible';
-  },
+  }
 
   clearStoryTimer() {
     if (this.storyTimer) {
       clearTimeout(this.storyTimer);
     }
-  },
+  }
 
-  togglePause() {
+  togglePause() { 
     this.isPaused = !this.isPaused;
     if (this.isPaused) {
       this.pauseStory();
     } else {
       this.resumeStory();
     }
-  },
+  }
 
   pauseStory() {
     this.clearStoryTimer();
@@ -289,23 +334,24 @@ const Snapshots = {
       activeBar.style.width = computedWidth;
     }
     this.updatePausePlayButton();
-  },
+  }
 
   resumeStory() {
     this.startTime = Date.now();
     this.storyTimer = setTimeout(() => this.showNextStory(false), this.remainingTime);
     this.updateProgressBars(this.currentIndex, true);
     this.updatePausePlayButton();
-  },
+  }
 
   updatePausePlayButton() {
     const icon = this.isPaused ? 'play_circle' : 'pause_circle';
     this.pausePlayBtn.querySelector('.material-symbols-rounded').textContent = icon;
   }
-};
+}
 
 document.addEventListener('DOMContentLoaded', () => {
-  Snapshots.init();
+  // The constructor will handle initialization if the component exists on the page.
+  new Snapshots();
 });
 
 export default Snapshots;
