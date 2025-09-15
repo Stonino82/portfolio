@@ -92,6 +92,14 @@ class Snapshots {
       item.addEventListener('click', () => this.openModal(index));
     });
 
+    // Handle content expand/collapse on click/tap.
+    // This is more robust than handling it within the pointer logic.
+    this.modalBody.addEventListener('click', (e) => {
+      const contentWrapper = e.target.closest('.snapshot-content-wrapper');
+      if (contentWrapper) {
+        contentWrapper.classList.toggle('is-expanded');
+      }
+    });
     // Desktop controls
     this.closeBtn.addEventListener('click', () => this.closeModal());
     this.prevBtn.addEventListener('click', this.showPrevStory.bind(this));
@@ -155,27 +163,19 @@ class Snapshots {
 
     const diffX = this.touchStartX - this.touchEndX;
     const isSwipe = Math.abs(diffX) > this.minSwipeX;
+    const isContentTap = this.touchStartTarget && this.touchStartTarget.closest('.snapshot-content-wrapper');
 
-    // Check if the action started on the content wrapper
-    const contentWrapper = this.touchStartTarget.closest('.snapshot-content-wrapper');
-
-    if (isSwipe) {
-      // It's a swipe, change story
+    // Only handle swipe or background tap here. Content tap is handled by its own 'click' listener.
+    if (isSwipe && !isContentTap) {
+      // It's a swipe, change story.
       if (diffX > 0) {
         this.showNextStory(true);
       } else {
         this.showPrevStory();
       }
-    } else if (contentWrapper) {
-      // It's a tap/click on the content, toggle it
-      contentWrapper.classList.toggle('is-expanded');
-    } else {
-      // It's a tap/click on the background, close modal
-      // The 'click' event listener on the modal already handles this for desktop.
-      // This part handles the tap on mobile.
-      if (e.type === 'touchend' && this.touchStartTarget === this.modal) {
-          this.closeModal();
-      }
+    } else if (!isSwipe && !isContentTap && e.type === 'touchend' && this.touchStartTarget === this.modal) {
+      // It's a tap on the background on mobile, close the modal.
+      this.closeModal();
     }
 
     // Reset positions
