@@ -89,14 +89,19 @@ if (!empty($snapshots_data)) :
                 </div>
                 <div class="snapshot-modal__header">
                     <h3 class="snapshot-modal__title text-heading-6"></h3>
+                    <div class="snapshot-modal__header-actions">
+                        <button id="snapshot-modal-toggle-pause" class="snapshot-modal__pause-btn">
+                            <span class="material-symbols-rounded">pause_circle</span>
+                        </button>
+                        <button id="snapshot-modal-close" class="snapshot-modal__close-btn">
+                            <span class="material-symbols-rounded">close</span>
+                        </button>
+                    </div>
                 </div>
                 <div class="snapshot-modal__body">
                     <!-- Snapshot content will be loaded here by JS -->
                 </div>
             </div>
-            <button id="snapshot-modal-close" class="snapshot-modal__close-btn">
-                <span class="material-symbols-rounded">close</span>
-            </button>
         </div>
     </div>
 

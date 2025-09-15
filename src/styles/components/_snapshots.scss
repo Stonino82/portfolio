@@ -1,4 +1,5 @@
 @use '../generals/variables' as *;
+@use '../generals/mixins' as *;
 
 
 // src/styles/components/_snapshots.scss
@@ -21,6 +22,7 @@
             position: relative;
             width: 100%;
             height: 100%;
+            border: 1px solid var(--color-border-secondary);
             border-radius: var(--radius-lg);
             box-shadow: var(--box-shadow-dp1);
             overflow: hidden;
@@ -34,14 +36,12 @@
               bottom: 0;
               left: 0;
               right: 0;
-              padding: var(--size-500) var(--size-400) var(--size-400);
-              background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+              padding: var(--size-200);
+              background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
               color: var(--color-neutral-0);
-              text-align: center;
-              h5 {
-                margin: 0;
-                font-size: var(--fs-500);
-                font-weight: var(--fw-bold);
+              text-align: left;
+              h3 {
+                @include truncate-text;
               }
             }
           }
@@ -94,6 +94,9 @@
       align-items: center;
       transition: background-color 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
       visibility: visible;
+      @media (max-width: 767px) {
+        display: none;
+      }
       &:hover {
         background: rgba(0, 0, 0, 0.8);
         transform: translateY(-50%) scale(1.1);
@@ -105,34 +108,11 @@
         right: calc(var(--size-500) * -1);
       }
     }
-    .snapshot-modal__close-btn {
-      position: absolute;
-      top: 20px;
-      right: 0;
-      transform: translateY(calc(-100% - var(--size-100)));
-      z-index: 12;
-      width: var(--size-600);
-      height: var(--size-600);
-      padding: 0;
-      background: rgba(0, 0, 0, 0.5);
-      color: var(--color-neutral-0);
-      border: none;
-      border-radius: var(--radius-full);
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-      &:hover {
-        background: rgba(0, 0, 0, 0.8);
-        transform: translateY(calc(-100% - var(--size-100))) scale(1.1);
-      }
-    }
     .snapshot-modal__content {
       position: relative;
       width: 90vw;
       max-width: 680px;
-      height: 90vh;
+      height: 95dvh;
       // max-height: 720px;
       background-color: var(--color-zinc-900);
       border-radius: var(--radius-xl);
@@ -176,6 +156,25 @@
         .snapshot-modal__title {
           color: var(--color-neutral-0);
         }
+        .snapshot-modal__header-actions {
+          display: flex;
+          align-items: center;
+          gap: var(--size-200);
+        }
+        .snapshot-modal__pause-btn,
+        .snapshot-modal__close-btn {
+          background: transparent;
+          border: none;
+          color: var(--color-neutral-0);
+          cursor: pointer;
+          padding: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .material-symbols-rounded {
+            font-size: 2rem;
+          }
+        }
       }
       .snapshot-modal__body {
         flex-grow: 1;
@@ -195,9 +194,29 @@
           left: 0;
           right: 0;
           padding: var(--size-500) var(--size-400);
-          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+          background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+          cursor: pointer;
+          transition: background 0.5s ease-in-out;
+
           &>* {
             color: var(--color-neutral-0);
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            max-height: 5.5rem; /* Approx 3 lines */
+            transition: max-height 1s ease-out;
+          }
+
+          &.is-expanded {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 0.50));
+            & >* {
+              display: block;
+              -webkit-line-clamp: initial;
+              overflow: visible;
+              max-height: 100rem; /* Large value to fit all content */
+              transition: max-height 1s ease-in;
+            }
           }
         }
       }
