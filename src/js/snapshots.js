@@ -1,6 +1,6 @@
 // src/js/snapshots.js
 import Swiper from 'swiper';
-import { Navigation, EffectCoverflow } from 'swiper/modules';
+import { Navigation, EffectCoverflow, Mousewheel } from 'swiper/modules';
 
 class Snapshots {
   // DOM Elements
@@ -23,6 +23,8 @@ class Snapshots {
   remainingTime = 0;
   modalSwiper = null;
   mainCarouselSwiper = null;
+  viewedSnapshotsKey = 'viewedSnapshots';
+  viewedSnapshots = [];
 
   /**
    * Decodes HTML entities from a string.
@@ -65,17 +67,60 @@ class Snapshots {
     this.pausePlayBtn = document.getElementById('snapshots-toggle-pause');
     this.modalTitle = this.modal.querySelector('.snapshots-modal__title');
     this.progressBarsContainer = this.modal.querySelector('.snapshots-modal__progress-bars');
-    this.modalSwiperContainer = this.modal.querySelector('.swiper-modal-body'); // New
+    this.modalSwiperContainer = this.modal.querySelector('.swiper-modal-body');
 
+    this._loadViewedSnapshots();
     this.initCarousel();
     this._addEventListeners();
+    this._updateCarouselViewedState();
+  }
+
+  _loadViewedSnapshots() {
+    try {
+      const stored = localStorage.getItem(this.viewedSnapshotsKey);
+      if (stored) {
+        this.viewedSnapshots = JSON.parse(stored);
+      }
+    } catch (e) {
+      console.error('Error loading viewed snapshots from localStorage:', e);
+      this.viewedSnapshots = [];
+    }
+  }
+
+  _updateCarouselViewedState() {
+    if (!this.mainCarouselSwiper) return;
+    this.mainCarouselSwiper.slides.forEach((slide) => {
+      const snapshotId = slide.dataset.snapshotId;
+      if (snapshotId && this.viewedSnapshots.includes(snapshotId)) {
+        slide.classList.add('is-viewed');
+      }
+    });
+  }
+
+  _markAsViewed(snapshotId) {
+    if (!this.viewedSnapshots.includes(snapshotId)) {
+      this.viewedSnapshots.push(snapshotId);
+      try {
+        localStorage.setItem(this.viewedSnapshotsKey, JSON.stringify(this.viewedSnapshots));
+      } catch (e) {
+        console.error('Error saving viewed snapshots to localStorage:', e);
+      }
+    }
+    // Also add the class to the slide element for immediate feedback
+    const slide = this.mainCarouselSwiper.slides.find(s => s.dataset.snapshotId === snapshotId);
+    if (slide && !slide.classList.contains('is-viewed')) {
+      slide.classList.add('is-viewed');
+    }
   }
 
   initCarousel() {
     this.mainCarouselSwiper = new Swiper('#snapshots .snapshots-carousel', {
-      modules: [Navigation],
+      modules: [Navigation, Mousewheel],
       slidesPerView: 'auto',
       spaceBetween: 15,
+      grabCursor: true,
+      mousewheel: true,
+      freeMode: true,
       navigation: {
         nextEl: '#snapshots .swiper-button-next',
         prevEl: '#snapshots .swiper-button-prev',
@@ -99,6 +144,13 @@ class Snapshots {
       on: {
         slideChange: (swiper) => {
           this.currentIndex = swiper.activeIndex;
+
+          // Mark the new slide as viewed as the user navigates within the modal
+          const snapshotId = this.snapshotsData[this.currentIndex]?.id.toString();
+          if (snapshotId) {
+            this._markAsViewed(snapshotId);
+          }
+
           this.updateModalContent(this.currentIndex);
           this.startStoryTimer();
         },
@@ -158,6 +210,12 @@ class Snapshots {
   openModal(index) {
     if (!this.modal) return;
     this.currentIndex = index;
+
+    const snapshotId = this.snapshotsData[index]?.id.toString();
+    if (snapshotId) {
+      this._markAsViewed(snapshotId);
+    }
+
     this.buildProgressBars();
     this.initModalSwiper(); // Initialize modal Swiper when opening
     this.modalSwiper.slideTo(index, 0); // Go to the selected slide instantly
