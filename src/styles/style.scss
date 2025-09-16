@@ -39,9 +39,9 @@
 @use 'components/scroll-indicator' as *;
 @use 'components/separator' as *;
 @use 'components/spinner' as *;
-@use 'components/swiper' as *;
-@use 'components/accordion' as *;
-@use 'components/snapshots' as *;
+@use 'components/swiper' as *; // Swiper base styles
+@use 'components/accordion' as *; // Accordion component
+@use 'components/snapshots' as *; // Snapshots component
 
 
 
