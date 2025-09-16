@@ -39,6 +39,12 @@
                 height: 100%;
                 object-fit: cover;
             }
+            .project-card__chip-list {
+                position: absolute;
+                top: var(--size-100);
+                left: var(--size-100);
+                z-index: 10;
+            }
         }
 
         .project__content {
