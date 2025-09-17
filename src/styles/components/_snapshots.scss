@@ -36,24 +36,24 @@
               height: 100%;
               object-fit: cover;
             }
-            .snapshot-item__title {
-              position: absolute;
-              bottom: 0;
-              left: 0;
-              right: 0;
-              padding: var(--size-200);
-              background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-              color: var(--color-neutral-0);
-              text-align: left;
-              h3 {
-                @include truncate-text;
-              }
-            }
             .chip-list {
               position: absolute;
               top: var(--size-50);
               right: var(--size-50);
             }
+            // .snapshot-item__title {
+            //   position: absolute;
+            //   bottom: 0;
+            //   left: 0;
+            //   right: 0;
+            //   padding: var(--size-200);
+            //   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            //   color: var(--color-neutral-0);
+            //   text-align: left;
+            //   h3 {
+            //     @include truncate-text;
+            //   }
+            // }
           }
           &:hover {
               transform: scale(1.05);
@@ -63,9 +63,6 @@
             border: none;
             box-shadow: none;
             transform: scale(0.95);
-            .chip-list {
-              display: none;
-            }
             &:hover {
               opacity: 1;
             }
@@ -235,17 +232,14 @@
             bottom: 0;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 50%, rgba(0, 0, 0, 0.50));
             opacity: 0;
-            transition: opacity 0.6s ease-in-out;
             z-index: -1;
           }
           &>* {
             color: var(--color-neutral-0);
             display: -webkit-box;
             -webkit-box-orient: vertical;
-            /* -webkit-line-clamp: 3; */
+            -webkit-line-clamp: 3;
             overflow: hidden;
-            max-height: 5.5rem; /* Approx 3 lines */
-            transition: max-height 0.6s ease-in-out;
           }
           &.is-expanded {
             &::before {
@@ -253,8 +247,7 @@
             }
 
             & >* {
-              /* -webkit-line-clamp: initial; */
-              max-height: 100rem; /* Large value to fit all content */
+              -webkit-line-clamp: initial;
             }
           }
         }

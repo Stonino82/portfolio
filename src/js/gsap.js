@@ -142,7 +142,42 @@ const initGsapAnimations = () => {
     createSectionBatch('.last .promotional-banner');
     createSectionBatch('.project-card');
     createSectionBatch('.project-tile');
-    createSectionBatch('.snapshots .section__header, .snapshots .snapshot-item'); // Animation for the snapshots section
+    // --- Snapshots Section Animation ---
+    // Animate header with the default batch config
+    createSectionBatch('.snapshots .section__header');
+
+    // Create a custom, responsive batch for the carousel items
+    const snapshotItems = gsap.utils.toArray('.snapshots .snapshot-item');
+    if (snapshotItems.length > 0) {
+        const snapshotsCarousel = document.querySelector('.snapshots-carousel');
+        let dynamicBatchMax = 4; // Default value
+
+        if (snapshotsCarousel && snapshotItems[0]) {
+            const itemWidth = snapshotItems[0].offsetWidth;
+            if (itemWidth > 0) {
+                // Calculate how many items fit and add 2 for buffer
+                dynamicBatchMax = Math.ceil(snapshotsCarousel.offsetWidth / itemWidth) + 2;
+            }
+        }
+
+        const snapshotItemConfig = {
+            ...sectionBatchConfig, // Inherit start, onLeaveBack etc.
+            batchMax: dynamicBatchMax,
+            onEnter: batch => gsap.to(batch, { 
+                autoAlpha: 1, 
+                y: 0, 
+                stagger: STAGGER_TIME / 5, // Faster stagger as requested
+                duration: ANIM_DURATION, 
+                ease: ANIM_EASE, 
+                overwrite: true, 
+                clearProps: "all" 
+            }),
+        };
+
+        // Set initial state and create the batch
+        gsap.set(snapshotItems, { autoAlpha: 0, y: FADE_IN_DISTANCE });
+        ScrollTrigger.batch(snapshotItems, snapshotItemConfig);
+    }
 
     // Special Batch for Stats section (with counter)
     const statsElements = gsap.utils.toArray('.stats .column__content');

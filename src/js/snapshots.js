@@ -204,7 +204,12 @@ class Snapshots {
       }
     });
 
-    
+    // Handle browser back button
+    window.addEventListener('popstate', (e) => {
+      if (this.modal.classList.contains('is-active')) {
+        this._hideModal();
+      }
+    });
   }
 
   openModal(index) {
@@ -216,6 +221,8 @@ class Snapshots {
       this._markAsViewed(snapshotId);
     }
 
+    history.pushState({ snapshotModal: true }, '', window.location.href);
+
     this.buildProgressBars();
     this.initModalSwiper(); // Initialize modal Swiper when opening
     this.modalSwiper.slideTo(index, 0); // Go to the selected slide instantly
@@ -225,6 +232,16 @@ class Snapshots {
   }
 
   closeModal() {
+    if (!this.modal.classList.contains('is-active')) return;
+
+    if (history.state && history.state.snapshotModal) {
+      history.back();
+    } else {
+      this._hideModal();
+    }
+  }
+
+  _hideModal() {
     if (!this.modal) return;
     this.modal.classList.remove('is-active');
     document.body.style.overflow = '';

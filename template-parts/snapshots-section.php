@@ -54,21 +54,22 @@ if (!empty($snapshots_data)) :
             <?php foreach ($snapshots_data as $index => $snapshot) : ?>
                 <div class="swiper-slide" data-snapshot-id="<?php echo esc_attr($snapshot['id']); ?>" data-snapshot-index="<?php echo esc_attr($index); ?>">
                     <div class="snapshot-item">
-                        <?php
-                    if ( $snapshot['video_url'] ) : ?>
-                        <video autoplay loop muted preload="metadata" class="wp-post-image">
-                            <source src="<?php echo esc_url( $snapshot['video_url'] ); ?>">
-                            Your browser does not support the video tag.
-                        </video>
-                    <?php elseif ( has_post_thumbnail($snapshot['id']) ) : ?>
-                        <?php echo get_the_post_thumbnail( $snapshot['id'], 'large' ); ?>
-                    <?php endif; ?>
                         <!-- <div class="snapshot-item__title">
                             <h3 class="text-heading-6"><?php echo esc_html($snapshot['title']); ?></h3>
                         </div> -->
-                        <ul class="chip-list chip-list--sm dark">
-                            <li class="chip chip--pill chip--green">New</li>
-                        </ul>
+                        <?php if ($index < 2) : ?>
+                            <ul class="chip-list chip-list--sm dark">
+                                <li class="chip chip--pill chip--green">New</li>
+                            </ul>
+                        <?php endif; ?>
+                        <?php if ( $snapshot['video_url'] ) : ?>
+                            <video autoplay loop muted preload="metadata" class="wp-post-image">
+                                <source src="<?php echo esc_url( $snapshot['video_url'] ); ?>">
+                                Your browser does not support the video tag.
+                            </video>
+                        <?php elseif ( has_post_thumbnail($snapshot['id']) ) : ?>
+                            <?php echo get_the_post_thumbnail( $snapshot['id'], 'large' ); ?>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endforeach; ?>
