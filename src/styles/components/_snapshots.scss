@@ -236,10 +236,7 @@
           }
           &>* {
             color: var(--color-neutral-0);
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            overflow: hidden;
+            @include truncate-text-multiline(3);
           }
           &.is-expanded {
             &::before {

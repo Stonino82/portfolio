@@ -12,8 +12,8 @@
     overflow: hidden;
 
     .project__image {
-        height: 120px;
-        min-width: 120px;
+        height: 100px;
+        min-width: 100px;
         position: relative;
         flex: 0 0 20%;
         border-radius: var(--size-100);
@@ -75,6 +75,7 @@
             .project__title {
                 a {
                     text-decoration: none;
+                    @include truncate-text-multiline;
                 }
             }
         }

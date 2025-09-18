@@ -55,3 +55,15 @@ $breakpoint-xl: 1200px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/**
+ * Truncates text to a specific number of lines, adding an ellipsis at the end.
+ * @param {number} $lines - The maximum number of lines to display.
+ */
+@mixin truncate-text-multiline($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

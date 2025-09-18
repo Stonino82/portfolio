@@ -1,5 +1,8 @@
 @use '../../generals/colors' as *;
 @use '../../generals/icons' as *;
+@use '../../generals/mixins' as *;
+
+
 
 .testimonials {
     .swiper {
@@ -51,10 +54,7 @@
                 }
                 .testimonial-card__body {
                     p {
-                        display: -webkit-box;
-                        -webkit-line-clamp: 10;
-                        -webkit-box-orient: vertical;
-                        overflow: hidden;
+                        @include truncate-text-multiline(10);
                         &.expanded {
                             -webkit-line-clamp: unset;
                             height: auto;
