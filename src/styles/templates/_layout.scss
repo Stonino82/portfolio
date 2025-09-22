@@ -121,6 +121,7 @@ main {
     .content {
         & > *:not(.site-footer) {
             border-radius: 1rem;
+            overflow: hidden;
         }
         section {
             // Increase spacing on larger screens for better layout

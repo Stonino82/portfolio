@@ -56,7 +56,6 @@ body.single-post, body.single-portfolio { // --> inject in the body
                     color: var(--color-text-brand);
                     overflow: hidden;
                 }
-                &.wp-block-group-featured-2 {}
                 p {
                     a::after {
                         display: inline-block;
