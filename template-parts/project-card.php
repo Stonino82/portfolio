@@ -53,8 +53,6 @@ $is_latest_post = ( get_the_ID() === $latest_post_id );
 			<?php elseif ( has_post_thumbnail() ) : ?>
 				<?php the_post_thumbnail( 'post-thumbnail' ); ?>
 			<?php endif; ?>
-
-			<?php /* get_template_part( 'template-parts/project-section' ); */ ?>
 		</div>
 		<div class="project__content">
 			<?php
