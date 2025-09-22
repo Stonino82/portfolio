@@ -39,7 +39,7 @@ if (!empty($snapshots_data)) :
 ?>
 <section id="snapshots" class="snapshots">
     <div class="section__header">
-        <h5 class="section__title">Snapshot stories</h5>
+        <h5 class="section__title">Snapshorts</h5>
         <div class="swiper-navigation">
             <div class="swiper-button-prev btn btn-sm btn-tertiary">
                 <span class="icon-only material-symbols-rounded">chevron_left</span>

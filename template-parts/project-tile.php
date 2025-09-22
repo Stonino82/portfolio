@@ -7,6 +7,14 @@
  * @package antoninolattene
  */
 
+// Default arguments
+$defaults = array(
+    'show_breadcrumbs' => true,
+    'show_meta'        => true,
+);
+$args = wp_parse_args( $args, $defaults );
+
+
 /**
  * CONTEXTO DE USO: Páginas de Archivo (Blog, Portfolio, etc.).
  * Este archivo funciona dentro del bucle estándar de WordPress. Su propósito es mostrar
@@ -68,19 +76,23 @@ $is_latest_post = ( get_the_ID() === $latest_post_id );
     <div class="project__content">
         <div class="project__header">
             <?php
+            if ( $args['show_breadcrumbs'] ) {
                 // Use the breadcrumbs function in 'category_only' mode.
                 antoninolattene_breadcrumbs( [
                     'display_mode' => 'category_only',
                     'taxonomy'     => $category_taxonomy,
                 ] );
+            }
             ?>
             <h3 class="project__title text-heading-6"><a rel="bookmark" href="<?php echo esc_url( get_permalink() )?>"><?php the_title() ?></a></h3>
         </div>
         <!-- <p class="project__description"><?php echo get_the_excerpt(); ?></p> -->
         <!-- <p class="project__description"><?php echo get_secondary_title(); ?></p> -->
+        <?php if ( $args['show_meta'] ) : ?>
         <div class="project__meta">
             <!-- <small><?php antoninolattene_posted_by();?></small> -->
             <small><?php antoninolattene_posted_on();?></small>
         </div>
+        <?php endif; ?>
     </div>
 </article>

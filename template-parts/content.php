@@ -83,11 +83,16 @@ if ( $is_portfolio ) {
 				) );
 				?>
 			</div><!-- .entry-content -->
-
-			<!-- <footer class="entry-footer">
-				<?php antoninolattene_entry_footer(); ?>
-			</footer> -->
+			
 
 		</article><!-- #post-<?php the_ID(); ?> -->
-	</section><!-- /blog -->
+	</section>
+
+	<section>
+		<?php
+			if ( is_singular() ) : 
+				get_template_part( 'template-parts/post-navigation' );
+			endif; 
+		?>
+	</section>
 </div>

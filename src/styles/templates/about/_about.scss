@@ -229,7 +229,6 @@ main {
                             display: none;
                             @include media-up($breakpoint-md) {
                                 display: flex;
-                                gap: var(--size-200);
                             }
                         }
                     }

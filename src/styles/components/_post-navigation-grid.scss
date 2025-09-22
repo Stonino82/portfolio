@@ -1,0 +1,9 @@
+.post-navigation-grid-container {
+    padding: var(--size-600);
+    .post-navigation-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--size-500);
+    }
+}
+
