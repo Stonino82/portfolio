@@ -4,6 +4,10 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: var(--size-500);
+
+        .post-navigation-grid__item {
+            min-width: 0; // The fix for the truncation bug.
+        }
     }
 }
 
