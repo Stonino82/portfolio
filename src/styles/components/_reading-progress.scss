@@ -1,0 +1,23 @@
+.reading-progress-bar {
+  position: absolute; // Positioned relative to the header
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--color-brand-gradient);
+  transform: scaleX(0);
+  transform-origin: left center;
+  // Add a radius to the right side for a pill-like effect
+  border-top-right-radius: var(--radius-full);
+  border-bottom-right-radius: var(--radius-full);
+  // z-index is likely not needed anymore but can be kept for safety
+  z-index: -1;
+  // Smoothly transition the border-radius change
+  transition: border-radius 0.2s ease-out;
+
+  // When the bar is at 100%, remove the radius to make it flush
+  &.is-complete {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

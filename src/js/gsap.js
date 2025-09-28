@@ -203,10 +203,33 @@ const initGsapAnimations = () => {
     }
   };
 
+  const initReadingProgressBar = () => {
+    // --- Reading Progress Bar Animation for single posts ---
+    if (document.body.classList.contains('single')) {
+      gsap.to('#reading-progress-bar', {
+        scaleX: 1,
+        transformOrigin: 'left',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: 'article', // The main article element
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          onUpdate: self => {
+            const progressBar = document.getElementById('reading-progress-bar');
+            // Add or remove class based on progress
+            progressBar.classList.toggle('is-complete', self.progress === 1);
+          }
+        },
+      });
+    }
+  };
+
   // --- Run Animations ---
   initLoaderAnimation();
   initHeaderAnimations();
   initScrollAnimations();
+  initReadingProgressBar(); // Initialize the reading progress bar
 };
 
 export default initGsapAnimations;

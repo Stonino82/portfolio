@@ -43,6 +43,11 @@
 			<div class="container">
 				<?php get_template_part( 'template-parts/site-navigation' ); ?>
 			</div>
+		<?php
+			if ( is_single() ) {
+				echo '<div id="reading-progress-bar" class="reading-progress-bar"></div>';
+			}
+			?>
 		</header><!-- #masthead -->
 
 		<div id="menu-overlay"></div>
