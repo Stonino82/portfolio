@@ -36,11 +36,26 @@ $is_latest_post = ( get_the_ID() === $latest_post_id );
 <article class="project-card <?php echo esc_attr( $article_class ); ?>">
     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 		<div class="project__image">
-			<?php if ( $is_latest_post ) : ?>
-			<ul class="project-card__chip-list chip-list chip-list--sm dark">
-				<li class="chip chip--pill chip--green">New</li>
+			<ul class="project-card__chip-list chip-list chip-list--sm">
+				<?php
+					$client_name = get_post_meta( get_the_ID(), 'client_name', true );
+					$client_chip_color = get_post_meta( get_the_ID(), 'client_chip_color', true );
+					$display_name = ( ! empty( $client_name ) && strtolower( $client_name ) !== 'personal' ) ? $client_name : 'Personal Project';
+
+					// Determine the chip color class
+					$chip_color_class = 'chip--orange'; // Default color as requested
+
+					if ( $display_name !== 'Personal Project' && ! empty( $client_chip_color ) ) {
+						// If it's not a personal project and a specific color is set, use that color
+						$chip_color_class = 'chip--' . esc_attr( $client_chip_color );
+					}
+					// If it's a personal project, or client_chip_color is empty, it will remain 'chip--orange'
+				?>
+				<li class="chip chip--pill <?php echo esc_attr( $chip_color_class ); ?>"><?php echo esc_html( $display_name ); ?></li>
+				<?php if ( $is_latest_post ) : ?>
+					<li class="chip chip--pill chip--green dark">New</li>
+				<?php endif; ?>
 			</ul>
-			<?php endif; ?>
 
 			<?php
 			$video_url = get_post_meta( get_the_ID(), '_featured_video_url', true );

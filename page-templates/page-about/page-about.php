@@ -342,7 +342,7 @@ get_header(); ?>
                         <div class="column">
                             <?php
                                 get_template_part(
-                                    'template-parts/promotional-banner',
+                                    'template-parts/banner',
                                     null,
                                     array(
                                         'layout' => 'vertical', // or 'horizontal'
@@ -500,7 +500,7 @@ get_header(); ?>
                     <div class="section__content">
                         <?php
                         get_template_part(
-                            'template-parts/promotional-banner',
+                            'template-parts/banner',
                             null,
                             array(
                                 'layout' => 'horizontal', // or 'horizontal'

@@ -47,7 +47,7 @@
 			if ( is_single() ) {
 				echo '<div id="reading-progress-bar" class="reading-progress-bar"></div>';
 			}
-			?>
+		?>
 		</header><!-- #masthead -->
 
 		<div id="menu-overlay"></div>

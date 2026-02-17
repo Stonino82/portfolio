@@ -693,18 +693,48 @@ add_filter( 'nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3 );
  * @param array $atts Atributos del shortcode.
  * @return string HTML del banner.
  */
-function antoninolattene_inline_banner_shortcode( $atts ) {
+/**
+ * Shortcode para mostrar un banner, usando el componente genérico.
+ *
+ * Uso: [banner text="Tu texto obligatorio aquí" title="Título opcional" button_text="Botón opcional"]
+ * El campo 'text' es obligatorio.
+ *
+ * @param array $atts Atributos del shortcode.
+ * @return string HTML del banner.
+ */
+function antoninolattene_banner_shortcode( $atts ) {
+    // 1. Definir y parsear los atributos del shortcode, incluyendo todas las opciones del banner.
     $atts = shortcode_atts(
         array(
-            'title'          => '',
-            'text'           => 'Este es el texto obligatorio.', // Campo obligatorio
-            'button_text'    => '',
-            'button_url'     => '#',
-            'button_classes' => 'btn btn-secondary btn-md',
-            'button_icon'    => '',
+            // Contenido
+            'title'         => '',
+            'text'          => '',
+            'type'          => 'secondary',
+            'layout'        => 'vertical',
+
+            // Icono del Título
+            'title_icon_type' => '', // md, fa, custom
+            'title_icon_class'=> '',
+            'title_icon_path' => '',
+
+            // Botón Primario
+            'button_text'   => '',
+            'button_url'    => '#',
+            'button_classes'=> 'btn-sm btn-primary',
+            'button_icon_type' => '',
+            'button_icon_class' => '',
+            'button_icon_position' => 'icon-leading',
+
+            // Botón Secundario
+            'secondary_button_text'   => '',
+            'secondary_button_url'    => '#',
+            'secondary_button_classes'=> 'btn-sm btn-tertiary',
+            'secondary_button_icon_type' => '',
+            'secondary_button_icon_class' => '',
+            'secondary_button_icon_position' => 'icon-leading',
         ),
         $atts,
-        'inline_banner'
+        'banner'
     );
 
     // Si el campo de texto obligatorio está vacío, no mostrar nada.
@@ -712,43 +742,42 @@ function antoninolattene_inline_banner_shortcode( $atts ) {
         return '';
     }
 
-    // --- Construir el contenido del texto ---
-    $content_html = '';
-    if ( ! empty( $atts['title'] ) ) {
-        $content_html .= '<h4>' . esc_html( $atts['title'] ) . '</h4>';
-    }
-    // El texto es obligatorio, así que lo añadimos.
-    $content_html .= '<p>' . wp_kses_post( $atts['text'] ) . '</p>';
+    // 2. Mapear TODOS los atributos a los argumentos del componente.
+    $banner_args = [
+        'title'                 => $atts['title'],
+        'text'                  => $atts['text'],
+        'type'                  => $atts['type'],
+        'layout'                => $atts['layout'],
+        'title_icon_type'       => $atts['title_icon_type'],
+        'title_icon_class'      => $atts['title_icon_class'],
+        'title_icon_path'       => $atts['title_icon_path'],
+        
+        'primary_cta_text'      => $atts['button_text'],
+        'primary_cta_url'       => $atts['button_url'],
+        'primary_cta_classes'   => $atts['button_classes'],
+        'primary_cta_icon_type' => $atts['button_icon_type'],
+        'primary_cta_icon_class'=> $atts['button_icon_class'],
+        'primary_cta_icon_position' => $atts['button_icon_position'],
 
-    // --- Construir el botón ---
-    $action_html = '';
-    if ( ! empty( $atts['button_text'] ) ) {
-        $button_classes = esc_attr( $atts['button_classes'] );
-        $button_icon    = esc_attr( $atts['button_icon'] );
-        $icon_html      = '';
+        'secondary_cta_text'      => $atts['secondary_button_text'],
+        'secondary_cta_url'       => $atts['secondary_button_url'],
+        'secondary_cta_classes'   => $atts['secondary_button_classes'],
+        'secondary_cta_icon_type' => $atts['secondary_button_icon_type'],
+        'secondary_cta_icon_class'=> $atts['secondary_button_icon_class'],
+        'secondary_cta_icon_position' => $atts['secondary_button_icon_position'],
+    ];
 
-        if ( ! empty( $button_icon ) ) {
-            $icon_html = '<i class="' . $button_icon . '"></i>';
-        }
+    // 3. Capturar la salida del componente genérico.
+    ob_start();
+    get_template_part( 'template-parts/banner', null, $banner_args );
+    $output = ob_get_clean();
 
-        $action_html = '<a href="' . esc_url( $atts['button_url'] ) . '" class="' . $button_classes . '">' . $icon_html . '<span class="btn-text">' . esc_html( $atts['button_text'] ) . '</span></a>';
-    }
-
-    // --- Ensamblar la salida final ---
-    $output = '<div class="inline-banner">';
-
-    // El div de contenido siempre se mostrará porque el texto es obligatorio.
-    $output .= '<div class="inline-banner__content">' . $content_html . '</div>';
-
-    if ( ! empty( $action_html ) ) {
-        $output .= '<div class="inline-banner__action">' . $action_html . '</div>';
-    }
-
-    $output .= '</div>';
-
+    // 4. Devolver el HTML.
     return $output;
 }
-add_shortcode( 'inline_banner', 'antoninolattene_inline_banner_shortcode' );
+add_shortcode( 'banner', 'antoninolattene_banner_shortcode' );
+
+
 
 
 
@@ -860,6 +889,163 @@ function antoninolattene_child_save_featured_video_meta_data( $post_id ) {
     }
 }
 add_action( 'save_post', 'antoninolattene_child_save_featured_video_meta_data' );
+
+
+/**
+ * --- Custom Meta Box for Client Name ---
+ *
+ * This section adds a custom meta box to the WordPress editor for 'post' and 'portfolio'
+ * post types. It provides a dedicated input field for the client's name, making it
+ * easier to manage this information directly from the post editing screen.
+ * The value entered here will be used to display a "chip" on the project cards.
+ */
+
+/**
+ * Adds a meta box to the post and portfolio edit screens for the client name.
+ */
+function antoninolattene_child_add_client_name_meta_box() {
+    add_meta_box(
+        'antoninolattene_child_client_name',
+        __( 'Client', 'antoninolattene-child' ), // Title of the meta box
+        'antoninolattene_child_client_name_meta_box_callback',
+        array( 'post', 'portfolio' ), // Show on 'post' and 'portfolio' custom post types
+        'side', // Position on the side
+        'high'   // High priority, so it appears higher up
+    );
+}
+add_action( 'add_meta_boxes', 'antoninolattene_child_add_client_name_meta_box' );
+
+/**
+ * Returns an array of available chip colors for the client meta box.
+ *
+ * @return array
+ */
+function antoninolattene_child_get_chip_colors() {
+    return array(
+        'neutral' => __( 'Neutral', 'antoninolattene-child' ),
+        'primary' => __( 'Primary', 'antoninolattene-child' ),
+        'accent'  => __( 'Accent', 'antoninolattene-child' ),
+        'red'     => __( 'Red', 'antoninolattene-child' ),
+        'orange'  => __( 'Orange', 'antoninolattene-child' ),
+        'amber'   => __( 'Amber', 'antoninolattene-child' ),
+        'yellow'  => __( 'Yellow', 'antoninolattene-child' ),
+        'lime'    => __( 'Lime', 'antoninolattene-child' ),
+        'green'   => __( 'Green', 'antoninolattene-child' ),
+        'emerald' => __( 'Emerald', 'antoninolattene-child' ),
+        'teal'    => __( 'Teal', 'antoninolattene-child' ),
+        'cyan'    => __( 'Cyan', 'antoninolattene-child' ),
+        'sky'     => __( 'Sky', 'antoninolattene-child' ),
+        'indigo'  => __( 'Indigo', 'antoninolattene-child' ),
+        'violet'  => __( 'Violet', 'antoninolattene-child' ),
+        'purple'  => __( 'Purple', 'antoninolattene-child' ),
+        'fuchsia' => __( 'Fuchsia', 'antoninolattene-child' ),
+        'pink'    => __( 'Pink', 'antoninolattene-child' ),
+        'slate'   => __( 'Slate', 'antoninolattene-child' ),
+        'gray'    => __( 'Gray', 'antoninolattene-child' ),
+        'zinc'    => __( 'Zinc', 'antoninolattene-child' ),
+        'stone'   => __( 'Stone', 'antoninolattene-child' ),
+    );
+}
+
+/**
+ * Displays the meta box content for the client name and chip color.
+ *
+ * @param WP_Post $post The current post object.
+ */
+function antoninolattene_child_client_name_meta_box_callback( $post ) {
+    wp_nonce_field( 'antoninolattene_child_save_client_name', 'antoninolattene_child_client_name_nonce' );
+
+    $client_name = get_post_meta( $post->ID, 'client_name', true );
+    $client_chip_color = get_post_meta( $post->ID, 'client_chip_color', true );
+
+    // Set default color if not already set
+    if ( empty( $client_chip_color ) ) {
+        $client_chip_color = 'orange'; // Default for "Personal Project"
+    }
+    ?>
+    <p>
+        <label for="antoninolattene_child_client_name_field"><?php _e( 'Enter the client name or leave empty for "Personal Project":', 'antoninolattene-child' ); ?></label>
+        <br>
+        <input type="text" id="antoninolattene_child_client_name_field" name="client_name" value="<?php echo esc_attr( $client_name ); ?>" style="width: 100%;" />
+    </p>
+
+    <p>
+        <label for="antoninolattene_child_client_chip_color_field"><?php _e( 'Select chip color:', 'antoninolattene-child' ); ?></label>
+        <br>
+        <select id="antoninolattene_child_client_chip_color_field" name="client_chip_color" style="width: 100%;">
+            <?php
+            foreach ( antoninolattene_child_get_chip_colors() as $color_slug => $color_name ) {
+                printf(
+                    '<option value="%s" %s>%s</option>',
+                    esc_attr( $color_slug ),
+                    selected( $client_chip_color, $color_slug, false ),
+                    esc_html( $color_name )
+                );
+            }
+            ?>
+        </select>
+    </p>
+    <?php
+}
+
+/**
+ * Saves the client name and chip color when the post is saved.
+ *
+ * @param int $post_id The ID of the post being saved.
+ */
+function antoninolattene_child_save_client_name_meta_data( $post_id ) {
+    // Check if our nonce is set.
+    if ( ! isset( $_POST['antoninolattene_child_client_name_nonce'] ) ) {
+        return;
+    }
+
+    // Verify that the nonce is valid.
+    if ( ! wp_verify_nonce( $_POST['antoninolattene_child_client_name_nonce'], 'antoninolattene_child_save_client_name' ) ) {
+        return;
+    }
+
+    // If this is an autosave, our form has not been submitted, so we don\'t want to do anything.
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+
+    // Check the user\'s permissions.
+    if ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], array( 'post', 'portfolio' ) ) ) {
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+    } else {
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
+        }
+    }
+
+    // Sanitize and save the client name.
+    if ( isset( $_POST['client_name'] ) ) {
+        $new_client_name = sanitize_text_field( $_POST['client_name'] );
+        update_post_meta( $post_id, 'client_name', $new_client_name );
+    } else {
+        delete_post_meta( $post_id, 'client_name' );
+    }
+
+    // Sanitize and save the client chip color.
+    if ( isset( $_POST['client_chip_color'] ) ) {
+        $new_client_chip_color = sanitize_text_field( $_POST['client_chip_color'] );
+        // Ensure the selected color is one of the valid options.
+        $valid_colors = array_keys( antoninolattene_child_get_chip_colors() );
+        if ( in_array( $new_client_chip_color, $valid_colors ) ) {
+            update_post_meta( $post_id, 'client_chip_color', $new_client_chip_color );
+        } else {
+            // If an invalid color is somehow submitted, default to orange.
+            update_post_meta( $post_id, 'client_chip_color', 'orange' );
+        }
+    } else {
+        // If no color is submitted (e.g., checkbox unchecked, though not applicable for select), default to orange.
+        update_post_meta( $post_id, 'client_chip_color', 'orange' );
+    }
+}
+
+add_action( 'save_post', 'antoninolattene_child_save_client_name_meta_data' );
 
 
 /**

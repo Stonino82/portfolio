@@ -138,7 +138,7 @@ const initGsapAnimations = () => {
       '.skills .column',
       '.passions .section__header, .passions .column',
       '.blog .section__header, .blog .column',
-      '.last .promotional-banner',
+      '.last .banner',
       '.project-card',
       '.project-tile',
       '.snapshots .section__header'

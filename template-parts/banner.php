@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying a promotional banner.
+ * Template part for displaying a banner.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -41,18 +41,11 @@ $secondary_cta_icon_path = isset($args['secondary_cta_icon_path']) ? $args['seco
 $secondary_cta_icon_position = isset($args['secondary_cta_icon_position']) ? $args['secondary_cta_icon_position'] : 'icon-leading';
 
 
-// --- VARS ---
-// Base classes
-$base_class = 'promotional-banner';
-$layout_class = "{$base_class}--{$layout}";
-$type_class = "{$base_class}--{$type}";
 
-// Prepare Title Icon HTML and Classes
-$title_classes = 'promotional-banner__title';
 $icon_html = '';
 
 if ($title_icon_type) {
-    $common_icon_class = 'promotional-banner__title-icon';
+    $common_icon_class = 'banner__title-icon';
     if ($title_icon_type === 'custom' && $title_icon_path) {
         // Use get_vite_asset to handle dev vs. prod paths
         $icon_html = '<img src="' . esc_url(get_vite_asset($title_icon_path)) . '" alt="" class="' . $common_icon_class . '">';
@@ -65,10 +58,10 @@ if ($title_icon_type) {
 
 ?>
 
-<div class="<?php echo esc_attr($base_class); ?> <?php echo esc_attr($layout_class); ?> <?php echo esc_attr($type_class); ?>">
-    <div class="<?php echo esc_attr($base_class); ?>__content">
+<div class="banner banner--<?php echo esc_attr($layout); ?> banner--<?php echo esc_attr($type); ?>">
+    <div class="banner__content">
         <?php if ($title) : ?>
-            <h4 class="<?php echo esc_attr($title_classes); ?>">
+            <h4 class="banner__title">
                 <?php
                 if ($icon_html) {
                     echo $icon_html; // WPCS: XSS ok.
@@ -78,11 +71,21 @@ if ($title_icon_type) {
             </h4>
         <?php endif; ?>
         <?php if ($text) : ?>
-            <p class="promotional-banner__text text-body-md"><?php echo wp_kses_post($text); ?></p>
+            <div class="banner__text text-body-md">
+                <?php 
+                // If the is_html_content flag is set, output the text directly. Otherwise, sanitize it.
+                $is_html_content = isset($args['is_html_content']) ? $args['is_html_content'] : false;
+                if ($is_html_content) {
+                    echo $text; // WPCS: XSS ok. Content is trusted.
+                } else {
+                    echo wp_kses_post($text);
+                }
+                ?>
+            </div>
         <?php endif; ?>
     </div>
     <?php if ($primary_cta_text || $secondary_cta_text) : ?>
-        <div class="promotional-banner__actions">
+        <div class="banner__actions">
 
             <!-- Secondary Action -->
             <?php if ($secondary_cta_text && $secondary_cta_url) : ?>

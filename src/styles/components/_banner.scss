@@ -1,6 +1,6 @@
 @use '../generals/mixins' as *;
 
-.promotional-banner {
+.banner {
   // Vertical & Horizontal layout
   display: flex;
   flex-direction: column;
@@ -13,37 +13,37 @@
   border-radius: var(--size-400);
   box-shadow: var(--box-shadow-dp1);
 
-  .promotional-banner__content {
+  .banner__content {
     // flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    .promotional-banner__title {
+    .banner__title {
       display: flex;
       gap: var(--size-100);
       text-align: center;
-      .promotional-banner__title-icon {
+      .banner__title-icon {
         width: 1.2em;
         height: 1.2em;
         flex-shrink: 0; // Prevent icon from shrinking
       }
     }
-    .promotional-banner__text {
+    .banner__text {
       text-align: center;
     }
     @include media-up($breakpoint-lg) {
       align-items: flex-start;
       justify-content: flex-start;
-      .promotional-banner__title {
+      .banner__title {
         text-align: left;
       }
-      .promotional-banner__text {
+      .banner__text {
         text-align: left;
       }
     }
   }
-  .promotional-banner__actions {
+  .banner__actions {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -62,17 +62,17 @@
   }
 
   // Horizontal spacific layout
-  &.promotional-banner--horizontal {
+  &.banner--horizontal {
     @include media-up($breakpoint-md) {
       flex-direction: row;
       align-items: flex-end;
-      .promotional-banner__content {
+      .banner__content {
         align-items: flex-start;
-      .promotional-banner__text {
+      .banner__text {
         text-align: left;
       }
       }
-      .promotional-banner__actions {
+      .banner__actions {
         width: max-content;
         flex-direction: column;
         .primary-action, .secondary-action {
@@ -82,21 +82,21 @@
     }
   }
 
-  &.promotional-banner--primary {
+  &.banner--primary {
     background: var(--color-brand-gradient);
-    .promotional-banner__title {
+    .banner__title {
       color: var(--color-neutral-0);
     }
-    .promotional-banner__text {
+    .banner__text {
       color: var(--color-neutral-0);
     }
   }
-  &.promotional-banner--secondary {
+  &.banner--secondary {
     background-color: var(--color-surface-primary);
-    .promotional-banner__title {
+    .banner__title {
       color: var(--color-text-primary);
     }
-    .promotional-banner__text {
+    .banner__text {
       color: var(--color-text-secondary);
     }
   }
