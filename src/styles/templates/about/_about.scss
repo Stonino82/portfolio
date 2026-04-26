@@ -34,13 +34,18 @@ main {
                     justify-content: center;
                     gap: var(--size-400);
 
+                    .section__title {
+                        margin: 0;
+                        text-align: center;
+                    }
+
                     @include media-up($breakpoint-md) {
                         flex-direction: row;
                         justify-content: space-between;
-                    }
 
-                    .section__title {
-                        margin: 0;
+                        .section__title {
+                            text-align: left;
+                        }
                     }
                 }
 

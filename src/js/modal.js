@@ -24,7 +24,6 @@ export function initModals() {
         });
     });
 
-    // Handle ESC key to close active modal
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const activeModal = document.querySelector('.modal.is-open');
@@ -34,11 +33,19 @@ export function initModals() {
         }
     });
 
+    window.addEventListener('popstate', () => {
+        const activeModal = document.querySelector('.modal.is-open');
+        if (activeModal) {
+            _hideModal(activeModal);
+        }
+    });
+
     function openModal(modal, trigger) {
         modal._trigger = trigger;
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('modal-open');
+        history.pushState({ modal: true, modalId: modal.id }, '', window.location.href);
 
         const closeBtn = modal.querySelector('.modal__close-btn');
         if (closeBtn) {
@@ -47,6 +54,14 @@ export function initModals() {
     }
 
     function closeModal(modal) {
+        if (history.state && history.state.modal) {
+            history.back();
+        } else {
+            _hideModal(modal);
+        }
+    }
+
+    function _hideModal(modal) {
         modal.classList.remove('is-open');
         modal.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('modal-open');
