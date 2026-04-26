@@ -18,6 +18,7 @@ $title_icon_type = isset($args['title_icon_type']) ? $args['title_icon_type'] : 
 $title_icon_class = isset($args['title_icon_class']) ? $args['title_icon_class'] : ''; // for fa or md
 $title_icon_path = isset($args['title_icon_path']) ? $args['title_icon_path'] : ''; // for custom, e.g. 'img/icon.svg'
 $title_icon_position = isset($args['title_icon_position']) ? $args['title_icon_position'] : 'icon-leading';
+$title_icon_extra_class = isset($args['title_icon_extra_class']) ? $args['title_icon_extra_class'] : '';
 
 // Content
 $text = isset($args['text']) ? $args['text'] : '';
@@ -45,7 +46,7 @@ $secondary_cta_icon_position = isset($args['secondary_cta_icon_position']) ? $ar
 $icon_html = '';
 
 if ($title_icon_type) {
-    $common_icon_class = 'banner__title-icon';
+    $common_icon_class = 'banner__title-icon' . ($title_icon_extra_class ? ' ' . esc_attr($title_icon_extra_class) : '');
     if ($title_icon_type === 'custom' && $title_icon_path) {
         // Use get_vite_asset to handle dev vs. prod paths
         $icon_html = '<img src="' . esc_url(get_vite_asset($title_icon_path)) . '" alt="" class="' . $common_icon_class . '">';

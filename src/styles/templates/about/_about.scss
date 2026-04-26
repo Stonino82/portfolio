@@ -2,13 +2,16 @@
 
 main {
     .content-about {
+
         // General Sections Styles
         section {
             background-color: var(--color-surface-secondary);
             border-radius: unset !important;
+
             &:nth-of-type(even) {
                 background-color: var(--color-surface-primary);
             }
+
             .section__inner {
                 max-width: var(--max-width) !important;
                 display: flex;
@@ -18,9 +21,11 @@ main {
                 gap: var(--size-600);
                 margin: 0 auto;
                 padding: var(--size-950) var(--size-500);
-                & > * {
+
+                &>* {
                     width: 100%;
                 }
+
                 .section__header {
                     width: 100%;
                     display: flex;
@@ -28,18 +33,22 @@ main {
                     align-items: center;
                     justify-content: center;
                     gap: var(--size-400);
+
                     @include media-up($breakpoint-md) {
                         flex-direction: row;
                         justify-content: space-between;
                     }
+
                     .section__title {
                         margin: 0;
                     }
                 }
+
                 .section__content {
                     display: grid;
                     grid-template-columns: 1fr;
                     gap: var(--size-800);
+
                     .column {
                         min-width: 0;
                         display: flex;
@@ -47,36 +56,43 @@ main {
                         align-items: center;
                         text-align: center;
                         gap: var(--size-200);
+
                         .column__header {
                             display: flex;
                             align-items: center;
                             gap: var(--size-400);
                             margin-bottom: var(--size-400);
                             color: var(--color-text-primary);
+
                             .column__title {
                                 margin: 0;
                             }
+
                             .material-symbols-rounded {
                                 font-size: 36px;
                             }
                         }
+
                         .column__content {
                             display: flex;
                             flex-direction: column;
                             align-items: center;
                         }
+
                         .column__paragraph {
-                        display: grid;
-                        grid-template-columns: 1fr;
-                        gap: var(--size-600);
-                        place-content: center;
-                        text-align: center;
+                            display: grid;
+                            grid-template-columns: 1fr;
+                            gap: var(--size-600);
+                            place-content: center;
+                            text-align: center;
+
                             @include media-up($breakpoint-md) {
-                                grid-template-columns: 1fr 1fr;
+                                grid-template-columns: repeat(2, 1fr);
                                 place-content: start;
                                 text-align: left;
                             }
                         }
+
                         .column__footer {
                             min-width: 0;
                             width: 100%;
@@ -88,15 +104,18 @@ main {
                             overflow: hidden;
                             border: none;
                         }
+
                         @include media-up($breakpoint-md) {
                             align-items: flex-start;
                             text-align: left;
+
                             .column__content {
                                 align-items: flex-start;
                             }
                         }
                     }
                 }
+
                 .section__footer {
                     display: flex;
                     flex-direction: column;
@@ -107,27 +126,33 @@ main {
                     background-color: var(--color-surface-primary);
                     border: 1px solid var(--color-border-secondary);
                     border-radius: var(--size-400);
+
                     @include media-up($breakpoint-md) {
                         flex-direction: row;
                     }
+
                     .column {
                         width: 100%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         gap: var(--size-600);
+
                         .btn {
                             width: 100%;
                         }
+
                         @include media-up($breakpoint-md) {
                             width: max-content;
                             flex-direction: row;
                         }
                     }
-                    & > .column:first-child {
+
+                    &>.column:first-child {
                         .testimonial-images {
                             display: flex;
                             align-items: center;
+
                             img {
                                 width: 42px;
                                 height: 42px;
@@ -140,12 +165,14 @@ main {
                     }
                 }
             }
+
             // General Sections Styles
 
             // Hero Section Styles
             &.hero {
                 // It has its own style file
             }
+
             &.philosophy {
                 .section__inner {
                     .section__content {
@@ -155,6 +182,7 @@ main {
                     }
                 }
             }
+
             &.stats {
                 .section__inner {
                     .section__content {
@@ -163,11 +191,14 @@ main {
                         border: 1px solid var(--color-border-secondary);
                         border-radius: var(--size-400);
                         box-shadow: var(--box-shadow-dp1);
+
                         @include media-up($breakpoint-md) {
                             grid-template-columns: repeat(4, 1fr);
                             gap: var(--size-700);
+
                             .column {
                                 justify-content: space-between;
+
                                 .column__header {
                                     margin-bottom: var(--size-900);
                                 }
@@ -176,15 +207,18 @@ main {
                     }
                 }
             }
+
             &.journey {
                 .section__inner {
                     .section__content {
                         .column {
                             gap: var(--size-500);
+
                             .column__footer {
                                 .courses-wrapper {
                                     display: flex;
                                     white-space: nowrap;
+
                                     .course {
                                         width: max-content;
                                         display: flex;
@@ -195,22 +229,26 @@ main {
                                         border: 1px solid var(--color-border-secondary);
                                         border-radius: var(--radius-xl);
                                         margin-right: var(--size-400);
+
                                         .course__logo {
                                             width: 32px;
                                             height: 32px;
                                             object-fit: contain;
                                             object-position: center;
                                         }
+
                                         .course__content {
                                             display: flex;
                                             flex-direction: column;
                                             justify-content: flex-start;
                                             align-items: flex-start;
                                             margin-top: 3px;
+
                                             h6 {
                                                 color: var(--color-text-primary);
                                                 margin: 0;
                                             }
+
                                             p {
                                                 color: var(--color-text-tertiary);
                                             }
@@ -222,53 +260,14 @@ main {
                     }
                 }
             }
-            &.testimonials {
-                .section__inner {
-                    .section__header {
-                        .swiper-navigation {
-                            display: none;
-                            @include media-up($breakpoint-md) {
-                                display: flex;
-                            }
-                        }
-                    }
-                }
-            }
-            &.skills {
+
+            &.experience {
                 .section__inner {
                     .section__content {
                         @include media-up($breakpoint-lg) {
-                            grid-template-columns:  minmax(180px, 240px) minmax(0, 1fr);
+                            grid-template-columns: repeat(2, 1fr);
                         }
-                    }
-                    .column {
-                        .column__footer {
-                        }
-                    }
-                }
-            }
-            &.passions {
-                .section__inner {
-                    .section__content {
-                        .chip-list {
-                            justify-content: center;
-                        }
-                        @include media-up($breakpoint-lg) {
-                            grid-template-columns: 1fr 1fr;
-                            .chip-list {
-                                justify-content: flex-start;
-                            }
-                        }
-                    }
-                }
-            }
-            &.blog {
-                .section__inner {
-                    .section__content {
-                        @include media-up($breakpoint-lg) {
-                            // grid-template-columns: 1fr 1fr;
-                            grid-template-columns: minmax(180px, 340px) minmax(0, 1fr);
-                        }
+
                         .column:nth-of-type(2) {
                             gap: var(--size-600);
                             min-width: 0;
@@ -277,11 +276,74 @@ main {
                     }
                 }
             }
+
+            &.testimonials {
+                .section__inner {
+                    .section__header {
+                        .swiper-navigation {
+                            display: none;
+
+                            @include media-up($breakpoint-md) {
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.skills {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                    }
+
+                    .column {
+                        .column__footer {}
+                    }
+                }
+            }
+
+            &.passions {
+                .section__inner {
+                    .section__content {
+                        .chip-list {
+                            justify-content: center;
+                        }
+
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: repeat(2, 1fr);
+
+                            .chip-list {
+                                justify-content: flex-start;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.blog {
+                .section__inner {
+                    .section__content {
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+
+                        .column:nth-of-type(2) {
+                            gap: var(--size-600);
+                            min-width: 0;
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+
             &.last {
                 .section__inner {
                     .section__content {
-                        .banner {
-                            padding: var(--size-500);
+                        @include media-up($breakpoint-lg) {
+                            grid-template-columns: repeat(2, 1fr);
                         }
                     }
                 }

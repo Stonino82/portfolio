@@ -2,7 +2,8 @@
 
 // --- Vite Asset Enqueueing ---
 
-function is_vite_dev_mode() {
+function is_vite_dev_mode()
+{
     // The 'hot' file is a flag created by 'npm run dev'.
     return file_exists(get_stylesheet_directory() . '/hot');
 }
@@ -16,7 +17,8 @@ function is_vite_dev_mode() {
  * @param string $path The path to the asset relative to the 'src' directory (e.g., 'img/logo.svg').
  * @return string The full, correct URL to the asset.
  */
-function get_vite_asset($path) {
+function get_vite_asset($path)
+{
     if (is_vite_dev_mode()) {
         // In development, return the full URL to the asset served by the Vite dev server.
         return 'http://localhost:3000/src/' . $path;
@@ -38,7 +40,7 @@ function my_theme_enqueue_styles()
 
     // --- Dependencies from CDNs ---
     wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
-    wp_enqueue_style( 'material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200', array(), null );
+    wp_enqueue_style('material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200', array(), null);
     wp_enqueue_style('css-reset-and-normalize', 'https://cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css');
 
     if (is_vite_dev_mode()) {
@@ -78,12 +80,13 @@ function my_theme_enqueue_styles()
         }
     }
 
-    
+
 }
 add_action('wp_enqueue_scripts', 'my_theme_enqueue_styles');
 
 // Add type="module" to the script tags enqueued by Vite
-function add_type_module_to_vite_scripts($tag, $handle, $src) {
+function add_type_module_to_vite_scripts($tag, $handle, $src)
+{
     if (in_array($handle, ['vite-client', 'vite-main-app'], true)) {
         // The 'defer' attribute is important for performance and to avoid render-blocking.
         return '<script type="module" src="' . esc_url($src) . '" defer></script>';
@@ -100,109 +103,111 @@ add_filter('script_loader_tag', 'add_type_module_to_vite_scripts', 10, 3);
  *
  * @return array
  */
-function antoninolattene_child_get_availability_choices() {
-	return array(
-		'available'     => __( 'Available', 'antoninolattene-child' ),
-		'limited'       => __( 'Limited availability', 'antoninolattene-child' ),
-		'not-available' => __( 'Unavailable', 'antoninolattene-child' ),
-	);
+function antoninolattene_child_get_availability_choices()
+{
+    return array(
+        'available' => __('Available', 'antoninolattene-child'),
+        'limited' => __('Limited availability', 'antoninolattene-child'),
+        'not-available' => __('Unavailable', 'antoninolattene-child'),
+    );
 }
 /**
  * Registra las opciones de personalización del tema (Theme Customizer).
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function antoninolattene_child_customize_register( $wp_customize ) {
-	// 1. Añadir una nueva sección para el estado de disponibilidad.
-	$wp_customize->add_section( 'availability_status_section', array(
-		'title'    => __( 'Disponibilidad', 'antoninolattene-child' ),
-		'priority' => 30,
-	) );
+function antoninolattene_child_customize_register($wp_customize)
+{
+    // 1. Añadir una nueva sección para el estado de disponibilidad.
+    $wp_customize->add_section('availability_status_section', array(
+        'title' => __('Disponibilidad', 'antoninolattene-child'),
+        'priority' => 30,
+    ));
 
-	// 2. Añadir el ajuste para el estado (el valor guardado).
-	$wp_customize->add_setting( 'availability_status', array(
-		'default'           => 'limited',
-		'transport'         => 'refresh', // La vista previa se actualiza al guardar.
-		'sanitize_callback' => 'antoninolattene_child_sanitize_availability_status',
-	) );
+    // 2. Añadir el ajuste para el estado (el valor guardado).
+    $wp_customize->add_setting('availability_status', array(
+        'default' => 'limited',
+        'transport' => 'refresh', // La vista previa se actualiza al guardar.
+        'sanitize_callback' => 'antoninolattene_child_sanitize_availability_status',
+    ));
 
-	// 3. Añadir el control para el estado (el selector desplegable).
-	$wp_customize->add_control( 'availability_status_control', array(
-		'label'       => __( 'Estado Actual', 'antoninolattene-child' ),
-		'description' => __( 'El texto se actualizará automáticamente según el estado que elijas.', 'antoninolattene-child' ),
-		'section'     => 'availability_status_section',
-		'settings'    => 'availability_status',
-		'type'        => 'select',
-		'choices'     => antoninolattene_child_get_availability_choices(),
-	) );
+    // 3. Añadir el control para el estado (el selector desplegable).
+    $wp_customize->add_control('availability_status_control', array(
+        'label' => __('Estado Actual', 'antoninolattene-child'),
+        'description' => __('El texto se actualizará automáticamente según el estado que elijas.', 'antoninolattene-child'),
+        'section' => 'availability_status_section',
+        'settings' => 'availability_status',
+        'type' => 'select',
+        'choices' => antoninolattene_child_get_availability_choices(),
+    ));
 
-	// 4. Añadir el ajuste y control para el logo alternativo (para el efecto de scroll).
-	$wp_customize->add_setting( 'alternative_logo', array(
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'esc_url_raw', // More flexible callback for image controls.
-	) );
-	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'alternative_logo_control', array(
-		'label'       => __( 'Logo Alternativo (al hacer scroll)', 'antoninolattene-child' ),
-		'description' => __( 'Este logo aparecerá brevemente cuando el usuario haga scroll hacia abajo.', 'antoninolattene-child' ),
-		'section'     => 'title_tagline', // Lo añadimos a la sección "Identidad del sitio".
-		'settings'    => 'alternative_logo',
-	) ) );
+    // 4. Añadir el ajuste y control para el logo alternativo (para el efecto de scroll).
+    $wp_customize->add_setting('alternative_logo', array(
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw', // More flexible callback for image controls.
+    ));
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'alternative_logo_control', array(
+        'label' => __('Logo Alternativo (al hacer scroll)', 'antoninolattene-child'),
+        'description' => __('Este logo aparecerá brevemente cuando el usuario haga scroll hacia abajo.', 'antoninolattene-child'),
+        'section' => 'title_tagline', // Lo añadimos a la sección "Identidad del sitio".
+        'settings' => 'alternative_logo',
+    )));
 
-	// --- Portfolio Archive Settings ---
-	$wp_customize->add_section( 'portfolio_archive_section', array(
-		'title'       => __( 'Archivo de Portfolio', 'antoninolattene-child' ),
-		'priority'    => 35,
-		'description' => __( 'Configura el título y la descripción para la página principal del archivo de portfolio (/portfolio).', 'antoninolattene-child' ),
-	) );
+    // --- Portfolio Archive Settings ---
+    $wp_customize->add_section('portfolio_archive_section', array(
+        'title' => __('Archivo de Portfolio', 'antoninolattene-child'),
+        'priority' => 35,
+        'description' => __('Configura el título y la descripción para la página principal del archivo de portfolio (/portfolio).', 'antoninolattene-child'),
+    ));
 
-	// Title Setting
-	$wp_customize->add_setting( 'portfolio_archive_title', array(
-		'default'           => 'Case Studies & Designs Showcase',
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
-	$wp_customize->add_control( 'portfolio_archive_title_control', array(
-		'label'    => __( 'Título del Archivo', 'antoninolattene-child' ),
-		'section'  => 'portfolio_archive_section',
-		'settings' => 'portfolio_archive_title',
-		'type'     => 'text',
-	) );
+    // Title Setting
+    $wp_customize->add_setting('portfolio_archive_title', array(
+        'default' => 'Case Studies & Designs Showcase',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control('portfolio_archive_title_control', array(
+        'label' => __('Título del Archivo', 'antoninolattene-child'),
+        'section' => 'portfolio_archive_section',
+        'settings' => 'portfolio_archive_title',
+        'type' => 'text',
+    ));
 
-	// Description Setting
-	$wp_customize->add_setting( 'portfolio_archive_description', array(
-		'default'           => 'Discover my design journey! This portfolio features <strong>UX Case Studies</strong> and <strong>UI Designs</strong>, showcasing my approach to <strong>user-centered design</strong> and the final, polished results.',
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'wp_kses_post', // Allows safe HTML
-	) );
-	$wp_customize->add_control( 'portfolio_archive_description_control', array(
-		'label'    => __( 'Descripción del Archivo', 'antoninolattene-child' ),
-		'section'  => 'portfolio_archive_section',
-		'settings' => 'portfolio_archive_description',
-		'type'     => 'textarea',
-	) );
+    // Description Setting
+    $wp_customize->add_setting('portfolio_archive_description', array(
+        'default' => 'Discover my design journey! This portfolio features <strong>UX Case Studies</strong> and <strong>UI Designs</strong>, showcasing my approach to <strong>user-centered design</strong> and the final, polished results.',
+        'transport' => 'refresh',
+        'sanitize_callback' => 'wp_kses_post', // Allows safe HTML
+    ));
+    $wp_customize->add_control('portfolio_archive_description_control', array(
+        'label' => __('Descripción del Archivo', 'antoninolattene-child'),
+        'section' => 'portfolio_archive_section',
+        'settings' => 'portfolio_archive_description',
+        'type' => 'textarea',
+    ));
 
-	// --- Resume Link Setting ---
-	$wp_customize->add_section( 'resume_link_section', array(
-		'title'       => __( 'Enlace al Currículum', 'antoninolattene-child' ),
-		'priority'    => 36,
-		'description' => __( 'Configura el enlace a la página o archivo del currículum.', 'antoninolattene-child' ),
-	) );
+    // --- Resume Link Setting ---
+    $wp_customize->add_section('resume_link_section', array(
+        'title' => __('Enlace al Currículum', 'antoninolattene-child'),
+        'priority' => 36,
+        'description' => __('Configura el enlace a la página o archivo del currículum.', 'antoninolattene-child'),
+    ));
 
-	$wp_customize->add_setting( 'resume_url', array(
-		'default'           => home_url( '/cv-resume-antonino-lattene-product-designer-ux-ui-designer/' ),
-		'transport'         => 'refresh',
-		'sanitize_callback' => 'esc_url_raw',
-	) );
+    $wp_customize->add_setting('resume_url', array(
+        'default' => home_url('/cv-resume-antonino-lattene-product-designer-ux-ui-designer/'),
+        'transport' => 'refresh',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
 
-	$wp_customize->add_control( 'resume_url_control', array(
-		'label'       => __( 'URL del Currículum', 'antoninolattene-child' ),
-		'section'     => 'resume_link_section',
-		'settings'    => 'resume_url',
-		'type'        => 'url',
-		'description' => __( 'Puedes pegar aquí el enlace a la página de WordPress o al archivo PDF de la biblioteca de medios.', 'antoninolattene-child' ),
-	) );
+    $wp_customize->add_control('resume_url_control', array(
+        'label' => __('URL del Currículum', 'antoninolattene-child'),
+        'section' => 'resume_link_section',
+        'settings' => 'resume_url',
+        'type' => 'url',
+        'description' => __('Puedes pegar aquí el enlace a la página de WordPress o al archivo PDF de la biblioteca de medios.', 'antoninolattene-child'),
+    ));
 }
-add_action( 'customize_register', 'antoninolattene_child_customize_register' );
+add_action('customize_register', 'antoninolattene_child_customize_register');
 
 
 /**
@@ -211,11 +216,12 @@ add_action( 'customize_register', 'antoninolattene_child_customize_register' );
  * By defining specific image sizes, we can serve optimized images
  * instead of the full-size original, leading to faster page loads.
  */
-function antoninolattene_image_sizes_setup() {
-	// A dedicated size for the site logo, optimized for retina displays.
-	add_image_size( 'site-logo', 128, 128 ); // 128x128px, proportional.
+function antoninolattene_image_sizes_setup()
+{
+    // A dedicated size for the site logo, optimized for retina displays.
+    add_image_size('site-logo', 128, 128); // 128x128px, proportional.
 }
-add_action( 'after_setup_theme', 'antoninolattene_image_sizes_setup' );
+add_action('after_setup_theme', 'antoninolattene_image_sizes_setup');
 /**
  * Strips the wrapper div that WordPress sometimes adds around oEmbed elements
  * when they are used as a post thumbnail (e.g., featured videos).
@@ -223,18 +229,19 @@ add_action( 'after_setup_theme', 'antoninolattene_image_sizes_setup' );
  * @param string $html The post thumbnail HTML.
  * @return string The modified post thumbnail HTML.
  */
-function antoninolattene_strip_thumbnail_wrapper( $html ) {
+function antoninolattene_strip_thumbnail_wrapper($html)
+{
     // This regex looks for an iframe or video tag and extracts it from any parent container.
     // It's a non-greedy match and allows for whitespace around the media element.
-    $unwrapped_html = preg_replace( '/<div[^>]*>\s*(<iframe.*?>|<video.*?>)\s*<\/div>/s', '$1', $html );
+    $unwrapped_html = preg_replace('/<div[^>]*>\s*(<iframe.*?>|<video.*?>)\s*<\/div>/s', '$1', $html);
 
     // Only return the modified HTML if a replacement was actually made.
-    if ( $unwrapped_html && $unwrapped_html !== $html ) {
+    if ($unwrapped_html && $unwrapped_html !== $html) {
         return $unwrapped_html;
     }
     return $html;
 }
-add_filter( 'post_thumbnail_html', 'antoninolattene_strip_thumbnail_wrapper' );
+add_filter('post_thumbnail_html', 'antoninolattene_strip_thumbnail_wrapper');
 
 /**
  * Función de saneamiento para el selector de estado de disponibilidad.
@@ -242,9 +249,10 @@ add_filter( 'post_thumbnail_html', 'antoninolattene_strip_thumbnail_wrapper' );
  * @param string $input El valor seleccionado.
  * @return string El valor saneado.
  */
-function antoninolattene_child_sanitize_availability_status( $input ) {
-	$valid = array( 'available', 'limited', 'not-available' );
-	return in_array( $input, $valid, true ) ? $input : 'limited';
+function antoninolattene_child_sanitize_availability_status($input)
+{
+    $valid = array('available', 'limited', 'not-available');
+    return in_array($input, $valid, true) ? $input : 'limited';
 }
 
 /**
@@ -252,9 +260,10 @@ function antoninolattene_child_sanitize_availability_status( $input ) {
  *
  * @return string The resume URL.
  */
-function get_resume_url() {
-	// Get the URL from the customizer and provide a fallback for safety.
-	return get_theme_mod( 'resume_url', home_url( '/cv-resume-antonino-lattene-product-designer-ux-ui-designer/' ) );
+function get_resume_url()
+{
+    // Get the URL from the customizer and provide a fallback for safety.
+    return get_theme_mod('resume_url', home_url('/cv-resume-antonino-lattene-product-designer-ux-ui-designer/'));
 }
 
 
@@ -267,40 +276,43 @@ function get_resume_url() {
 
 //PARA MENU
 //aggregar clases a los links del menú
-function add_menu_link_class( $atts, $item, $args ) {
-  if (property_exists($args, 'link_class')) {
-    $atts['class'] = $args->link_class;
-  }
-  return $atts;
+function add_menu_link_class($atts, $item, $args)
+{
+    if (property_exists($args, 'link_class')) {
+        $atts['class'] = $args->link_class;
+    }
+    return $atts;
 }
-add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+add_filter('nav_menu_link_attributes', 'add_menu_link_class', 1, 3);
 
 
 // This snippet removes the current_page_parent class of the blog menu item:
-function theme_remove_cpt_blog_class( $classes, $item, $args ) {
-  if( !is_singular( 'post' ) AND !is_category() AND !is_tag() AND !is_date() ):
-      $blog_page_id = intval( get_option( 'page_for_posts' ) );
-      if( $blog_page_id != 0 AND $item->object_id == $blog_page_id )
-          unset( $classes[ array_search( 'current_page_parent', $classes ) ] ); 
-  endif;
-  return $classes;
+function theme_remove_cpt_blog_class($classes, $item, $args)
+{
+    if (!is_singular('post') AND !is_category() AND !is_tag() AND !is_date()):
+        $blog_page_id = intval(get_option('page_for_posts'));
+        if ($blog_page_id != 0 AND $item->object_id == $blog_page_id)
+            unset($classes[array_search('current_page_parent', $classes)]);
+    endif;
+    return $classes;
 }
-add_filter( 'nav_menu_css_class', 'theme_remove_cpt_blog_class', 10, 3);
+add_filter('nav_menu_css_class', 'theme_remove_cpt_blog_class', 10, 3);
 
 // This snippet adds a current_page_parent class on the archive menu item of a CPT:
-function theme_add_cpt_ancestor_class( $classes, $item, $args ) {
-  global $post;
-  $current_post_type = get_post_type_object( get_post_type( $post->ID ) );
-  if ( $current_post_type === 'post' ) {
-      return $classes;
-  }
-  $current_post_type_slug = is_array( $current_post_type->rewrite ) ? $current_post_type->rewrite['slug'] : $current_post_type->name;
-  $menu_slug = strtolower( trim( $item->url ) );
-  if( strpos( $menu_slug, $current_post_type_slug ) !== false )
-      $classes[] = 'current_page_parent';
-  return $classes;
+function theme_add_cpt_ancestor_class($classes, $item, $args)
+{
+    global $post;
+    $current_post_type = get_post_type_object(get_post_type($post->ID));
+    if ($current_post_type === 'post') {
+        return $classes;
+    }
+    $current_post_type_slug = is_array($current_post_type->rewrite) ? $current_post_type->rewrite['slug'] : $current_post_type->name;
+    $menu_slug = strtolower(trim($item->url));
+    if (strpos($menu_slug, $current_post_type_slug) !== false)
+        $classes[] = 'current_page_parent';
+    return $classes;
 }
-add_action( 'nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
+add_action('nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
 
 
 
@@ -311,12 +323,13 @@ add_action( 'nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
  *
  * @return array The icon map.
  */
-function get_category_icon_map() {
+function get_category_icon_map()
+{
     return array(
         'front-end-development' => 'icon-leading fa-solid fa-code',
-        'ui-design'             => 'icon-leading fa-solid fa-pen-ruler',
-        'ux-design'             => 'icon-leading fa-solid fa-user-group',
-        'graphic-design'        => 'icon-leading fa-solid fa-palette'
+        'ui-design' => 'icon-leading fa-solid fa-pen-ruler',
+        'ux-design' => 'icon-leading fa-solid fa-user-group',
+        'graphic-design' => 'icon-leading fa-solid fa-palette'
     );
 }
 
@@ -330,144 +343,145 @@ function get_category_icon_map() {
  * Adopts the visual style of categories/tags, including icons and colors
  * for different sections (Blog vs. Portfolio).
  */
-function antoninolattene_breadcrumbs( $args = array() ) {
-	// --- Settings ---
-	$separator         = '/';
-	$home_title        = 'Home';
-	// PHP-based truncation removed in favor of CSS.
-	$icon_map          = get_category_icon_map(); // Get the category icon map.
+function antoninolattene_breadcrumbs($args = array())
+{
+    // --- Settings ---
+    $separator = '/';
+    $home_title = 'Home';
+    // PHP-based truncation removed in favor of CSS.
+    $icon_map = get_category_icon_map(); // Get the category icon map.
 
-	// --- Default arguments ---
-	$defaults = array(
-		'display_mode' => 'full', // 'full' or 'category_only'
-		'post_id'      => get_the_id(),
-		'taxonomy'     => 'category',
-		'is_linked'    => true, // New: Controls if breadcrumb items are links.
-	);
-	$args     = wp_parse_args( $args, $defaults );
+    // --- Default arguments ---
+    $defaults = array(
+        'display_mode' => 'full', // 'full' or 'category_only'
+        'post_id' => get_the_id(),
+        'taxonomy' => 'category',
+        'is_linked' => true, // New: Controls if breadcrumb items are links.
+    );
+    $args = wp_parse_args($args, $defaults);
 
-	if ( 'category_only' === $args['display_mode'] ) {
-		antoninolattene_display_categories_as_breadcrumbs( $args, $icon_map );
-		return;
-	}
+    if ('category_only' === $args['display_mode']) {
+        antoninolattene_display_categories_as_breadcrumbs($args, $icon_map);
+        return;
+    }
 
-	// --- Early exit if on the front page ---
-	if ( is_front_page() ) {
-		return;
-	}
+    // --- Early exit if on the front page ---
+    if (is_front_page()) {
+        return;
+    }
 
-	// --- Determine Post Type and Context ---
-	global $post;
-	$post_type      = get_post_type();
-	$is_portfolio   = false;
-	$queried_object = get_queried_object();
+    // --- Determine Post Type and Context ---
+    global $post;
+    $post_type = get_post_type();
+    $is_portfolio = false;
+    $queried_object = get_queried_object();
 
-	if ( is_tax() || is_category() || is_tag() ) {
-		if ( $queried_object && property_exists( $queried_object, 'taxonomy' ) && strpos( $queried_object->taxonomy, 'portfolio' ) !== false ) {
-			$post_type = 'portfolio';
-		} else {
-			$post_type = 'post';
-		}
-	}
+    if (is_tax() || is_category() || is_tag()) {
+        if ($queried_object && property_exists($queried_object, 'taxonomy') && strpos($queried_object->taxonomy, 'portfolio') !== false) {
+            $post_type = 'portfolio';
+        } else {
+            $post_type = 'post';
+        }
+    }
 
-	// A single check for portfolio context
-	if ( 'portfolio' === $post_type || ( is_archive() && isset( $queried_object->taxonomy ) && strpos( $queried_object->taxonomy, 'portfolio' ) !== false ) ) {
-		$is_portfolio = true;
-	}
+    // A single check for portfolio context
+    if ('portfolio' === $post_type || (is_archive() && isset($queried_object->taxonomy) && strpos($queried_object->taxonomy, 'portfolio') !== false)) {
+        $is_portfolio = true;
+    }
 
-	// --- Start Breadcrumbs Output ---
-	echo '<ul class="breadcrumbs">';
+    // --- Start Breadcrumbs Output ---
+    echo '<ul class="breadcrumbs">';
 
-	// 1. Home Link
-	echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr( $home_title ) . '"><i class="icon-leading fa-regular fa-house"></i></a></li>';
+    // 1. Home Link
+    echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url(get_home_url()) . '" title="' . esc_attr($home_title) . '"><i class="icon-leading fa-regular fa-house"></i></a></li>';
 
-	// 2. Section Link (Blog or Portfolio)
-	if ( $is_portfolio ) {
-		$archive_link = get_post_type_archive_link( 'portfolio' );
-		if ( $archive_link ) {
-			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-			// If we are on the portfolio archive page, it's the current item.
-			if ( is_post_type_archive( 'portfolio' ) ) {
-				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</li>';
-			} else {
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( $archive_link ) . '"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</a></li>';
-			}
-		}
-	} else { // This covers 'post', 'category', 'tag', and standard pages
-		$blog_page_id = get_option( 'page_for_posts' );
-		if ( $blog_page_id && ! is_page() ) { // Don't show "Blog" on a standard page's breadcrumb
-			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-			// If we are on the blog page (home.php), it's the current item.
-			if ( is_home() ) {
-				echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</li>';
-			} else {
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $blog_page_id ) ) . '"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html( get_the_title( $blog_page_id ) ) . '</a></li>';
-			}
-		}
-	}
+    // 2. Section Link (Blog or Portfolio)
+    if ($is_portfolio) {
+        $archive_link = get_post_type_archive_link('portfolio');
+        if ($archive_link) {
+            echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
+            // If we are on the portfolio archive page, it's the current item.
+            if (is_post_type_archive('portfolio')) {
+                echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</li>';
+            } else {
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url($archive_link) . '"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</a></li>';
+            }
+        }
+    } else { // This covers 'post', 'category', 'tag', and standard pages
+        $blog_page_id = get_option('page_for_posts');
+        if ($blog_page_id && !is_page()) { // Don't show "Blog" on a standard page's breadcrumb
+            echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
+            // If we are on the blog page (home.php), it's the current item.
+            if (is_home()) {
+                echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html(get_the_title($blog_page_id)) . '</li>';
+            } else {
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_permalink($blog_page_id)) . '"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html(get_the_title($blog_page_id)) . '</a></li>';
+            }
+        }
+    }
 
-	// --- Early exit for main archive pages, as they are already handled ---
-	if ( is_post_type_archive() || is_home() ) {
-		echo '</ul>';
-		return;
-	}
+    // --- Early exit for main archive pages, as they are already handled ---
+    if (is_post_type_archive() || is_home()) {
+        echo '</ul>';
+        return;
+    }
 
-	// --- Main Logic for different page types ---
+    // --- Main Logic for different page types ---
 
-	// 3. Single Post (Blog or Portfolio)
-	if ( is_single() ) {
-		$taxonomy = $is_portfolio ? 'portfolio_category' : 'category';
-		$terms    = get_the_terms( $post->ID, $taxonomy );
+    // 3. Single Post (Blog or Portfolio)
+    if (is_single()) {
+        $taxonomy = $is_portfolio ? 'portfolio_category' : 'category';
+        $terms = get_the_terms($post->ID, $taxonomy);
 
-		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-			$main_term = $terms[0];
-			$ancestors = array_reverse( get_ancestors( $main_term->term_id, $taxonomy ) );
+        if (!empty($terms) && !is_wp_error($terms)) {
+            $main_term = $terms[0];
+            $ancestors = array_reverse(get_ancestors($main_term->term_id, $taxonomy));
 
-			// Parent categories
-			foreach ( $ancestors as $ancestor_id ) {
-				$ancestor      = get_term( $ancestor_id, $taxonomy );
-				$ancestor_icon = isset( $icon_map[ $ancestor->slug ] ) ? '<i class="' . esc_attr( $icon_map[ $ancestor->slug ] ) . '"></i> ' : '';
-				echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_term_link( $ancestor ) ) . '">' . $ancestor_icon . esc_html( $ancestor->name ) . '</a></li>';
-			}
+            // Parent categories
+            foreach ($ancestors as $ancestor_id) {
+                $ancestor = get_term($ancestor_id, $taxonomy);
+                $ancestor_icon = isset($icon_map[$ancestor->slug]) ? '<i class="' . esc_attr($icon_map[$ancestor->slug]) . '"></i> ' : '';
+                echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_term_link($ancestor)) . '">' . $ancestor_icon . esc_html($ancestor->name) . '</a></li>';
+            }
 
-			// Direct category
-			$main_term_icon = isset( $icon_map[ $main_term->slug ] ) ? '<i class="' . esc_attr( $icon_map[ $main_term->slug ] ) . '"></i> ' : '';
-			echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-			echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_term_link( $main_term ) ) . '">' . $main_term_icon . esc_html( $main_term->name ) . '</a></li>';
-		}
-		// Current post title removed as requested.
+            // Direct category
+            $main_term_icon = isset($icon_map[$main_term->slug]) ? '<i class="' . esc_attr($icon_map[$main_term->slug]) . '"></i> ' : '';
+            echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
+            echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_term_link($main_term)) . '">' . $main_term_icon . esc_html($main_term->name) . '</a></li>';
+        }
+        // Current post title removed as requested.
 
-	// 4. Standard Page
-	} elseif ( is_page() ) {
-		if ( $post->post_parent ) {
-			$ancestors = array_reverse( get_post_ancestors( $post->ID ) );
-			foreach ( $ancestors as $ancestor ) {
-				echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_permalink( $ancestor ) ) . '">' . esc_html( get_the_title( $ancestor ) ) . '</a></li>';
-			}
-		}
-		// Current page title removed as requested.
+        // 4. Standard Page
+    } elseif (is_page()) {
+        if ($post->post_parent) {
+            $ancestors = array_reverse(get_post_ancestors($post->ID));
+            foreach ($ancestors as $ancestor) {
+                echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_permalink($ancestor)) . '">' . esc_html(get_the_title($ancestor)) . '</a></li>';
+            }
+        }
+        // Current page title removed as requested.
 
-	// 5. Archive Page (Category, Tag, etc.)
-	} elseif ( is_archive() ) { // This now only handles taxonomy archives due to the early exit above.
-		$term = $queried_object;
+        // 5. Archive Page (Category, Tag, etc.)
+    } elseif (is_archive()) { // This now only handles taxonomy archives due to the early exit above.
+        $term = $queried_object;
 
-		// Parent terms
-		if ( $term && isset( $term->taxonomy ) ) {
-			$ancestors = array_reverse( get_ancestors( $term->term_id, $term->taxonomy ) );
-			foreach ( $ancestors as $ancestor_id ) {
-				$ancestor      = get_term( $ancestor_id, $term->taxonomy );
-				$ancestor_icon = isset( $icon_map[ $ancestor->slug ] ) ? '<i class="' . esc_attr( $icon_map[ $ancestor->slug ] ) . '"></i> ' : '';
-				echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
-				echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url( get_term_link( $ancestor ) ) . '">' . $ancestor_icon . esc_html( $ancestor->name ) . '</a></li>';
-			}
-		}
+        // Parent terms
+        if ($term && isset($term->taxonomy)) {
+            $ancestors = array_reverse(get_ancestors($term->term_id, $term->taxonomy));
+            foreach ($ancestors as $ancestor_id) {
+                $ancestor = get_term($ancestor_id, $term->taxonomy);
+                $ancestor_icon = isset($icon_map[$ancestor->slug]) ? '<i class="' . esc_attr($icon_map[$ancestor->slug]) . '"></i> ' : '';
+                echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_term_link($ancestor)) . '">' . $ancestor_icon . esc_html($ancestor->name) . '</a></li>';
+            }
+        }
 
-		// Current archive title removed as requested.
-	}
+        // Current archive title removed as requested.
+    }
 
-	echo '</ul>';
+    echo '</ul>';
 }
 
 /**
@@ -477,50 +491,51 @@ function antoninolattene_breadcrumbs( $args = array() ) {
  * @param array $args The arguments passed to the main function.
  * @param array $icon_map The map of category slugs to icons.
  */
-function antoninolattene_display_categories_as_breadcrumbs( $args, $icon_map ) {
-	$terms = wp_get_post_terms( $args['post_id'], $args['taxonomy'], array( 'orderby' => 'term_order' ) );
-	$is_linked = $args['is_linked'];
+function antoninolattene_display_categories_as_breadcrumbs($args, $icon_map)
+{
+    $terms = wp_get_post_terms($args['post_id'], $args['taxonomy'], array('orderby' => 'term_order'));
+    $is_linked = $args['is_linked'];
 
-	if ( empty( $terms ) || is_wp_error( $terms ) ) {
-		return;
-	}
+    if (empty($terms) || is_wp_error($terms)) {
+        return;
+    }
 
-	$parent_cat = null;
-	$child_cat  = null;
+    $parent_cat = null;
+    $child_cat = null;
 
-	foreach ( $terms as $term ) {
-		if ( 0 === $term->parent && ! $parent_cat ) {
-			$parent_cat = $term;
-		} elseif ( 0 !== $term->parent && ! $child_cat ) {
-			$child_cat = $term;
-		}
-	}
+    foreach ($terms as $term) {
+        if (0 === $term->parent && !$parent_cat) {
+            $parent_cat = $term;
+        } elseif (0 !== $term->parent && !$child_cat) {
+            $child_cat = $term;
+        }
+    }
 
-	if ( ! $parent_cat ) {
-		return;
-	}
+    if (!$parent_cat) {
+        return;
+    }
 
-	$parent_icon     = isset( $icon_map[ $parent_cat->slug ] ) ? '<i class="breadcrumbs__icon ' . esc_attr( $icon_map[ $parent_cat->slug ] ) . '"></i> ' : '';
+    $parent_icon = isset($icon_map[$parent_cat->slug]) ? '<i class="breadcrumbs__icon ' . esc_attr($icon_map[$parent_cat->slug]) . '"></i> ' : '';
 
-	echo '<ul class="breadcrumbs">';
-	echo '<li class="breadcrumbs__item">';
-	if ( $is_linked ) {
-		echo '<a class="breadcrumbs__link" href="' . esc_url( get_term_link( $parent_cat ) ) . '">' . $parent_icon . esc_html( $parent_cat->name ) . '</a>';
-	} else {
-		echo '<span class="breadcrumbs__link is-not-linked">' . $parent_icon . esc_html( $parent_cat->name ) . '</span>';
-	}
-	echo '</li>';
-	if ( $child_cat ) {
-		echo '<li class="breadcrumbs__separator">/</li>';
-		echo '<li class="breadcrumbs__item">';
-		if ( $is_linked ) {
-			echo '<a class="breadcrumbs__link" href="' . esc_url( get_term_link( $child_cat ) ) . '">' . esc_html( $child_cat->name ) . '</a>';
-	} else {
-			echo '<span class="breadcrumbs__link is-not-linked">' . esc_html( $child_cat->name ) . '</span>';
-	}
-		echo '</li>';
-	}
-	echo '</ul>';
+    echo '<ul class="breadcrumbs">';
+    echo '<li class="breadcrumbs__item">';
+    if ($is_linked) {
+        echo '<a class="breadcrumbs__link" href="' . esc_url(get_term_link($parent_cat)) . '">' . $parent_icon . esc_html($parent_cat->name) . '</a>';
+    } else {
+        echo '<span class="breadcrumbs__link is-not-linked">' . $parent_icon . esc_html($parent_cat->name) . '</span>';
+    }
+    echo '</li>';
+    if ($child_cat) {
+        echo '<li class="breadcrumbs__separator">/</li>';
+        echo '<li class="breadcrumbs__item">';
+        if ($is_linked) {
+            echo '<a class="breadcrumbs__link" href="' . esc_url(get_term_link($child_cat)) . '">' . esc_html($child_cat->name) . '</a>';
+        } else {
+            echo '<span class="breadcrumbs__link is-not-linked">' . esc_html($child_cat->name) . '</span>';
+        }
+        echo '</li>';
+    }
+    echo '</ul>';
 }
 
 /**
@@ -530,36 +545,39 @@ function antoninolattene_display_categories_as_breadcrumbs( $args, $icon_map ) {
  * like project-tile.php.
  */
 
-if ( ! function_exists( 'antoninolattene_posted_on' ) ) :
-	/**
-	 * Prints HTML with meta information for the current post-date/time.
-	 * This version removes the link to the date archive.
-	 */
-	function antoninolattene_posted_on() {
-		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
+if (!function_exists('antoninolattene_posted_on')):
+    /**
+     * Prints HTML with meta information for the current post-date/time.
+     * This version removes the link to the date archive.
+     */
+    function antoninolattene_posted_on()
+    {
+        $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+        if (get_the_time('U') !== get_the_modified_time('U')) {
+            $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+        }
 
-		$time_string = sprintf( $time_string,
-			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() ),
-			esc_attr( get_the_modified_date( DATE_W3C ) ),
-			esc_html( get_the_modified_date() )
-		);
+        $time_string = sprintf(
+            $time_string,
+            esc_attr(get_the_date(DATE_W3C)),
+            esc_html(get_the_date()),
+            esc_attr(get_the_modified_date(DATE_W3C)),
+            esc_html(get_the_modified_date())
+        );
 
-		echo '<i class="icon-leading fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
-	}
+        echo '<i class="icon-leading fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
+    }
 endif;
 
-if ( ! function_exists( 'antoninolattene_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 * This version removes the link to the author archive.
-	 */
-	function antoninolattene_posted_by() {
-		echo '<i class="icon-leading fa-regular fa-user"></i> <span class="author vcard">' . esc_html( get_the_author() ) . '</span>'; // WPCS: XSS OK.
-	}
+if (!function_exists('antoninolattene_posted_by')):
+    /**
+     * Prints HTML with meta information for the current author.
+     * This version removes the link to the author archive.
+     */
+    function antoninolattene_posted_by()
+    {
+        echo '<i class="icon-leading fa-regular fa-user"></i> <span class="author vcard">' . esc_html(get_the_author()) . '</span>'; // WPCS: XSS OK.
+    }
 endif;
 
 /**
@@ -573,18 +591,20 @@ endif;
  * @param int $length The default excerpt length.
  * @return int The new excerpt length.
  */
-function antoninolattene_child_custom_excerpt_length( $length ) {
-	return 25;
+function antoninolattene_child_custom_excerpt_length($length)
+{
+    return 25;
 }
-add_filter( 'excerpt_length', 'antoninolattene_child_custom_excerpt_length', 999 );
+add_filter('excerpt_length', 'antoninolattene_child_custom_excerpt_length', 999);
 
 /**
  * Replaces the default "[...]" with a simple ellipsis.
  */
-function antoninolattene_child_excerpt_more( $more ) {
-	return '...';
+function antoninolattene_child_excerpt_more($more)
+{
+    return '...';
 }
-add_filter( 'excerpt_more', 'antoninolattene_child_excerpt_more' );
+add_filter('excerpt_more', 'antoninolattene_child_excerpt_more');
 
 /**
  * --- Archive Page Customization ---
@@ -598,33 +618,35 @@ add_filter( 'excerpt_more', 'antoninolattene_child_excerpt_more' );
  * @param string $title The default archive title.
  * @return string The modified archive title without a prefix.
  */
-function antoninolattene_child_custom_archive_title( $title ) {
-	if ( is_category() || is_tag() || is_tax() ) {
-		// For any taxonomy (category, tag, custom), just return the term name.
-		$title = single_term_title( '', false );
-	} elseif ( is_post_type_archive() ) {
-		$title = post_type_archive_title( '', false );
-	}
-	return $title;
+function antoninolattene_child_custom_archive_title($title)
+{
+    if (is_category() || is_tag() || is_tax()) {
+        // For any taxonomy (category, tag, custom), just return the term name.
+        $title = single_term_title('', false);
+    } elseif (is_post_type_archive()) {
+        $title = post_type_archive_title('', false);
+    }
+    return $title;
 }
-add_filter( 'get_the_archive_title', 'antoninolattene_child_custom_archive_title' );
+add_filter('get_the_archive_title', 'antoninolattene_child_custom_archive_title');
 
 
 
 
 //Add logo in login page
-function login_logo() { 
-  $logo_url = get_stylesheet_directory_uri() . '/assets/Logo-UX-UI-Desginer-Antonino-Lattene.svg';
-  ?>
-  <style type="text/css"> 
-  body.login div#login h1 a {
-    background-image: url(<?php echo esc_url( $logo_url ); ?>);
-    background-size: contain;
-  } 
-  </style>
-  <?php 
+function login_logo()
+{
+    $logo_url = get_stylesheet_directory_uri() . '/assets/Logo-UX-UI-Desginer-Antonino-Lattene.svg';
+    ?>
+    <style type="text/css">
+        body.login div#login h1 a {
+            background-image: url(<?php echo esc_url($logo_url); ?>);
+            background-size: contain;
+        }
+    </style>
+<?php
 }
-add_action( 'login_enqueue_scripts', 'login_logo' );
+add_action('login_enqueue_scripts', 'login_logo');
 
 
 //Show Wordpress admin bar in front-end
@@ -642,18 +664,19 @@ add_action( 'login_enqueue_scripts', 'login_logo' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function antoninolattene_child_body_classes( $classes ) {
-	if ( is_home() || is_category() || is_tag() || is_single() && get_post_type() === 'post') {
-		// Add 'blog' class to all blog related pages.
-		$classes[] = 'blog';
-	} elseif ( is_post_type_archive( 'portfolio' ) || is_tax( 'portfolio_category' ) || is_tax( 'portfolio_tag' ) || is_singular( 'portfolio' ) ) {
-		// Add 'portfolio' class to all portfolio related pages.
-		$classes[] = 'portfolio';
-	}
+function antoninolattene_child_body_classes($classes)
+{
+    if (is_home() || is_category() || is_tag() || is_single() && get_post_type() === 'post') {
+        // Add 'blog' class to all blog related pages.
+        $classes[] = 'blog';
+    } elseif (is_post_type_archive('portfolio') || is_tax('portfolio_category') || is_tax('portfolio_tag') || is_singular('portfolio')) {
+        // Add 'portfolio' class to all portfolio related pages.
+        $classes[] = 'portfolio';
+    }
 
-	return $classes;
+    return $classes;
 }
-add_filter( 'body_class', 'antoninolattene_child_body_classes' );
+add_filter('body_class', 'antoninolattene_child_body_classes');
 
 
 
@@ -665,24 +688,25 @@ add_filter( 'body_class', 'antoninolattene_child_body_classes' );
  * Esto soluciona un bug/quirk de WordPress que elimina la clase en
  * ciertos contextos, como la página de inicio o archivos.
  */
-function always_add_blog_menu_item_class( $classes, $item, $args ) {
+function always_add_blog_menu_item_class($classes, $item, $args)
+{
     // 1. Obtenemos el ID de la página que está configurada como "Página de entradas" en Ajustes > Lectura.
-    $blog_page_id = get_option( 'page_for_posts' );
+    $blog_page_id = get_option('page_for_posts');
 
     // 2. Si el ID de la página de entradas existe y coincide con el ID del objeto al que enlaza este elemento del menú...
-    if ( $blog_page_id && $item->object_id == $blog_page_id ) {
-        
+    if ($blog_page_id && $item->object_id == $blog_page_id) {
+
         // 3. ...entonces este es el elemento del menú del Blog.
         // Nos aseguramos de que la clase 'menu-item-blog' esté en la lista.
-        if ( ! in_array( 'menu-item-blog', $classes ) ) {
+        if (!in_array('menu-item-blog', $classes)) {
             $classes[] = 'menu-item-blog';
         }
     }
-    
+
     // 4. Devolvemos la lista de clases (modificada o no).
     return $classes;
 }
-add_filter( 'nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3 );
+add_filter('nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3);
 
 /**
  * Shortcode para mostrar un banner inline personalizable.
@@ -702,33 +726,34 @@ add_filter( 'nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3 );
  * @param array $atts Atributos del shortcode.
  * @return string HTML del banner.
  */
-function antoninolattene_banner_shortcode( $atts ) {
+function antoninolattene_banner_shortcode($atts)
+{
     // 1. Definir y parsear los atributos del shortcode, incluyendo todas las opciones del banner.
     $atts = shortcode_atts(
         array(
             // Contenido
-            'title'         => '',
-            'text'          => '',
-            'type'          => 'secondary',
-            'layout'        => 'vertical',
+            'title' => '',
+            'text' => '',
+            'type' => 'secondary',
+            'layout' => 'vertical',
 
             // Icono del Título
             'title_icon_type' => '', // md, fa, custom
-            'title_icon_class'=> '',
+            'title_icon_class' => '',
             'title_icon_path' => '',
 
             // Botón Primario
-            'button_text'   => '',
-            'button_url'    => '#',
-            'button_classes'=> 'btn-sm btn-primary',
+            'button_text' => '',
+            'button_url' => '#',
+            'button_classes' => 'btn-sm btn-primary',
             'button_icon_type' => '',
             'button_icon_class' => '',
             'button_icon_position' => 'icon-leading',
 
             // Botón Secundario
-            'secondary_button_text'   => '',
-            'secondary_button_url'    => '#',
-            'secondary_button_classes'=> 'btn-sm btn-tertiary',
+            'secondary_button_text' => '',
+            'secondary_button_url' => '#',
+            'secondary_button_classes' => 'btn-sm btn-tertiary',
             'secondary_button_icon_type' => '',
             'secondary_button_icon_class' => '',
             'secondary_button_icon_position' => 'icon-leading',
@@ -738,44 +763,44 @@ function antoninolattene_banner_shortcode( $atts ) {
     );
 
     // Si el campo de texto obligatorio está vacío, no mostrar nada.
-    if ( empty( $atts['text'] ) ) {
+    if (empty($atts['text'])) {
         return '';
     }
 
     // 2. Mapear TODOS los atributos a los argumentos del componente.
     $banner_args = [
-        'title'                 => $atts['title'],
-        'text'                  => $atts['text'],
-        'type'                  => $atts['type'],
-        'layout'                => $atts['layout'],
-        'title_icon_type'       => $atts['title_icon_type'],
-        'title_icon_class'      => $atts['title_icon_class'],
-        'title_icon_path'       => $atts['title_icon_path'],
-        
-        'primary_cta_text'      => $atts['button_text'],
-        'primary_cta_url'       => $atts['button_url'],
-        'primary_cta_classes'   => $atts['button_classes'],
+        'title' => $atts['title'],
+        'text' => $atts['text'],
+        'type' => $atts['type'],
+        'layout' => $atts['layout'],
+        'title_icon_type' => $atts['title_icon_type'],
+        'title_icon_class' => $atts['title_icon_class'],
+        'title_icon_path' => $atts['title_icon_path'],
+
+        'primary_cta_text' => $atts['button_text'],
+        'primary_cta_url' => $atts['button_url'],
+        'primary_cta_classes' => $atts['button_classes'],
         'primary_cta_icon_type' => $atts['button_icon_type'],
-        'primary_cta_icon_class'=> $atts['button_icon_class'],
+        'primary_cta_icon_class' => $atts['button_icon_class'],
         'primary_cta_icon_position' => $atts['button_icon_position'],
 
-        'secondary_cta_text'      => $atts['secondary_button_text'],
-        'secondary_cta_url'       => $atts['secondary_button_url'],
-        'secondary_cta_classes'   => $atts['secondary_button_classes'],
+        'secondary_cta_text' => $atts['secondary_button_text'],
+        'secondary_cta_url' => $atts['secondary_button_url'],
+        'secondary_cta_classes' => $atts['secondary_button_classes'],
         'secondary_cta_icon_type' => $atts['secondary_button_icon_type'],
-        'secondary_cta_icon_class'=> $atts['secondary_button_icon_class'],
+        'secondary_cta_icon_class' => $atts['secondary_button_icon_class'],
         'secondary_cta_icon_position' => $atts['secondary_button_icon_position'],
     ];
 
     // 3. Capturar la salida del componente genérico.
     ob_start();
-    get_template_part( 'template-parts/banner', null, $banner_args );
+    get_template_part('template-parts/banner', null, $banner_args);
     $output = ob_get_clean();
 
     // 4. Devolver el HTML.
     return $output;
 }
-add_shortcode( 'banner', 'antoninolattene_banner_shortcode' );
+add_shortcode('banner', 'antoninolattene_banner_shortcode');
 
 
 
@@ -786,7 +811,8 @@ add_shortcode( 'banner', 'antoninolattene_banner_shortcode' );
  *
  * Usage: [credit name="Author Name" link="https://example.com"]
  */
-function photography_credit_shortcode($atts) {
+function photography_credit_shortcode($atts)
+{
     // Set default attributes and parse the user's input
     $atts = shortcode_atts(
         array(
@@ -817,33 +843,39 @@ add_shortcode('credit', 'photography_credit_shortcode');
 /**
  * Adds a meta box to the post and portfolio edit screens for the featured video URL.
  */
-function antoninolattene_child_add_featured_video_meta_box() {
+function antoninolattene_child_add_featured_video_meta_box()
+{
     add_meta_box(
         'antoninolattene_child_featured_video',
-        __( 'Featured Video URL', 'antoninolattene-child' ),
+        __('Featured Video URL', 'antoninolattene-child'),
         'antoninolattene_child_featured_video_meta_box_callback',
-        array( 'post', 'portfolio', 'snapshots' ), // Show on posts, portfolio and snapshots
+        array('post', 'portfolio', 'snapshots'), // Show on posts, portfolio and snapshots
         'side', // Changed to 'side'
         'low'   // Changed to 'low'
     );
 }
-add_action( 'add_meta_boxes', 'antoninolattene_child_add_featured_video_meta_box' );
+add_action('add_meta_boxes', 'antoninolattene_child_add_featured_video_meta_box');
 
 /**
  * Displays the meta box content for the featured video URL.
  *
  * @param WP_Post $post The current post object.
  */
-function antoninolattene_child_featured_video_meta_box_callback( $post ) {
-    wp_nonce_field( 'antoninolattene_child_save_featured_video', 'antoninolattene_child_featured_video_nonce' );
+function antoninolattene_child_featured_video_meta_box_callback($post)
+{
+    wp_nonce_field('antoninolattene_child_save_featured_video', 'antoninolattene_child_featured_video_nonce');
 
-    $video_url = get_post_meta( $post->ID, '_featured_video_url', true );
+    $video_url = get_post_meta($post->ID, '_featured_video_url', true);
     ?>
     <p>
-        <label for="antoninolattene_child_video_url"><?php _e( 'Enter the URL for the featured video (e.g., MP4, WebM):', 'antoninolattene-child' ); ?></label>
+        <label
+            for="antoninolattene_child_video_url"><?php _e('Enter the URL for the featured video (e.g., MP4, WebM):', 'antoninolattene-child'); ?></label>
         <br>
-        <input type="url" id="antoninolattene_child_video_url" name="antoninolattene_child_video_url" value="<?php echo esc_url( $video_url ); ?>" style="width: 100%;" />
-        <p class="description"><?php _e( 'This video will be displayed instead of the featured image if provided.', 'antoninolattene-child' ); ?></p>
+        <input type="url" id="antoninolattene_child_video_url" name="antoninolattene_child_video_url"
+            value="<?php echo esc_url($video_url); ?>" style="width: 100%;" />
+    <p class="description">
+        <?php _e('This video will be displayed instead of the featured image if provided.', 'antoninolattene-child'); ?>
+    </p>
     </p>
     <?php
 }
@@ -853,42 +885,43 @@ function antoninolattene_child_featured_video_meta_box_callback( $post ) {
  *
  * @param int $post_id The ID of the post being saved.
  */
-function antoninolattene_child_save_featured_video_meta_data( $post_id ) {
+function antoninolattene_child_save_featured_video_meta_data($post_id)
+{
     // Check if our nonce is set.
-    if ( ! isset( $_POST['antoninolattene_child_featured_video_nonce'] ) ) {
+    if (!isset($_POST['antoninolattene_child_featured_video_nonce'])) {
         return;
     }
 
     // Verify that the nonce is valid.
-    if ( ! wp_verify_nonce( $_POST['antoninolattene_child_featured_video_nonce'], 'antoninolattene_child_save_featured_video' ) ) {
+    if (!wp_verify_nonce($_POST['antoninolattene_child_featured_video_nonce'], 'antoninolattene_child_save_featured_video')) {
         return;
     }
 
     // If this is an autosave, our form has not been submitted, so we don't want to do anything.
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
 
     // Check the user's permissions.
-    if ( isset( $_POST['post_type'] ) && 'portfolio' == $_POST['post_type'] ) {
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+    if (isset($_POST['post_type']) && 'portfolio' == $_POST['post_type']) {
+        if (!current_user_can('edit_post', $post_id)) {
             return;
         }
     } else {
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        if (!current_user_can('edit_post', $post_id)) {
             return;
         }
     }
 
     // Sanitize and save the data.
-    if ( isset( $_POST['antoninolattene_child_video_url'] ) ) {
-        $new_video_url = esc_url_raw( $_POST['antoninolattene_child_video_url'] );
-        update_post_meta( $post_id, '_featured_video_url', $new_video_url );
+    if (isset($_POST['antoninolattene_child_video_url'])) {
+        $new_video_url = esc_url_raw($_POST['antoninolattene_child_video_url']);
+        update_post_meta($post_id, '_featured_video_url', $new_video_url);
     } else {
-        delete_post_meta( $post_id, '_featured_video_url' );
+        delete_post_meta($post_id, '_featured_video_url');
     }
 }
-add_action( 'save_post', 'antoninolattene_child_save_featured_video_meta_data' );
+add_action('save_post', 'antoninolattene_child_save_featured_video_meta_data');
 
 
 /**
@@ -903,87 +936,42 @@ add_action( 'save_post', 'antoninolattene_child_save_featured_video_meta_data' )
 /**
  * Adds a meta box to the post and portfolio edit screens for the client name.
  */
-function antoninolattene_child_add_client_name_meta_box() {
+function antoninolattene_child_add_client_name_meta_box()
+{
     add_meta_box(
         'antoninolattene_child_client_name',
-        __( 'Client', 'antoninolattene-child' ), // Title of the meta box
+        __('Client', 'antoninolattene-child'), // Title of the meta box
         'antoninolattene_child_client_name_meta_box_callback',
-        array( 'post', 'portfolio' ), // Show on 'post' and 'portfolio' custom post types
+        array('post', 'portfolio'), // Show on 'post' and 'portfolio' custom post types
         'side', // Position on the side
         'high'   // High priority, so it appears higher up
     );
 }
-add_action( 'add_meta_boxes', 'antoninolattene_child_add_client_name_meta_box' );
+add_action('add_meta_boxes', 'antoninolattene_child_add_client_name_meta_box');
 
 /**
- * Returns an array of available chip colors for the client meta box.
- *
- * @return array
- */
-function antoninolattene_child_get_chip_colors() {
-    return array(
-        'neutral' => __( 'Neutral', 'antoninolattene-child' ),
-        'primary' => __( 'Primary', 'antoninolattene-child' ),
-        'accent'  => __( 'Accent', 'antoninolattene-child' ),
-        'red'     => __( 'Red', 'antoninolattene-child' ),
-        'orange'  => __( 'Orange', 'antoninolattene-child' ),
-        'amber'   => __( 'Amber', 'antoninolattene-child' ),
-        'yellow'  => __( 'Yellow', 'antoninolattene-child' ),
-        'lime'    => __( 'Lime', 'antoninolattene-child' ),
-        'green'   => __( 'Green', 'antoninolattene-child' ),
-        'emerald' => __( 'Emerald', 'antoninolattene-child' ),
-        'teal'    => __( 'Teal', 'antoninolattene-child' ),
-        'cyan'    => __( 'Cyan', 'antoninolattene-child' ),
-        'sky'     => __( 'Sky', 'antoninolattene-child' ),
-        'indigo'  => __( 'Indigo', 'antoninolattene-child' ),
-        'violet'  => __( 'Violet', 'antoninolattene-child' ),
-        'purple'  => __( 'Purple', 'antoninolattene-child' ),
-        'fuchsia' => __( 'Fuchsia', 'antoninolattene-child' ),
-        'pink'    => __( 'Pink', 'antoninolattene-child' ),
-        'slate'   => __( 'Slate', 'antoninolattene-child' ),
-        'gray'    => __( 'Gray', 'antoninolattene-child' ),
-        'zinc'    => __( 'Zinc', 'antoninolattene-child' ),
-        'stone'   => __( 'Stone', 'antoninolattene-child' ),
-    );
-}
-
-/**
- * Displays the meta box content for the client name and chip color.
+ * Displays the meta box content for the client name and client project toggle.
  *
  * @param WP_Post $post The current post object.
  */
-function antoninolattene_child_client_name_meta_box_callback( $post ) {
-    wp_nonce_field( 'antoninolattene_child_save_client_name', 'antoninolattene_child_client_name_nonce' );
+function antoninolattene_child_client_name_meta_box_callback($post)
+{
+    wp_nonce_field('antoninolattene_child_save_client_name', 'antoninolattene_child_client_name_nonce');
 
-    $client_name = get_post_meta( $post->ID, 'client_name', true );
-    $client_chip_color = get_post_meta( $post->ID, 'client_chip_color', true );
-
-    // Set default color if not already set
-    if ( empty( $client_chip_color ) ) {
-        $client_chip_color = 'orange'; // Default for "Personal Project"
-    }
+    $client_name = get_post_meta($post->ID, 'client_name', true);
+    $is_client_project = get_post_meta($post->ID, 'is_client_project', true);
     ?>
     <p>
-        <label for="antoninolattene_child_client_name_field"><?php _e( 'Enter the client name or leave empty for "Personal Project":', 'antoninolattene-child' ); ?></label>
+        <label for="antoninolattene_child_client_name_field"><?php _e('Client name (leave empty for "Personal Project")', 'antoninolattene-child'); ?></label>
         <br>
-        <input type="text" id="antoninolattene_child_client_name_field" name="client_name" value="<?php echo esc_attr( $client_name ); ?>" style="width: 100%;" />
+        <input type="text" id="antoninolattene_child_client_name_field" name="client_name"
+            value="<?php echo esc_attr($client_name); ?>" style="width: 100%; margin-top: 4px;" />
     </p>
-
     <p>
-        <label for="antoninolattene_child_client_chip_color_field"><?php _e( 'Select chip color:', 'antoninolattene-child' ); ?></label>
-        <br>
-        <select id="antoninolattene_child_client_chip_color_field" name="client_chip_color" style="width: 100%;">
-            <?php
-            foreach ( antoninolattene_child_get_chip_colors() as $color_slug => $color_name ) {
-                printf(
-                    '<option value="%s" %s>%s</option>',
-                    esc_attr( $color_slug ),
-                    selected( $client_chip_color, $color_slug, false ),
-                    esc_html( $color_name )
-                );
-            }
-            ?>
-        </select>
+        <label>
+            <input type="checkbox" name="is_client_project" value="1" <?php checked('1', $is_client_project); ?> />
+            <?php _e('Client project', 'antoninolattene-child'); ?>
+        </label>
     </p>
     <?php
 }
@@ -993,59 +981,51 @@ function antoninolattene_child_client_name_meta_box_callback( $post ) {
  *
  * @param int $post_id The ID of the post being saved.
  */
-function antoninolattene_child_save_client_name_meta_data( $post_id ) {
+function antoninolattene_child_save_client_name_meta_data($post_id)
+{
     // Check if our nonce is set.
-    if ( ! isset( $_POST['antoninolattene_child_client_name_nonce'] ) ) {
+    if (!isset($_POST['antoninolattene_child_client_name_nonce'])) {
         return;
     }
 
     // Verify that the nonce is valid.
-    if ( ! wp_verify_nonce( $_POST['antoninolattene_child_client_name_nonce'], 'antoninolattene_child_save_client_name' ) ) {
+    if (!wp_verify_nonce($_POST['antoninolattene_child_client_name_nonce'], 'antoninolattene_child_save_client_name')) {
         return;
     }
 
     // If this is an autosave, our form has not been submitted, so we don\'t want to do anything.
-    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
         return;
     }
 
     // Check the user\'s permissions.
-    if ( isset( $_POST['post_type'] ) && in_array( $_POST['post_type'], array( 'post', 'portfolio' ) ) ) {
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+    if (isset($_POST['post_type']) && in_array($_POST['post_type'], array('post', 'portfolio'))) {
+        if (!current_user_can('edit_post', $post_id)) {
             return;
         }
     } else {
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        if (!current_user_can('edit_post', $post_id)) {
             return;
         }
     }
 
     // Sanitize and save the client name.
-    if ( isset( $_POST['client_name'] ) ) {
-        $new_client_name = sanitize_text_field( $_POST['client_name'] );
-        update_post_meta( $post_id, 'client_name', $new_client_name );
+    if (isset($_POST['client_name'])) {
+        $new_client_name = sanitize_text_field($_POST['client_name']);
+        update_post_meta($post_id, 'client_name', $new_client_name);
     } else {
-        delete_post_meta( $post_id, 'client_name' );
+        delete_post_meta($post_id, 'client_name');
     }
 
-    // Sanitize and save the client chip color.
-    if ( isset( $_POST['client_chip_color'] ) ) {
-        $new_client_chip_color = sanitize_text_field( $_POST['client_chip_color'] );
-        // Ensure the selected color is one of the valid options.
-        $valid_colors = array_keys( antoninolattene_child_get_chip_colors() );
-        if ( in_array( $new_client_chip_color, $valid_colors ) ) {
-            update_post_meta( $post_id, 'client_chip_color', $new_client_chip_color );
-        } else {
-            // If an invalid color is somehow submitted, default to orange.
-            update_post_meta( $post_id, 'client_chip_color', 'orange' );
-        }
+    // Save the client project checkbox (only present in POST when checked).
+    if (!empty($_POST['is_client_project'])) {
+        update_post_meta($post_id, 'is_client_project', '1');
     } else {
-        // If no color is submitted (e.g., checkbox unchecked, though not applicable for select), default to orange.
-        update_post_meta( $post_id, 'client_chip_color', 'orange' );
+        delete_post_meta($post_id, 'is_client_project');
     }
 }
 
-add_action( 'save_post', 'antoninolattene_child_save_client_name_meta_data' );
+add_action('save_post', 'antoninolattene_child_save_client_name_meta_data');
 
 
 /**
@@ -1056,87 +1036,89 @@ add_action( 'save_post', 'antoninolattene_child_save_client_name_meta_data' );
  * @param array $templates Array de plantillas de página encontradas por WordPress.
  * @return array El array modificado con las nuevas plantillas encontradas.
  */
-function antoninolattene_child_add_nested_page_templates( $templates ) {
+function antoninolattene_child_add_nested_page_templates($templates)
+{
 
     // Directorio a escanear, relativo a la raíz del tema.
     $dir = get_stylesheet_directory() . '/page-templates/';
 
     // Busca archivos .php en cualquier subcarpeta dentro de 'page-templates'.
     // El patrón '*/*.php' significa 'cualquier-carpeta/cualquier-archivo.php'.
-    $files = glob( $dir . '*/*.php' );
+    $files = glob($dir . '*/*.php');
 
-    if ( $files ) {
-        foreach ( $files as $file ) {
+    if ($files) {
+        foreach ($files as $file) {
             // Obtenemos los datos del encabezado del archivo de forma segura.
-            $template_data = get_file_data( $file, array( 'Template Name' => 'Template Name' ) );
+            $template_data = get_file_data($file, array('Template Name' => 'Template Name'));
 
             // Si tiene un nombre de plantilla, la añadimos a la lista.
-            if ( ! empty( $template_data['Template Name'] ) ) {
+            if (!empty($template_data['Template Name'])) {
                 // La clave del array debe ser la ruta relativa desde la raíz del tema.
-                $template_key = str_replace( get_stylesheet_directory() . '/', '', $file );
-                $templates[ $template_key ] = $template_data['Template Name'];
+                $template_key = str_replace(get_stylesheet_directory() . '/', '', $file);
+                $templates[$template_key] = $template_data['Template Name'];
             }
         }
     }
 
     return $templates;
 }
-add_filter( 'theme_page_templates', 'antoninolattene_child_add_nested_page_templates' );
+add_filter('theme_page_templates', 'antoninolattene_child_add_nested_page_templates');
 
 // Register Custom Post Type for Snapshots
-function create_snapshot_cpt() {
+function create_snapshot_cpt()
+{
 
     $labels = array(
-        'name'                  => _x( 'Snapshots', 'Post Type General Name', 'antoninolattene-child' ),
-        'singular_name'         => _x( 'Snapshot', 'Post Type Singular Name', 'antoninolattene-child' ),
-        'menu_name'             => __( 'Snapshots', 'antoninolattene-child' ),
-        'name_admin_bar'        => __( 'Snapshot', 'antoninolattene-child' ),
-        'archives'              => __( 'Snapshot Archives', 'antoninolattene-child' ),
-        'attributes'            => __( 'Snapshot Attributes', 'antoninolattene-child' ),
-        'parent_item_colon'     => __( 'Parent Snapshot:', 'antoninolattene-child' ),
-        'all_items'             => __( 'All Snapshots', 'antoninolattene-child' ),
-        'add_new_item'          => __( 'Add New Snapshot', 'antoninolattene-child' ),
-        'add_new'               => __( 'Add New', 'antoninolattene-child' ),
-        'new_item'              => __( 'New Snapshot', 'antoninolattene-child' ),
-        'edit_item'             => __( 'Edit Snapshot', 'antoninolattene-child' ),
-        'update_item'           => __( 'Update Snapshot', 'antoninolattene-child' ),
-        'view_item'             => __( 'View Snapshot', 'antoninolattene-child' ),
-        'view_items'            => __( 'View Snapshots', 'antoninolattene-child' ),
-        'search_items'          => __( 'Search Snapshot', 'antoninolattene-child' ),
-        'not_found'             => __( 'Not found', 'antoninolattene-child' ),
-        'not_found_in_trash'    => __( 'Not found in Trash', 'antoninolattene-child' ),
-        'featured_image'        => __( 'Snapshot Image', 'antoninolattene-child' ),
-        'set_featured_image'    => __( 'Set snapshot image', 'antoninolattene-child' ),
-        'remove_featured_image' => __( 'Remove snapshot image', 'antoninolattene-child' ),
-        'use_featured_image'    => __( 'Use as snapshot image', 'antoninolattene-child' ),
-        'insert_into_item'      => __( 'Insert into snapshot', 'antoninolattene-child' ),
-        'uploaded_to_this_item' => __( 'Uploaded to this snapshot', 'antoninolattene-child' ),
-        'items_list'            => __( 'Snapshots list', 'antoninolattene-child' ),
-        'items_list_navigation' => __( 'Snapshots list navigation', 'antoninolattene-child' ),
-        'filter_items_list'     => __( 'Filter snapshots list', 'antoninolattene-child' ),
+        'name' => _x('Snapshots', 'Post Type General Name', 'antoninolattene-child'),
+        'singular_name' => _x('Snapshot', 'Post Type Singular Name', 'antoninolattene-child'),
+        'menu_name' => __('Snapshots', 'antoninolattene-child'),
+        'name_admin_bar' => __('Snapshot', 'antoninolattene-child'),
+        'archives' => __('Snapshot Archives', 'antoninolattene-child'),
+        'attributes' => __('Snapshot Attributes', 'antoninolattene-child'),
+        'parent_item_colon' => __('Parent Snapshot:', 'antoninolattene-child'),
+        'all_items' => __('All Snapshots', 'antoninolattene-child'),
+        'add_new_item' => __('Add New Snapshot', 'antoninolattene-child'),
+        'add_new' => __('Add New', 'antoninolattene-child'),
+        'new_item' => __('New Snapshot', 'antoninolattene-child'),
+        'edit_item' => __('Edit Snapshot', 'antoninolattene-child'),
+        'update_item' => __('Update Snapshot', 'antoninolattene-child'),
+        'view_item' => __('View Snapshot', 'antoninolattene-child'),
+        'view_items' => __('View Snapshots', 'antoninolattene-child'),
+        'search_items' => __('Search Snapshot', 'antoninolattene-child'),
+        'not_found' => __('Not found', 'antoninolattene-child'),
+        'not_found_in_trash' => __('Not found in Trash', 'antoninolattene-child'),
+        'featured_image' => __('Snapshot Image', 'antoninolattene-child'),
+        'set_featured_image' => __('Set snapshot image', 'antoninolattene-child'),
+        'remove_featured_image' => __('Remove snapshot image', 'antoninolattene-child'),
+        'use_featured_image' => __('Use as snapshot image', 'antoninolattene-child'),
+        'insert_into_item' => __('Insert into snapshot', 'antoninolattene-child'),
+        'uploaded_to_this_item' => __('Uploaded to this snapshot', 'antoninolattene-child'),
+        'items_list' => __('Snapshots list', 'antoninolattene-child'),
+        'items_list_navigation' => __('Snapshots list navigation', 'antoninolattene-child'),
+        'filter_items_list' => __('Filter snapshots list', 'antoninolattene-child'),
     );
     $args = array(
-        'label'                 => __( 'Snapshot', 'antoninolattene-child' ),
-        'description'           => __( 'A post type for Instagram-like story snapshots.', 'antoninolattene-child' ),
-        'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
-        'taxonomies'            => array( 'category', 'post_tag' ),
-        'hierarchical'          => false,
-        'public'                => false, // Not publicly accessible on its own
-        'show_ui'               => true,  // Show in the admin dashboard
-        'show_in_menu'          => true,  // Show in the admin menu
-        'menu_position'         => 20,
-        'menu_icon'             => 'dashicons-images-alt2',
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => false,
-        'can_export'            => true,
-        'has_archive'           => false,
-        'exclude_from_search'   => true,
-        'publicly_queryable'    => false,
-        'capability_type'       => 'post',
-        'show_in_rest'          => true, // Good for future headless use
+        'label' => __('Snapshot', 'antoninolattene-child'),
+        'description' => __('A post type for Instagram-like story snapshots.', 'antoninolattene-child'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'taxonomies' => array('category', 'post_tag'),
+        'hierarchical' => false,
+        'public' => false, // Not publicly accessible on its own
+        'show_ui' => true,  // Show in the admin dashboard
+        'show_in_menu' => true,  // Show in the admin menu
+        'menu_position' => 20,
+        'menu_icon' => 'dashicons-images-alt2',
+        'show_in_admin_bar' => true,
+        'show_in_nav_menus' => false,
+        'can_export' => true,
+        'has_archive' => false,
+        'exclude_from_search' => true,
+        'publicly_queryable' => false,
+        'capability_type' => 'post',
+        'show_in_rest' => true, // Good for future headless use
     );
-    register_post_type( 'snapshots', $args );
+    register_post_type('snapshots', $args);
 
 }
-add_action( 'init', 'create_snapshot_cpt', 0 );
+add_action('init', 'create_snapshot_cpt', 0);

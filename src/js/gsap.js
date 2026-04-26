@@ -41,9 +41,9 @@ const initGsapAnimations = () => {
 
       menuTimeline
         .to(menuOverlay, { autoAlpha: 1, duration: ANIM_DURATION, ease: ANIM_EASE })
-        .fromTo(siteNav, 
-          { x: -FADE_IN_DISTANCE, autoAlpha: 0 }, 
-          { x: 0, autoAlpha: 1, duration: ANIM_DURATION, ease: ANIM_EASE }, 
+        .fromTo(siteNav,
+          { x: -FADE_IN_DISTANCE, autoAlpha: 0 },
+          { x: 0, autoAlpha: 1, duration: ANIM_DURATION, ease: ANIM_EASE },
           "<"
         );
 
@@ -134,6 +134,7 @@ const initGsapAnimations = () => {
     const batchSelectors = [
       '.philosophy .column',
       '.journey .section__header, .journey .column__paragraph div, .journey .column__footer',
+      '.experience .section__header, .experience .column > p, .experience-card',
       '.testimonials .section__header, .testimonials .testimonial-card, .testimonials .section__footer',
       '.skills .column',
       '.passions .section__header, .passions .column',

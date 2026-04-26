@@ -7,6 +7,7 @@ import initLogoScrollAnimation from './js/logo-scroll-animation.js';
 import initHeaderScroll from './js/header-scroll.js';
 import './js/theme-switch.js';
 import './js/carousel.js';
+import { initModals } from './js/modal.js';
 
 
 // Import Swiper configuration
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGsapAnimations();
   initLogoScrollAnimation();
   initHeaderScroll();
+  initModals();
 
   // Only initialize Swiper if the .swiper element exists on the page
   if (document.querySelector('.testimonials-swiper')) {

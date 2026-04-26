@@ -1,0 +1,174 @@
+// src/styles/components/_modal.scss
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: var(--size-400);
+
+    &.is-open {
+        opacity: 1;
+        visibility: visible;
+
+        .modal__content-wrapper {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .modal__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        cursor: pointer;
+    }
+
+    .modal__content-wrapper {
+        position: relative;
+        background-color: var(--color-surface-primary);
+        border: 1px solid var(--color-border-secondary);
+        border-radius: var(--size-400);
+        box-shadow: var(--box-shadow-dp4);
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        transform: scale(0.95) translateY(10px);
+        opacity: 0;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    }
+
+    .modal__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--size-400);
+        border-bottom: 1px solid var(--color-border-secondary);
+
+        .modal__header-content {
+            display: flex;
+            align-items: center;
+            gap: var(--size-400);
+        }
+
+        .modal__logo {
+            height: 48px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .modal__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            min-width: 48px;
+            height: 48px;
+
+            .material-symbols-rounded {
+                font-size: 40px;
+            }
+        }
+
+        .modal__title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+
+            .modal__title {
+                margin: 0;
+                color: var(--color-text-primary);
+            }
+        }
+
+        .modal__close-btn {
+            background: transparent;
+            border: none;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            padding: var(--size-200);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s ease, color 0.2s ease;
+
+            &:hover,
+            &:focus-visible {
+                background-color: var(--color-surface-secondary);
+                color: var(--color-text-primary);
+                outline: none;
+            }
+        }
+    }
+
+    .modal__body {
+        padding: var(--size-400);
+        overflow-y: auto;
+        color: var(--color-text-secondary);
+
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--color-border-secondary);
+            border-radius: 4px;
+        }
+
+        .modal__agency {
+            margin-top: var(--size-400);
+            border-top: 1px solid var(--color-border-secondary);
+            padding-top: var(--size-400);
+
+            .modal__agency-content {
+                display: flex;
+                align-items: center;
+                gap: var(--size-300);
+
+                .modal__agency-logo {
+                    height: 24px;
+                    width: auto;
+                    max-width: 80px;
+                    object-fit: contain;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .modal__footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: var(--size-300);
+        padding: var(--size-400);
+        border-top: 1px solid var(--color-border-secondary);
+        border-radius: 0 0 var(--size-400) var(--size-400);
+        background-color: var(--color-surface-primary);
+    }
+}
+
+// Utility class to lock body scroll when modal is active
+body.modal-open {
+    overflow: hidden;
+}

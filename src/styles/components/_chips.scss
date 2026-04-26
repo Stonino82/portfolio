@@ -22,14 +22,15 @@
     font-weight: var(--fw-medium);
     line-height: var(--lh-tight);
     // border: 1px solid var(--component-neutral-foreground);  //color de base (igual que .chip-neutral)
-    box-shadow: var(--box-shadow-dp1);
+    // box-shadow: var(--box-shadow-dp1);
     transition: $transition;
     @include truncate-text;
-    background-color: var(--component-neutral-background);  //color de base (igual que .chip-neutral)
-    color: var(--component-neutral-foreground);             //color de base (igual que .chip-neutral)
+    background-color: var(--component-neutral-background); //color de base (igual que .chip-neutral)
+    color: var(--component-neutral-foreground); //color de base (igual que .chip-neutral)
 
     // Ensure the chip's foreground color is maintained for links
-    &.chip, // Targets a.chip
+    &.chip,
+    // Targets a.chip
     &.chip:link,
     &.chip:visited,
     &.chip:hover,
@@ -45,106 +46,127 @@
     color: var(--component-neutral-foreground);
     border-color: var(--component-neutral-foreground);
 }
+
 .chip--primary {
     background-color: var(--component-primary-background);
     color: var(--component-primary-foreground);
     border-color: var(--component-primary-foreground);
 }
+
 .chip--accent {
     background-color: var(--component-accent-background);
     color: var(--component-accent-foreground);
     border-color: var(--component-accent-foreground);
 }
+
 .chip--red {
     background-color: var(--component-red-background);
     color: var(--component-red-foreground);
     border-color: var(--component-red-foreground);
 }
+
 .chip--orange {
     background-color: var(--component-orange-background);
     color: var(--component-orange-foreground);
     border-color: var(--component-orange-foreground);
 }
+
 .chip--amber {
     background-color: var(--component-amber-background);
     color: var(--component-amber-foreground);
     border-color: var(--component-amber-foreground);
 }
+
 .chip--yellow {
     background-color: var(--component-yellow-background);
     color: var(--component-yellow-foreground);
     border-color: var(--component-yellow-foreground);
 }
+
 .chip--lime {
     background-color: var(--component-lime-background);
     color: var(--component-lime-foreground);
     border-color: var(--component-lime-foreground);
 }
+
 .chip--green {
     background-color: var(--component-green-background);
     color: var(--component-green-foreground);
     border-color: var(--component-green-foreground);
 }
+
 .chip--emerald {
     background-color: var(--component-emerald-background);
     color: var(--component-emerald-foreground);
     border-color: var(--component-emerald-foreground);
 }
+
 .chip--teal {
     background-color: var(--component-teal-background);
     color: var(--component-teal-foreground);
     border-color: var(--component-teal-foreground);
 }
+
 .chip--cyan {
     background-color: var(--component-cyan-background);
     color: var(--component-cyan-foreground);
     border-color: var(--component-cyan-foreground);
 }
+
 .chip--sky {
     background-color: var(--component-sky-background);
     color: var(--component-sky-foreground);
     border-color: var(--component-sky-foreground);
 }
+
 .chip--indigo {
     background-color: var(--component-indigo-background);
     color: var(--component-indigo-foreground);
     border-color: var(--component-indigo-foreground);
 }
+
 .chip--violet {
     background-color: var(--component-violet-background);
     color: var(--component-violet-foreground);
     border-color: var(--component-violet-foreground);
 }
+
 .chip--purple {
     background-color: var(--component-purple-background);
     color: var(--component-purple-foreground);
     border-color: var(--component-purple-foreground);
 }
+
 .chip--fuchsia {
     background-color: var(--component-fuchsia-background);
     color: var(--component-fuchsia-foreground);
     border-color: var(--component-fuchsia-foreground);
 }
+
 .chip--pink {
     background-color: var(--component-pink-background);
     color: var(--component-pink-foreground);
     border-color: var(--component-pink-foreground);
 }
+
 .chip--slate {
     background-color: var(--component-slate-background);
     color: var(--component-slate-foreground);
     border-color: var(--component-slate-foreground);
 }
+
 .chip--gray {
     background-color: var(--component-gray-background);
     color: var(--component-gray-foreground);
     border-color: var(--component-gray-foreground);
 }
+
 .chip--zinc {
     background-color: var(--component-zinc-background);
     color: var(--component-zinc-foreground);
     border-color: var(--component-zinc-foreground);
 }
+
 .chip--stone {
     background-color: var(--component-stone-background);
     color: var(--component-stone-foreground);
@@ -156,9 +178,11 @@
 .chip--pill {
     border-radius: var(--radius-full);
 }
+
 .chip--semi-squared {
     // El radio se define dentro de cada tamaño para mantener la proporción
 }
+
 .chip--squared {
     border-radius: 0;
 }
@@ -178,6 +202,7 @@
             width: var(--size-500);
             padding: 0;
         }
+
         &.chip--semi-squared {
             border-radius: var(--radius-sm);
         }
@@ -197,6 +222,7 @@
             width: var(--size-600);
             padding: 0;
         }
+
         &.chip--semi-squared {
             border-radius: var(--radius-md);
         }
@@ -216,6 +242,7 @@
             width: var(--size-700);
             padding: 0;
         }
+
         &.chip--semi-squared {
             border-radius: var(--radius-lg);
         }

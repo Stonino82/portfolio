@@ -1,0 +1,149 @@
+@use '../../generals/colors' as *;
+@use '../../generals/icons' as *;
+@use '../../generals/mixins' as *;
+
+.experience {
+    .experience-timeline {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--size-600); // Matches spacing between sections/cards
+        padding-left: 32px;
+
+        .experience-card {
+            position: relative;
+            background-color: var(--color-surface-primary);
+            border: 1px solid var(--color-border-secondary);
+            border-radius: var(--size-400);
+            padding: var(--size-500); // Aligned with testimonial-card
+            display: flex;
+            flex-direction: column;
+            gap: var(--size-500); // Aligned with testimonial-card
+            transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: var(--box-shadow-dp2);
+                border-color: var(--color-border-primary);
+                background: var(--color-surface-secondary);
+            }
+
+            // Timeline dot
+            &::before {
+                content: '';
+                position: absolute;
+                top: 16px; // Adjusted for padding-500
+                left: calc(-31px);
+                width: 12px;
+                height: 12px;
+                background-color: var(--component-primary-foreground);
+                border: 2px solid var(--color-surface-secondary);
+                border-radius: 50%;
+                z-index: 1;
+            }
+
+            // Timeline line segment
+            &::after {
+                content: '';
+                position: absolute;
+                top: 16px; // Starts exactly at the dot
+                left: -26px; // Perfectly aligned with the center of the dot
+                width: 2px;
+                height: calc(100% + var(--size-600)); // Reaches the dot of the next card
+                background-color: var(--component-primary-background);
+                z-index: 0;
+            }
+
+            // Timeline tail for the last card
+            &:last-child::after {
+                height: 80px; // Extends well below the button for better visibility
+                background: repeating-linear-gradient(to bottom, var(--component-primary-background) 0, var(--component-primary-background) 4px, transparent 4px, transparent 10px);
+                mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+                -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            }
+
+            &.experience-card--action {
+                background-color: transparent;
+                border: none;
+                padding: 0;
+                cursor: default;
+                box-shadow: none;
+                transform: none;
+                flex-direction: row;
+                gap: var(--size-200);
+
+                &:hover {
+                    background: transparent;
+                    transform: none;
+                    box-shadow: none;
+                }
+
+                // Center the dot relative to the button height (32px for btn-sm)
+                &::before,
+                &::after {
+                    top: 16px;
+                }
+
+                .btn {
+                    width: fit-content;
+                }
+            }
+
+            .experience-card__header {
+                display: flex;
+                align-items: center; // Aligned with testimonial-card
+                gap: var(--size-400);
+
+                .experience-card__logo {
+                    width: 48px;
+                    min-width: 48px;
+                    height: auto;
+                    object-fit: contain;
+                    object-position: left center;
+                }
+
+                .experience-card__icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 48px;
+                    min-width: 48px;
+                    height: auto;
+                    aspect-ratio: 1;
+
+                    .material-symbols-rounded {
+                        font-size: 40px;
+                    }
+                }
+
+                .experience-card__title {
+                    h5 {
+                        margin: 0;
+                        color: var(--color-text-primary);
+                    }
+
+                    .text-caption {
+                        margin: 0;
+                        color: var(--color-text-tertiary);
+                    }
+                }
+            }
+
+            .experience-card__body {
+                .experience-card__content {
+                    @include truncate-text-multiline(3);
+
+                    p {
+                        margin: 0;
+                        color: var(--color-text-secondary);
+
+                        &:not(:last-child) {
+                            margin-bottom: var(--size-100);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

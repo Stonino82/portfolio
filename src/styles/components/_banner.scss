@@ -19,30 +19,45 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .banner__title {
       display: flex;
+      align-items: center;
       gap: var(--size-100);
       text-align: center;
+
       .banner__title-icon {
-        width: 1.2em;
-        height: 1.2em;
+        width: 1.5em;
+        height: 1.5em;
         flex-shrink: 0; // Prevent icon from shrinking
       }
+
+      i.banner__title-icon {
+        width: auto;
+        height: auto;
+        font-size: 1.5em;
+        line-height: 1;
+      }
     }
+
     .banner__text {
       text-align: center;
     }
+
     @include media-up($breakpoint-lg) {
       align-items: flex-start;
       justify-content: flex-start;
+
       .banner__title {
         text-align: left;
       }
+
       .banner__text {
         text-align: left;
       }
     }
   }
+
   .banner__actions {
     width: 100%;
     display: flex;
@@ -50,13 +65,17 @@
     gap: var(--size-400);
     align-items: center;
     justify-content: center;
+
     @include media-up($breakpoint-sm) {
       flex-direction: row;
     }
+
     @include media-up($breakpoint-lg) {
       flex-direction: column;
     }
-    .primary-action, .secondary-action {
+
+    .primary-action,
+    .secondary-action {
       width: 100%;
     }
   }
@@ -66,16 +85,21 @@
     @include media-up($breakpoint-md) {
       flex-direction: row;
       align-items: flex-end;
+
       .banner__content {
         align-items: flex-start;
-      .banner__text {
-        text-align: left;
+
+        .banner__text {
+          text-align: left;
+        }
       }
-      }
+
       .banner__actions {
         width: max-content;
         flex-direction: column;
-        .primary-action, .secondary-action {
+
+        .primary-action,
+        .secondary-action {
           width: inherit;
         }
       }
@@ -84,18 +108,23 @@
 
   &.banner--primary {
     background: var(--color-brand-gradient);
+
     .banner__title {
       color: var(--color-neutral-0);
     }
+
     .banner__text {
       color: var(--color-neutral-0);
     }
   }
+
   &.banner--secondary {
     background-color: var(--color-surface-primary);
+
     .banner__title {
       color: var(--color-text-primary);
     }
+
     .banner__text {
       color: var(--color-text-secondary);
     }

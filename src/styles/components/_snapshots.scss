@@ -5,71 +5,82 @@
 // src/styles/components/_snapshots.scss
 .snapshots {
   padding: var(--size-900) 0;
-    .snapshots-carousel {
-      height: max-content;
-      padding: 20px;
-      margin: -20px;
-      margin-inline: auto;
-      .swiper-wrapper {
-        .swiper-slide {
-          width: 110px;
-          aspect-ratio: 10 / 16;
-          flex-shrink: 0;
+
+  .snapshots-carousel {
+    height: max-content;
+    padding: 20px;
+    margin: -20px;
+    margin-inline: auto;
+
+    .swiper-wrapper {
+      .swiper-slide {
+        width: 110px;
+        aspect-ratio: 10 / 16;
+        flex-shrink: 0;
+        transition: $transition;
+        cursor: pointer;
+
+        // @media (min-width: 480px) { width: 30%; }
+        // @media (min-width: 768px) { width: 23%; }
+        // @media (min-width: 1024px) { width: 19%; }
+        .snapshot-item {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          border-radius: var(--radius-lg);
+          border: 1px solid var(--color-border-secondary);
+          background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
+          border: 1.5px solid transparent;
+          box-shadow: var(--box-shadow-dp1);
+          overflow: hidden;
           transition: $transition;
-          cursor: pointer;
-          // @media (min-width: 480px) { width: 30%; }
-          // @media (min-width: 768px) { width: 23%; }
-          // @media (min-width: 1024px) { width: 19%; }
-          .snapshot-item {
-            position: relative;
+
+          img,
+          video {
             width: 100%;
             height: 100%;
-            border-radius: var(--radius-lg);
-            border: 1px solid var(--color-border-secondary);
-            background: linear-gradient(var(--color-neutral-0), var(--color-neutral-0)) padding-box, var(--color-brand-gradient) border-box;
-	          border: 1.5px solid transparent;
-            box-shadow: var(--box-shadow-dp1);
-            overflow: hidden;
-            transition: $transition;
-            img, video {
-              width: 100%;
-              height: 100%;
-              object-fit: cover;
-            }
-            .chip-list {
-              position: absolute;
-              top: var(--size-50);
-              right: var(--size-50);
-            }
-            // .snapshot-item__title {
-            //   position: absolute;
-            //   bottom: 0;
-            //   left: 0;
-            //   right: 0;
-            //   padding: var(--size-200);
-            //   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-            //   color: var(--color-neutral-0);
-            //   text-align: left;
-            //   h3 {
-            //     @include truncate-text;
-            //   }
-            // }
+            object-fit: cover;
           }
+
+          .chip-list {
+            position: absolute;
+            top: var(--size-50);
+            left: var(--size-50);
+          }
+
+          // .snapshot-item__title {
+          //   position: absolute;
+          //   bottom: 0;
+          //   left: 0;
+          //   right: 0;
+          //   padding: var(--size-200);
+          //   background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+          //   color: var(--color-neutral-0);
+          //   text-align: left;
+          //   h3 {
+          //     @include truncate-text;
+          //   }
+          // }
+        }
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        &.is-viewed .snapshot-item {
+          // "seen" state
+          // opacity: .8;
+          border: none;
+          box-shadow: none;
+          transform: scale(0.95);
+
           &:hover {
-              transform: scale(1.05);
-          }
-          &.is-viewed .snapshot-item { // "seen" state
-            // opacity: .8;
-            border: none;
-            box-shadow: none;
-            transform: scale(0.95);
-            &:hover {
-              opacity: 1;
-            }
+            opacity: 1;
           }
         }
       }
     }
+  }
 }
 
 
@@ -87,15 +98,19 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+
   &.is-active {
     opacity: 1;
     visibility: visible;
+
     .snapshots-modal__content {
       transform: scale(1);
     }
   }
+
   .snapshots-modal__container {
     position: relative;
+
     .snapshots-modal__nav-btn {
       position: absolute;
       top: 50%;
@@ -114,20 +129,25 @@
       align-items: center;
       transition: background-color 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
       visibility: visible;
+
       @media (max-width: 767px) {
         display: none;
       }
+
       &:hover {
         background: rgba(0, 0, 0, 0.8);
         transform: translateY(-50%) scale(1.1);
       }
+
       &--prev {
         left: calc(var(--size-500) * -1);
       }
+
       &--next {
         right: calc(var(--size-500) * -1);
       }
     }
+
     .snapshots-modal__content {
       position: relative;
       width: 100vw;
@@ -141,6 +161,7 @@
       flex-direction: column;
       transform: scale(0.95);
       transition: transform 0.3s ease;
+
       .snapshots-modal__progress-bars {
         position: absolute;
         top: var(--size-100);
@@ -149,12 +170,14 @@
         display: flex;
         gap: var(--size-50);
         z-index: 11;
+
         .progress-bar {
           flex: 1;
           height: 3px;
-          background-color: rgba(255,255,255,0.3);
+          background-color: rgba(255, 255, 255, 0.3);
           border-radius: 3px;
           overflow: hidden;
+
           .progress-bar__inner {
             width: 0%;
             height: 100%;
@@ -162,6 +185,7 @@
           }
         }
       }
+
       .snapshots-modal__header {
         position: absolute;
         top: 0;
@@ -173,14 +197,17 @@
         padding: var(--size-500) var(--size-400);
         z-index: 10;
         background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+
         .snapshots-modal__title {
           color: var(--color-neutral-0);
         }
+
         .snapshots-modal__header-actions {
           display: flex;
           align-items: center;
           gap: var(--size-200);
         }
+
         .snapshots-modal__pause-btn,
         .snapshots-modal__close-btn {
           background: transparent;
@@ -191,38 +218,45 @@
           display: flex;
           align-items: center;
           justify-content: center;
+
           .material-symbols-rounded {
             font-size: 2rem;
           }
         }
       }
+
       .swiper-modal-body {
         flex-grow: 1;
         position: relative;
         color: var(--color-neutral-0);
+
         .swiper-slide {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            img, video {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              object-fit: contain;
-            }
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          img,
+          video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
         }
+
         .snapshot-content-wrapper {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
           padding: var(--size-500) var(--size-400);
-          background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
           cursor: pointer;
           z-index: 0;
+
           &::before {
             content: '';
             position: absolute;
@@ -234,16 +268,18 @@
             opacity: 0;
             z-index: -1;
           }
+
           &>* {
             color: var(--color-neutral-0);
             @include truncate-text-multiline(3);
           }
+
           &.is-expanded {
             &::before {
               opacity: 1;
             }
 
-            & >* {
+            &>* {
               -webkit-line-clamp: initial;
             }
           }

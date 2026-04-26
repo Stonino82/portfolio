@@ -44,8 +44,7 @@
 @use 'components/swiper' as *; // Swiper base styles
 @use 'components/accordion' as *; // Accordion component
 @use 'components/snapshots' as *; // Snapshots component
-
-
+@use 'components/modal' as *;
 
 
 
@@ -58,5 +57,6 @@
 @use 'templates/about/about' as *;
 @use 'templates/about/hero' as *;
 @use 'templates/about/testimonial-card' as *;
+@use 'templates/about/experience' as *;
 /* chatbase */
 @use 'templates/chatbase/chatbase' as *;

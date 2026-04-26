@@ -12,8 +12,9 @@ get_header(); ?>
 <main style="grid-template-columns: 1fr;">
 
     <div class="content">
-        <section style="margin: 0 auto; display: flex; flex-direction: column; height: max-content; gap: var(--size-950); padding-block: var(--size-800);">
-                            
+        <section
+            style="margin: 0 auto; display: flex; flex-direction: column; height: max-content; gap: var(--size-950); padding-block: var(--size-800);">
+
             <div style="border: 1px solid black; padding: var(--size-400);">
                 <h3>Font Awesome 7 Icons Test</h3>
                 <i class="fa-regular fa-star"></i>
@@ -25,7 +26,8 @@ get_header(); ?>
 
             <div style="border: 1px solid black; padding: var(--size-400); width: 100%;">
                 <h3>Buttons</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
                     <div style="display: flex; flex-direction: column; gap: var(--size-400);">
                         <a class="btn btn-lg btn-primary" href="#" target="_blank" rel="noopener noreferrer">
                             Bigger
@@ -91,7 +93,8 @@ get_header(); ?>
                         </a>
                     </div>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
                     <div style="display: flex; flex-direction: column; gap: var(--size-400);">
                         <a class="btn btn-md btn-primary" href="#" target="_blank" rel="noopener noreferrer">
                             Medium
@@ -157,7 +160,8 @@ get_header(); ?>
                         </a>
                     </div>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
+                <div
+                    style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: var(--size-600); width: 100%; margin-bottom: 5rem;">
                     <div style="display: flex; flex-direction: column; gap: var(--size-400);">
                         <a class="btn btn-sm btn-primary" href="#" target="_blank" rel="noopener noreferrer">
                             Smaller
@@ -224,209 +228,112 @@ get_header(); ?>
                     </div>
                 </div>
             </div>
-            
-            <div style="border: 1px solid black; padding: var(--size-400);">
+
+            <div style="border: 1px solid black; padding: var(--size-100);">
                 <h3>Chips</h3>
-                <div style="display: flex; flex-direction: column; gap: var(--size-800);">
+                <div style="display: flex; flex-direction: column; gap: var(--size-100);">
 
                     <!--//- Large Chips -->
-                    <div style="display: flex; flex-direction: column; gap: var(--size-400);">
+                    <div style="display: flex; flex-direction: column; gap: var(--size-100);">
                         <h4>Large Chips (.chip-list--lg)</h4>
-                        
-                        <p style="font-weight: bold;">Default Chips</p>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--pill">Pill</li>
-                                <li class="chip chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--semi-squared">Squared</li>
-                                <li class="chip chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--pill">Pill</li>
-                                <li class="chip chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--semi-squared">Squared</li>
-                                <li class="chip chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
 
-                        <p style="font-weight: bold; margin-top: 1rem;">Primary Color Chips</p>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--primary chip--pill">Pill</li>
-                                <li class="chip chip--primary chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--primary chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--primary chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--primary chip--semi-squared">Squared</li>
-                                <li class="chip chip--primary chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--primary chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--primary chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--primary chip--pill">Pill</li>
-                                <li class="chip chip--primary chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--primary chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--primary chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--primary chip--semi-squared">Squared</li>
-                                <li class="chip chip--primary chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--primary chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--primary chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
+                        <?php
+                        $chip_colors = array(
+                            'neutral' => 'Neutral',
+                            'primary' => 'Primary',
+                            'accent' => 'Accent',
+                            'red' => 'Red',
+                            'orange' => 'Orange',
+                            'amber' => 'Amber',
+                            'yellow' => 'Yellow',
+                            'lime' => 'Lime',
+                            'green' => 'Green',
+                            'emerald' => 'Emerald',
+                            'teal' => 'Teal',
+                            'cyan' => 'Cyan',
+                            'sky' => 'Sky',
+                            'indigo' => 'Indigo',
+                            'violet' => 'Violet',
+                            'purple' => 'Purple',
+                            'fuchsia' => 'Fuchsia',
+                            'pink' => 'Pink',
+                            'slate' => 'Slate',
+                            'gray' => 'Gray',
+                            'zinc' => 'Zinc',
+                            'stone' => 'Stone',
+                        );
 
-                        <p style="font-weight: bold; margin-top: 1rem;">Accent Color Chips</p>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--accent chip--pill">Pill</li>
-                                <li class="chip chip--accent chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--accent chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--accent chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--accent chip--semi-squared">Squared</li>
-                                <li class="chip chip--accent chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--accent chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--accent chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--accent chip--pill">Pill</li>
-                                <li class="chip chip--accent chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--accent chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--accent chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--accent chip--semi-squared">Squared</li>
-                                <li class="chip chip--accent chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--accent chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--accent chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
+                        foreach ($chip_colors as $slug => $name):
+                            ?>
+                            <p style="font-weight: bold; margin-top: 1rem;">
+                                <?php echo $name; ?>
+                            </p>
 
-                        <p style="font-weight: bold; margin-top: 1rem;">Orange Color Chips</p>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--orange chip--pill">Pill</li>
-                                <li class="chip chip--orange chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--orange chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--orange chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--orange chip--semi-squared">Squared</li>
-                                <li class="chip chip--orange chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--orange chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--orange chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--orange chip--pill">Pill</li>
-                                <li class="chip chip--orange chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--orange chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--orange chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--orange chip--semi-squared">Squared</li>
-                                <li class="chip chip--orange chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--orange chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--orange chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
+                            <!-- Light Version -->
+                            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                                <ul class="chip-list chip-list--lg">
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill">Pill</li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill"><i
+                                            class="fa-regular fa-star"></i><span>Leading</span></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill"><span>Trailing</span><i
+                                            class="fa-regular fa-star"></i></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill chip--icon-only"><i
+                                            class="fa-regular fa-star"></i></li>
+                                </ul>
+                                <ul class="chip-list chip-list--lg">
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared">Semi-SQ</li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared"><i
+                                            class="fa-regular fa-star"></i><span>Leading</span></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared"><span>Trailing</span><i
+                                            class="fa-regular fa-star"></i></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared chip--icon-only"><i
+                                            class="fa-regular fa-star"></i></li>
+                                </ul>
+                                <ul class="chip-list chip-list--lg">
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared">Squared</li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared"><i
+                                            class="fa-regular fa-star"></i><span>Leading</span></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared"><span>Trailing</span><i
+                                            class="fa-regular fa-star"></i></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared chip--icon-only"><i
+                                            class="fa-regular fa-star"></i></li>
+                                </ul>
+                            </div>
 
-                        <p style="font-weight: bold; margin-top: 1rem;">Green Color Chips</p>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--green chip--pill">Pill</li>
-                                <li class="chip chip--green chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--green chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--green chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--green chip--semi-squared">Squared</li>
-                                <li class="chip chip--green chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--green chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--green chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--green chip--pill">Pill</li>
-                                <li class="chip chip--green chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--green chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--green chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--green chip--semi-squared">Squared</li>
-                                <li class="chip chip--green chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--green chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--green chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-
-                        <p style="font-weight: bold; margin-top: 1rem;">Red Color Chips</p>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--red chip--pill">Pill</li>
-                                <li class="chip chip--red chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--red chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--red chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg">
-                                <li class="chip chip--red chip--semi-squared">Squared</li>
-                                <li class="chip chip--red chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--red chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--red chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
-                        <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--red chip--pill">Pill</li>
-                                <li class="chip chip--red chip--pill"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--red chip--pill"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--red chip--pill chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                            <div style="width: 5rem; flex-shrink: 0;"></div>
-                            <ul class="chip-list chip-list--lg dark">
-                                <li class="chip chip--red chip--semi-squared">Squared</li>
-                                <li class="chip chip--red chip--semi-squared"><i class="fa-regular fa-star"></i><span>Leading</span></li>
-                                <li class="chip chip--red chip--semi-squared"><span>Trailing</span><i class="fa-regular fa-star"></i></li>
-                                <li class="chip chip--red chip--semi-squared chip--icon-only"><i class="fa-regular fa-star"></i></li>
-                            </ul>
-                        </div>
+                            <!-- Dark Version -->
+                            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                                <ul class="chip-list chip-list--lg dark">
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill">Pill</li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill"><i
+                                            class="fa-regular fa-star"></i><span>Leading</span></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill"><span>Trailing</span><i
+                                            class="fa-regular fa-star"></i></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--pill chip--icon-only"><i
+                                            class="fa-regular fa-star"></i></li>
+                                </ul>
+                                <ul class="chip-list chip-list--lg dark">
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared">Semi-SQ</li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared"><i
+                                            class="fa-regular fa-star"></i><span>Leading</span></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared"><span>Trailing</span><i
+                                            class="fa-regular fa-star"></i></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--semi-squared chip--icon-only"><i
+                                            class="fa-regular fa-star"></i></li>
+                                </ul>
+                                <ul class="chip-list chip-list--lg dark">
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared">Squared</li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared"><i
+                                            class="fa-regular fa-star"></i><span>Leading</span></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared"><span>Trailing</span><i
+                                            class="fa-regular fa-star"></i></li>
+                                    <li class="chip chip--<?php echo $slug; ?> chip--squared chip--icon-only"><i
+                                            class="fa-regular fa-star"></i></li>
+                                </ul>
+                            </div>
+                        <?php endforeach; ?>
 
                     </div>
                 </div>
             </div>
 
-<?php get_footer(); ?>
+            <?php get_footer(); ?>

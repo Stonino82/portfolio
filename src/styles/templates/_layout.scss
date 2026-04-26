@@ -2,13 +2,17 @@
 
 /* For the moment same layout for all the pages */
 main {
-    &::before, &::after {
+
+    &::before,
+    &::after {
         content: unset;
     }
+
     &.grid-layout {
-        display:grid;
+        display: grid;
         grid-template-columns: 1fr;
     }
+
     .content {
         z-index: 2;
         @include min-height-viewport-minus-header; // Correctly calculates height minus header
@@ -17,6 +21,7 @@ main {
         gap: var(--size-800); // Was 4rem
         background-color: var(--color-surface-secondary); // Base background for the content area
         overflow: hidden;
+
         section {
             position: relative;
             min-height: max-content;
@@ -28,14 +33,17 @@ main {
             gap: var(--size-500);
             padding: var(--size-500);
             background-color: var(--color-surface-primary);
+
             .section__header {
                 height: max-content;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+
                 &>* {
                     margin: 0;
                 }
+
                 .section__title {
                     display: flex;
                     align-items: center;
@@ -43,6 +51,7 @@ main {
                 }
             }
         }
+
         section.showcase-portfolio {
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
@@ -50,11 +59,14 @@ main {
                 grid-column: 1 / -1;
             }
         }
-        section.showcase-blog, section.snapshots {
+
+        section.showcase-blog,
+        section.snapshots {
             background-color: transparent;
             border-radius: 0;
         }
     }
+
     .presentation {
         // max-width: 420px;
         position: sticky;
@@ -69,23 +81,40 @@ main {
         justify-content: center;
         box-sizing: border-box;
         padding: var(--size-500);
-        & > * {
+
+        &>* {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+
             @include media-up($breakpoint-lg) {
                 align-items: flex-start;
                 text-align: left;
             }
         }
+
         .presentation__central {
             flex-grow: 1;
             justify-content: center;
+
             @include media-up($breakpoint-lg) {
                 justify-content: flex-start;
             }
+
+            .presentation__description {
+                order: 4;
+            }
+
+            .presentation__headlines {
+                order: 3;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-block: var(--size-100);
+            }
+
             .presentation__breadcrumbs {
                 order: 1;
                 margin-bottom: var(--size-600);
@@ -94,23 +123,19 @@ main {
                 border: 1px solid var(--color-border-secondary);
                 background-color: var(--color-surface-primary);
             }
-            .presentation__headlines {
-                order: 3;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-block: var(--size-100);
-            }
-            .presentation__description {
-                order: 4;
-            }
+
             .presentation__taxonomy {
                 order: 2;
                 color: var(--color-text-brand);
             }
+
+            .presentation__meta {
+                order: 2;
+            }
         }
     }
 }
+
 .container {
     width: 100%;
     max-width: var(--max-width) !important;
@@ -119,10 +144,11 @@ main {
 
 @include media-up($breakpoint-md) {
     .content {
-        & > *:not(.site-footer) {
+        &>*:not(.site-footer) {
             border-radius: 1rem;
             overflow: hidden;
         }
+
         section {
             // Increase spacing on larger screens for better layout
             padding: var(--size-600);
@@ -130,20 +156,27 @@ main {
         }
     }
 }
+
 @include media-up($breakpoint-lg) {
     main.container {
         &.grid-layout {
             grid-template-columns: minmax(420px, 0.32fr) 1fr;
         }
+
         .content {
             padding: var(--size-500);
         }
+
         .presentation {
             z-index: 2;
             align-self: start;
+
             .presentation__central {
                 justify-content: flex-start;
-                .presentation__headlines { align-items: flex-start; }
+
+                .presentation__headlines {
+                    align-items: flex-start;
+                }
             }
 
             // Hide the scroll indicator on desktop, as the layout is different.
