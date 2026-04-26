@@ -683,7 +683,6 @@ get_header(); ?>
                             'template-parts/banner',
                             null,
                             array(
-                                'layout' => 'vertical', // or 'horizontal'
                                 'type' => 'primary',
                                 'title' => 'Nino AI',
                                 'title_icon_type' => 'custom',
@@ -708,7 +707,6 @@ get_header(); ?>
                             'template-parts/banner',
                             null,
                             array(
-                                'layout' => 'vertical', // or 'horizontal'
                                 'title' => 'Get in touch',
                                 'title_icon_type' => 'fa',
                                 'title_icon_class' => 'fa-brands fa-linkedin',

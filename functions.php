@@ -735,7 +735,6 @@ function antoninolattene_banner_shortcode($atts)
             'title' => '',
             'text' => '',
             'type' => 'secondary',
-            'layout' => 'vertical',
 
             // Icono del Título
             'title_icon_type' => '', // md, fa, custom
@@ -772,7 +771,6 @@ function antoninolattene_banner_shortcode($atts)
         'title' => $atts['title'],
         'text' => $atts['text'],
         'type' => $atts['type'],
-        'layout' => $atts['layout'],
         'title_icon_type' => $atts['title_icon_type'],
         'title_icon_class' => $atts['title_icon_class'],
         'title_icon_path' => $atts['title_icon_path'],

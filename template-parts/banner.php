@@ -8,8 +8,6 @@
  */
 
 // --- ARGS ---
-// Layout
-$layout = isset($args['layout']) ? $args['layout'] : 'vertical';
 $type = isset($args['type']) ? $args['type'] : 'secondary';
 
 // Title
@@ -59,7 +57,7 @@ if ($title_icon_type) {
 
 ?>
 
-<div class="banner banner--<?php echo esc_attr($layout); ?> banner--<?php echo esc_attr($type); ?>">
+<div class="banner banner--<?php echo esc_attr($type); ?>">
     <div class="banner__content">
         <?php if ($title) : ?>
             <h4 class="banner__title">

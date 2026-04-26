@@ -347,8 +347,12 @@ main {
             &.last {
                 .section__inner {
                     .section__content {
-                        @include media-up($breakpoint-lg) {
+                        @include media-up($breakpoint-md) {
                             grid-template-columns: repeat(2, 1fr);
+                        }
+
+                        .banner {
+                            height: 100%;
                         }
                     }
                 }

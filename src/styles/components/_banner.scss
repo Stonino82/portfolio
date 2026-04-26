@@ -1,7 +1,6 @@
 @use '../generals/mixins' as *;
 
 .banner {
-  // Vertical & Horizontal layout
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,51 +58,12 @@
   }
 
   .banner__actions {
-    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--size-400);
     align-items: center;
     justify-content: center;
-
-    @include media-up($breakpoint-sm) {
-      flex-direction: row;
-    }
-
-    @include media-up($breakpoint-lg) {
-      flex-direction: column;
-    }
-
-    .primary-action,
-    .secondary-action {
-      width: 100%;
-    }
-  }
-
-  // Horizontal spacific layout
-  &.banner--horizontal {
-    @include media-up($breakpoint-md) {
-      flex-direction: row;
-      align-items: flex-end;
-
-      .banner__content {
-        align-items: flex-start;
-
-        .banner__text {
-          text-align: left;
-        }
-      }
-
-      .banner__actions {
-        width: max-content;
-        flex-direction: column;
-
-        .primary-action,
-        .secondary-action {
-          width: inherit;
-        }
-      }
-    }
   }
 
   &.banner--primary {
