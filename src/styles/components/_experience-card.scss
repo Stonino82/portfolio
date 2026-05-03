@@ -1,0 +1,132 @@
+@use '../generals/colors' as *;
+@use '../generals/icons' as *;
+@use '../generals/mixins' as *;
+@use 'card' as *;
+
+.experience-card {
+    @include card-base($hover: false);
+    padding: var(--size-500);
+    gap: var(--size-500);
+    cursor: pointer;
+
+    &:hover {
+        background: var(--color-surface-secondary);
+        box-shadow: var(--box-shadow-dp2);
+        border-color: var(--color-border-primary);
+    }
+
+    // Timeline dot
+    &::before {
+        content: '';
+        position: absolute;
+        top: 16px;
+        left: calc(-31px);
+        width: 12px;
+        height: 12px;
+        background-color: var(--component-primary-foreground);
+        border: 2px solid var(--color-surface-secondary);
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    // Timeline line segment
+    &::after {
+        content: '';
+        position: absolute;
+        top: 16px;
+        left: -26px;
+        width: 2px;
+        height: calc(100% + var(--size-600));
+        background-color: var(--component-primary-background);
+        z-index: 0;
+    }
+
+    // Timeline tail for the last card
+    &:last-child::after {
+        height: 80px;
+        background: repeating-linear-gradient(to bottom, var(--component-primary-background) 0, var(--component-primary-background) 4px, transparent 4px, transparent 10px);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    }
+
+    &.experience-card--action {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: default;
+        box-shadow: none;
+        transform: none;
+        flex-direction: row;
+        gap: var(--size-200);
+
+        &:hover {
+            background: transparent;
+            transform: none;
+            box-shadow: none;
+        }
+
+        &::before,
+        &::after {
+            top: 16px;
+        }
+
+        .btn {
+            width: fit-content;
+        }
+    }
+
+    .experience-card__header {
+        display: flex;
+        align-items: center;
+        gap: var(--size-400);
+
+        .experience-card__logo {
+            width: 48px;
+            min-width: 48px;
+            height: auto;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .experience-card__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            min-width: 48px;
+            height: auto;
+            aspect-ratio: 1;
+
+            .material-symbols-rounded {
+                font-size: 40px;
+            }
+        }
+
+        .experience-card__title {
+            h5 {
+                margin: 0;
+                color: var(--color-text-primary);
+            }
+
+            .text-caption {
+                margin: 0;
+                color: var(--color-text-tertiary);
+            }
+        }
+    }
+
+    .experience-card__body {
+        .experience-card__content {
+            @include truncate-text-multiline(3);
+
+            p {
+                margin: 0;
+                color: var(--color-text-secondary);
+
+                &:not(:last-child) {
+                    margin-bottom: var(--size-100);
+                }
+            }
+        }
+    }
+}

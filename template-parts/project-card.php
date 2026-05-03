@@ -55,7 +55,6 @@ $is_latest_post = (get_the_ID() === $latest_post_id);
 			<?php endif; ?>
 		</div>
 		<div class="project__content">
-			<?php get_template_part('template-parts/client-chip'); ?>
 			<div class="project__header">
 				<?php
 				// Use the breadcrumbs function to display the categories.
@@ -68,6 +67,10 @@ $is_latest_post = (get_the_ID() === $latest_post_id);
 				<h3 class="project__title text-heading-5">
 					<?php the_title(); ?>
 				</h3>
+			</div>
+			<div class="project__meta">
+					<?php get_template_part('template-parts/client-chip'); ?>
+					<small><?php antoninolattene_reading_time(); ?></small>
 			</div>
 		</div>
 	</a>

@@ -1,0 +1,96 @@
+@use '../generals/mixins' as *;
+
+.content-404 {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    section {
+        background-color: var(--color-surface-secondary);
+        border-radius: unset !important;
+
+        &:nth-of-type(even) {
+            background-color: var(--color-surface-primary);
+        }
+
+        @include media-down($breakpoint-lg) {
+            &.central {
+                position: sticky;
+                top: var(--header-height);
+                z-index: 1;
+            }
+
+            &.links {
+                z-index: 2;
+                min-height: 100dvh;
+            }
+        }
+
+        &.central {
+            @include min-height-viewport-minus-header(80);
+            text-align: center;
+        }
+
+        &.central,
+        &.links {
+            display: flex;
+
+            .section__inner {
+                max-width: var(--max-width) !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: var(--size-600);
+                margin: 0 auto;
+                padding: var(--size-950) var(--size-500);
+
+                &>* {
+                    width: 100%;
+                }
+
+                .section__content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: var(--size-800);
+
+                    .column {
+                        min-width: 0;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: var(--size-200);
+
+                        .section__header {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .section__title {
+                                margin: 0;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+
+                h2 {
+                    font-size: clamp(6rem, 20vw, 10rem);
+                    font-weight: 700;
+                    line-height: 1;
+                    letter-spacing: -0.04em;
+                }
+            }
+        }
+
+        &.links {
+            .section__inner {
+                .section__content {
+                    @include media-up($breakpoint-lg) {
+                        grid-template-columns: 1fr 1fr;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -10,6 +10,7 @@
 .site-header::after {
     content: none;
 }
+
 // --- Site Header Styles ---
 .site-header {
     position: sticky;
@@ -17,10 +18,16 @@
     left: 0;
     z-index: 999;
     background-color: var(--color-surface-secondary);
-    transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out, top 0.3s ease-in-out;
+
     &.is-scrolled {
         box-shadow: var(--box-shadow-dp1);
     }
+
+    &.is-hidden {
+        top: calc((var(--header-height) + 10px) * -1);
+    }
+
     .container {
         position: relative;
         width: 100%;
@@ -29,29 +36,35 @@
         align-items: center;
         justify-content: space-between;
         padding: var(--size-200) var(--size-500);
+
         .logo {
             z-index: 1;
             transition: $transition;
         }
+
         .sub-menu {
             width: max-content;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: var(--size-100);
+
             .theme-switch {
                 display: none;
+
                 @include media-up($breakpoint-md) {
                     display: flex;
                 }
             }
         }
+
         .site-navigation {
             z-index: 0;
             position: absolute;
             top: var(--size-200);
             left: var(--size-500);
             right: var(--size-500);
+            min-width: 260px;
             max-width: 100%;
             display: flex;
             flex-direction: column;
@@ -76,29 +89,32 @@
                 // align-items: center;
                 gap: 1rem;
                 padding: var(--size-300);
-                
+
                 .menu-header {
                     display: flex;
                     align-items: flex-start;
                     justify-content: space-between;
-                    gap: var(--size-100);
-                    height: 80px; // tamaño logo scaled cuando .toggled activo
-                    margin-left: 80px; // tamaño logo scaled cuando .toggled activo
+                    gap: var(--size-500);
+                    height: 60px; // tamaño logo scaled cuando .toggled activo
+                    margin-left: 60px; // tamaño logo scaled cuando .toggled activo
+
                     .information {
                         height: 100%;
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
+                        justify-content: center;
                         min-width: 0; // Allow shrinking to enable text truncation in children.
-                        // gap: 5px;
-                        padding: var(--size-100) var(--size-50);
+                        gap: var(--size-100);
+                        margin-top: 2px;
                     }
+
                     .theme-switch {
                         @include media-up($breakpoint-md) {
                             display: none;
                         }
                     }
                 }
+
                 ul.menu {
                     width: 100%;
                     display: flex;
@@ -106,6 +122,7 @@
                     align-items: flex-start;
                     gap: .5rem;
                     margin: 0;
+
                     li {
                         width: 100%;
                         display: flex;
@@ -114,40 +131,52 @@
                         margin: 0;
                         border-radius: .5rem;
                         overflow: hidden;
+
                         a.btn {
                             width: 100%;
                             justify-content: flex-start;
+
                             .icon-trailing {
                                 margin-left: auto;
                                 font-size: inherit !important;
                             }
                         }
                     }
+
                     li:not(.menu-item-linkedin) {
                         a.btn {
                             color: var(--color-text-secondary);
+
                             i {
                                 color: var(--color-text-tertiary);
                             }
                         }
+
                         // Specific styles for Blog menu item
                         &:is(.menu-item-blog) {}
+
                         &:hover {
                             background-color: var(--component-neutral-background);
                         }
+
                         &:is(.current_page_item, .current_page_parent) {
                             background-color: var(--component-primary-background);
+
                             a {
                                 color: var(--component-primary-foreground);
+
                                 i {
                                     color: var(--component-primary-foreground);
                                 }
                             }
                         }
+
                         &:is(.menu-item-blog):is(.current_page_item, .current_page_parent) {
                             background-color: var(--component-accent-background);
+
                             a {
                                 color: var(--component-accent-foreground);
+
                                 i {
                                     color: var(--component-accent-foreground);
                                 }
@@ -155,18 +184,22 @@
                         }
                     }
                 }
+
                 hr {
-                    @include separator($margin-top:0, $margin-bottom:0);
+                    @include separator($margin-top: 0, $margin-bottom: 0);
                 }
             }
         }
     }
+
     &.toggled {
         .container {
             .logo {
-                transform: translate(var(--size-500), var(--size-500)) scale(1.4815);
+                transform: translate(var(--size-500), var(--size-500)) scale(1.389);
             }
+
             .site-navigation {}
+
             &::after {
                 display: none !important;
             }

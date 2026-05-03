@@ -45,10 +45,12 @@ $show_breadcrumbs = $args['show_breadcrumbs'] ?? true;
 		<div class="presentation__taxonomy">
 			<?php get_template_part('template-parts/archive-context-label'); ?>
 		</div>
-		<?php if (is_singular('portfolio')): ?>
+		<?php if (is_singular(['portfolio', 'post'])): ?>
 			<div class="presentation__meta">
 				<?php get_template_part('template-parts/client-chip'); ?>
-			</div>
+				<small><?php antoninolattene_posted_on(); ?></small>
+				<small><?php antoninolattene_reading_time(); ?></small>
+				</div>
 		<?php endif; ?>
 	</div>
 	<?php /* get_template_part( 'template-parts/scroll-indicator' ); */ ?>

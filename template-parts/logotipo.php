@@ -7,7 +7,7 @@
 ?>
 
 <div class="logotipo">
-    <p class="logotipo__name">Antonino Lattene</p>
+    <h6 class="logotipo__name">Antonino Lattene</h6>
     <!-- <p class="logotipo__tagline"><strong class="text-gradient">Product Designer</strong></p> -->
-    <small class="logotipo__tagline">antoninolattene@gmail.com</small>
+    <!-- <small class="logotipo__tagline">antoninolattene@gmail.com</small> -->
 </div>

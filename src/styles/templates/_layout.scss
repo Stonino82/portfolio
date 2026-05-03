@@ -18,7 +18,7 @@ main {
         @include min-height-viewport-minus-header; // Correctly calculates height minus header
         display: grid;
         grid-template-columns: 1fr;
-        gap: var(--size-800); // Was 4rem
+        gap: var(--size-800);
         background-color: var(--color-surface-secondary); // Base background for the content area
         overflow: hidden;
 
@@ -130,7 +130,11 @@ main {
             }
 
             .presentation__meta {
-                order: 2;
+                display: flex;
+                align-items: center;
+                gap: var(--size-100);
+                margin-top: var(--size-600);
+                order: 4;
             }
         }
     }

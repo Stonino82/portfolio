@@ -3,15 +3,17 @@
 @use '../generals/mixins' as *;
 
 .logotipo {
-    & > * {
+    &>* {
         margin: 0;
         line-height: 1;
     }
+
     .logotipo__name {
-        font-size: var(--fs-400);
-        font-weight: var(--fw-medium);
+        // font-size: var(--fs-400);
+        // font-weight: var(--fw-medium);
         @include truncate-text;
     }
+
     .logotipo__tagline {
         display: block;
         width: 100%;

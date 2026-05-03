@@ -1,0 +1,19 @@
+@use '../generals/variables' as *;
+
+@mixin card-base($hover: true) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-surface-primary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: var(--size-400);
+    transition: $transition;
+
+    @if $hover {
+        &:hover {
+            background: var(--color-surface-secondary);
+            box-shadow: var(--box-shadow-dp2);
+            // transform: scale(1.005) !important;
+        }
+    }
+}

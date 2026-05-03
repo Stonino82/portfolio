@@ -100,6 +100,7 @@ $is_latest_post = (get_the_ID() === $latest_post_id);
             <?php if ($args['show_meta']): ?>
                 <!-- <small><?php antoninolattene_posted_by(); ?></small> -->
                 <small><?php antoninolattene_posted_on(); ?></small>
+                <small><?php antoninolattene_reading_time(); ?></small>
             <?php endif; ?>
         </div>
 

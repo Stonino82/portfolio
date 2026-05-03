@@ -302,6 +302,9 @@ add_filter('nav_menu_css_class', 'theme_remove_cpt_blog_class', 10, 3);
 function theme_add_cpt_ancestor_class($classes, $item, $args)
 {
     global $post;
+    if ( is_404() || empty( $post ) ) {
+        return $classes;
+    }
     $current_post_type = get_post_type_object(get_post_type($post->ID));
     if ($current_post_type === 'post') {
         return $classes;
@@ -577,6 +580,16 @@ if (!function_exists('antoninolattene_posted_by')):
     function antoninolattene_posted_by()
     {
         echo '<i class="icon-leading fa-regular fa-user"></i> <span class="author vcard">' . esc_html(get_the_author()) . '</span>'; // WPCS: XSS OK.
+    }
+endif;
+
+if (!function_exists('antoninolattene_reading_time')):
+    function antoninolattene_reading_time()
+    {
+        $words = str_word_count(strip_tags(get_the_content()));
+        $minutes = max(1, ceil($words / 200));
+        $label = $minutes === 1 ? __('1 min read', 'antoninolattene-child') : sprintf(__('%d min read', 'antoninolattene-child'), $minutes);
+        echo '<i class="icon-leading fa-regular fa-clock"></i> <span class="reading-time">' . esc_html($label) . '</span>';
     }
 endif;
 

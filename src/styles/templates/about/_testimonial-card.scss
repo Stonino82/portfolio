@@ -1,80 +1,74 @@
 @use '../../generals/colors' as *;
 @use '../../generals/icons' as *;
 @use '../../generals/mixins' as *;
+@use '../../components/card' as *;
 
 
 
 .testimonials {
     .swiper {
-    .swiper-wrapper {
-        .swiper-slide {
-            .testimonial-card {
-                height: 440px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                padding: var(--size-500);
-                gap: var(--size-500);
-                background-color: var(--color-surface-primary);
-                border: 1px solid var(--color-border-secondary);
-                border-radius: var(--size-400);
-                // &::after {
-                //     content: '\f10e'; /* Unicode for fa-quote-right */
-                //     font-family: 'Font Awesome 6 Free';
-                //     font-weight: 900;
-                //     position: absolute;
-                //     bottom: 0;
-                //     right: var(--size-400);
-                //     font-size: 4rem;
-                //     color: rgba(0, 0, 0, 0.05);
-                //     z-index: 1;
-                //     pointer-events: none;
-                // }
-                .testimonial-card__header {
-                    display: flex;
-                    align-items: flex-start;
-                    gap: var(--size-400);
-                    margin-bottom: var(--size-400);
-                    .testimonial-card__avatar {
-                        width: 48px;
-                        height: 48px;
-                        border-radius: 50%;
-                        box-shadow: var(--box-shadow-dp1);
-                    }
-                    .testimonial-card__author {
-                        h5 {
-                            margin: 0;
-                            color: var(--color-text-primary);
+        .swiper-wrapper {
+            .swiper-slide {
+                .testimonial-card {
+                    @include card-base($hover: false);
+                    height: 440px;
+                    justify-content: space-between;
+                    padding: var(--size-500);
+                    gap: var(--size-500);
+
+                    .testimonial-card__header {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: var(--size-400);
+                        margin-bottom: var(--size-400);
+
+                        .testimonial-card__avatar {
+                            width: 48px;
+                            height: 48px;
+                            border-radius: 50%;
+                            box-shadow: var(--box-shadow-dp1);
                         }
-                        .text-caption {
-                            margin: 0;
-                            color: var(--color-text-tertiary);
+
+                        .testimonial-card__author {
+                            h5 {
+                                margin: 0;
+                                color: var(--color-text-primary);
+                            }
+
+                            .text-caption {
+                                margin: 0;
+                                color: var(--color-text-tertiary);
+                            }
                         }
                     }
-                }
-                .testimonial-card__body {
-                    p {
-                        @include truncate-text-multiline(10);
-                        &.expanded {
-                            -webkit-line-clamp: unset;
-                            height: auto;
+
+                    .testimonial-card__body {
+                        p {
+                            @include truncate-text-multiline(10);
+
+                            &.expanded {
+                                -webkit-line-clamp: unset;
+                                height: auto;
+                            }
                         }
                     }
-                }
-                .testimonial-card__footer {
-                    margin-top: auto;
-                    .read-more-btn {
-                        padding-inline: 0;
-                        text-decoration: underline;
-                    }
-                    .read-more-btn.read-more-hidden {
-                        display: none !important;
-                        padding: 0;
-                        text-decoration: underline;
+
+                    .testimonial-card__footer {
+                        margin-top: auto;
+
+                        .read-more-btn {
+                            padding-inline: 0;
+                            text-decoration: underline;
+                        }
+
+                        .read-more-btn.read-more-hidden {
+                            display: none !important;
+                            padding: 0;
+                            text-decoration: underline;
+                        }
                     }
                 }
             }
         }
-    }
     }
 }

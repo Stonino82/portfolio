@@ -1,23 +1,16 @@
 @use '../generals/colors' as *;
 @use '../generals/variables' as *;
 @use '../generals/mixins' as *;
+@use 'card' as *;
 
 // --- Project Card Component ---
 // This component is used on the homepage and archive pages to display a preview of a post.
 
 .project-card {
-    // The <article> tag acts as a positioning context and clipping mask.
-    // It inherits its height from the parent grid (.showcase).
-    // By default, a grid item's min-width is `auto`, which prevents it from shrinking
-    // below its content's intrinsic size. Setting `min-width: 0` allows the grid
-    // container's `minmax()` function to control the card's minimum size properly.
+    @include card-base;
+    // min-width: 0 allows the grid container's minmax() to control the card's minimum size.
     min-width: 0;
     height: 100%;
-    position: relative;
-    transition: $transition;
-    background-color: var(--color-surface-secondary);
-    border: 1px solid var(--color-border-secondary);
-    border-radius: var(--size-400);
 
     a {
         height: 100%;
@@ -30,6 +23,7 @@
 
         .project__image {
             position: relative;
+            min-height: 240px;
             height: 240px;
             width: 100%;
             border-radius: var(--size-100);
@@ -52,12 +46,12 @@
         }
 
         .project__content {
+            height: 100%;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
             gap: var(--size-200);
             padding: var(--size-100);
-
-            .project__client {}
 
             .project__header {
                 .breadcrumbs {
@@ -90,12 +84,15 @@
                     color: var(--color-text-brand);
                 }
             }
+
+            .project__meta {
+                display: flex;
+                gap: var(--size-100);
+                align-items: center;
+
+                .project__client {}
+            }
         }
     }
 
-    &:hover {
-        // A subtle lift and scale effect on hover.
-        box-shadow: var(--box-shadow-dp1);
-        transform: scale(1.02);
-    }
 }
