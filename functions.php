@@ -563,9 +563,9 @@ if (!function_exists('antoninolattene_posted_on')):
         $time_string = sprintf(
             $time_string,
             esc_attr(get_the_date(DATE_W3C)),
-            esc_html(get_the_date()),
+            esc_html(get_the_date('j M Y')),
             esc_attr(get_the_modified_date(DATE_W3C)),
-            esc_html(get_the_modified_date())
+            esc_html(get_the_modified_date('j M Y'))
         );
 
         echo '<i class="icon-leading fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
