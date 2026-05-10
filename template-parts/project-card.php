@@ -36,7 +36,7 @@ $is_latest_post = (get_the_ID() === $latest_post_id);
 <article class="project-card <?php echo esc_attr($article_class); ?>">
 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 		<div class="project__image">
-			<ul class="project-card__chip-list chip-list chip-list--md">
+			<ul class="project-card__chip-list chip-list chip-list--xs">
 				<?php if ($is_latest_post): ?>
 					<li class="chip chip--pill chip--green dark">New</li>
 				<?php endif; ?>

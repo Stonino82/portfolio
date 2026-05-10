@@ -48,10 +48,10 @@ if ($title_icon_type) {
     if ($title_icon_type === 'custom' && $title_icon_path) {
         // Use get_vite_asset to handle dev vs. prod paths
         $icon_html = '<img src="' . esc_url(get_vite_asset($title_icon_path)) . '" alt="" class="' . $common_icon_class . '">';
-    } elseif ($title_icon_type === 'fa' && $title_icon_class) {
+    } elseif ($title_icon_type === 'ph' && $title_icon_class) {
         $icon_html = '<i class="' . $common_icon_class . ' ' . esc_attr($title_icon_class) . '"></i>';
     } elseif ($title_icon_type === 'md' && $title_icon_class) {
-        $icon_html = '<span class="' . $common_icon_class . ' material-symbols-rounded">' . esc_html($title_icon_class) . '</span>';
+        $icon_html = '<i class="' . $common_icon_class . ' material-symbols-rounded">' . esc_html($title_icon_class) . '</i>';
     }
 }
 
@@ -91,10 +91,10 @@ if ($title_icon_type) {
                 <a href="<?php echo esc_url($secondary_cta_url); ?>" class="secondary-action btn <?php echo esc_attr($secondary_cta_classes); ?>" target="_blank">
                     <?php if ($secondary_cta_icon_class || $secondary_cta_icon_path) : ?>
                         <?php if ($secondary_cta_icon_position === 'icon-leading') : ?>
-                            <?php if ($secondary_cta_icon_type === 'fa') : ?>
+                            <?php if ($secondary_cta_icon_type === 'ph') : ?>
                                 <i class="<?php echo esc_attr($secondary_cta_icon_class); ?>"></i>
                             <?php elseif ($secondary_cta_icon_type === 'md') : ?>
-                                <span class="material-symbols-rounded"><?php echo esc_html($secondary_cta_icon_class); ?></span>
+                                <i class="material-symbols-rounded"><?php echo esc_html($secondary_cta_icon_class); ?></i>
                             <?php elseif ($secondary_cta_icon_type === 'custom' && $secondary_cta_icon_path) : ?>
                                 <img class="icon" src="<?php echo esc_url(get_vite_asset($secondary_cta_icon_path)); ?>" alt="">
                             <?php endif; ?>
@@ -103,10 +103,10 @@ if ($title_icon_type) {
                     <?php echo esc_html($secondary_cta_text); ?>
                     <?php if ($secondary_cta_icon_class || $secondary_cta_icon_path) : ?>
                         <?php if ($secondary_cta_icon_position === 'icon-trailing') : ?>
-                            <?php if ($secondary_cta_icon_type === 'fa') : ?>
+                            <?php if ($secondary_cta_icon_type === 'ph') : ?>
                                 <i class="<?php echo esc_attr($secondary_cta_icon_class); ?>"></i>
                             <?php elseif ($secondary_cta_icon_type === 'md') : ?>
-                                <span class="material-symbols-rounded"><?php echo esc_html($secondary_cta_icon_class); ?></span>
+                                <i class="material-symbols-rounded"><?php echo esc_html($secondary_cta_icon_class); ?></i>
                             <?php elseif ($secondary_cta_icon_type === 'custom' && $secondary_cta_icon_path) : ?>
                                 <img class="icon" src="<?php echo esc_url(get_vite_asset($secondary_cta_icon_path)); ?>" alt="">
                             <?php endif; ?>
@@ -120,10 +120,10 @@ if ($title_icon_type) {
                 <a href="<?php echo esc_url($primary_cta_url); ?>" class="primary-action btn <?php echo esc_attr($primary_cta_classes); ?>" target="_blank">
                     <?php if ($primary_cta_icon_class || $primary_cta_icon_path) : ?>
                         <?php if ($primary_cta_icon_position === 'icon-leading') : ?>
-                            <?php if ($primary_cta_icon_type === 'fa') : ?>
+                            <?php if ($primary_cta_icon_type === 'ph') : ?>
                                 <i class="<?php echo esc_attr($primary_cta_icon_class); ?>"></i>
                             <?php elseif ($primary_cta_icon_type === 'md') : ?>
-                                <span class="material-symbols-rounded"><?php echo esc_html($primary_cta_icon_class); ?></span>
+                                <i class="material-symbols-rounded"><?php echo esc_html($primary_cta_icon_class); ?></i>
                             <?php elseif ($primary_cta_icon_type === 'custom' && $primary_cta_icon_path) : ?>
                                 <img class="icon" src="<?php echo esc_url(get_vite_asset($primary_cta_icon_path)); ?>" alt="">
                             <?php endif; ?>
@@ -132,10 +132,10 @@ if ($title_icon_type) {
                     <?php echo esc_html($primary_cta_text); ?>
                     <?php if ($primary_cta_icon_class || $primary_cta_icon_path) : ?>
                         <?php if ($primary_cta_icon_position === 'icon-trailing') : ?>
-                            <?php if ($primary_cta_icon_type === 'fa') : ?>
+                            <?php if ($primary_cta_icon_type === 'ph') : ?>
                                 <i class="<?php echo esc_attr($primary_cta_icon_class); ?>"></i>
                             <?php elseif ($primary_cta_icon_type === 'md') : ?>
-                                <span class="material-symbols-rounded"><?php echo esc_html($primary_cta_icon_class); ?></span>
+                                <i class="material-symbols-rounded"><?php echo esc_html($primary_cta_icon_class); ?></i>
                             <?php elseif ($primary_cta_icon_type === 'custom' && $primary_cta_icon_path) : ?>
                                 <img class="icon" src="<?php echo esc_url(get_vite_asset($primary_cta_icon_path)); ?>" alt="">
                             <?php endif; ?>

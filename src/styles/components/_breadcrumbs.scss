@@ -19,7 +19,9 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    li, li.breadcrumbs__item {
+
+    li,
+    li.breadcrumbs__item {
         font-size: var(--fs-400);
         display: flex;
         align-items: center;
@@ -29,8 +31,9 @@
     // 3. Child Element Styling
     // Set a uniform size for all icons within the breadcrumbs.
     i {
-        font-size: var(--fs-300);
+        font-size: var(--icon-md);
     }
+
     .breadcrumbs__link {
         text-decoration: none;
         color: var(--color-brand-primary);
@@ -47,15 +50,15 @@
             cursor: default;
         }
 
-        i {
-            margin-right: .25rem;
-        }
+        i {}
     }
+
     // The separator should have a slightly reduced opacity
     .breadcrumbs__separator {
         opacity: 0.6;
         color: var(--color-border-secondary); // Set a consistent grey color for all separators.
     }
+
     // The current item is not a link and should be bolder
     .breadcrumbs__item--current {
         color: var(--color-brand-primary);
@@ -63,6 +66,7 @@
         opacity: 1;
         @include truncate-text;
     }
+
     // The "Home" link should always be a neutral grey, overriding the section color.
     .breadcrumbs__item--home {
         // Using a neutral color variable from the design system.

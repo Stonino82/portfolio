@@ -22,7 +22,7 @@ $display_name = (!empty($client_name) && strtolower($client_name) !== 'personal'
 $chip_color_class = $is_client_project ? 'dark chip--amber' : 'chip--primary';
 ?>
 
-<ul class="project__client chip-list chip-list--sm">
+<ul class="project__client chip-list chip-list--xs">
     <li class="chip chip--semi-squared <?php echo esc_attr($chip_color_class); ?>">
         <?php echo esc_html($display_name); ?>
     </li>

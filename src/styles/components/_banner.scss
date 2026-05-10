@@ -3,7 +3,7 @@
 .banner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   text-align: left;
   gap: var(--size-700);
@@ -25,16 +25,13 @@
       gap: var(--size-100);
       text-align: center;
 
-      .banner__title-icon {
-        width: 1.5em;
-        height: 1.5em;
-        flex-shrink: 0; // Prevent icon from shrinking
-      }
+      .banner__title-icon {}
 
-      i.banner__title-icon {
+      i.banner__title-icon,
+      span.banner__title-icon {
         width: auto;
         height: auto;
-        font-size: 1.5em;
+        font-size: var(--fs-700);
         line-height: 1;
       }
     }
@@ -58,12 +55,13 @@
   }
 
   .banner__actions {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--size-400);
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   &.banner--primary {

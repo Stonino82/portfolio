@@ -41,6 +41,9 @@ function my_theme_enqueue_styles()
     // --- Dependencies from CDNs ---
     wp_enqueue_style('custom-google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap', false);
     wp_enqueue_style('material-symbols', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200', array(), null);
+    wp_enqueue_style('phosphor-icons-regular', 'https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css', array(), null);
+    wp_enqueue_style('phosphor-icons-bold', 'https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css', array(), null);
+    wp_enqueue_style('phosphor-icons-fill', 'https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/fill/style.css', array(), null);
     wp_enqueue_style('css-reset-and-normalize', 'https://cdn.jsdelivr.net/npm/css-reset-and-normalize/css/reset-and-normalize.min.css');
 
     if (is_vite_dev_mode()) {
@@ -302,7 +305,7 @@ add_filter('nav_menu_css_class', 'theme_remove_cpt_blog_class', 10, 3);
 function theme_add_cpt_ancestor_class($classes, $item, $args)
 {
     global $post;
-    if ( is_404() || empty( $post ) ) {
+    if (is_404() || empty($post)) {
         return $classes;
     }
     $current_post_type = get_post_type_object(get_post_type($post->ID));
@@ -320,7 +323,7 @@ add_action('nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
 
 
 /**
- * Returns a centralized map of category slugs to Font Awesome icon classes.
+ * Returns a centralized map of category slugs to Phosphor icon classes.
  * This avoids code duplication and provides a single source of truth.
  * Using slugs is more robust than names as they don't typically change.
  *
@@ -329,10 +332,10 @@ add_action('nav_menu_css_class', 'theme_add_cpt_ancestor_class', 10, 3);
 function get_category_icon_map()
 {
     return array(
-        'front-end-development' => 'icon-leading fa-solid fa-code',
-        'ui-design' => 'icon-leading fa-solid fa-pen-ruler',
-        'ux-design' => 'icon-leading fa-solid fa-user-group',
-        'graphic-design' => 'icon-leading fa-solid fa-palette'
+        'front-end-development' => 'icon-leading ph ph-code',
+        'ui-design' => 'icon-leading ph ph-compass-tool',
+        'ux-design' => 'icon-leading ph ph-users',
+        'graphic-design' => 'icon-leading ph ph-palette'
     );
 }
 
@@ -396,7 +399,7 @@ function antoninolattene_breadcrumbs($args = array())
     echo '<ul class="breadcrumbs">';
 
     // 1. Home Link
-    echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url(get_home_url()) . '" title="' . esc_attr($home_title) . '"><i class="icon-leading fa-regular fa-house"></i></a></li>';
+    echo '<li class="breadcrumbs__item breadcrumbs__item--home"><a class="breadcrumbs__link" href="' . esc_url(get_home_url()) . '" title="' . esc_attr($home_title) . '"><i class="icon-leading ph ph-house"></i></a></li>';
 
     // 2. Section Link (Blog or Portfolio)
     if ($is_portfolio) {
@@ -405,9 +408,9 @@ function antoninolattene_breadcrumbs($args = array())
             echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
             // If we are on the portfolio archive page, it's the current item.
             if (is_post_type_archive('portfolio')) {
-                echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</li>';
+                echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading ph ph-folder-open"></i> Portfolio</li>';
             } else {
-                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url($archive_link) . '"><i class="icon-leading fa-regular fa-folder-open"></i> Portfolio</a></li>';
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url($archive_link) . '"><i class="icon-leading ph ph-folder-open"></i> Portfolio</a></li>';
             }
         }
     } else { // This covers 'post', 'category', 'tag', and standard pages
@@ -416,9 +419,9 @@ function antoninolattene_breadcrumbs($args = array())
             echo '<li class="breadcrumbs__separator">' . $separator . '</li>';
             // If we are on the blog page (home.php), it's the current item.
             if (is_home()) {
-                echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html(get_the_title($blog_page_id)) . '</li>';
+                echo '<li class="breadcrumbs__item breadcrumbs__item--current"><i class="icon-leading ph ph-note-pencil"></i> ' . esc_html(get_the_title($blog_page_id)) . '</li>';
             } else {
-                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_permalink($blog_page_id)) . '"><i class="icon-leading fa-regular fa-pen-to-square"></i> ' . esc_html(get_the_title($blog_page_id)) . '</a></li>';
+                echo '<li class="breadcrumbs__item"><a class="breadcrumbs__link" href="' . esc_url(get_permalink($blog_page_id)) . '"><i class="icon-leading ph ph-note-pencil"></i> ' . esc_html(get_the_title($blog_page_id)) . '</a></li>';
             }
         }
     }
@@ -568,7 +571,7 @@ if (!function_exists('antoninolattene_posted_on')):
             esc_html(get_the_modified_date('j M Y'))
         );
 
-        echo '<i class="icon-leading fa-regular fa-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
+        echo '<i class="icon-leading ph ph-calendar"></i> <span class="posted-on">' . $time_string . '</span>'; // WPCS: XSS OK.
     }
 endif;
 
@@ -579,7 +582,7 @@ if (!function_exists('antoninolattene_posted_by')):
      */
     function antoninolattene_posted_by()
     {
-        echo '<i class="icon-leading fa-regular fa-user"></i> <span class="author vcard">' . esc_html(get_the_author()) . '</span>'; // WPCS: XSS OK.
+        echo '<i class="icon-leading ph ph-user"></i> <span class="author vcard">' . esc_html(get_the_author()) . '</span>'; // WPCS: XSS OK.
     }
 endif;
 
@@ -589,7 +592,7 @@ if (!function_exists('antoninolattene_reading_time')):
         $words = str_word_count(strip_tags(get_the_content()));
         $minutes = max(1, ceil($words / 200));
         $label = $minutes === 1 ? __('1 min read', 'antoninolattene-child') : sprintf(__('%d min read', 'antoninolattene-child'), $minutes);
-        echo '<i class="icon-leading fa-regular fa-clock"></i> <span class="reading-time">' . esc_html($label) . '</span>';
+        echo '<i class="icon-leading ph ph-clock"></i> <span class="reading-time">' . esc_html($label) . '</span>';
     }
 endif;
 
@@ -657,7 +660,7 @@ function login_logo()
             background-size: contain;
         }
     </style>
-<?php
+        <?php
 }
 add_action('login_enqueue_scripts', 'login_logo');
 
@@ -721,15 +724,7 @@ function always_add_blog_menu_item_class($classes, $item, $args)
 }
 add_filter('nav_menu_css_class', 'always_add_blog_menu_item_class', 10, 3);
 
-/**
- * Shortcode para mostrar un banner inline personalizable.
- *
- * Uso: [inline_banner text="Tu texto obligatorio aquí" title="Título opcional" button_text="Botón opcional"]
- * El campo 'text' es obligatorio.
- *
- * @param array $atts Atributos del shortcode.
- * @return string HTML del banner.
- */
+
 /**
  * Shortcode para mostrar un banner, usando el componente genérico.
  *
@@ -839,10 +834,10 @@ function photography_credit_shortcode($atts)
     $link = esc_url($atts['link']);
 
     // Build the HTML output
-    $output .= '<figcaption class="credit">Cover photo by';
+    $output = '<figcaption class="credit">Cover photo by';
     $output .= '<a href="' . $link . '" target="_blank">';
     $output .= '<span>' . $name . '</span>';
-    $output .= '</figcaption></a>';
+    $output .= '</a></figcaption>';
 
     return $output;
 }
@@ -878,17 +873,17 @@ function antoninolattene_child_featured_video_meta_box_callback($post)
 
     $video_url = get_post_meta($post->ID, '_featured_video_url', true);
     ?>
-    <p>
-        <label
-            for="antoninolattene_child_video_url"><?php _e('Enter the URL for the featured video (e.g., MP4, WebM):', 'antoninolattene-child'); ?></label>
-        <br>
-        <input type="url" id="antoninolattene_child_video_url" name="antoninolattene_child_video_url"
-            value="<?php echo esc_url($video_url); ?>" style="width: 100%;" />
-    <p class="description">
-        <?php _e('This video will be displayed instead of the featured image if provided.', 'antoninolattene-child'); ?>
-    </p>
-    </p>
-    <?php
+        <p>
+            <label
+                for="antoninolattene_child_video_url"><?php _e('Enter the URL for the featured video (e.g., MP4, WebM):', 'antoninolattene-child'); ?></label>
+            <br>
+            <input type="url" id="antoninolattene_child_video_url" name="antoninolattene_child_video_url"
+                value="<?php echo esc_url($video_url); ?>" style="width: 100%;" />
+        <p class="description">
+            <?php _e('This video will be displayed instead of the featured image if provided.', 'antoninolattene-child'); ?>
+        </p>
+        </p>
+        <?php
 }
 
 /**
@@ -972,19 +967,20 @@ function antoninolattene_child_client_name_meta_box_callback($post)
     $client_name = get_post_meta($post->ID, 'client_name', true);
     $is_client_project = get_post_meta($post->ID, 'is_client_project', true);
     ?>
-    <p>
-        <label for="antoninolattene_child_client_name_field"><?php _e('Client name (leave empty for "Personal Project")', 'antoninolattene-child'); ?></label>
-        <br>
-        <input type="text" id="antoninolattene_child_client_name_field" name="client_name"
-            value="<?php echo esc_attr($client_name); ?>" style="width: 100%; margin-top: 4px;" />
-    </p>
-    <p>
-        <label>
-            <input type="checkbox" name="is_client_project" value="1" <?php checked('1', $is_client_project); ?> />
-            <?php _e('Client project', 'antoninolattene-child'); ?>
-        </label>
-    </p>
-    <?php
+        <p>
+            <label
+                for="antoninolattene_child_client_name_field"><?php _e('Client name (leave empty for "Personal Project")', 'antoninolattene-child'); ?></label>
+            <br>
+            <input type="text" id="antoninolattene_child_client_name_field" name="client_name"
+                value="<?php echo esc_attr($client_name); ?>" style="width: 100%; margin-top: 4px;" />
+        </p>
+        <p>
+            <label>
+                <input type="checkbox" name="is_client_project" value="1" <?php checked('1', $is_client_project); ?> />
+                <?php _e('Client project', 'antoninolattene-child'); ?>
+            </label>
+        </p>
+        <?php
 }
 
 /**

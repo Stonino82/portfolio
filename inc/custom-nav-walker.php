@@ -113,11 +113,11 @@ class Custom_Nav_Walker extends Walker_Nav_Menu {
          * Map menu item titles or slugs to Font Awesome classes.
          */
         $icon_map = array(
-            'Home'      => 'fa-regular fa-house',
-            'Portfolio' => 'fa-regular fa-folder-open',
-            'Blog'      => 'fa-regular fa-pen-to-square',
-            'About'     => 'fa-regular fa-user',
-            'Nino AI'   => 'fa-regular fa-message',
+            'Home'      => 'ph ph-house',
+            'Portfolio' => 'ph ph-folder-open',
+            'Blog'      => 'ph ph-note-pencil',
+            'About'     => 'ph ph-user',
+            'Nino AI'   => 'ph ph-chat',
         );
 
         $item_output = $args->before;

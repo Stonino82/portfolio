@@ -1,6 +1,7 @@
 // Import main stylesheet for Vite to process
 import './styles/style.scss';
 
+
 // Import animation and navigation modules
 import initGsapAnimations from './js/gsap.js';
 import initLogoScrollAnimation from './js/logo-scroll-animation.js';

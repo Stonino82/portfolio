@@ -42,10 +42,10 @@ if (!empty($snapshots_data)) :
         <h5 class="section__title">Snapshorts</h5>
         <div class="swiper-navigation">
             <div class="swiper-button-prev btn btn-sm btn-tertiary">
-                <span class="icon-only material-symbols-rounded">chevron_left</span>
+                <i class="icon-only material-symbols-rounded">chevron_left</i>
             </div>
             <div class="swiper-button-next btn btn-sm btn-tertiary">
-                <span class="icon-only material-symbols-rounded">chevron_right</span>
+                <i class="icon-only material-symbols-rounded">chevron_right</i>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ if (!empty($snapshots_data)) :
                             <h3 class="text-heading-6"><?php echo esc_html($snapshot['title']); ?></h3>
                         </div> -->
                         <?php if ($index < 2) : ?>
-                            <ul class="chip-list chip-list--sm dark">
+                            <ul class="chip-list chip-list--xs dark">
                                 <li class="chip chip--pill chip--green">New</li>
                             </ul>
                         <?php endif; ?>
@@ -80,10 +80,10 @@ if (!empty($snapshots_data)) :
     <div id="snapshots-modal" class="snapshots-modal">
         <div class="snapshots-modal__container">
             <button id="snapshots-prev" class="snapshots-modal__nav-btn snapshots-modal__nav-btn--prev">
-                <span class="material-symbols-rounded">chevron_left</span>
+                <i class="material-symbols-rounded">chevron_left</i>
             </button>
             <button id="snapshots-next" class="snapshots-modal__nav-btn snapshots-modal__nav-btn--next">
-                <span class="material-symbols-rounded">chevron_right</span>
+                <i class="material-symbols-rounded">chevron_right</i>
             </button>
             <div class="snapshots-modal__content">
                 <div class="snapshots-modal__progress-bars">
@@ -93,10 +93,10 @@ if (!empty($snapshots_data)) :
                     <h3 class="snapshots-modal__title text-heading-6"></h3>
                     <div class="snapshots-modal__header-actions">
                         <button id="snapshots-toggle-pause" class="snapshots-modal__pause-btn">
-                            <span class="material-symbols-rounded">pause_circle</span>
+                            <i class="material-symbols-rounded">pause_circle</i>
                         </button>
                         <button id="snapshots-close" class="snapshots-modal__close-btn">
-                            <span class="material-symbols-rounded">close</span>
+                            <i class="material-symbols-rounded">close</i>
                         </button>
                     </div>
                 </div>

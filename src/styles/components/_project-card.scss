@@ -87,10 +87,16 @@
 
             .project__meta {
                 display: flex;
-                gap: var(--size-100);
+                gap: var(--size-200);
                 align-items: center;
 
                 .project__client {}
+
+                small {
+                    display: flex;
+                    align-items: center;
+                    gap: var(--size-50)
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ button {
 	outline: none !important;
 	border: unset;
 }
+
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
@@ -33,6 +34,7 @@ input[type="submit"]:hover {
 	cursor: pointer;
 	transition: $transition;
 }
+
 .btn {
 	@include btn;
 }
@@ -42,47 +44,58 @@ input[type="submit"]:hover {
 	min-width: 36px;
 	padding: var(--size-50) var(--size-200);
 	font-size: var(--fs-400);
-	border-radius: 6px;
-	i, span {
-		font-size: var(--fs-400);
+	border-radius: var(--radius-sm);
+
+	i,
+	span {
+		font-size: var(--icon-sm);
 	}
 }
+
 .btn-sm {
 	@include btn-sm;
 }
 
 @mixin btn-md {
-	height: 44px;
-	min-width: 44px;
+	height: 40px;
+	min-width: 40px;
 	padding: var(--size-100) var(--size-300);
 	font-size: var(--fs-500);
-	border-radius: 8px;
-	i, span {
-		font-size: var(--fs-600);
+	border-radius: var(--radius-sm);
+
+	i,
+	span {
+		font-size: var(--icon-md);
 	}
 }
+
 .btn-md {
 	@include btn-md;
 }
 
 @mixin btn-lg {
-	height: 52px;
-	min-width: 52px;
-	padding: var(--size-300) var(--size-400);
+	height: 44px;
+	min-width: 44px;
+	padding: var(--size-100) var(--size-400);
 	font-size: var(--fs-600);
-	border-radius: 10px;
-	i, span {
-		font-size: var(--fs-700);
+	border-radius: var(--radius-sm);
+
+	i,
+	span {
+		font-size: var(--icon-lg);
 	}
 }
+
 .btn-lg {
 	@include btn-lg;
 }
+
 
 @mixin btn-full {
 	width: 100% !important;
 	justify-content: center !important;
 }
+
 .btn-full {
 	@include btn-full;
 }
@@ -91,8 +104,11 @@ input[type="submit"]:hover {
 	background: var(--color-brand-gradient);
 	box-shadow: var(--box-shadow-dp1);
 	color: var(--color-neutral-0) !important;
-	i, span {}
+
+	i,
+	span {}
 }
+
 .btn-primary {
 	@include btn-primary;
 }
@@ -102,21 +118,28 @@ input[type="submit"]:hover {
 	color: var(--color-text-link);
 	border: 1.9px solid transparent;
 	box-shadow: var(--box-shadow-dp1);
-	i, span {}
+
+	i,
+	span {}
+
 	.btn-text {
 		background: var(--color-brand-gradient);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 	}
 }
+
 .btn-secondary {
 	@include btn-secondary;
 }
 
 @mixin btn-tertiary {
 	color: var(--color-text-link);
-	i, span {}
+
+	i,
+	span {}
 }
+
 .btn-tertiary {
 	@include btn-tertiary;
 }
@@ -134,7 +157,9 @@ input[type="submit"]:hover {
 
 
 .icon-leading {}
+
 .icon-trailing {}
+
 .icon-only {}
 
 
@@ -145,65 +170,66 @@ input[type="submit"]:hover {
 
 
 .theme-switch {
-    position: relative;
-    min-width: 56px;
-    width: 56px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    padding: var(--size-50);
-    background-color: var(--component-neutral-background);
-    border-radius: var(--radius-full);
-    cursor: pointer;
-    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+	position: relative;
+	min-width: 56px;
+	width: 56px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	padding: var(--size-50);
+	background-color: var(--component-neutral-background);
+	border-radius: var(--radius-full);
+	cursor: pointer;
+	box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 
-    .theme-switch__icon {
-        z-index: 1;
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: var(--radius-full);
+	.theme-switch__icon {
+		z-index: 1;
+		width: 24px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: var(--icon-xs);
+		border-radius: var(--radius-full);
 		color: var(--color-text-tertiary);
-        transition: color 0.3s ease, font-variation-settings 0.3s ease;
+		transition: color 0.3s ease, font-variation-settings 0.3s ease;
 
-        &.material-symbols-rounded {
-            font-size: var(--fs-100);
-        }
+		&.material-symbols-rounded {}
 
 		&:first-child {
 			color: var(--color-yellow-500);
-            font-variation-settings: 'FILL' 1;
+			font-variation-settings: 'FILL' 1;
 		}
-    }
+	}
 
-    .theme-switch__handle {
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        width: 24px;
-        height: 24px;
-        background-color: var(--color-surface-primary);
-        border-radius: var(--radius-full);
-        transition: transform 0.3s ease;
-        box-shadow: var(--box-shadow-dp1);
-    }
+	.theme-switch__handle {
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		width: 24px;
+		height: 24px;
+		background-color: var(--color-surface-primary);
+		border-radius: var(--radius-full);
+		transition: transform 0.3s ease;
+		box-shadow: var(--box-shadow-dp1);
+	}
 }
 
 body[data-theme="dark"] .theme-switch {
-    .theme-switch__icon {
-        &:first-child {
-            color: var(--color-text-tertiary);
-            font-variation-settings: 'FILL' 0;
-        }
-        &:nth-child(2) {
-            color: var(--color-blue-500);
-            font-variation-settings: 'FILL' 1;
-        }
-    }
+	.theme-switch__icon {
 
-    .theme-switch__handle {
-        transform: translateX(24px);
-    }
+		&:first-child {
+			color: var(--color-text-tertiary);
+			font-variation-settings: 'FILL' 0;
+		}
+
+		&:nth-child(2) {
+			color: var(--color-blue-500);
+			font-variation-settings: 'FILL' 1;
+		}
+	}
+
+	.theme-switch__handle {
+		transform: translateX(24px);
+	}
 }

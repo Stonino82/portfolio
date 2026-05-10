@@ -9,8 +9,8 @@
                         <h2 class="text-gradient">404</h2>
                         <h1>Page not found</h1>
                         <p>The page you're looking for doesn't exist or has been moved.</p>
-                        <a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn-md btn-primary">
-                            <i class="icon-leading fas fa-house"></i>
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="btn btn-lg btn-primary">
+                            <i class="icon-leading ph ph-house"></i>
                             Back to Home
                         </a>
                     </div>
@@ -27,7 +27,7 @@
                             <a class="btn btn-sm btn-tertiary"
                                 href="<?php echo get_post_type_archive_link('portfolio'); ?>">
                                 See More
-                                <i class="icon-trailing fas fa-arrow-right"></i>
+                                <i class="icon-trailing ph ph-arrow-right"></i>
                             </a>
                         </div>
                         <?php
@@ -51,7 +51,7 @@
                             <h5 class="section__title">Latest articles</h5>
                             <a class="btn btn-sm btn-tertiary" href="<?php echo get_post_type_archive_link('post'); ?>">
                                 Read More
-                                <i class="icon-trailing fas fa-arrow-right"></i>
+                                <i class="icon-trailing ph ph-arrow-right"></i>
                             </a>
                         </div>
                         <?php

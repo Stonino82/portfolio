@@ -53,7 +53,7 @@ $is_latest_post = (get_the_ID() === $latest_post_id);
         if ($video_url): ?>
             <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
                 <?php if ($is_latest_post): ?>
-                    <ul class="project-tile__chip-list chip-list chip-list--sm dark">
+                    <ul class="project-tile__chip-list chip-list chip-list--xs dark">
                         <li class="chip chip--pill chip--green">New</li>
                     </ul>
                 <?php endif; ?>
@@ -65,7 +65,7 @@ $is_latest_post = (get_the_ID() === $latest_post_id);
         <?php elseif (has_post_thumbnail()): ?>
             <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
                 <?php if ($is_latest_post): ?>
-                    <ul class="project-tile__chip-list chip-list chip-list--sm dark">
+                    <ul class="project-tile__chip-list chip-list chip-list--xs dark">
                         <li class="chip chip--pill chip--green">New</li>
                     </ul>
                 <?php endif; ?>

@@ -35,7 +35,7 @@ if (empty($modal_content)) {
                         <img src="<?php echo $modal_logo; ?>" alt="Modal Logo" class="modal__logo">
                     <?php elseif (!empty($modal_icon)): ?>
                         <div class="modal__icon">
-                            <span class="material-symbols-rounded text-gradient"><?php echo $modal_icon; ?></span>
+                            <i class="material-symbols-rounded text-gradient"><?php echo $modal_icon; ?></i>
                         </div>
                     <?php endif; ?>
 
@@ -52,7 +52,7 @@ if (empty($modal_content)) {
                 <div></div>
             <?php endif; ?>
             <button type="button" class="modal__close-btn" data-modal-close aria-label="Close modal">
-                <span class="material-symbols-rounded">close</span>
+                <i class="material-symbols-rounded">close</i>
             </button>
         </div>
 

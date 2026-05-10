@@ -17,11 +17,11 @@ $chip_color_class = $args['chip_color_class'] ?? 'chip--primary';
 
 if ( ! empty( $tags ) && ! is_wp_error( $tags ) ) : ?>
 <div class="tags">
-    <ul class="chip-list chip-list--md">
+    <ul class="chip-list chip-list--xs">
         <?php foreach ( $tags as $tag ) : ?>
             <li>
                 <a class="chip chip--pill dark <?php echo esc_attr( $chip_color_class ); ?>" href="<?php echo esc_url( get_term_link( $tag ) ); ?>">
-                    <i class="icon-leading fa-solid fa-hashtag"></i>
+                    <i class="icon-leading ph ph-hash"></i>
                     <?php echo esc_html( $tag->name ); ?>
                 </a>
             </li>

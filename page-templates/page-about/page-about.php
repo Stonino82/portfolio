@@ -86,15 +86,15 @@ get_header(); ?>
                             </div>
                         </div>
                         <div class="hero-ctas">
-                            <a class="btn btn-md btn-primary" href="https://www.linkedin.com/in/antoninolattene/"
+                            <a class="btn btn-lg btn-primary" href="https://www.linkedin.com/in/antoninolattene/"
                                 target="_blank">
                                 <span class="shine-animation"></span>
-                                <i class="icon-leading fa-brands fa-linkedin-in"></i>
+                                <i class="icon-leading ph ph-linkedin-logo"></i>
                                 Let's connect
                             </a>
-                            <a class="btn btn-md btn-tertiary" href="<?php echo esc_url(get_resume_url()); ?>"
+                            <a class="btn btn-lg btn-tertiary" href="<?php echo esc_url(get_resume_url()); ?>"
                                 target="_blank">
-                                <span class="icon-leading material-symbols-rounded">download</span>
+                                <i class="icon-leading material-symbols-rounded">download</i>
                                 Resume
                             </a>
                         </div>
@@ -107,7 +107,7 @@ get_header(); ?>
                 <div class="section__content">
                     <div class="column">
                         <div class="column__header">
-                            <span class="material-symbols-rounded text-gradient">person_play</span>
+                            <i class="material-symbols-rounded text-gradient">person_play</i>
                             <h4>My philosophy</h4>
                         </div>
                         <div class="column__content">
@@ -119,7 +119,7 @@ get_header(); ?>
                     </div>
                     <div class="column">
                         <div class="column__header">
-                            <span class="material-symbols-rounded text-gradient">handshake</span>
+                            <i class="material-symbols-rounded text-gradient">handshake</i>
                             <h4>My approach</h4>
                         </div>
                         <div class="column__content">
@@ -131,7 +131,7 @@ get_header(); ?>
                     </div>
                     <div class="column">
                         <div class="column__header">
-                            <span class="material-symbols-rounded text-gradient">diamond</span>
+                            <i class="material-symbols-rounded text-gradient">diamond</i>
                             <h4>My principles</h4>
                         </div>
                         <div class="column__content">
@@ -327,8 +327,7 @@ get_header(); ?>
                                                     alt="<?php echo esc_attr($exp['title']); ?>" class="experience-card__logo">
                                             <?php elseif (!empty($exp['icon'])): ?>
                                                 <div class="experience-card__icon">
-                                                    <span
-                                                        class="material-symbols-rounded text-gradient"><?php echo esc_html($exp['icon']); ?></span>
+                                                    <i class="material-symbols-rounded text-gradient"><?php echo esc_html($exp['icon']); ?></i>
                                                 </div>
                                             <?php endif; ?>
 
@@ -352,12 +351,12 @@ get_header(); ?>
                             <div class="experience-card experience-card--action">
                                 <a href="https://www.linkedin.com/in/antoninolattene/" class="btn btn-sm btn-primary"
                                     target="_blank">
-                                    <i class="icon-leading fa-brands fa-linkedin-in"></i>
+                                    <i class="icon-leading ph ph-linkedin-logo"></i>
                                     See More
                                 </a>
                                 <a class="btn btn-sm btn-secondary" href="<?php echo esc_url(get_resume_url()); ?>"
                                     target="_blank">
-                                    <span class="icon-leading material-symbols-rounded">download</span>
+                                    <i class="icon-leading material-symbols-rounded">download</i>
                                     Resume
                                 </a>
                             </div>
@@ -390,10 +389,10 @@ get_header(); ?>
                     <h2 class="section__title text-gradient">Kind words</h2>
                     <div class="swiper-navigation">
                         <div class="swiper-button-prev btn btn-sm btn-tertiary">
-                            <span class="icon-only material-symbols-rounded">chevron_left</span>
+                            <i class="icon-only material-symbols-rounded">chevron_left</i>
                         </div>
                         <div class="swiper-button-next btn btn-sm btn-tertiary">
-                            <span class="icon-only material-symbols-rounded">chevron_right</span>
+                            <i class="icon-only material-symbols-rounded">chevron_right</i>
                         </div>
                     </div>
                 </div>
@@ -521,7 +520,7 @@ get_header(); ?>
                         <a class="btn btn-sm btn-primary" href="https://www.linkedin.com/in/antoninolattene/"
                             target="_blank">
                             Linkedin
-                            <i class="icon-trailing fa-solid fa-arrow-down rotate"></i>
+                            <i class="icon-trailing ph ph-arrow-down rotate"></i>
                         </a>
                     </div>
                 </div>
@@ -545,8 +544,8 @@ get_header(); ?>
                         $accordions = [
                             [
                                 'title' => 'Skills',
-                                'icon' => '<span class="material-symbols-rounded">chess</span>',
-                                'content' => '<ul class="chip-list chip-list--md">
+                                'icon' => '<i class="material-symbols-rounded">chess</i>',
+                                'content' => '<ul class="chip-list chip-list--xs">
                                                             <li class="chip chip--squared chip--neutral">Product strategy</li>
                                                             <li class="chip chip--squared chip--neutral">Interaction Design</li>
                                                             <li class="chip chip--squared chip--neutral">Design System</li>
@@ -559,8 +558,8 @@ get_header(); ?>
                             ],
                             [
                                 'title' => 'Tools & Technology',
-                                'icon' => '<span class="material-symbols-rounded">tools_power_drill</span>',
-                                'content' => '<ul class="chip-list chip-list--md">
+                                'icon' => '<i class="material-symbols-rounded">tools_power_drill</i>',
+                                'content' => '<ul class="chip-list chip-list--xs">
                                                             <li class="chip chip--squared chip--neutral">Figma</li>
                                                             <li class="chip chip--squared chip--neutral">Adobe XD</li>
                                                             <li class="chip chip--squared chip--neutral">Sketch</li>
@@ -583,8 +582,8 @@ get_header(); ?>
                             ],
                             [
                                 'title' => 'Currently learning',
-                                'icon' => '<span class="material-symbols-rounded">auto_stories</span>',
-                                'content' => '<ul class="chip-list chip-list--md">
+                                'icon' => '<i class="material-symbols-rounded">auto_stories</i>',
+                                'content' => '<ul class="chip-list chip-list--xs">
                                                             <li class="chip chip--squared chip--neutral">Generative AI</li>
                                                             <li class="chip chip--squared chip--neutral">AI in Design</li>
                                                             <li class="chip chip--squared chip--neutral">Vibe Design</li>
@@ -620,7 +619,7 @@ get_header(); ?>
                             certifications and I'm a firm believer in giving back to the design community.</p>
                     </div>
                     <div class="column">
-                        <div class="chip-list chip-list--md">
+                        <div class="chip-list chip-list--xs">
                             <span class="chip chip--squared"><i>🏐</i> Beach Volleyball</span>
                             <span class="chip chip--squared"><i>🏍️</i> Riding</span>
                             <span class="chip chip--squared"><i>📷</i> Photography</span>
@@ -641,7 +640,7 @@ get_header(); ?>
                     <h2 class="section__title text-gradient">Design & Code Dialogues</h2>
                     <a class="btn btn-sm btn-tertiary" href="<?php echo get_post_type_archive_link('post'); ?>">
                         Read More
-                        <i class="icon-trailing fas fa-arrow-right"></i>
+                        <i class="icon-trailing ph ph-arrow-right"></i>
                     </a>
                 </div>
                 <div class="section__content">
@@ -694,8 +693,8 @@ get_header(); ?>
                                 'primary_cta_url' => get_permalink(get_page_by_path('nino-ai')),
                                 'primary_cta_classes' => 'btn-sm btn-secondary',
 
-                                'primary_cta_icon_type' => 'fa',
-                                'primary_cta_icon_class' => 'fa-regular fa-message',
+                                'primary_cta_icon_type' => 'ph',
+                                'primary_cta_icon_class' => 'ph ph-chat-circle',
                                 'primary_cta_icon_position' => 'icon-leading',
                             )
                         );
@@ -708,8 +707,8 @@ get_header(); ?>
                             null,
                             array(
                                 'title' => 'Get in touch',
-                                'title_icon_type' => 'fa',
-                                'title_icon_class' => 'fa-brands fa-linkedin',
+                                'title_icon_type' => 'ph',
+                                'title_icon_class' => 'ph ph-linkedin-logo',
                                 'title_icon_position' => 'icon-leading',
                                 'title_icon_extra_class' => 'text-gradient',
                                 'text' => 'Thanks for taking the time to learn about my work and journey. Whether you have a specific opportunity or would just like to connect with a fellow product enthusiast, you\'re welcome to reach out on LinkedIn.',
@@ -718,8 +717,8 @@ get_header(); ?>
                                 'primary_cta_url' => 'https://www.linkedin.com/in/antoninolattene/',
                                 'primary_cta_classes' => 'btn-sm btn-primary',
 
-                                'primary_cta_icon_type' => 'fa',
-                                'primary_cta_icon_class' => 'fa-brands fa-linkedin-in',
+                                'primary_cta_icon_type' => 'ph',
+                                'primary_cta_icon_class' => 'ph ph-linkedin-logo',
                                 'primary_cta_icon_position' => 'icon-leading',
 
                                 'secondary_cta_text' => 'Resume',
