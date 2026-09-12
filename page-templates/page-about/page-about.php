@@ -47,9 +47,9 @@ get_header(); ?>
                                         effortless.</h2>
                                 </div>
                                 <div class="swiper-slide">
-                                    <h1 class="text-display-3 text-gradient">A Senior Designer for Your Product Team
+                                    <h1 class="text-display-3 text-gradient">A Lead Designer for Your Product Team
                                     </h1>
-                                    <h2 class="text-body-lg">I am a Senior Product Designer whose experience is rooted
+                                    <h2 class="text-body-lg">I am a Lead Product Designer whose experience is rooted
                                         in the challenges of complex SaaS and enterprise applications. I lead the
                                         end-to-end design lifecycle, effectively bridging high-level business strategy
                                         with practical technical execution to deliver impactful results.</h2>
@@ -164,9 +164,9 @@ get_header(); ?>
                             <h4 class="text-eyebrow-normal">Industries Served</h4>
                         </div>
                         <div class="column__content">
-                            <p class="text-display-1 text-gradient stat-counter" data-final-value="6">0+</p>
-                            <p>Bringing deep, user-centered product design expertise to a diverse range of industries,
-                                FinTech, Market Data, Energy, EdTech, Pharma, and SaaS.</p>
+                            <p class="text-display-1 text-gradient stat-counter" data-final-value="7">0+</p>
+                            <p>Bringing deep, user-centered product design expertise to a diverse range of industries:
+                                Media & Publishing, Energy, Market Data, EdTech, Pharma, and SaaS.</p>
                         </div>
                     </div>
                     <div class="column">
@@ -175,8 +175,8 @@ get_header(); ?>
                         </div>
                         <div class="column__content">
                             <p class="text-display-1 text-gradient stat-counter" data-final-value="12">0+</p>
-                            <p>A history of building strong, successful partnerships with Product Managers and Engineers
-                                to ship unified and effective product solutions that not only meet user needs but also
+                            <p>A history of building strong, successful partnerships with Product and Engineering to
+                                ship unified and effective product solutions that not only meet user needs but also
                                 achieve key, ambitious business objectives.</p>
                         </div>
                     </div>
@@ -327,7 +327,8 @@ get_header(); ?>
                                                     alt="<?php echo esc_attr($exp['title']); ?>" class="experience-card__logo">
                                             <?php elseif (!empty($exp['icon'])): ?>
                                                 <div class="experience-card__icon">
-                                                    <i class="material-symbols-rounded text-gradient"><?php echo esc_html($exp['icon']); ?></i>
+                                                    <i
+                                                        class="material-symbols-rounded text-gradient"><?php echo esc_html($exp['icon']); ?></i>
                                                 </div>
                                             <?php endif; ?>
 
